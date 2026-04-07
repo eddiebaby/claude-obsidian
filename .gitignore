@@ -73,3 +73,6 @@ Excalidraw/
 # Loose brand/personal GIFs and images in vault root (not _attachments/)
 Claude SEO*.gif
 Claude SEO*.png
+
+# Private Skool Hub assets — not for public repos
+_attachments/images/skool-hub/
