@@ -3,6 +3,10 @@
 # .obsidian/workspace.json
 .obsidian/workspace-mobile.json
 .obsidian/plugins/*/data.json
+
+# Large binary assets — add your own images to _attachments/images/
+# Uncomment the line below to exclude images from git (recommended for large vaults)
+# _attachments/images/
 .smart-connections/
 .obsidian-git-data
 .trash/

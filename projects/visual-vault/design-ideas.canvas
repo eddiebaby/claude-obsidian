@@ -1,0 +1,375 @@
+{
+  "nodes": [
+
+    {
+      "id": "title",
+      "type": "text",
+      "text": "# Cosmic Brain — AI Marketing Hub\n**Style Reference Board**\n\n**Formats:**\n- 1460×752 → w=420 h=216\n- 1376×768 → w=420 h=234\n- 1365×768 → w=420 h=236\n- 1024×1024 → w=240 h=240\n- 1000×1000 → w=280 h=280\n- 768×1376 → w=200 h=358\n- 2752×1536 → w=440 h=246\n- 1280×720 → w=380 h=214\n\n**Palette:** dark navy · electric purple · Claude orange · white\n**Type:** bold sans-serif, high contrast\n**Path:** _attachments/images/skool-hub/",
+      "x": -920,
+      "y": -2480,
+      "width": 560,
+      "height": 320,
+      "color": "6"
+    },
+
+    {
+      "id": "style-notes",
+      "type": "text",
+      "text": "**Visual language rules**\n\n- Dark bg always — no light themes\n- Vibrant single accent per image\n- Claude orange + purple gradient hero\n- Clean padding, no busy edges\n- Icon style: geometric, glowing\n- Consistent glow/bloom on key elements\n- White text only, high contrast\n\n**Colour codes**\n`#0a0a1a` deep navy bg\n`#ff6b35` Claude orange\n`#8b5cf6` electric purple\n`#ffffff` text",
+      "x": -300,
+      "y": -2480,
+      "width": 360,
+      "height": 320,
+      "color": "3"
+    },
+
+    {
+      "id": "g-logos",
+      "type": "group",
+      "label": "Logos & Icons",
+      "x": -920,
+      "y": -2120,
+      "width": 2060,
+      "height": 380,
+      "color": "6"
+    },
+    {
+      "id": "logo-pro",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/logo-pro.png",
+      "x": -900,
+      "y": -2100,
+      "width": 420,
+      "height": 230
+    },
+    {
+      "id": "icon-free-v1",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/icon-free-v1.png",
+      "x": -440,
+      "y": -2100,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "id": "icon-free-v3",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/icon-free-v3.png",
+      "x": -160,
+      "y": -2100,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "id": "icon-pro-v1",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/icon-pro-v1.png",
+      "x": 120,
+      "y": -2100,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "id": "icon-pro-v3",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/icon-pro-v3.png",
+      "x": 400,
+      "y": -2100,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "id": "sq-01",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/sq-01.png",
+      "x": 680,
+      "y": -2100,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "id": "sq-10",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/sq-10.png",
+      "x": 960,
+      "y": -2100,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "id": "sq-portrait",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/sq-portrait-clean.png",
+      "x": 1240,
+      "y": -2100,
+      "width": 200,
+      "height": 358
+    },
+
+    {
+      "id": "g-archive",
+      "type": "group",
+      "label": "Archive Concepts (early era)",
+      "x": -920,
+      "y": -1660,
+      "width": 1400,
+      "height": 280,
+      "color": "1"
+    },
+    {
+      "id": "archive-01",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/archive-01-command-center.png",
+      "x": -900,
+      "y": -1640,
+      "width": 419,
+      "height": 216
+    },
+    {
+      "id": "archive-05",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/archive-05-brain-funnel.png",
+      "x": -440,
+      "y": -1640,
+      "width": 419,
+      "height": 216
+    },
+    {
+      "id": "archive-09",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/archive-09-community-hub.png",
+      "x": 20,
+      "y": -1640,
+      "width": 419,
+      "height": 216
+    },
+
+    {
+      "id": "g-pro",
+      "type": "group",
+      "label": "Pro Cover Variants",
+      "x": -920,
+      "y": -1240,
+      "width": 520,
+      "height": 280,
+      "color": "4"
+    },
+    {
+      "id": "pro-10",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/pro-cover-10.png",
+      "x": -900,
+      "y": -1220,
+      "width": 419,
+      "height": 236
+    },
+
+    {
+      "id": "g-identity",
+      "type": "group",
+      "label": "Brand Identity",
+      "x": -920,
+      "y": -880,
+      "width": 1060,
+      "height": 290,
+      "color": "6"
+    },
+    {
+      "id": "hub-cover",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/hub-cover.png",
+      "x": -900,
+      "y": -860,
+      "width": 500,
+      "height": 258
+    },
+    {
+      "id": "classroom-start",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/classroom-start-here.png",
+      "x": -360,
+      "y": -860,
+      "width": 420,
+      "height": 215
+    },
+
+    {
+      "id": "g-skills",
+      "type": "group",
+      "label": "Skill Covers",
+      "x": -920,
+      "y": -520,
+      "width": 1780,
+      "height": 320,
+      "color": "3"
+    },
+    {
+      "id": "seo-cover",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/claude-seo-cover.png",
+      "x": -900,
+      "y": -500,
+      "width": 420,
+      "height": 216
+    },
+    {
+      "id": "blog-cover",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/claude-blog-cover.png",
+      "x": -440,
+      "y": -500,
+      "width": 280,
+      "height": 280
+    },
+    {
+      "id": "repurpose-cover",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/claude-repurpose-cover.jpg",
+      "x": -120,
+      "y": -500,
+      "width": 420,
+      "height": 234
+    },
+    {
+      "id": "wp-mcp-cover",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/wp-mcp-cover.png",
+      "x": 340,
+      "y": -500,
+      "width": 420,
+      "height": 234
+    },
+    {
+      "id": "seo-update",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/claude-seo-update.png",
+      "x": 800,
+      "y": -500,
+      "width": 260,
+      "height": 260
+    },
+
+    {
+      "id": "g-events",
+      "type": "group",
+      "label": "Event Covers",
+      "x": -920,
+      "y": -120,
+      "width": 1260,
+      "height": 270,
+      "color": "5"
+    },
+    {
+      "id": "event-blog",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/event-blog-day.png",
+      "x": -900,
+      "y": -100,
+      "width": 380,
+      "height": 196
+    },
+    {
+      "id": "event-seo",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/event-seo-day.png",
+      "x": -480,
+      "y": -100,
+      "width": 380,
+      "height": 196
+    },
+    {
+      "id": "event-qa",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/event-qa-day.png",
+      "x": -60,
+      "y": -100,
+      "width": 380,
+      "height": 196
+    },
+
+    {
+      "id": "g-apr",
+      "type": "group",
+      "label": "April 2026 — About Page",
+      "x": -920,
+      "y": 240,
+      "width": 2100,
+      "height": 520,
+      "color": "4"
+    },
+    {
+      "id": "apr-bg-01",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/apr-bg-v01.png",
+      "x": -900,
+      "y": 260,
+      "width": 440,
+      "height": 246
+    },
+    {
+      "id": "apr-bg-05",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/apr-bg-v05.png",
+      "x": -420,
+      "y": 260,
+      "width": 440,
+      "height": 246
+    },
+    {
+      "id": "apr-bg-10",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/apr-bg-v10.png",
+      "x": 60,
+      "y": 260,
+      "width": 440,
+      "height": 246
+    },
+    {
+      "id": "apr-slot2",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/apr-slot2-results.png",
+      "x": -900,
+      "y": 540,
+      "width": 380,
+      "height": 214
+    },
+    {
+      "id": "apr-slot3",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/apr-slot3-courses.png",
+      "x": -480,
+      "y": 540,
+      "width": 380,
+      "height": 214
+    },
+    {
+      "id": "apr-slot4",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/apr-slot4-events.png",
+      "x": -60,
+      "y": 540,
+      "width": 380,
+      "height": 214
+    },
+    {
+      "id": "apr-slot5",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/apr-slot5-community.png",
+      "x": 360,
+      "y": 540,
+      "width": 380,
+      "height": 214
+    },
+    {
+      "id": "apr-slot6",
+      "type": "file",
+      "file": "_attachments/images/skool-hub/apr-slot6-casestudies.png",
+      "x": 780,
+      "y": 540,
+      "width": 380,
+      "height": 214
+    }
+
+  ],
+  "edges": []
+}
