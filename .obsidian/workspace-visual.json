@@ -13,6 +13,18 @@
             "state": {
               "type": "canvas",
               "state": {
+                "file": "wiki/canvases/main.canvas"
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Visual Canvas"
+            }
+          },
+          {
+            "id": "visual-design-ideas",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
                 "file": "projects/visual-vault/design-ideas.canvas"
               },
               "icon": "lucide-layout-dashboard",
@@ -43,11 +55,41 @@
                 "hideUnresolved": true,
                 "showOrphans": false,
                 "colorGroups": [
-                  { "query": "path:wiki/entities",    "color": { "a": 1, "rgb": 12945088 } },
-                  { "query": "path:wiki/concepts",    "color": { "a": 1, "rgb": 5227007  } },
-                  { "query": "path:wiki/sources",     "color": { "a": 1, "rgb": 6986069  } },
-                  { "query": "path:wiki/meta",        "color": { "a": 1, "rgb": 5676246  } },
-                  { "query": "path:wiki",             "color": { "a": 1, "rgb": 5676246  } }
+                  {
+                    "query": "path:wiki/entities",
+                    "color": {
+                      "a": 1,
+                      "rgb": 12945088
+                    }
+                  },
+                  {
+                    "query": "path:wiki/concepts",
+                    "color": {
+                      "a": 1,
+                      "rgb": 5227007
+                    }
+                  },
+                  {
+                    "query": "path:wiki/sources",
+                    "color": {
+                      "a": 1,
+                      "rgb": 6986069
+                    }
+                  },
+                  {
+                    "query": "path:wiki/meta",
+                    "color": {
+                      "a": 1,
+                      "rgb": 5676246
+                    }
+                  },
+                  {
+                    "query": "path:wiki",
+                    "color": {
+                      "a": 1,
+                      "rgb": 5676246
+                    }
+                  }
                 ],
                 "showArrow": true,
                 "textFadeMultiplier": -1,
@@ -81,7 +123,9 @@
             "type": "leaf",
             "state": {
               "type": "file-explorer",
-              "state": { "sortOrder": "alphabetical" },
+              "state": {
+                "sortOrder": "alphabetical"
+              },
               "icon": "lucide-folder-closed",
               "title": "Files"
             }
@@ -145,7 +189,9 @@
             "type": "leaf",
             "state": {
               "type": "backlink",
-              "state": { "collapseAll": false },
+              "state": {
+                "collapseAll": false
+              },
               "icon": "links-coming-in",
               "title": "Backlinks"
             }
@@ -159,8 +205,9 @@
   },
   "active": "visual-canvas",
   "lastOpenFiles": [
-    "projects/visual-vault/design-ideas.canvas",
+    "wiki/canvases/main.canvas",
     "wiki/Wiki Map.canvas",
+    "projects/visual-vault/design-ideas.canvas",
     "wiki/index.md"
   ]
 }
