@@ -1,5 +1,6 @@
 # Obsidian
-.obsidian/workspace.json
+# workspace.json is intentionally tracked — ships with pre-configured graph view
+# .obsidian/workspace.json
 .obsidian/workspace-mobile.json
 .obsidian/plugins/*/data.json
 .smart-connections/

@@ -1,0 +1,230 @@
+{
+  "main": {
+    "id": "cb698273c33e48de",
+    "type": "split",
+    "children": [
+      {
+        "id": "2556036f92b81f42",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0ae3ce8edab2ab7f",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          },
+          {
+            "id": "c0d470cf50ffdf79",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "db8d83ac47ae599f",
+    "type": "split",
+    "children": [
+      {
+        "id": "554fd2b4fa6f8741",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5565f1231fe95c42",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "832ab43d08cf9e30",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "097e8347bb8aa054",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "7092b65be1e76349",
+    "type": "split",
+    "children": [
+      {
+        "id": "9f4de9402eae371b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a32b7215b7814fbb",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "7936f8ba26007091",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "ed8ccb323a603d61",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "b140a331162907cf",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "111a21e12ab1a293",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "c0d470cf50ffdf79",
+  "lastOpenFiles": [
+    "README.md.tmp.224546.1775554365748",
+    "bin/setup-vault.sh",
+    "bin/setup-vault.sh.tmp.224546.1775554319795",
+    "bin",
+    "wiki/entities/_index.md",
+    "wiki/meta/dashboard.md",
+    "wiki/sources/_index.md",
+    "wiki/sources/Nate Herk LLM Wiki Transcript.md.tmp.224546.1775554051396",
+    "WIKI.md",
+    "wiki/Wiki Map.canvas.tmp.224546.1775553279818",
+    "wiki/sources/Nate Herk LLM Wiki Transcript.md.tmp.224546.1775553217829",
+    "wiki/entities/Andrej Karpathy.md.tmp.224546.1775553206364",
+    "wiki/concepts/Compounding Knowledge.md.tmp.224546.1775553195385",
+    "wiki/concepts/Hot Cache.md.tmp.224546.1775553185168",
+    "wiki/concepts/LLM Wiki Pattern.md.tmp.224546.1775553183707",
+    "wiki/concepts/_index.md",
+    "Welcome.md",
+    "README.md",
+    "CLAUDE.md",
+    "wiki/sources/Nate Herk LLM Wiki Transcript.md",
+    "wiki/entities/Andrej Karpathy.md",
+    "wiki/concepts/LLM Wiki Pattern.md",
+    "wiki/concepts/Hot Cache.md",
+    "wiki/concepts/Compounding Knowledge.md",
+    "wiki/overview.md",
+    "wiki/log.md",
+    "wiki/index.md",
+    "wiki/hot.md",
+    "wiki/Wiki Map.canvas",
+    "skills/wiki/references/rest-api.md",
+    "skills/wiki/references/plugins.md",
+    "skills/wiki/references/modes.md",
+    "skills/wiki/references/mcp-setup.md",
+    "skills/wiki/references/git-setup.md",
+    "skills/wiki/references/frontmatter.md",
+    "skills/wiki/references/css-snippets.md",
+    "skills/autoresearch/references/program.md"
+  ]
+}

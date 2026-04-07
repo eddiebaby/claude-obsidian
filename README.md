@@ -20,34 +20,43 @@ At the end of every session, Claude updates a hot cache. The next session starts
 
 ## Quick Start
 
-**Option 1: Clone and open as vault**
+### Option 1: Clone as vault (recommended — full setup in 2 minutes)
 
 ```bash
 git clone https://github.com/AgriciDaniel/cosmic-brain
+cd cosmic-brain
+bash bin/setup-vault.sh
 ```
 
-Open the folder in Obsidian as a vault. Open it in Claude Code. Type `/wiki`.
+Open the folder in Obsidian: **Manage Vaults → Open folder as vault → select `cosmic-brain/`**
 
-**Option 2: Install as plugin**
+Open Claude Code in the same folder. Type `/wiki`.
+
+> `setup-vault.sh` configures `graph.json` (filter + colors), `app.json` (excludes plugin dirs), and `appearance.json` (enables CSS). Run it once before the first Obsidian open. You get the fully pre-configured graph view, color scheme, and wiki structure out of the box.
+
+---
+
+### Option 2: Install as Claude Code plugin
 
 ```bash
 claude plugin install github:AgriciDaniel/cosmic-brain
 ```
 
-Then in any Claude Code session: `/wiki`
+In any Claude Code session: `/wiki` — Claude walks you through vault setup.
 
-**Option 3: Add to existing vault**
+---
 
-Copy `WIKI.md` into your project root or `~/.claude/`. Paste this into Claude:
+### Option 3: Add to an existing vault
+
+Copy `WIKI.md` into your vault root. Paste into Claude:
 
 ```
 Read WIKI.md in this project. Then:
-1. Check if Obsidian is installed. If not, install it or walk me through it.
-2. Check if the Local REST API plugin is running (port 27124). If not, guide me through enabling it.
-3. Configure the MCP server so you can read and write my vault.
+1. Check if Obsidian is installed. If not, install it.
+2. Check if the Local REST API plugin is running on port 27124.
+3. Configure the MCP server.
 4. Ask me ONE question: "What is this vault for?"
-
-Then build the entire wiki structure based on my answer.
+Then scaffold the full wiki structure.
 ```
 
 ---
