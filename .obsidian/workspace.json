@@ -8,6 +8,18 @@
         "type": "tabs",
         "children": [
           {
+            "id": "welcome-canvas-leaf",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "wiki/canvases/welcome.canvas"
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Welcome"
+            }
+          },
+          {
             "id": "a31de1b302cdc5cf",
             "type": "leaf",
             "state": {
@@ -16,8 +28,8 @@
                 "file": "wiki/canvases/main.canvas",
                 "viewState": {
                   "x": 100,
-                  "y": 201.54562107849915,
-                  "zoom": -0.29333333333333333
+                  "y": 831.5792810365207,
+                  "zoom": -0.8266666666666667
                 }
               },
               "icon": "lucide-layout-dashboard",
@@ -195,56 +207,11 @@
       "obsidian-memos:Thino Super": false
     }
   },
-  "active": "a31de1b302cdc5cf",
+  "active": "welcome-canvas-leaf",
   "lastOpenFiles": [
-    "Obsidian vault with Claude Code - full integration and visual organization 1.md",
-    "PROMPT.md",
-    "WIKI 1.md",
-    "Obsidian vault with Claude Code - full integration and visual organization.md",
-    "Claude SEO Posts cover 1x1.gif",
-    "Claude SEO Posts cover 1x1-compressed.gif",
-    "Cosmic Brain Clean.gif",
-    "Cosmic Brain Cover.png",
-    "wiki/index.md",
+    "wiki/canvases/welcome.canvas",
     "wiki/canvases/main.canvas",
-    "CLAUDE.md",
-    "README.md.tmp.224546.1775557814794",
-    "CLAUDE.md.tmp.224546.1775557799570",
-    "WIKI.md.tmp.224546.1775557791066",
-    "skills/canvas/SKILL.md.tmp.224546.1775557782936",
-    "skills/canvas/SKILL.md.tmp.224546.1775557766591",
-    "skills/canvas/SKILL.md.tmp.224546.1775557704281",
-    "skills/canvas/SKILL.md.tmp.224546.1775557697284",
-    "skills/canvas/SKILL.md.tmp.224546.1775557686442",
-    "skills/canvas/SKILL.md.tmp.224546.1775557679632",
-    "skills/canvas/SKILL.md.tmp.224546.1775557667692",
-    "skills/canvas/references/canvas-spec.md",
-    "skills/canvas/SKILL.md",
-    "commands/canvas.md",
-    "wiki/comparisons/Wiki vs RAG.md",
-    "wiki/questions/How does the LLM Wiki pattern work.md",
-    "wiki/meta/workflow-loop.gif",
-    "wiki/meta/wiki-graph-grow.gif",
-    "cover.gif",
-    "projects/visual-vault/design-ideas.canvas",
-    "_attachments/images/skool-hub/wp-mcp-cover.png",
-    "_attachments/images/skool-hub/v3-cover-10.png",
-    "_attachments/images/skool-hub/v3-cover-05.png",
-    "wiki/entities/_index.md",
-    "wiki/meta/dashboard.md",
-    "wiki/sources/_index.md",
-    "WIKI.md",
-    "wiki/concepts/_index.md",
-    "Welcome.md",
-    "README.md",
-    "wiki/sources/Nate Herk LLM Wiki Transcript.md",
-    "wiki/entities/Andrej Karpathy.md",
-    "wiki/concepts/LLM Wiki Pattern.md",
-    "wiki/concepts/Hot Cache.md",
-    "wiki/concepts/Compounding Knowledge.md",
-    "wiki/overview.md",
-    "wiki/log.md",
-    "wiki/hot.md",
-    "wiki/Wiki Map.canvas"
+    "wiki/Wiki Map.canvas",
+    "wiki/index.md"
   ]
 }
