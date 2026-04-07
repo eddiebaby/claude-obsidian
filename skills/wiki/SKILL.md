@@ -107,6 +107,7 @@ Route to the correct operation based on what the user says:
 | "lint", "health check", "clean up" | LINT | `wiki-lint` |
 | "save this", "file this", "/save" | SAVE | `save` |
 | "/autoresearch [topic]", "research [topic]" | AUTORESEARCH | `autoresearch` |
+| "/canvas", "add to canvas", "open canvas" | CANVAS | `canvas` |
 
 ---
 

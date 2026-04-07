@@ -81,6 +81,11 @@ Then scaffold the full wiki structure.
 | `/save` | File the current conversation as a wiki note |
 | `/save [name]` | Save with a specific title (skips the naming question) |
 | `/autoresearch [topic]` | Run the autonomous research loop: search, fetch, synthesize, file |
+| `/canvas` | Open or create the visual canvas, list zones and nodes |
+| `/canvas add image [path]` | Add an image (URL or local path) to the canvas with auto-layout |
+| `/canvas add note [page]` | Pin a wiki page as a card on the canvas |
+| `/canvas zone [name]` | Add a new labeled zone to organize visual content |
+| `/canvas from banana` | Capture recently generated images onto the canvas |
 | `lint the wiki` | Health check: orphans, dead links, gaps, suggestions |
 | `update hot cache` | Refresh hot.md with latest context summary |
 
@@ -198,16 +203,20 @@ cosmic-brain/
 │   ├── wiki-query/              # QUERY operation
 │   ├── wiki-lint/               # LINT operation
 │   ├── save/                    # /save — file conversations to wiki
-│   └── autoresearch/            # /autoresearch — autonomous research loop
+│   ├── autoresearch/            # /autoresearch — autonomous research loop
+│   │   └── references/
+│   │       └── program.md       # configurable research objectives
+│   └── canvas/                  # /canvas — visual layer (images, PDFs, notes)
 │       └── references/
-│           └── program.md       # configurable research objectives
+│           └── canvas-spec.md   # Obsidian canvas JSON format reference
 ├── agents/
 │   ├── wiki-ingest.md           # parallel ingestion agent
 │   └── wiki-lint.md             # health check agent
 ├── commands/
 │   ├── wiki.md                  # /wiki bootstrap command
 │   ├── save.md                  # /save command
-│   └── autoresearch.md          # /autoresearch command
+│   ├── autoresearch.md          # /autoresearch command
+│   └── canvas.md                # /canvas visual layer command
 ├── hooks/
 │   └── hooks.json               # SessionStart + Stop hot cache hooks
 ├── _templates/                  # Obsidian Templater templates

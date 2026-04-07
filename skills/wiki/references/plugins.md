@@ -50,8 +50,14 @@ Install via Settings > Community Plugins > Turn off Restricted Mode > Browse.
 | **Dataview** | Query vault as a database. Powers dashboards in `wiki/meta/`. |
 | **Templater** | Auto-populate frontmatter on note creation from `_templates/`. |
 | **Obsidian Git** | Auto-commit every 15 minutes. Protects against bad writes. |
+| **Calendar** | Right-sidebar calendar with word count, task, and link indicators. Pre-installed in this vault via `.obsidian/plugins/calendar/`. |
+| **Thino** | Quick memo capture panel in right sidebar. Pre-installed via `.obsidian/plugins/thino/`. |
 | **Iconize** | Visual folder icons for navigation. |
 | **Minimal Theme** | Best dark theme for dense information display. |
+
+**Calendar and Thino are pre-installed** — they ship with this vault. Enable them in Settings → Community Plugins → toggle on. No download needed.
+
+If installing in a different vault: download `main.js` + `manifest.json` from their GitHub releases into `.obsidian/plugins/calendar/` and `.obsidian/plugins/thino/` respectively.
 
 Optional additions:
 - **Smart Connections** — semantic search across all notes
