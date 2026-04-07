@@ -1,3 +1,8 @@
+/* ITS Image Adjustments — by SlRvb
+ * Source: https://github.com/SlRvb/Obsidian--ITS-Theme
+ * License: GPL-2.0 (https://github.com/SlRvb/Obsidian--ITS-Theme/blob/main/LICENSE)
+ */
+
 body {
   --image-border-color: var(--background-modifier-border);
   --image-border-width: 1px;

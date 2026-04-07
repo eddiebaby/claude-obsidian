@@ -1,3 +1,8 @@
+/* ITS Dataview Cards — by SlRvb
+ * Source: https://github.com/SlRvb/Obsidian--ITS-Theme
+ * License: GPL-2.0 (https://github.com/SlRvb/Obsidian--ITS-Theme/blob/main/LICENSE)
+ */
+
 .dvl-c .table-view-table > thead::before {
   content: "⚙";
   font-family: var(--its, var(--default-font));
