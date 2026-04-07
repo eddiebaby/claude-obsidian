@@ -83,7 +83,9 @@ Then scaffold the full wiki structure.
 | `/autoresearch [topic]` | Run the autonomous research loop: search, fetch, synthesize, file |
 | `/canvas` | Open or create the visual canvas, list zones and nodes |
 | `/canvas add image [path]` | Add an image (URL or local path) to the canvas with auto-layout |
-| `/canvas add note [page]` | Pin a wiki page as a card on the canvas |
+| `/canvas add text [content]` | Add a markdown text card to the canvas |
+| `/canvas add pdf [path]` | Add a PDF document as a rendered preview node |
+| `/canvas add note [page]` | Pin a wiki page as a linked card on the canvas |
 | `/canvas zone [name]` | Add a new labeled zone to organize visual content |
 | `/canvas from banana` | Capture recently generated images onto the canvas |
 | `lint the wiki` | Health check: orphans, dead links, gaps, suggestions |

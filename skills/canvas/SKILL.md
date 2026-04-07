@@ -1,13 +1,7 @@
 ---
 name: canvas
-description: >
-  Visual layer of the wiki. Add images, text cards, PDFs, and wiki pages to Obsidian
-  canvas files. Auto-positions nodes inside zones using bbox math. Integrates with
-  /banana skill for generated image capture. Triggers on: "/canvas", "canvas new",
-  "canvas add image", "canvas add text", "canvas add pdf", "canvas add note",
-  "canvas zone", "canvas list", "canvas from banana", "add to canvas",
-  "put this on the canvas", "open canvas", "create canvas".
-allowed-tools: ["Read", "Write", "Edit", "Bash", "Glob", "Grep"]
+description: "Visual layer of the wiki. Add images, text cards, PDFs, and wiki pages to Obsidian canvas files with auto-positioning inside zones. Integrates with /banana for image capture. Triggers on: /canvas, canvas new, canvas add image, canvas add text, canvas add pdf, canvas add note, canvas zone, canvas list, canvas from banana, add to canvas, put this on the canvas, open canvas, create canvas."
+allowed-tools: ["Read", "Write", "Edit", "Bash", "Glob"]
 ---
 
 # canvas — Visual Reference Layer
@@ -66,7 +60,7 @@ If it does not exist, create it:
 
 1. Slugify the name: lowercase, spaces → hyphens, strip special chars.
 2. Create `wiki/canvases/[slug].canvas` with the starter structure, title updated to `# [Name]`.
-3. Add entry to `wiki/index.md` under a "## Canvases" section (create the section if it doesn't exist).
+3. Add entry to `wiki/overview.md` under a "## Canvases" subsection (append after the Current State section). Do not modify `wiki/index.md` — it uses a fixed section schema (Domains, Entities, Concepts, Sources, Questions, Comparisons).
 4. Report: "Created wiki/canvases/[slug].canvas"
 
 ---
@@ -83,10 +77,7 @@ Create `_attachments/images/canvas/` if it doesn't exist.
 
 **Detect aspect ratio:**
 Use `python3 -c "from PIL import Image; img=Image.open('[path]'); print(img.width, img.height)"` or `identify -format '%w %h' [path]`.
-- 16:9 (width/height ≈ 1.7–2.0): width=420, height=236
-- 1:1 (ratio ≈ 1.0): width=280, height=280
-- 9:16 (ratio < 0.65): width=200, height=356
-- Unknown: width=320, height=240
+See `references/canvas-spec.md` for the full aspect ratio → canvas size table (7 ratios including 4:3, 3:4, ultra-wide). Do not use an inline table here — the spec is the single source of truth for sizing.
 
 **Position using auto-layout** (see Auto-Positioning section below).
 
@@ -127,6 +118,8 @@ Same as add image. Obsidian renders PDFs natively as file nodes.
 
 1. Search `wiki/` for a file matching the page name (case-insensitive, partial match ok).
 2. Use the vault-relative path as the `file` field.
+   - Use `"type": "file"` (not `"type": "link"`) — `.md` files use file nodes, not link nodes.
+   - `"type": "link"` takes a `url: "https://..."` — it is for web URLs only.
 3. Create a file node: width=300, height=100.
 4. Position using auto-layout.
 
@@ -145,7 +138,7 @@ Same as add image. Obsidian renders PDFs natively as file nodes.
 ### zone (`/canvas zone [name] [color]`)
 
 1. Read canvas JSON.
-2. Find max_y: `max(node.y + node.height for all nodes) + 60`. Use -140 if no nodes.
+2. Find max_y: `max(node.y + node.height for all nodes) + 60`. Use 280 if no nodes (leaves room above the starter title node).
 3. Create a group node:
 
 ```json
@@ -183,9 +176,12 @@ wiki/canvases/design-ideas.canvas — 42 nodes (30 images, 4 text, 8 groups)
 ### from banana (`/canvas from banana`)
 
 1. Check `wiki/canvases/.recent-images.txt` first (session log of newly written images).
-2. If not found or empty: `find _attachments/images -name "*.png" -o -name "*.jpg" -newer [10min-ago-file]`
-   Create the reference file: `python3 -c "import time; open('/tmp/ten-min-ago','w').close(); import os; os.utime('/tmp/ten-min-ago', (time.time()-600, time.time()-600))"`
-   Then: `find _attachments/images -newer /tmp/ten-min-ago -name "*.png" -o -name "*.jpg"`
+2. If not found or empty: use `find` with correct precedence (parentheses required — without them `-newer` only binds to the last `-name` clause):
+   ```bash
+   python3 -c "import time,os; open('/tmp/ten-min-ago','w').close(); os.utime('/tmp/ten-min-ago',(time.time()-600,time.time()-600))"
+   find _attachments/images -newer /tmp/ten-min-ago \( -name "*.png" -o -name "*.jpg" \)
+   ```
+   Note: `/banana` is an optional external skill not shipped in this plugin. If the user has it installed, the `.recent-images.txt` log will be populated. If not, the `find` command above is the fallback.
 3. If still none: show the 5 most recently modified images.
 4. Present list: "Found N recent images: [list]. Add to canvas? Which zone? (zone name / 'new [name]' / 'skip')"
 5. On confirmation: add each using the add image logic.
@@ -228,10 +224,8 @@ def next_position(canvas_nodes, target_zone_label, new_w, new_h):
         max_row_y = max(n['y'] + n.get('height', 0) for n in inside)
         return zx + 20, max_row_y + 20
 
-    # Same row — match the top y of existing row
-    current_row_y = min(n['y'] for n in inside if n['x'] > zx + zw / 2) \
-                    if any(n['x'] > zx + zw / 2 for n in inside) \
-                    else zy + 20
+    # Same row — align to the top of all existing nodes in the zone
+    current_row_y = min(n['y'] for n in inside)
     return next_x, current_row_y
 ```
 
@@ -241,9 +235,13 @@ def next_position(canvas_nodes, target_zone_label, new_w, new_h):
 
 Read the canvas, collect all existing IDs. Never reuse one.
 
-Safe ID pattern: `[type]-[content-slug]-[unix-timestamp-last-4-digits]`
+Safe ID pattern: `[type]-[content-slug]-[full-unix-timestamp]`
 
-Examples: `img-cover-7823`, `text-note-1045`, `zone-branding-3391`
+Use the full Unix timestamp (10 digits) to avoid collisions in batch operations.
+
+Examples: `img-cover-1744032823`, `text-note-1744032845`, `zone-branding-1744032901`
+
+If a collision is detected (ID already exists in the canvas), append `-2`, `-3`, etc.
 
 ---
 

@@ -822,7 +822,8 @@ Create `.canvas` files for visual overviews:
 }
 ```
 
-Colors map to the CSS scheme: 1=blue, 2=purple, 3=yellow, 4=orange, 5=green, 6=red.
+Canvas node colors (Obsidian canvas color codes): 1=red, 2=orange, 3=yellow, 4=green, 5=cyan, 6=purple.
+Note: these differ from the wiki graph CSS color scheme. See `skills/canvas/references/canvas-spec.md` for the full canvas color table.
 
 Create a domain relationship canvas during scaffold. Update as the wiki grows.
 
