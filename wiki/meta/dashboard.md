@@ -10,6 +10,8 @@ related:
   - "[[index]]"
   - "[[overview]]"
   - "[[log]]"
+  - "[[concepts/_index]]"
+  - "[[Compounding Knowledge]]"
 ---
 
 # Wiki Dashboard

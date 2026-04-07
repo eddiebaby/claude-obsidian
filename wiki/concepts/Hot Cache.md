@@ -60,9 +60,9 @@ YYYY-MM-DD — [what happened]
 - [Second]
 
 ## Recent Changes
-- Created: [[New Page 1]]
-- Updated: [[Existing Page]] (added section on X)
-- Flagged: Contradiction between [[Page A]] and [[Page B]]
+- Created: new wiki pages from this ingest
+- Updated: existing pages with new connections
+- Flagged: contradictions between sources where found
 
 ## Active Threads
 - User is researching [topic]

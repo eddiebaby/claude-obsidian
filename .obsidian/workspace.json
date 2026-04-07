@@ -16,19 +16,8 @@
               "icon": "lucide-git-fork",
               "title": "Graph view"
             }
-          },
-          {
-            "id": "c0d470cf50ffdf79",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -187,21 +176,24 @@
       "bases:Create new base": false
     }
   },
-  "active": "c0d470cf50ffdf79",
+  "active": "0ae3ce8edab2ab7f",
   "lastOpenFiles": [
-    "README.md.tmp.224546.1775555737152",
+    "wiki/comparisons/Wiki vs RAG.md",
+    "wiki/comparisons/Wiki vs RAG.md.tmp.224546.1775556215080",
+    "wiki/questions/How does the LLM Wiki pattern work.md",
+    "wiki/questions/How does the LLM Wiki pattern work.md.tmp.224546.1775556203684",
+    "wiki/comparisons",
+    "wiki/questions",
+    "wiki/concepts/_index.md.tmp.224546.1775556164132",
+    "wiki/index.md.tmp.224546.1775556150463",
+    "wiki/log.md.tmp.224546.1775556137750",
+    "wiki/hot.md.tmp.224546.1775556127364",
+    "wiki/sources/_index.md.tmp.224546.1775556114770",
+    "wiki/entities/_index.md.tmp.224546.1775556102633",
     "wiki/meta/workflow-loop.gif",
     "wiki/meta/wiki-graph-grow.gif",
-    "wiki/Wiki Map.canvas.tmp.224546.1775555483542",
-    "wiki/entities/Andrej Karpathy.md.tmp.224546.1775555435117",
-    "wiki/concepts/Hot Cache.md.tmp.224546.1775555433665",
-    "README.md.tmp.224546.1775555144441",
     "cover.gif",
-    "bin/setup-vault.sh.tmp.224546.1775554739080",
     "projects/visual-vault/design-ideas.canvas",
-    "projects/visual-vault/design-ideas.canvas.tmp.224546.1775554654804",
-    "projects/visual-vault",
-    "projects",
     "_attachments/images/skool-hub/wp-mcp-cover.png",
     "_attachments/images/skool-hub/v3-cover-10.png",
     "_attachments/images/skool-hub/v3-cover-05.png",
@@ -209,8 +201,6 @@
     "_attachments/images/skool-hub/sq-portrait-clean.png",
     "_attachments/images/skool-hub/sq-10.png",
     "_attachments/images/skool-hub/sq-01.png",
-    "_attachments/images/skool-hub",
-    "_attachments/images",
     "wiki/entities/_index.md",
     "wiki/meta/dashboard.md",
     "wiki/sources/_index.md",
@@ -235,7 +225,6 @@
     "skills/wiki/references/mcp-setup.md",
     "skills/wiki/references/git-setup.md",
     "skills/wiki/references/frontmatter.md",
-    "skills/wiki/references/css-snippets.md",
-    "skills/autoresearch/references/program.md"
+    "skills/wiki/references/css-snippets.md"
   ]
 }

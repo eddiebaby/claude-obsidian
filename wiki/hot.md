@@ -9,6 +9,8 @@ status: evergreen
 related:
   - "[[index]]"
   - "[[log]]"
+  - "[[Wiki Map]]"
+  - "[[entities/_index]]"
 ---
 
 # Recent Context

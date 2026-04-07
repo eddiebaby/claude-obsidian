@@ -9,6 +9,9 @@ tags:
 status: evergreen
 related:
   - "[[index]]"
+  - "[[log]]"
+  - "[[entities/_index]]"
+  - "[[Andrej Karpathy]]"
 ---
 
 # Sources Index

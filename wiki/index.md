@@ -10,6 +10,15 @@ related:
   - "[[overview]]"
   - "[[log]]"
   - "[[hot]]"
+  - "[[dashboard]]"
+  - "[[Wiki Map]]"
+  - "[[concepts/_index]]"
+  - "[[entities/_index]]"
+  - "[[sources/_index]]"
+  - "[[LLM Wiki Pattern]]"
+  - "[[Hot Cache]]"
+  - "[[Compounding Knowledge]]"
+  - "[[Andrej Karpathy]]"
 ---
 
 # Wiki Index

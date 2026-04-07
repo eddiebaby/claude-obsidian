@@ -10,6 +10,8 @@ status: evergreen
 related:
   - "[[index]]"
   - "[[Andrej Karpathy]]"
+  - "[[hot]]"
+  - "[[LLM Wiki Pattern]]"
 ---
 
 # Entities Index
