@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="cover.gif" alt="Cosmic Brain" width="100%" />
+</p>
+
 # cosmic-brain
 
 Claude + Obsidian knowledge companion. A running notetaker that builds and maintains a persistent, compounding wiki vault. Every source you add gets integrated. Every question you ask pulls from everything that has been read. Knowledge compounds like interest.
