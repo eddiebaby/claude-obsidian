@@ -1,0 +1,7 @@
+{
+  "shouldConfirmBeforeCreate": false,
+  "localeOverride": "en-GB",
+  "weekStart": "monday",
+  "showWeeklyNote": false,
+  "showNoteIndicator": true
+}
