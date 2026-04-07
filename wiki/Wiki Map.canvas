@@ -1,0 +1,155 @@
+{
+  "nodes": [
+    {
+      "id": "label-meta",
+      "type": "text",
+      "text": "## Navigation",
+      "x": -480,
+      "y": -260,
+      "width": 160,
+      "height": 50,
+      "color": "5"
+    },
+    {
+      "id": "label-concepts",
+      "type": "text",
+      "text": "## Concepts",
+      "x": 200,
+      "y": -260,
+      "width": 140,
+      "height": 50,
+      "color": "1"
+    },
+    {
+      "id": "label-entities",
+      "type": "text",
+      "text": "## Entities",
+      "x": 200,
+      "y": 160,
+      "width": 140,
+      "height": 50,
+      "color": "3"
+    },
+    {
+      "id": "label-sources",
+      "type": "text",
+      "text": "## Sources",
+      "x": -480,
+      "y": 160,
+      "width": 140,
+      "height": 50,
+      "color": "4"
+    },
+    {
+      "id": "n-index",
+      "type": "file",
+      "file": "wiki/index.md",
+      "x": -460,
+      "y": -200,
+      "width": 200,
+      "height": 80,
+      "color": "5"
+    },
+    {
+      "id": "n-hot",
+      "type": "file",
+      "file": "wiki/hot.md",
+      "x": -460,
+      "y": -100,
+      "width": 200,
+      "height": 80,
+      "color": "5"
+    },
+    {
+      "id": "n-log",
+      "type": "file",
+      "file": "wiki/log.md",
+      "x": -460,
+      "y": 0,
+      "width": 200,
+      "height": 80,
+      "color": "5"
+    },
+    {
+      "id": "n-overview",
+      "type": "file",
+      "file": "wiki/overview.md",
+      "x": -460,
+      "y": 100,
+      "width": 200,
+      "height": 80,
+      "color": "5"
+    },
+    {
+      "id": "n-dashboard",
+      "type": "file",
+      "file": "wiki/meta/dashboard.md",
+      "x": -230,
+      "y": -50,
+      "width": 200,
+      "height": 80,
+      "color": "5"
+    },
+    {
+      "id": "n-llm-wiki",
+      "type": "file",
+      "file": "wiki/concepts/LLM Wiki Pattern.md",
+      "x": 200,
+      "y": -200,
+      "width": 220,
+      "height": 80,
+      "color": "1"
+    },
+    {
+      "id": "n-hot-cache",
+      "type": "file",
+      "file": "wiki/concepts/Hot Cache.md",
+      "x": 200,
+      "y": -110,
+      "width": 220,
+      "height": 80,
+      "color": "1"
+    },
+    {
+      "id": "n-compound",
+      "type": "file",
+      "file": "wiki/concepts/Compounding Knowledge.md",
+      "x": 200,
+      "y": -20,
+      "width": 220,
+      "height": 80,
+      "color": "1"
+    },
+    {
+      "id": "n-karpathy",
+      "type": "file",
+      "file": "wiki/entities/Andrej Karpathy.md",
+      "x": 200,
+      "y": 210,
+      "width": 220,
+      "height": 80,
+      "color": "3"
+    },
+    {
+      "id": "n-source",
+      "type": "file",
+      "file": "wiki/sources/Nate Herk LLM Wiki Transcript.md",
+      "x": -460,
+      "y": 210,
+      "width": 220,
+      "height": 80,
+      "color": "4"
+    }
+  ],
+  "edges": [
+    {"id": "e1", "fromNode": "n-index", "fromSide": "right", "toNode": "n-dashboard", "toSide": "left", "toEnd": "arrow"},
+    {"id": "e2", "fromNode": "n-hot", "fromSide": "right", "toNode": "n-dashboard", "toSide": "left", "toEnd": "arrow"},
+    {"id": "e3", "fromNode": "n-log", "fromSide": "right", "toNode": "n-dashboard", "toSide": "left", "toEnd": "arrow"},
+    {"id": "e4", "fromNode": "n-overview", "fromSide": "right", "toNode": "n-dashboard", "toSide": "left", "toEnd": "arrow"},
+    {"id": "e5", "fromNode": "n-dashboard", "fromSide": "right", "toNode": "n-llm-wiki", "toSide": "left", "toEnd": "arrow"},
+    {"id": "e6", "fromNode": "n-dashboard", "fromSide": "right", "toNode": "n-hot-cache", "toSide": "left", "toEnd": "arrow"},
+    {"id": "e7", "fromNode": "n-dashboard", "fromSide": "right", "toNode": "n-compound", "toSide": "left", "toEnd": "arrow"},
+    {"id": "e8", "fromNode": "n-dashboard", "fromSide": "bottom", "toNode": "n-karpathy", "toSide": "left", "toEnd": "arrow"},
+    {"id": "e9", "fromNode": "n-source", "fromSide": "right", "toNode": "n-dashboard", "toSide": "bottom", "toEnd": "arrow"}
+  ]
+}

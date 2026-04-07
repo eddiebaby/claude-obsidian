@@ -1,0 +1,11 @@
+{
+  "userIgnoreFilters": [
+    "agents",
+    "commands",
+    "hooks",
+    "skills",
+    "README.md",
+    "CLAUDE.md",
+    "WIKI.md"
+  ]
+}
