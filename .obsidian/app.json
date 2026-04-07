@@ -1,11 +1,13 @@
 {
   "userIgnoreFilters": [
-    "agents",
-    "commands",
-    "hooks",
-    "skills",
+    "agents/",
+    "commands/",
+    "hooks/",
+    "skills/",
+    "_templates/",
     "README.md",
     "CLAUDE.md",
-    "WIKI.md"
+    "WIKI.md",
+    "Welcome.md"
   ]
 }
