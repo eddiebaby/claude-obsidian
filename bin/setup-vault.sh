@@ -64,12 +64,28 @@ cat > "$OBSIDIAN/app.json" << 'EOF'
 }
 EOF
 
-# ── 4. Write appearance.json (enable CSS snippet) ────────────────────────────
+# ── 4. Write appearance.json (enable CSS snippets) ───────────────────────────
 cat > "$OBSIDIAN/appearance.json" << 'EOF'
 {
-  "enabledCssSnippets": ["vault-colors"]
+  "enabledCssSnippets": [
+    "vault-colors",
+    "ITS-Dataview-Cards",
+    "ITS-Image-Adjustments"
+  ]
 }
 EOF
+
+# ── 5. Download Excalidraw main.js (8MB, not in git) ─────────────────────────
+EXCALIDRAW="$OBSIDIAN/plugins/obsidian-excalidraw-plugin"
+if [ -f "$EXCALIDRAW/manifest.json" ] && [ ! -f "$EXCALIDRAW/main.js" ]; then
+  echo "Downloading Excalidraw main.js (~8MB)..."
+  curl -sS -L \
+    "https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/latest/download/main.js" \
+    -o "$EXCALIDRAW/main.js"
+  echo "✓ Excalidraw main.js downloaded"
+elif [ -f "$EXCALIDRAW/main.js" ]; then
+  echo "✓ Excalidraw main.js already present"
+fi
 
 echo ""
 echo "✓ Setup complete."
