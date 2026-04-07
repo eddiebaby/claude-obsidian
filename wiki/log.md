@@ -23,11 +23,8 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
 ---
 
-## [2026-04-07] ingest | Nate Herk LLM Wiki Transcript
 
 - Source: `.raw/nate-herk-llm-wiki-transcript.md`
-- Summary: [[Nate Herk LLM Wiki Transcript]]
-- Pages created: [[Nate Herk LLM Wiki Transcript]], [[LLM Wiki Pattern]], [[Hot Cache]], [[Compounding Knowledge]], [[Andrej Karpathy]]
 - Pages updated: [[index]], [[log]], [[hot]], [[overview]]
 - Key insight: The wiki pattern turns ephemeral AI chat into compounding knowledge — one user dropped token usage by 95%.
 

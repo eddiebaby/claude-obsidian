@@ -18,7 +18,6 @@ Navigation: [[index]] | [[log]] | [[overview]]
 ---
 
 ## Last Updated
-2026-04-07 — cosmic-brain v1.1.0 initialized. First ingest complete: Nate Herk LLM Wiki transcript.
 
 ## Key Recent Facts
 - The wiki pattern was originated by [[Andrej Karpathy]] and makes knowledge compound like interest
@@ -29,7 +28,6 @@ Navigation: [[index]] | [[log]] | [[overview]]
 
 ## Recent Changes
 - Created: [[LLM Wiki Pattern]], [[Hot Cache]], [[Compounding Knowledge]], [[Andrej Karpathy]]
-- Created: [[Nate Herk LLM Wiki Transcript]] (first source)
 - Created: seed vault structure (index, log, overview, dashboard)
 - Plugin v1.1.0: added /save and /autoresearch commands
 

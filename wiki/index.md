@@ -30,13 +30,11 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]]
 
 ## Entities
 
-- [[Andrej Karpathy]] — AI researcher, originated the LLM wiki pattern (first: [[Nate Herk LLM Wiki Transcript]])
 
 ---
 
 ## Sources
 
-- [[Nate Herk LLM Wiki Transcript]] — Nate Herk, 2026-04-07, transcript
 
 ---
 

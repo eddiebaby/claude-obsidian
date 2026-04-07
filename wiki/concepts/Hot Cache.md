@@ -21,7 +21,6 @@ related:
   - "[[hot]]"
   - "[[concepts/_index]]"
 sources:
-  - "[[wiki/sources/Nate Herk LLM Wiki Transcript]]"
 ---
 
 # Hot Cache
@@ -85,7 +84,7 @@ YYYY-MM-DD — [what happened]
 
 Without the hot cache, every session starts cold: read the index (1000 tokens), read several domain sub-indexes, read several individual pages. With the hot cache, the first 500 tokens often have everything needed.
 
-Nate Herk reported that adding `hot.md` to his executive assistant vault reduced the token cost of session startup significantly compared to crawling multiple wiki pages.
+In practice, adding `hot.md` to an executive assistant vault dramatically reduces the token cost of session startup compared to crawling multiple wiki pages.
 
 The hot cache is especially valuable in cross-project setups: another Claude Code project can point at this vault and read `hot.md` first to get recent context at minimal token cost.
 

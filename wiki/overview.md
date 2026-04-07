@@ -14,7 +14,6 @@ related:
   - "[[dashboard]]"
   - "[[LLM Wiki Pattern]]"
 sources:
-  - "[[wiki/sources/Nate Herk LLM Wiki Transcript]]"
 ---
 
 # Wiki Overview
@@ -33,7 +32,6 @@ Run `/wiki` to scaffold this vault for your own domain and replace this overview
 
 ## Current Seed Content
 
-This vault ships with a seeded first ingest based on Nate Herk's breakdown of the Karpathy LLM wiki pattern.
 
 **Concepts seeded:**
 - [[LLM Wiki Pattern]] — the core architecture
@@ -44,7 +42,6 @@ This vault ships with a seeded first ingest based on Nate Herk's breakdown of th
 - [[Andrej Karpathy]] — originated the pattern
 
 **Sources seeded:**
-- [[Nate Herk LLM Wiki Transcript]] — practical demonstration of the pattern
 
 ---
 

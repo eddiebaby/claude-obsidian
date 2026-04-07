@@ -9,7 +9,6 @@ tags:
 status: evergreen
 related:
   - "[[index]]"
-  - "[[Nate Herk LLM Wiki Transcript]]"
 ---
 
 # Sources Index
@@ -22,7 +21,6 @@ All source pages — summaries of ingested documents, transcripts, articles, and
 
 ## Transcripts
 
-- [[Nate Herk LLM Wiki Transcript]] — Nate Herk demonstrates the LLM Wiki Pattern in practice (2026-04-07)
 
 ---
 
