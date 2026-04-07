@@ -12,6 +12,11 @@ Based on Andrej Karpathy's LLM Wiki pattern.
 
 ## What It Does
 
+<p align="center">
+  <img src="wiki/meta/wiki-graph-grow.gif" alt="Knowledge graph growing" width="48%" />
+  <img src="wiki/meta/workflow-loop.gif" alt="Workflow loop" width="48%" />
+</p>
+
 You drop sources. Claude reads them, extracts entities and concepts, updates cross-references, and files everything into a structured Obsidian vault. The wiki gets richer with every ingest.
 
 You ask questions. Claude reads the hot cache (recent context), scans the index, drills into relevant pages, and synthesizes an answer. It cites specific wiki pages, not training data.
