@@ -2,7 +2,7 @@
 # claude-obsidian
 
 <p align="center">
-  <img src="wiki/meta/claude-obsidian-cover.gif" alt="claude-obsidian" width="100%" />
+  <img src="wiki/meta/claude-obsidian-gif-cover-16x9.gif" alt="claude-obsidian" width="100%" />
 </p>
 
 Claude + Obsidian knowledge companion. A running notetaker that builds and maintains a persistent, compounding wiki vault. Every source you add gets integrated. Every question you ask pulls from everything that has been read. Knowledge compounds like interest.
@@ -14,7 +14,8 @@ Based on Andrej Karpathy's LLM Wiki pattern.
 ## What It Does
 
 <p align="center">
-  <img src="wiki/meta/welcome-canvas.gif" alt="Welcome canvas — visual demo board" width="96%" />
+  <img src="wiki/meta/claude-obsidian-gif-1x1.gif" alt="claude-obsidian demo" width="48%" />
+  <img src="wiki/meta/welcome-canvas.gif" alt="Welcome canvas — visual demo board" width="48%" />
 </p>
 
 You drop sources. Claude reads them, extracts entities and concepts, updates cross-references, and files everything into a structured Obsidian vault. The wiki gets richer with every ingest.
