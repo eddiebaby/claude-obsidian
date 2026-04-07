@@ -58,7 +58,7 @@ Renders an image, PDF, markdown note, or other vault file inline.
 {
   "id": "img-cover-7823",
   "type": "file",
-  "file": "_attachments/images/skool-hub/logo-pro.png",
+  "file": "_attachments/images/example.png",
   "x": -900,
   "y": -100,
   "width": 420,
@@ -236,13 +236,13 @@ function place_node(canvas, zone_label, new_w, new_h):
     {
       "id": "img-logo-pro",
       "type": "file",
-      "file": "_attachments/images/skool-hub/logo-pro.png",
+      "file": "_attachments/images/example.png",
       "x": -900, "y": -2180, "width": 420, "height": 236
     },
     {
       "id": "img-icon-free",
       "type": "file",
-      "file": "_attachments/images/skool-hub/icon-free-v1.png",
+      "file": "_attachments/images/example-icon.png",
       "x": -440, "y": -2180, "width": 280, "height": 280
     },
     {
@@ -254,7 +254,7 @@ function place_node(canvas, zone_label, new_w, new_h):
     {
       "id": "img-seo",
       "type": "file",
-      "file": "_attachments/images/skool-hub/claude-seo-cover.png",
+      "file": "_attachments/images/example-cover.png",
       "x": -900, "y": -1800, "width": 420, "height": 236
     }
   ],
