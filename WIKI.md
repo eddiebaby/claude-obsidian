@@ -1,6 +1,6 @@
 # WIKI.md — LLM Wiki Schema
 
-> If you are using the cosmic-brain plugin, the skills handle everything here automatically.
+> If you are using the claude-obsidian plugin, the skills handle everything here automatically.
 > This file is the reference document. Read it to understand how the system works.
 > Based on Andrej Karpathy's LLM Wiki pattern.
 
@@ -847,4 +847,4 @@ The human's job: curate sources, ask good questions, think about what it means. 
 
 ---
 
-*Based on Andrej Karpathy's LLM Wiki pattern. Plugin: cosmic-brain by AgriciDaniel / AI Marketing Hub.*
+*Based on Andrej Karpathy's LLM Wiki pattern. Plugin: claude-obsidian by AgriciDaniel / AI Marketing Hub.*

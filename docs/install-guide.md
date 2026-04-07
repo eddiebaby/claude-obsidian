@@ -1,13 +1,13 @@
-# cosmic-brain — Install Guide
+# claude-obsidian — Install Guide
 
 **Claude + Obsidian Knowledge Companion**
-Version 1.2.0 · [github.com/AgriciDaniel/cosmic-brain](https://github.com/AgriciDaniel/cosmic-brain)
+Version 1.2.0 · [github.com/AgriciDaniel/claude-obsidian](https://github.com/AgriciDaniel/claude-obsidian)
 
 ---
 
-## What is cosmic-brain?
+## What is claude-obsidian?
 
-cosmic-brain is a Claude Code plugin + Obsidian vault that builds and maintains a persistent, compounding knowledge base. Every source you add gets processed into cross-referenced wiki pages. Every question you ask pulls from everything that has been read. Knowledge compounds like interest.
+claude-obsidian is a Claude Code plugin + Obsidian vault that builds and maintains a persistent, compounding knowledge base. Every source you add gets processed into cross-referenced wiki pages. Every question you ask pulls from everything that has been read. Knowledge compounds like interest.
 
 Built on Andrej Karpathy's LLM Wiki pattern.
 
@@ -30,19 +30,19 @@ Built on Andrej Karpathy's LLM Wiki pattern.
 Full setup in under 2 minutes.
 
 ```bash
-git clone https://github.com/AgriciDaniel/cosmic-brain
-cd cosmic-brain
+git clone https://github.com/AgriciDaniel/claude-obsidian
+cd claude-obsidian
 bash bin/setup-vault.sh
 ```
 
-Then in Obsidian: **Manage Vaults → Open folder as vault → select `cosmic-brain/`**
+Then in Obsidian: **Manage Vaults → Open folder as vault → select `claude-obsidian/`**
 
 Open Claude Code in the same folder and type `/wiki`.
 
 ### Option 2 — Install as Claude Code plugin
 
 ```bash
-claude plugin install github:AgriciDaniel/cosmic-brain
+claude plugin install github:AgriciDaniel/claude-obsidian
 ```
 
 In any Claude Code session: type `/wiki` — Claude walks you through vault setup.
@@ -199,7 +199,7 @@ claude mcp add-json obsidian-vault '{
 
 | Problem | Fix |
 |---------|-----|
-| `/wiki` says "not found" | Make sure `cosmic-brain` plugin is enabled: `claude plugin list` |
+| `/wiki` says "not found" | Make sure `claude-obsidian` plugin is enabled: `claude plugin list` |
 | Graph colors reset after closing Obsidian | Open Graph view → gear → Color groups → re-add once. Permanent after that. |
 | Excalidraw not loading | Run `bash bin/setup-vault.sh` to download `main.js` (8MB, not in git) |
 | Dashboard shows no results | Install the **Dataview** plugin from Community Plugins |
@@ -213,7 +213,7 @@ Point any Claude Code project at this vault. Add to that project's `CLAUDE.md`:
 
 ```markdown
 ## Wiki Knowledge Base
-Path: ~/path/to/cosmic-brain
+Path: ~/path/to/claude-obsidian
 
 When you need context not in this project:
 1. Read wiki/hot.md first (recent context cache)
@@ -229,8 +229,8 @@ Your executive assistant, coding projects, and content workflows all draw from t
 
 ## Support
 
-- **GitHub**: [github.com/AgriciDaniel/cosmic-brain](https://github.com/AgriciDaniel/cosmic-brain)
-- **Issues**: [github.com/AgriciDaniel/cosmic-brain/issues](https://github.com/AgriciDaniel/cosmic-brain/issues)
+- **GitHub**: [github.com/AgriciDaniel/claude-obsidian](https://github.com/AgriciDaniel/claude-obsidian)
+- **Issues**: [github.com/AgriciDaniel/claude-obsidian/issues](https://github.com/AgriciDaniel/claude-obsidian/issues)
 - **Community**: [AI Marketing Hub on Skool](https://skool.com)
 
 ---

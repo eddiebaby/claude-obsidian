@@ -28,7 +28,7 @@ AI researcher and educator. Former Director of AI at Tesla, founding member of O
 
 Karpathy originated the [[LLM Wiki Pattern]] — the idea of using LLMs to build and maintain a persistent, compounding knowledge base rather than re-deriving knowledge from raw documents on every query.
 
-He published the idea as an "idea file" — intentionally abstract, designed to be copy-pasted into a Claude Code or similar session and built out collaboratively. The cosmic-brain plugin is a production implementation of this pattern.
+He published the idea as an "idea file" — intentionally abstract, designed to be copy-pasted into a Claude Code or similar session and built out collaboratively. The claude-obsidian plugin is a production implementation of this pattern.
 
 His framing: "The wiki is a persistent, compounding artifact. The cross-references are already there. The contradictions have already been flagged. The synthesis already reflects everything you've read."
 
@@ -44,4 +44,4 @@ His framing: "The wiki is a persistent, compounding artifact. The cross-referenc
 
 - [[LLM Wiki Pattern]] — his core contribution to knowledge management
 - [[Compounding Knowledge]] — the central insight he articulated
-- cosmic-brain plugin — this repo is a production implementation of his pattern
+- claude-obsidian plugin — this repo is a production implementation of his pattern

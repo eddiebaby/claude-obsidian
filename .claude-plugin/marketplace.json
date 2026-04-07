@@ -1,19 +1,19 @@
 {
-  "name": "cosmic-brain-marketplace",
+  "name": "claude-obsidian-marketplace",
   "owner": {
     "name": "AgriciDaniel",
     "email": "***REMOVED***"
   },
   "metadata": {
-    "description": "cosmic-brain — Claude + Obsidian knowledge companion by AgriciDaniel",
+    "description": "claude-obsidian — Claude + Obsidian knowledge companion by AgriciDaniel",
     "version": "1.2.0"
   },
   "plugins": [
     {
-      "name": "cosmic-brain",
+      "name": "claude-obsidian",
       "source": {
         "source": "github",
-        "repo": "AgriciDaniel/cosmic-brain",
+        "repo": "AgriciDaniel/claude-obsidian",
         "ref": "main"
       },
       "description": "Claude + Obsidian knowledge companion. Sets up a persistent, compounding wiki vault. Covers memory management, session notetaking, knowledge organization, and agent context across projects.",
@@ -22,8 +22,8 @@
         "name": "AgriciDaniel",
         "url": "https://github.com/AgriciDaniel"
       },
-      "homepage": "https://github.com/AgriciDaniel/cosmic-brain",
-      "repository": "https://github.com/AgriciDaniel/cosmic-brain",
+      "homepage": "https://github.com/AgriciDaniel/claude-obsidian",
+      "repository": "https://github.com/AgriciDaniel/claude-obsidian",
       "license": "MIT"
     }
   ]

@@ -32,6 +32,6 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
 ## [2026-04-07] setup | Vault initialized
 
-- Plugin: cosmic-brain v1.1.0
+- Plugin: claude-obsidian v1.1.0
 - Structure: seed files + first ingest complete
 - Skills: wiki, wiki-ingest, wiki-query, wiki-lint, save, autoresearch

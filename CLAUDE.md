@@ -1,8 +1,8 @@
-# cosmic-brain — Claude + Obsidian Wiki Vault
+# claude-obsidian — Claude + Obsidian Wiki Vault
 
 This folder is both a Claude Code plugin and an Obsidian vault.
 
-**Plugin name:** `cosmic-brain`
+**Plugin name:** `claude-obsidian`
 **Skills:** `/wiki`, `/wiki-ingest`, `/wiki-query`, `/wiki-lint`
 **Vault path:** This directory (open in Obsidian directly)
 

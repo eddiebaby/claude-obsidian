@@ -14,7 +14,7 @@ related:
   - "[[Wiki Map]]"
 ---
 
-# Getting Started with cosmic-brain
+# Getting Started with claude-obsidian
 
 Welcome. This vault is your compounding knowledge base — a persistent second brain built with Claude and Obsidian.
 

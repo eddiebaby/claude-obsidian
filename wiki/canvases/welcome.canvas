@@ -20,7 +20,7 @@
 		{"id":"text-result","type":"text","text":"Cross-referenced. Searchable. Gets richer every session.","x":500,"y":200,"width":520,"height":50,"color":"6"},
 		{"id":"gif-graph","type":"file","file":"wiki/meta/wiki-graph-grow.gif","x":568,"y":-225,"width":385,"height":385},
 		{"id":"cta-start","type":"text","text":"## 👉 Start here\n\n1. Read [[getting-started]] for a quick walkthrough\n2. Run `/wiki` in Claude Code to scaffold your vault\n3. Drop your first source into `.raw/` and say `ingest [filename]`","x":-140,"y":267,"width":560,"height":140,"color":"5"},
-		{"id":"025be16f290f1830","x":500,"y":315,"width":520,"height":293,"type":"file","file":"2026-04-07 14-19-00.mkv"}
+		{"id":"025be16f290f1830","x":501,"y":280,"width":520,"height":293,"type":"file","file":"2026-04-07 14-19-00.mkv"}
 	],
 	"edges":[
 		{"id":"arrow-1","fromNode":"zone-input","fromSide":"right","toNode":"zone-process","toSide":"left","color":"4","label":"ingest"},

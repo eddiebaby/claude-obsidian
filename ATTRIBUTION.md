@@ -1,6 +1,6 @@
 # Attributions
 
-cosmic-brain is an original work. The following third-party patterns, tools, and creators informed its design.
+claude-obsidian is an original work. The following third-party patterns, tools, and creators informed its design.
 
 ---
 
@@ -8,7 +8,7 @@ cosmic-brain is an original work. The following third-party patterns, tools, and
 
 **Author:** Andrej Karpathy
 **Source:** https://github.com/karpathy
-**Use:** The core architecture of cosmic-brain — using an LLM to build and maintain a structured wiki from raw sources — is based on the LLM Wiki pattern Karpathy described publicly. cosmic-brain is an independent implementation; no code or content from Karpathy's repositories was copied.
+**Use:** The core architecture of claude-obsidian — using an LLM to build and maintain a structured wiki from raw sources — is based on the LLM Wiki pattern Karpathy described publicly. claude-obsidian is an independent implementation; no code or content from Karpathy's repositories was copied.
 
 ---
 
@@ -16,7 +16,7 @@ cosmic-brain is an original work. The following third-party patterns, tools, and
 
 **Author:** Nate Herk
 **Channel:** https://youtube.com/@nateherk
-**Use:** The hot cache pattern (a rolling ~500-word context summary) and cross-project vault referencing were demonstrated by Nate Herk. cosmic-brain implements these patterns independently. No transcript or video content is included in this repository.
+**Use:** The hot cache pattern (a rolling ~500-word context summary) and cross-project vault referencing were demonstrated by Nate Herk. claude-obsidian implements these patterns independently. No transcript or video content is included in this repository.
 
 ---
 
@@ -48,8 +48,8 @@ The following Obsidian community plugins ship with this vault as pre-installed b
 
 ---
 
-## cosmic-brain
+## claude-obsidian
 
 **Author:** AgriciDaniel / AI Marketing Hub
 **License:** MIT (see [LICENSE](LICENSE))
-**Repository:** https://github.com/AgriciDaniel/cosmic-brain
+**Repository:** https://github.com/AgriciDaniel/claude-obsidian

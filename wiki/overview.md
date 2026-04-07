@@ -24,7 +24,7 @@ Navigation: [[index]] | [[hot]] | [[log]] | [[dashboard]]
 
 ## Purpose
 
-This is the cosmic-brain demo vault. It demonstrates the [[LLM Wiki Pattern]] — a system for building persistent, compounding knowledge bases using Claude and Obsidian.
+This is the claude-obsidian demo vault. It demonstrates the [[LLM Wiki Pattern]] — a system for building persistent, compounding knowledge bases using Claude and Obsidian.
 
 Run `/wiki` to scaffold this vault for your own domain and replace this overview.
 
@@ -49,7 +49,7 @@ Run `/wiki` to scaffold this vault for your own domain and replace this overview
 
 - Sources ingested: 1
 - Wiki pages: 11
-- Last activity: 2026-04-07 (cosmic-brain v1.1.0 initialized)
+- Last activity: 2026-04-07 (claude-obsidian v1.1.0 initialized)
 
 ---
 

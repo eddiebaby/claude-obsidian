@@ -11,45 +11,41 @@
             "id": "a31de1b302cdc5cf",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "README"
-            }
-          },
-          {
-            "id": "0dbc366fea2d4524",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "wiki/canvases/welcome.canvas",
-                "viewState": {
-                  "x": 180.73618011663854,
-                  "y": -49.51696356078138,
-                  "zoom": -1.1804868969700046
-                }
-              },
-              "icon": "lucide-layout-dashboard",
-              "title": "welcome"
-            }
-          },
-          {
-            "id": "0d709b06e7888f5c",
-            "type": "leaf",
-            "state": {
               "type": "graph",
               "state": {},
               "icon": "lucide-git-fork",
               "title": "Graph view"
             }
+          },
+          {
+            "id": "1ddf905423a8598d",
+            "type": "leaf",
+            "state": {
+              "type": "thino_view",
+              "state": {},
+              "icon": "Memos",
+              "title": "Thino"
+            }
+          },
+          {
+            "id": "61749825e48e4b66",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "wiki/Wiki Map.canvas",
+                "viewState": {
+                  "x": -413.9875924804161,
+                  "y": 621.2439739591268,
+                  "zoom": -1.292836204863978
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Wiki Map"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -106,8 +102,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "7092b65be1e76349",
@@ -222,57 +217,62 @@
       "obsidian-memos:Thino Super": false
     }
   },
-  "active": "0dbc366fea2d4524",
+  "active": "61749825e48e4b66",
   "lastOpenFiles": [
-    "wiki/canvases/welcome.canvas",
-    "README.md",
-    "Excalidraw/Drawing 2026-04-07 13.52.12.excalidraw.md",
-    "Untitled.canvas",
-    "2026-04-07.md",
-    "Excalidraw/Drawing 2026-04-07 13.51.04.excalidraw.md",
-    "Excalidraw/Drawing 2026-04-07 13.51.12.excalidraw.md",
-    "Excalidraw",
-    "bin/setup-vault.sh.tmp.224546.1775558887360",
-    "Claude SEO Posts cover.gif",
-    "wiki/comparisons/Wiki vs RAG.md",
-    "Obsidian vault with Claude Code - full integration and visual organization 1.md",
-    "Obsidian vault with Claude Code - full integration and visual organization.md",
-    "cover.gif",
-    "Cosmic Brain Clean.gif",
-    "Claude SEO Posts cover 1x1-compressed.gif",
-    "Claude SEO Posts cover 1x1.gif",
-    "wiki/Wiki Map.canvas",
+    "wiki/meta/claude-obsidian-cover.gif",
+    "README.md.tmp.224546.1775562198004",
+    "README.md.tmp.224546.1775562190155",
+    "README.md.tmp.224546.1775562092499",
+    "wiki/meta/image-example-wiki-map-view.png",
+    "wiki/meta/image-example-graph-view.png",
+    "ATTRIBUTION.md",
+    "ATTRIBUTION.md.tmp.224546.1775561977773",
     "wiki/overview.md",
-    "wiki/log.md",
-    "wiki/index.md",
+    "Excalidraw/Drawing 2026-04-07 14.39.09.excalidraw.md",
+    "Excalidraw/Drawing 2026-04-07 14.39.10.excalidraw.md",
+    "Untitled 2.canvas",
+    "LICENSE",
+    "LICENSE.tmp.224546.1775561946460",
+    "2026-04-07.md",
+    "Untitled.base",
+    "docs/install-guide.md",
+    "README.md.tmp.224546.1775561616026",
+    "wiki/meta/cosmic-brain-cover.gif",
+    "README.md.tmp.224546.1775561304170",
+    "wiki/meta/cover.gif",
+    "wiki/concepts/_index.md",
+    "wiki/canvases/welcome.canvas",
+    "README.md.tmp.224546.1775561084699",
+    "wiki/meta/welcome-canvas.gif",
     "wiki/canvases/main.canvas",
+    "README.md",
+    "wiki/getting-started.md",
+    "Demo Images.canvas",
+    "Excalidraw/Drawing 2026-04-07 14.07.42.excalidraw.md",
     "wiki/concepts/LLM Wiki Pattern.md",
+    "Obsidian vault with Claude Code - full integration and visual organization 2.md",
+    "Excalidraw/Drawing 2026-04-07 14.07.42_0.excalidraw.md",
+    "_attachments/the-frontier.png",
+    "_attachments/neural-voyager.png",
+    "_attachments/code-genesis.png",
+    "_attachments/images/skool-hub/apr-slot2-results.png",
+    "_attachments/images/skool-hub/apr-bg-v05.png",
     "wiki/concepts/Hot Cache.md",
     "wiki/concepts/Compounding Knowledge.md",
-    "wiki/concepts/_index.md",
-    "wiki/entities/Andrej Karpathy.md",
     "wiki/entities/_index.md",
-    "wiki/meta/workflow-loop.gif",
-    "wiki/meta/wiki-graph-grow.gif",
-    "wiki/meta/dashboard.md",
+    "wiki/entities/Andrej Karpathy.md",
     "wiki/questions/How does the LLM Wiki pattern work.md",
-    "wiki/sources/_index.md",
     "wiki/hot.md",
-    "wiki/canvases/welcome.canvas.tmp.224546.1775558550671",
-    "PROMPT.md",
-    "WIKI 1.md",
-    "Cosmic Brain Cover.png",
-    "CLAUDE.md",
-    "README.md.tmp.224546.1775557814794",
-    "CLAUDE.md.tmp.224546.1775557799570",
-    "WIKI.md.tmp.224546.1775557791066",
-    "skills/canvas/SKILL.md.tmp.224546.1775557782936",
-    "skills/canvas/SKILL.md.tmp.224546.1775557766591",
-    "skills/canvas/SKILL.md.tmp.224546.1775557704281",
-    "skills/canvas/SKILL.md.tmp.224546.1775557697284",
-    "skills/canvas/references/canvas-spec.md",
-    "projects/visual-vault/design-ideas.canvas",
-    "_attachments/images/skool-hub/wp-mcp-cover.png",
-    "_attachments/images/skool-hub/v3-cover-10.png"
+    "wiki/index.md",
+    "wiki/log.md",
+    "wiki/Wiki Map.canvas",
+    "Banana Images.canvas",
+    "Untitled 1.canvas",
+    "Excalidraw/Drawing 2026-04-07 13.52.12.excalidraw.md",
+    "Untitled.canvas",
+    "Excalidraw/Drawing 2026-04-07 13.51.04.excalidraw.md",
+    "Excalidraw/Drawing 2026-04-07 13.51.12.excalidraw.md",
+    "wiki/comparisons/Wiki vs RAG.md",
+    "projects/visual-vault/design-ideas.canvas"
   ]
 }

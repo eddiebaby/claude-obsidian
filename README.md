@@ -1,8 +1,8 @@
 
-# cosmic-brain
+# claude-obsidian
 
 <p align="center">
-  <img src="wiki/meta/cosmic-brain-cover.gif" alt="cosmic-brain" width="100%" />
+  <img src="wiki/meta/claude-obsidian-cover.gif" alt="claude-obsidian" width="100%" />
 </p>
 
 Claude + Obsidian knowledge companion. A running notetaker that builds and maintains a persistent, compounding wiki vault. Every source you add gets integrated. Every question you ask pulls from everything that has been read. Knowledge compounds like interest.
@@ -37,12 +37,12 @@ At the end of every session, Claude updates a hot cache. The next session starts
 ### Option 1: Clone as vault (recommended — full setup in 2 minutes)
 
 ```bash
-git clone https://github.com/AgriciDaniel/cosmic-brain
-cd cosmic-brain
+git clone https://github.com/AgriciDaniel/claude-obsidian
+cd claude-obsidian
 bash bin/setup-vault.sh
 ```
 
-Open the folder in Obsidian: **Manage Vaults → Open folder as vault → select `cosmic-brain/`**
+Open the folder in Obsidian: **Manage Vaults → Open folder as vault → select `claude-obsidian/`**
 
 Open Claude Code in the same folder. Type `/wiki`.
 
@@ -53,7 +53,7 @@ Open Claude Code in the same folder. Type `/wiki`.
 ### Option 2: Install as Claude Code plugin
 
 ```bash
-claude plugin install github:AgriciDaniel/cosmic-brain
+claude plugin install github:AgriciDaniel/claude-obsidian
 ```
 
 In any Claude Code session: `/wiki` — Claude walks you through vault setup.
@@ -235,7 +235,7 @@ The page renders a full-width header image in Obsidian. Works great for hub page
 ## File Structure
 
 ```
-cosmic-brain/
+claude-obsidian/
 ├── .claude-plugin/
 │   ├── plugin.json              # manifest
 │   └── marketplace.json         # distribution
