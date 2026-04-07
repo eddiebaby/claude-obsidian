@@ -25,6 +25,11 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
 ---
 
+## [2026-04-07] session | claude-obsidian v1.2.0 Release Session
+- Type: session
+- Location: wiki/meta/claude-obsidian-v1.2.0-release-session.md
+- From: full build session — v1.2.0 plan execution, cosmic-brain→claude-obsidian rename, legal/security audit, branded GIFs, PDF install guide, dual GitHub repos
+
 
 - Source: `.raw/nate-herk-llm-wiki-transcript.md`
 - Pages updated: [[index]], [[log]], [[hot]], [[overview]]
