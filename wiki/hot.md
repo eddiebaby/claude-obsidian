@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-04-08T12:00:00
+updated: 2026-04-08T19:00:00
 tags:
   - meta
   - hot-cache
@@ -11,46 +11,58 @@ related:
   - "[[log]]"
   - "[[Wiki Map]]"
   - "[[getting-started]]"
+  - "[[claude-obsidian-v1.4-release-session]]"
 ---
 
 # Recent Context
 
 Navigation: [[index]] | [[log]] | [[overview]]
 
----
-
 ## Last Updated
-2026-04-08 — Ecosystem research ingest: 16+ Claude+Obsidian projects researched
+2026-04-08: v1.4.1 hotfix shipped, plugin confirmed installed and enabled
 
-## Key Recent Facts
-- **Plugin**: claude-obsidian v1.2.0 | `~/claude-obsidian/` | push: `git push origin main && git push community main`
-- **Install**: `claude plugin marketplace add AgriciDaniel/claude-obsidian`
-- **Ecosystem research complete**: 16+ projects, 13 cherry-pick features identified
+## Plugin State
+- **Version**: 1.4.1 (installed, enabled, user scope)
+- **Install ID**: `claude-obsidian@claude-obsidian-marketplace`
+- **Releases**: v1.1, v1.4.0, v1.4.1 on GitHub
+- **Skills**: 10 (wiki, wiki-ingest, wiki-query, wiki-lint, save, autoresearch, canvas, defuddle, obsidian-bases, obsidian-markdown)
+- **Hooks**: 4 (SessionStart, PostCompact, PostToolUse, Stop)
+- **Multi-agent**: bootstrap files for Codex, OpenCode, Gemini, Cursor, Windsurf, GitHub Copilot
 
-## What Was Just Ingested
-Full internet sweep of Claude + Obsidian projects. Key projects found:
-- **kepano/obsidian-skills** — Obsidian creator's own skills (validates Agent Skills format)
-- **Ar9av/obsidian-wiki** — delta tracking manifest + multi-agent compat (Cursor/Windsurf/Codex/Gemini)
-- **ballred/obsidian-claude-pkm** — auto-commit PostToolUse hook + goal cascade
-- **rvk7895/llm-knowledge-bases** — 3-depth query (Quick/Standard/Deep) + Marp output
-- **heyitsnoah/claudesidian** — PARA vault + /init-bootstrap + vault import
-- **YishenTu/claudian** — native Obsidian plugin with plan mode + @mention + word-level diff
-- **ProfSynapse/nexus** (claudesidian-mcp) — native plugin + MCP bridge + workspace memory
-- obsidian-copilot: 5,776⭐ | smart-connections: 4,357⭐ (traditional plugins)
+## Install Command (Correct Two-Step Flow)
+```bash
+claude plugin marketplace add AgriciDaniel/claude-obsidian
+claude plugin install claude-obsidian@claude-obsidian-marketplace
+```
 
-## Top 5 Cherry-Picks (see [[cherry-picks]] for full list)
-1. URL ingestion in /wiki-ingest (pass `https://` → auto-fetch → ingest)
-2. Auto-commit PostToolUse hook (every wiki write → git commit)
-3. defuddle web cleaning (from kepano — strips clutter before ingest)
-4. Delta tracking manifest (only re-ingest new/changed files)
-5. Multi-depth query (Quick/Standard/Deep modes)
+There is no `claude plugin install github:owner/repo` shortcut. Both steps are required. Full session note: [[claude-obsidian-v1.4-release-session]].
 
-## claude-obsidian Unique Advantages Confirmed
-- Hot cache (no one else has this)
-- Canvas skill (unique in LLM Wiki category)
-- /save conversation → wiki (unique workflow)
-- Marketplace polish (best install experience)
+## Recent Release Cycle (v1.1 → v1.4.1)
+- **v1.1**: URL ingestion, vision ingestion, delta tracking manifest, 3 new skills (defuddle, obsidian-bases, obsidian-markdown), multi-depth query modes, PostToolUse auto-commit, removed invalid `allowed-tools` frontmatter field
+- **v1.4.0**: Dataview to Bases migration (new `wiki/meta/dashboard.base`), Canvas JSON 1.0 spec completeness, PostCompact hook, Obsidian CLI MCP option, 6 multi-agent bootstrap files, 249 em dashes scrubbed, security git history rewrite to remove placeholder email
+- **v1.4.1**: hotfix for wrong plugin install command syntax in README and install-guide.md
+
+## Key Lessons (Recent)
+1. Plugin install is always two-step: `marketplace add` then `install plugin@marketplace`
+2. `allowed-tools` is NOT valid in skill frontmatter. Use only `name` and `description` (kepano convention).
+3. Obsidian Bases uses `filters/views/formulas`, not Dataview `from/where`
+4. Canvas edges have asymmetric defaults: `fromEnd="none"`, `toEnd="arrow"`
+5. Hook-injected context does not survive compaction. PostCompact hook is required to restore hot cache.
+6. `git filter-repo` needs two passes: `--replace-text` for blobs, `--replace-message` for commit messages
+
+## Style Preferences (Saved to Memory)
+- **No em dashes** (U+2014) or `--` as punctuation anywhere. Use periods, commas, colons, or parentheses. Hyphens in compound words are fine (auto-commit, multi-agent).
+- Keep responses short and direct. No trailing "here's what I did" summaries.
+- Parallel tool calls when independent.
+
+## Ecosystem Research (Done 2026-04-08)
+16+ Claude + Obsidian projects mapped. Full feature matrix at [[claude-obsidian-ecosystem]]. Prioritized backlog at [[cherry-picks]]. Top competitors: [[Ar9av-obsidian-wiki]] (multi-agent + delta tracking), [[rvk7895-llm-knowledge-bases]] (multi-depth query), [[ballred-obsidian-claude-pkm]] (goal cascade + auto-commit), [[kepano-obsidian-skills]] (authoritative Obsidian skills from Obsidian's own creator).
 
 ## Active Threads
-- [[cherry-picks]] ready for v1.3.0 planning
-- Wiki pages: 25 | Sources ingested: 2
+- v1.5.0 backlog: `/adopt` command, vault graph analysis in wiki-lint, semantic search via qmd, Marp output
+- `community` remote (`avalonreset-pro/claude-obsidian`) still has pre-rewrite history. Force-push needed next time that remote is configured.
+
+## Repo Locations
+- Working: `~/Desktop/claude-obsidian/`
+- Public: https://github.com/AgriciDaniel/claude-obsidian
+- Community (private): https://github.com/avalonreset-pro/claude-obsidian

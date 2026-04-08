@@ -49,8 +49,8 @@ Run `/wiki` to scaffold this vault for your own domain and replace this overview
 ## Current State
 
 - Sources ingested: 2
-- Wiki pages: 25
-- Last activity: 2026-04-08 (ecosystem research ingest — 16+ projects mapped)
+- Wiki pages: 26
+- Last activity: 2026-04-08 (v1.4.1 shipped, release session filed)
 
 ---
 

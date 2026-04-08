@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Operation Log"
-updated: 2026-04-07
+updated: 2026-04-08
 tags:
   - meta
   - log
@@ -24,6 +24,12 @@ Entry format: `## [YYYY-MM-DD] operation | Title`
 Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
 ---
+
+## [2026-04-08] save | claude-obsidian v1.4 Release Session
+- Type: session
+- Location: wiki/meta/claude-obsidian-v1.4-release-session.md
+- From: full release cycle covering v1.1 (URL/vision/delta tracking, 3 new skills), v1.4.0 (audit response, multi-agent compat, Bases dashboard, em dash scrub, security history rewrite), and v1.4.1 (plugin install command hotfix)
+- Key lessons: plugin install is 2-step (marketplace add then install), allowed-tools is not valid frontmatter, Bases uses filters/views/formulas not Dataview syntax, hook context does not survive compaction, git filter-repo needs 2 passes for full scrub
 
 ## [2026-04-08] ingest | Claude + Obsidian Ecosystem Research
 - Type: research ingest
