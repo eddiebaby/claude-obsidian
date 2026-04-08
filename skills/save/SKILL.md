@@ -9,7 +9,7 @@ description: >
   "save this analysis", "add this to the wiki".
 ---
 
-# save — File Conversations Into the Wiki
+# save: File Conversations Into the Wiki
 
 Good answers and insights shouldn't disappear into chat history. This skill takes what was just discussed and files it as a permanent wiki page.
 
@@ -27,7 +27,7 @@ Determine the best type from the conversation content:
 | concept | wiki/concepts/ | Explaining or defining an idea, pattern, or framework |
 | source | wiki/sources/ | Summary of external material discussed in the session |
 | decision | wiki/meta/ | Architectural, project, or strategic decision that was made |
-| session | wiki/meta/ | Full session summary — captures everything discussed |
+| session | wiki/meta/ | Full session summary: captures everything discussed |
 
 If the user specifies a type, use that. If not, pick the best fit based on the content. When in doubt, use `synthesis`.
 
@@ -41,8 +41,8 @@ If the user specifies a type, use that. If not, pick the best fit based on the c
 4. **Extract** all relevant content from the conversation. Rewrite it in declarative present tense (not "the user asked" but the actual content itself).
 5. **Create** the note in the correct folder with full frontmatter.
 6. **Collect links**: identify any wiki pages mentioned in the conversation. Add them to `related` in frontmatter.
-7. **Update** `wiki/index.md` — add the new entry at the top of the relevant section.
-8. **Append** to `wiki/log.md` — new entry at the TOP:
+7. **Update** `wiki/index.md`. Add the new entry at the top of the relevant section.
+8. **Append** to `wiki/log.md`. New entry at the TOP:
    ```
    ## [YYYY-MM-DD] save | Note Title
    - Type: [note type]

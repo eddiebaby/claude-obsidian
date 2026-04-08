@@ -26,10 +26,10 @@ sources:
 ```
 
 **status values:**
-- `seed` — exists, barely populated
-- `developing` — has real content, not yet complete
-- `mature` — comprehensive, well-linked
-- `evergreen` — unlikely to need updates
+- `seed`: exists, barely populated
+- `developing`: has real content, not yet complete
+- `mature`: comprehensive, well-linked
+- `evergreen`: unlikely to need updates
 
 ---
 

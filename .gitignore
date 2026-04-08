@@ -45,6 +45,8 @@ Cosmic Brain*.png
 Untitled *.canvas
 Untitled.base
 *.base
+# Track our committed dashboard.base (Bases dashboard shipped with the vault)
+!wiki/meta/dashboard.base
 
 # Scratch canvases and personal vault files
 Banana Images.canvas

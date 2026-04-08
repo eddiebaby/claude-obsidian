@@ -7,7 +7,7 @@ description: >
   "clean up wiki", "check the wiki", "wiki maintenance", "find orphans", "wiki audit".
 ---
 
-# wiki-lint — Wiki Health Check
+# wiki-lint: Wiki Health Check
 
 Run lint after every 10-15 ingests, or weekly. Ask before auto-fixing anything. Output a lint report to `wiki/meta/lint-report-YYYY-MM-DD.md`.
 
@@ -17,14 +17,14 @@ Run lint after every 10-15 ingests, or weekly. Ask before auto-fixing anything. 
 
 Work through these in order:
 
-1. **Orphan pages** — wiki pages with no inbound wikilinks. They exist but nothing points to them.
-2. **Dead links** — wikilinks that reference a page that does not exist.
-3. **Stale claims** — assertions on older pages that newer sources have contradicted or updated.
-4. **Missing pages** — concepts or entities mentioned in multiple pages but lacking their own page.
-5. **Missing cross-references** — entities mentioned in a page but not linked.
-6. **Frontmatter gaps** — pages missing required fields (type, status, created, updated, tags).
-7. **Empty sections** — headings with no content underneath.
-8. **Stale index entries** — items in `wiki/index.md` pointing to renamed or deleted pages.
+1. **Orphan pages**. Wiki pages with no inbound wikilinks. They exist but nothing points to them.
+2. **Dead links**. Wikilinks that reference a page that does not exist.
+3. **Stale claims**. Assertions on older pages that newer sources have contradicted or updated.
+4. **Missing pages**. Concepts or entities mentioned in multiple pages but lacking their own page.
+5. **Missing cross-references**. Entities mentioned in a page but not linked.
+6. **Frontmatter gaps**. Pages missing required fields (type, status, created, updated, tags).
+7. **Empty sections**. Headings with no content underneath.
+8. **Stale index entries**. Items in `wiki/index.md` pointing to renamed or deleted pages.
 
 ---
 
@@ -42,7 +42,7 @@ tags: [meta, lint]
 status: developing
 ---
 
-# Lint Report — YYYY-MM-DD
+# Lint Report: YYYY-MM-DD
 
 ## Summary
 - Pages scanned: N
@@ -51,19 +51,19 @@ status: developing
 - Needs review: N
 
 ## Orphan Pages
-- [[Page Name]] — no inbound links. Suggest: link from [[Related Page]] or delete.
+- [[Page Name]]: no inbound links. Suggest: link from [[Related Page]] or delete.
 
 ## Dead Links
-- [[Missing Page]] — referenced in [[Source Page]] but does not exist. Suggest: create stub or remove link.
+- [[Missing Page]]: referenced in [[Source Page]] but does not exist. Suggest: create stub or remove link.
 
 ## Missing Pages
-- "concept name" — mentioned in [[Page A]], [[Page B]], [[Page C]]. Suggest: create a concept page.
+- "concept name": mentioned in [[Page A]], [[Page B]], [[Page C]]. Suggest: create a concept page.
 
 ## Frontmatter Gaps
-- [[Page Name]] — missing fields: status, tags
+- [[Page Name]]: missing fields: status, tags
 
 ## Stale Claims
-- [[Page Name]] — claim "X" may conflict with newer source [[Newer Source]].
+- [[Page Name]]: claim "X" may conflict with newer source [[Newer Source]].
 
 ## Cross-Reference Gaps
 - [[Entity Name]] mentioned in [[Page A]] without a wikilink.

@@ -21,9 +21,9 @@ Default objectives for every research session:
 
 Label every claim with confidence when filing:
 
-- **high** — multiple independent authoritative sources agree
-- **medium** — single good source, or sources partially agree
-- **low** — speculation, opinion pieces, single informal source, or claim not verified
+- **high**: multiple independent authoritative sources agree
+- **medium**: single good source, or sources partially agree
+- **low**: speculation, opinion pieces, single informal source, or claim not verified
 
 Always note the source date for factual claims. Mark claims from sources older than 3 years as potentially stale.
 
@@ -54,7 +54,7 @@ Always note the source date for factual claims. Mark claims from sources older t
 
 For AI/tech research:
 - Prefer: arXiv, official GitHub repos, official product documentation, Hacker News discussions with high karma
-- Note: LLM benchmarks are often gamed — treat leaderboard claims as low confidence unless independently verified
+- Note: LLM benchmarks are often gamed: treat leaderboard claims as low confidence unless independently verified
 
 For business/market research:
 - Prefer: company filings, Crunchbase, Bloomberg, verified industry reports

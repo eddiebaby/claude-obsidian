@@ -3,11 +3,11 @@ name: wiki-ingest
 description: "Ingest sources into the Obsidian wiki vault. Reads a source, extracts entities and concepts, creates or updates wiki pages, cross-references, and logs the operation. Supports files, URLs, and batch mode. Triggers on: ingest, process this source, add this to the wiki, read and file this, batch ingest, ingest all of these, ingest this url."
 ---
 
-# wiki-ingest — Source Ingestion
+# wiki-ingest: Source Ingestion
 
 Read the source. Write the wiki. Cross-reference everything. A single source typically touches 8-15 wiki pages.
 
-**Syntax standard**: Write all Obsidian Markdown using proper Obsidian Flavored Markdown — wikilinks as `[[Note Name]]`, callouts as `> [!type] Title`, embeds as `![[file]]`, properties as YAML frontmatter. If kepano/obsidian-skills is installed, its `obsidian-markdown` skill is the authoritative syntax reference.
+**Syntax standard**: Write all Obsidian Markdown using proper Obsidian Flavored Markdown. Wikilinks as `[[Note Name]]`, callouts as `> [!type] Title`, embeds as `![[file]]`, properties as YAML frontmatter. If kepano/obsidian-skills is installed, its `obsidian-markdown` skill is the authoritative syntax reference.
 
 ---
 
@@ -37,8 +37,8 @@ Before ingesting any file, check `.raw/.manifest.json` to avoid re-processing un
 **Before ingesting a file:**
 1. Compute a hash: `md5sum [file] | cut -d' ' -f1` (or `sha256sum` on Linux).
 2. Check if the path exists in `.manifest.json` with the same hash.
-3. If hash matches — skip. Report: "Already ingested (unchanged). Use `force` to re-ingest."
-4. If missing or hash differs — proceed with ingest.
+3. If hash matches, skip. Report: "Already ingested (unchanged). Use `force` to re-ingest."
+4. If missing or hash differs, proceed with ingest.
 
 **After ingesting a file:**
 1. Record `{hash, ingested_at, pages_created, pages_updated}` in `.manifest.json`.
@@ -55,7 +55,7 @@ Trigger: user passes a URL starting with `https://`.
 Steps:
 
 1. **Fetch** the page using WebFetch.
-2. **Clean** (optional): if `defuddle` is available (`which defuddle 2>/dev/null`), run `defuddle [url]` to strip ads, nav, and clutter — typically saves 40-60% tokens. Fall back to raw WebFetch output if not installed.
+2. **Clean** (optional): if `defuddle` is available (`which defuddle 2>/dev/null`), run `defuddle [url]` to strip ads, nav, and clutter. Typically saves 40-60% tokens. Fall back to raw WebFetch output if not installed.
 3. **Derive slug** from the URL path (last segment, lowercased, spaces→hyphens, strip query strings).
 4. **Save** to `.raw/articles/[slug]-[YYYY-MM-DD].md` with a frontmatter header:
    ```markdown
@@ -74,7 +74,7 @@ Trigger: user passes an image file path (`.png`, `.jpg`, `.jpeg`, `.gif`, `.webp
 
 Steps:
 
-1. **Read** the image file using the Read tool — Claude can process images natively.
+1. **Read** the image file using the Read tool. Claude can process images natively.
 2. **Describe** the image contents: extract all text (OCR), identify key concepts, entities, diagrams, and data visible in the image.
 3. **Save** the description to `.raw/images/[slug]-[YYYY-MM-DD].md`:
    ```markdown
@@ -153,13 +153,16 @@ Token budget matters. Follow these rules during ingest:
 
 ## Contradictions
 
+> [!note] Custom callout dependency
+> The `[!contradiction]` callout type used below is a **custom callout** defined in `.obsidian/snippets/vault-colors.css` (auto-installed by `/wiki` scaffold). It renders with reddish-brown styling and an alert-triangle icon when the snippet is enabled. If the snippet is missing, Obsidian falls back to default callout styling, so the page still works without the visual flourish. See [[skills/wiki/references/css-snippets.md]] for the four custom callouts (`contradiction`, `gap`, `key-insight`, `stale`).
+
 When new info contradicts an existing wiki page:
 
 On the existing page, add:
 ```markdown
 > [!contradiction] Conflict with [[New Source]]
 > [[Existing Page]] claims X. [[New Source]] says Y.
-> Needs resolution — check dates, context, and primary sources.
+> Needs resolution. Check dates, context, and primary sources.
 ```
 
 On the new source summary, reference it:

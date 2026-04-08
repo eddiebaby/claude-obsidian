@@ -3,14 +3,14 @@ name: canvas
 description: "Visual layer of the wiki. Add images, text cards, PDFs, and wiki pages to Obsidian canvas files with auto-positioning inside zones. Integrates with /banana for image capture. Triggers on: /canvas, canvas new, canvas add image, canvas add text, canvas add pdf, canvas add note, canvas zone, canvas list, canvas from banana, add to canvas, put this on the canvas, open canvas, create canvas."
 ---
 
-# canvas — Visual Reference Layer
+# canvas: Visual Reference Layer
 
 The three knowledge capture layers:
 - `/save` → text synthesis (wiki/questions/, wiki/concepts/)
 - `/autoresearch` → structured knowledge (wiki/sources/, wiki/concepts/)
 - `/canvas` → visual references (wiki/canvases/)
 
-A canvas is a JSON file Obsidian renders as an infinite visual board. This skill reads and writes canvas JSON directly. Read `references/canvas-spec.md` for the full format reference before making any edits. This spec aligns with the [JSON Canvas open standard](https://jsoncanvas.org/) — if `kepano/obsidian-skills` is installed, its `json-canvas` skill is the authoritative cross-platform reference.
+A canvas is a JSON file Obsidian renders as an infinite visual board. This skill reads and writes canvas JSON directly. Read `references/canvas-spec.md` for the full format reference before making any edits. This spec aligns with the [JSON Canvas open standard](https://jsoncanvas.org/). If `kepano/obsidian-skills` is installed, its `json-canvas` skill is the authoritative cross-platform reference.
 
 ---
 
@@ -59,7 +59,7 @@ If it does not exist, create it:
 
 1. Slugify the name: lowercase, spaces → hyphens, strip special chars.
 2. Create `wiki/canvases/[slug].canvas` with the starter structure, title updated to `# [Name]`.
-3. Add entry to `wiki/overview.md` under a "## Canvases" subsection (append after the Current State section). Do not modify `wiki/index.md` — it uses a fixed section schema (Domains, Entities, Concepts, Sources, Questions, Comparisons).
+3. Add entry to `wiki/overview.md` under a "## Canvases" subsection (append after the Current State section). Do not modify `wiki/index.md`. It uses a fixed section schema (Domains, Entities, Concepts, Sources, Questions, Comparisons).
 4. Report: "Created wiki/canvases/[slug].canvas"
 
 ---
@@ -76,7 +76,7 @@ Create `_attachments/images/canvas/` if it doesn't exist.
 
 **Detect aspect ratio:**
 Use `python3 -c "from PIL import Image; img=Image.open('[path]'); print(img.width, img.height)"` or `identify -format '%w %h' [path]`.
-See `references/canvas-spec.md` for the full aspect ratio → canvas size table (7 ratios including 4:3, 3:4, ultra-wide). Do not use an inline table here — the spec is the single source of truth for sizing.
+See `references/canvas-spec.md` for the full aspect ratio → canvas size table (7 ratios including 4:3, 3:4, ultra-wide). Do not use an inline table here. The spec is the single source of truth for sizing.
 
 **Position using auto-layout** (see Auto-Positioning section below).
 
@@ -117,8 +117,8 @@ Same as add image. Obsidian renders PDFs natively as file nodes.
 
 1. Search `wiki/` for a file matching the page name (case-insensitive, partial match ok).
 2. Use the vault-relative path as the `file` field.
-   - Use `"type": "file"` (not `"type": "link"`) — `.md` files use file nodes, not link nodes.
-   - `"type": "link"` takes a `url: "https://..."` — it is for web URLs only.
+   - Use `"type": "file"` (not `"type": "link"`): `.md` files use file nodes, not link nodes.
+   - `"type": "link"` takes a `url: "https://..."`: it is for web URLs only.
 3. Create a file node: width=300, height=100.
 4. Position using auto-layout.
 
@@ -166,8 +166,8 @@ Write and report.
 3. Report:
 
 ```
-wiki/canvases/main.canvas       — 14 nodes (8 images, 3 text, 2 file, 1 group)
-wiki/canvases/design-ideas.canvas — 42 nodes (30 images, 4 text, 8 groups)
+wiki/canvases/main.canvas      . 14 nodes (8 images, 3 text, 2 file, 1 group)
+wiki/canvases/design-ideas.canvas. 42 nodes (30 images, 4 text, 8 groups)
 ```
 
 ---
@@ -175,7 +175,7 @@ wiki/canvases/design-ideas.canvas — 42 nodes (30 images, 4 text, 8 groups)
 ### from banana (`/canvas from banana`)
 
 1. Check `wiki/canvases/.recent-images.txt` first (session log of newly written images).
-2. If not found or empty: use `find` with correct precedence (parentheses required — without them `-newer` only binds to the last `-name` clause):
+2. If not found or empty: use `find` with correct precedence (parentheses required. Without them `-newer` only binds to the last `-name` clause):
    ```bash
    python3 -c "import time,os; open('/tmp/ten-min-ago','w').close(); os.utime('/tmp/ten-min-ago',(time.time()-600,time.time()-600))"
    find _attachments/images -newer /tmp/ten-min-ago \( -name "*.png" -o -name "*.jpg" \)
@@ -199,7 +199,7 @@ def next_position(canvas_nodes, target_zone_label, new_w, new_h):
                  and n.get('label') == target_zone_label), None)
 
     if zone is None:
-        # No zone — place below all content
+        # No zone: place below all content
         max_y = max((n['y'] + n.get('height', 0) for n in canvas_nodes), default=-140)
         return -400, max_y + 60
 
@@ -223,7 +223,7 @@ def next_position(canvas_nodes, target_zone_label, new_w, new_h):
         max_row_y = max(n['y'] + n.get('height', 0) for n in inside)
         return zx + 20, max_row_y + 20
 
-    # Same row — align to the top of all existing nodes in the zone
+    # Same row: align to the top of all existing nodes in the zone
     current_row_y = min(n['y'] for n in inside)
     return next_x, current_row_y
 ```
@@ -264,7 +264,7 @@ When `/banana` finishes generating images, suggest:
 ## Summary
 
 1. Read canvas-spec.md before editing any canvas JSON.
-2. Always read the canvas file before writing — parse existing nodes to avoid ID collisions and calculate auto-positions.
+2. Always read the canvas file before writing. Parse existing nodes to avoid ID collisions and calculate auto-positions.
 3. Create `_attachments/images/canvas/` for downloaded/copied images.
 4. Update `wiki/index.md` when creating new canvases.
 5. Report position and zone after every add operation.

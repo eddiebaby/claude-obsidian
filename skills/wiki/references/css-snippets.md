@@ -71,7 +71,18 @@ Guide the user to set these in Graph View settings (click the settings icon in t
 
 ---
 
-## How the Callouts Look
+## Custom Callouts
+
+This vault defines **four custom callout types** beyond Obsidian's built-in set (`note`, `tip`, `warning`, `info`, `todo`, `success`, `question`, `failure`, `danger`, `bug`, `example`, `quote`). They render correctly **only when `vault-colors.css` is enabled**. Without the snippet, they fall back to default callout styling (still readable, just plain).
+
+| Custom callout | Color | Icon | Use for |
+|---|---|---|---|
+| `contradiction` | reddish-brown (rgb 209,105,105) | `lucide-alert-triangle` | New source conflicts with existing claim |
+| `gap` | beige (rgb 220,220,170) | `lucide-help-circle` | Topic has no source yet |
+| `key-insight` | bright blue (rgb 79,193,255) | `lucide-lightbulb` | Important takeaway worth highlighting |
+| `stale` | gray (rgb 128,128,128) | `lucide-clock` | Claim may be outdated, source older than threshold |
+
+### Usage
 
 Use these in wiki pages to flag important states:
 
@@ -88,6 +99,21 @@ Use these in wiki pages to flag important states:
 > [!stale] Title
 > This claim may be outdated. Source was from 2022.
 ```
+
+### Why custom callouts (vs built-in)
+
+The four custom types map to wiki-specific concepts that don't fit cleanly into Obsidian's default set:
+
+- `contradiction` is more specific than `warning`: it signals a **resolvable conflict** between two wiki pages, not a generic warning.
+- `gap` is more specific than `question`: it signals a **missing source**, an actionable improvement.
+- `key-insight` is more specific than `tip`: it marks **the** most important takeaway from a section, used sparingly.
+- `stale` has no built-in equivalent: it signals time-based decay of a claim.
+
+If you don't want custom callouts, replace them with built-ins:
+- `[!contradiction]` → `[!warning] Contradiction`
+- `[!gap]` → `[!question] Gap`
+- `[!key-insight]` → `[!tip] Key insight`
+- `[!stale]` → `[!warning] Stale`
 
 ---
 

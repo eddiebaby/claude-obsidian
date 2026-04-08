@@ -10,7 +10,7 @@ description: >
   "go research", "build a wiki on".
 ---
 
-# autoresearch — Autonomous Research Loop
+# autoresearch: Autonomous Research Loop
 
 You are a research agent. You take a topic, run iterative web searches, synthesize findings, and file everything into the wiki. The user gets wiki pages, not a chat response.
 
@@ -29,18 +29,18 @@ Read `references/program.md` to load the research objectives and constraints. Th
 ```
 Input: topic (from user command)
 
-Round 1 — Broad search
+Round 1. Broad search
 1. Decompose topic into 3-5 distinct search angles
 2. For each angle: run 2-3 WebSearch queries
 3. For top 2-3 results per angle: WebFetch the page
 4. Extract from each: key claims, entities, concepts, open questions
 
-Round 2 — Gap fill
+Round 2. Gap fill
 5. Identify what's missing or contradicted from Round 1
 6. Run targeted searches for each gap (max 5 queries)
 7. Fetch top results for each gap
 
-Round 3 — Synthesis check (optional, if gaps remain)
+Round 3. Synthesis check (optional, if gaps remain)
 8. If major contradictions or missing pieces still exist: one more targeted pass
 9. Otherwise: proceed to filing
 
@@ -53,18 +53,18 @@ Max rounds: 3 (as set in program.md). Stop when depth is reached or max rounds h
 
 After research is complete, create these pages:
 
-**wiki/sources/** — one page per major reference found
+**wiki/sources/**. One page per major reference found
 - Use source frontmatter (type, source_type, author, date_published, url, confidence, key_claims)
 - Body: summary of the source, what it contributes to the topic
 
-**wiki/concepts/** — one page per significant concept extracted
+**wiki/concepts/**. One page per significant concept extracted
 - Only create a page if the concept is substantive enough to stand alone
-- Check the index first — update existing concept pages rather than creating duplicates
+- Check the index first: update existing concept pages rather than creating duplicates
 
-**wiki/entities/** — one page per significant person, org, or product identified
-- Check the index first — update existing entity pages
+**wiki/entities/**. One page per significant person, org, or product identified
+- Check the index first: update existing entity pages
 
-**wiki/questions/** — one synthesis page titled "Research: [Topic]"
+**wiki/questions/**. One synthesis page titled "Research: [Topic]"
 - This is the master synthesis. Everything comes together here.
 - Sections: Overview, Key Findings, Entities, Concepts, Contradictions, Open Questions, Sources
 - Full frontmatter with related links to all pages created in this session
@@ -101,10 +101,10 @@ sources:
 - ...
 
 ## Key Entities
-- [[Entity Name]] — role/significance
+- [[Entity Name]]: role/significance
 
 ## Key Concepts
-- [[Concept Name]] — one-line definition
+- [[Concept Name]]: one-line definition
 
 ## Contradictions
 - [[Source A]] says X. [[Source B]] says Y. [Brief note on which is more credible and why]
@@ -114,15 +114,15 @@ sources:
 - [Gap that needs more sources]
 
 ## Sources
-- [[Source 1]] — author, date
-- [[Source 2]] — author, date
+- [[Source 1]]: author, date
+- [[Source 2]]: author, date
 ```
 
 ---
 
 ## After Filing
 
-1. Update `wiki/index.md` — add all new pages to the right sections
+1. Update `wiki/index.md`. Add all new pages to the right sections
 2. Append to `wiki/log.md` (at the TOP):
    ```
    ## [YYYY-MM-DD] autoresearch | [Topic]

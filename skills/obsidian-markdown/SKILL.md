@@ -1,13 +1,13 @@
 ---
 name: obsidian-markdown
-description: "Write correct Obsidian Flavored Markdown — wikilinks, embeds, callouts, properties, tags, highlights, math, and canvas syntax. Reference this when creating or editing any wiki page. Triggers on: write obsidian note, obsidian syntax, wikilink, callout, embed, obsidian markdown."
+description: "Write correct Obsidian Flavored Markdown: wikilinks, embeds, callouts, properties, tags, highlights, math, and canvas syntax. Reference this when creating or editing any wiki page. Triggers on: write obsidian note, obsidian syntax, wikilink, callout, embed, obsidian markdown."
 ---
 
-# obsidian-markdown — Obsidian Flavored Markdown
+# obsidian-markdown: Obsidian Flavored Markdown
 
 Reference this skill when writing any wiki page. Obsidian extends standard Markdown with wikilinks, embeds, callouts, and properties. Getting syntax wrong causes broken links, invisible callouts, or malformed frontmatter.
 
-**Cross-reference**: `kepano/obsidian-skills` publishes the authoritative cross-platform version of this skill at [github.com/kepano/obsidian-skills](https://github.com/kepano/obsidian-skills). If installed, that skill is the canonical reference — use it alongside this one.
+**Cross-reference**: `kepano/obsidian-skills` publishes the authoritative cross-platform version of this skill at [github.com/kepano/obsidian-skills](https://github.com/kepano/obsidian-skills). If installed, that skill is the canonical reference. Use it alongside this one.
 
 ---
 
@@ -15,16 +15,16 @@ Reference this skill when writing any wiki page. Obsidian extends standard Markd
 
 Internal links use double brackets. The filename without extension.
 
-```markdown
-[[Note Name]]                  — basic link
-[[Note Name|Display Text]]     — aliased link (shows "Display Text")
-[[Note Name#Heading]]          — link to a specific heading
-[[Note Name#^block-id]]        — link to a specific block
-```
+| Syntax | What it does |
+|---|---|
+| `[[Note Name]]` | Basic link |
+| `[[Note Name\|Display Text]]` | Aliased link (shows "Display Text") |
+| `[[Note Name#Heading]]` | Link to a specific heading |
+| `[[Note Name#^block-id]]` | Link to a specific block |
 
 Rules:
 - Case-sensitive on some systems. Match the exact filename.
-- No path needed — Obsidian resolves by filename uniqueness.
+- No path needed: Obsidian resolves by filename uniqueness.
 - If two files have the same name, use `[[Folder/Note Name]]` to disambiguate.
 
 ---
@@ -33,14 +33,14 @@ Rules:
 
 Embeds use `!` before the wikilink. They display the content inline.
 
-```markdown
-![[Note Name]]                 — embed a full note
-![[Note Name#Heading]]         — embed a section
-![[image.png]]                 — embed an image
-![[image.png|300]]             — embed image with width 300px
-![[document.pdf]]              — embed a PDF (Obsidian renders natively)
-![[audio.mp3]]                 — embed audio
-```
+| Syntax | What it does |
+|---|---|
+| `![[Note Name]]` | Embed a full note |
+| `![[Note Name#Heading]]` | Embed a section |
+| `![[image.png]]` | Embed an image |
+| `![[image.png\|300]]` | Embed image with width 300px |
+| `![[document.pdf]]` | Embed a PDF (Obsidian renders natively) |
+| `![[audio.mp3]]` | Embed audio |
 
 ---
 
@@ -66,20 +66,20 @@ Callouts are blockquotes with a type keyword. They render as styled alert boxes.
 
 | Type | Aliases | Use for |
 |------|---------|---------|
-| `note` | — | General notes |
+| `note` |: | General notes |
 | `abstract` | `summary`, `tldr` | Summaries |
-| `info` | — | Information |
-| `todo` | — | Action items |
+| `info` |: | Information |
+| `todo` |: | Action items |
 | `tip` | `hint`, `important` | Tips and highlights |
 | `success` | `check`, `done` | Positive outcomes |
 | `question` | `help`, `faq` | Open questions |
 | `warning` | `caution`, `attention` | Warnings |
 | `failure` | `fail`, `missing` | Errors or failures |
 | `danger` | `error` | Critical issues |
-| `bug` | — | Known bugs |
-| `example` | — | Examples |
+| `bug` |: | Known bugs |
+| `example` |: | Examples |
 | `quote` | `cite` | Quotations |
-| `contradiction` | — | Conflicting information (wiki convention) |
+| `contradiction` |: | Conflicting information (wiki convention) |
 
 ---
 
@@ -118,8 +118,8 @@ Rules:
 Two valid forms:
 
 ```markdown
-#tag-name              — inline tag anywhere in the body
-#parent/child-tag      — nested tag (shows hierarchy in tag pane)
+#tag-name             : inline tag anywhere in the body
+#parent/child-tag     : nested tag (shows hierarchy in tag pane)
 ```
 
 In frontmatter:
@@ -129,7 +129,7 @@ tags:
   - ai/obsidian
 ```
 
-Do not use `#` inside frontmatter tag lists — just the tag name.
+Do not use `#` inside frontmatter tag lists. Just the tag name.
 
 ---
 
@@ -137,13 +137,13 @@ Do not use `#` inside frontmatter tag lists — just the tag name.
 
 Standard Markdown plus Obsidian extensions:
 
-```markdown
-**bold**               — bold
-*italic*               — italic
-~~strikethrough~~      — strikethrough
-==highlight==          — highlighted text (yellow in Obsidian)
-`inline code`          — inline code
-```
+| Syntax | Result |
+|---|---|
+| `**bold**` | Bold |
+| `*italic*` | Italic |
+| `~~strikethrough~~` | Strikethrough |
+| `==highlight==` | Highlighted text (yellow in Obsidian) |
+| `` `inline code` `` | Inline code |
 
 ---
 
@@ -151,12 +151,16 @@ Standard Markdown plus Obsidian extensions:
 
 Obsidian uses MathJax/KaTeX:
 
+Inline math:
 ```markdown
-$E = mc^2$             — inline math
+$E = mc^2$
+```
 
+Block math:
+```markdown
 $$
 \int_0^\infty e^{-x} dx = 1
-$$                     — block math
+$$
 ```
 
 ---
@@ -219,8 +223,8 @@ This sentence has a footnote.[^1]
 
 ## What NOT to Do
 
-- Do not use `[link text](path/to/note.md)` for internal links — use `[[Note Name]]` instead.
-- Do not use HTML inside callouts — stick to Markdown.
-- Do not use `##` inside a callout body — headings don't render inside callouts.
-- Do not write `tags: [a, b, c]` inline in frontmatter — Obsidian prefers the list format.
-- Do not write ISO datetimes in frontmatter (`2026-04-08T00:00:00Z`) — use `2026-04-08`.
+- Do not use `[link text](path/to/note.md)` for internal links: use `[[Note Name]]` instead.
+- Do not use HTML inside callouts: stick to Markdown.
+- Do not use `##` inside a callout body: headings don't render inside callouts.
+- Do not write `tags: [a, b, c]` inline in frontmatter: Obsidian prefers the list format.
+- Do not write ISO datetimes in frontmatter (`2026-04-08T00:00:00Z`): use `2026-04-08`.

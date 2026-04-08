@@ -14,7 +14,7 @@ Based on Andrej Karpathy's LLM Wiki pattern.
 ## What It Does
 
 <p align="center">
-  <img src="wiki/meta/welcome-canvas.gif" alt="Welcome canvas — visual demo board" width="96%" />
+  <img src="wiki/meta/welcome-canvas.gif" alt="Welcome canvas. Visual demo board" width="96%" />
 </p>
 
 You drop sources. Claude reads them, extracts entities and concepts, updates cross-references, and files everything into a structured Obsidian vault. The wiki gets richer with every ingest.
@@ -26,7 +26,7 @@ You lint. Claude finds orphans, dead links, stale claims, and missing cross-refe
 At the end of every session, Claude updates a hot cache. The next session starts with full recent context, no recap needed.
 
 <p align="center">
-  <img src="wiki/meta/image-example-graph-view.png" alt="Graph view — color-coded wiki nodes" width="48%" />
+  <img src="wiki/meta/image-example-graph-view.png" alt="Graph view. Color-coded wiki nodes" width="48%" />
   <img src="wiki/meta/image-example-wiki-map-view.png" alt="Wiki Map canvas" width="48%" />
 </p>
 
@@ -34,7 +34,7 @@ At the end of every session, Claude updates a hot cache. The next session starts
 
 ## Quick Start
 
-### Option 1: Clone as vault (recommended — full setup in 2 minutes)
+### Option 1: Clone as vault (recommended: full setup in 2 minutes)
 
 ```bash
 git clone https://github.com/AgriciDaniel/claude-obsidian
@@ -56,7 +56,7 @@ Open Claude Code in the same folder. Type `/wiki`.
 claude plugin install github:AgriciDaniel/claude-obsidian
 ```
 
-In any Claude Code session: `/wiki` — Claude walks you through vault setup.
+In any Claude Code session: `/wiki`. Claude walks you through vault setup.
 
 ---
 
@@ -138,14 +138,15 @@ Modes can be combined.
 
 A typical scaffold creates:
 - Folder structure for your chosen mode
-- `wiki/index.md` — master catalog
-- `wiki/log.md` — append-only operation log
-- `wiki/hot.md` — recent context cache
-- `wiki/overview.md` — executive summary
-- `wiki/meta/dashboard.md` — Dataview dashboard
-- `_templates/` — Obsidian Templater templates for each note type
-- `.obsidian/snippets/vault-colors.css` — color-coded file explorer
-- Vault `CLAUDE.md` — auto-loaded project instructions
+- `wiki/index.md`: master catalog
+- `wiki/log.md`: append-only operation log
+- `wiki/hot.md`: recent context cache
+- `wiki/overview.md`: executive summary
+- `wiki/meta/dashboard.base`: Bases dashboard (primary, native Obsidian)
+- `wiki/meta/dashboard.md`: Legacy Dataview dashboard (optional fallback)
+- `_templates/`: Obsidian Templater templates for each note type
+- `.obsidian/snippets/vault-colors.css`: color-coded file explorer
+- Vault `CLAUDE.md`: auto-loaded project instructions
 
 ---
 
@@ -182,9 +183,19 @@ claude mcp add-json obsidian-vault '{
 
 ---
 
-## Plugins (pre-installed)
+## Plugins
 
-These ship with the vault — enable them in **Settings → Community Plugins → enable**:
+### Core Plugins (built into Obsidian: no install needed)
+
+| Plugin | Purpose |
+|--------|---------|
+| **Bases** | Powers `wiki/meta/dashboard.base`: native database views. Available since Obsidian v1.9.10 (August 2025). **Replaces Dataview for the primary dashboard.** |
+| **Properties** | Visual frontmatter editor |
+| **Backlinks**, **Outline**, **Graph view** | Standard navigation |
+
+### Pre-installed Community Plugins (ship with this vault)
+
+Enable in **Settings → Community Plugins → enable**:
 
 | Plugin | Purpose | Notes |
 |--------|---------|-------|
@@ -195,15 +206,15 @@ These ship with the vault — enable them in **Settings → Community Plugins �
 
 \* Excalidraw `main.js` (8MB) is downloaded automatically by `setup-vault.sh`. It is not tracked in git.
 
-Also install from **Community Plugins** (not pre-installed):
+### Also install from Community Plugins (not pre-installed)
 
 | Plugin | Purpose |
 |--------|---------|
-| **Dataview** | Powers the dashboard Dataview queries |
 | **Templater** | Auto-fills frontmatter from `_templates/` |
 | **Obsidian Git** | Auto-commits vault every 15 minutes |
+| **Dataview** *(optional/legacy)* | Only needed for the legacy `wiki/meta/dashboard.md` queries. The primary dashboard now uses Bases. |
 
-Also install the **[Obsidian Web Clipper](https://obsidian.md/clipper)** browser extension — sends web pages to `.raw/` in one click.
+Also install the **[Obsidian Web Clipper](https://obsidian.md/clipper)** browser extension. Sends web pages to `.raw/` in one click.
 
 ---
 
@@ -214,8 +225,8 @@ Three snippets ship with the vault and are enabled automatically:
 | Snippet | Effect |
 |---------|--------|
 | `vault-colors` | Color-codes `wiki/` folders by type in the file explorer (blue = concepts, green = sources, purple = entities) |
-| `ITS-Dataview-Cards` | Turns Dataview `TABLE` queries into visual card grids — use ` ```dataviewjs ` with `.cards` class |
-| `ITS-Image-Adjustments` | Fine-grained image sizing in notes — append `\|100` to any image embed |
+| `ITS-Dataview-Cards` | Turns Dataview `TABLE` queries into visual card grids: use ` ```dataviewjs ` with `.cards` class |
+| `ITS-Image-Adjustments` | Fine-grained image sizing in notes: append `\|100` to any image embed |
 
 ---
 
@@ -244,11 +255,11 @@ claude-obsidian/
 │   ├── wiki-ingest/             # INGEST operation
 │   ├── wiki-query/              # QUERY operation
 │   ├── wiki-lint/               # LINT operation
-│   ├── save/                    # /save — file conversations to wiki
-│   ├── autoresearch/            # /autoresearch — autonomous research loop
+│   ├── save/                    # /save: file conversations to wiki
+│   ├── autoresearch/            # /autoresearch: autonomous research loop
 │   │   └── references/
 │   │       └── program.md       # configurable research objectives
-│   └── canvas/                  # /canvas — visual layer (images, PDFs, notes)
+│   └── canvas/                  # /canvas: visual layer (images, PDFs, notes)
 │       └── references/
 │           └── canvas-spec.md   # Obsidian canvas JSON format reference
 ├── agents/
@@ -263,13 +274,15 @@ claude-obsidian/
 │   └── hooks.json               # SessionStart + Stop hot cache hooks
 ├── _templates/                  # Obsidian Templater templates
 ├── wiki/
-│   ├── Wiki Map.canvas          # visual hub — central graph node
+│   ├── Wiki Map.canvas          # visual hub, central graph node
 │   ├── canvases/                # welcome.canvas + main.canvas (visual demos)
 │   ├── getting-started.md       # onboarding walkthrough (inside the vault)
 │   ├── concepts/                # seeded: LLM Wiki Pattern, Hot Cache, Compounding Knowledge
 │   ├── entities/                # seeded: Andrej Karpathy
 │   ├── sources/                 # populated by your first ingest
-│   └── meta/dashboard.md        # Dataview dashboard
+│   └── meta/
+│       ├── dashboard.base       # Bases dashboard (primary)
+│       └── dashboard.md         # Legacy Dataview dashboard (optional)
 ├── .raw/                        # source documents (hidden in Obsidian)
 ├── .obsidian/snippets/          # vault-colors.css (3-color scheme)
 ├── WIKI.md                      # full schema reference
@@ -296,10 +309,11 @@ The default program works for general research. Override it for your domain. A m
 
 This repo ships with a seeded vault. Open it in Obsidian and you'll see:
 
-- `wiki/concepts/` — LLM Wiki Pattern, Hot Cache, Compounding Knowledge
-- `wiki/entities/` — Andrej Karpathy
-- `wiki/sources/` — empty until your first ingest
-- `wiki/meta/dashboard.md` — Dataview dashboard (requires Dataview plugin)
+- `wiki/concepts/`: LLM Wiki Pattern, Hot Cache, Compounding Knowledge
+- `wiki/entities/`: Andrej Karpathy
+- `wiki/sources/`: empty until your first ingest
+- `wiki/meta/dashboard.base`: Bases dashboard (works in any Obsidian v1.9.10+)
+- `wiki/meta/dashboard.md`: Legacy Dataview dashboard (optional fallback)
 
 The graph view will show a connected cluster of 5 pages. This is what the wiki looks like after one ingest. Add more sources and it grows from there.
 

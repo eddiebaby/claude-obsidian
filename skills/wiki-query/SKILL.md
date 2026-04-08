@@ -3,7 +3,7 @@ name: wiki-query
 description: "Answer questions using the Obsidian wiki vault. Reads hot cache first, then index, then relevant pages. Synthesizes answers with citations. Files good answers back as wiki pages. Supports quick, standard, and deep modes. Triggers on: what do you know about, query:, what is, explain, summarize, find in wiki, search the wiki, based on the wiki, wiki query quick, wiki query deep."
 ---
 
-# wiki-query — Query the Wiki
+# wiki-query: Query the Wiki
 
 The wiki has already done the synthesis work. Read strategically, answer precisely, and file good answers back so the knowledge compounds.
 
@@ -25,10 +25,10 @@ Three depths. Choose based on the question complexity.
 
 Use when the answer is likely in the hot cache or index summary.
 
-1. Read `wiki/hot.md`. If it answers the question — respond immediately.
-2. If not: read `wiki/index.md`. Scan descriptions for the answer.
-3. If found in index summary — respond. Do not open any pages.
-4. If not found — say "Not in quick cache. Run as standard query?"
+1. Read `wiki/hot.md`. If it answers the question, respond immediately.
+2. If not, read `wiki/index.md`. Scan descriptions for the answer.
+3. If found in index summary, respond and do not open any pages.
+4. If not found, say "Not in quick cache. Run as standard query?"
 
 Do not open individual wiki pages in quick mode.
 
@@ -38,7 +38,7 @@ Do not open individual wiki pages in quick mode.
 
 1. **Read** `wiki/hot.md` first. It may already have the answer or directly relevant context.
 2. **Read** `wiki/index.md` to find the most relevant pages (scan for titles and descriptions).
-3. **Read** those pages. Follow wikilinks to depth-2 for key entities — no deeper.
+3. **Read** those pages. Follow wikilinks to depth-2 for key entities. No deeper.
 4. **Synthesize** the answer in chat. Cite sources with wikilinks: `(Source: [[Page Name]])`.
 5. **Offer to file** the answer: "This analysis seems worth keeping. Should I save it as `wiki/questions/answer-name.md`?"
 6. If the question reveals a **gap**: say "I don't have enough on X. Want to find a source?"
@@ -51,10 +51,10 @@ Use for synthesis questions, comparisons, or "tell me everything about X."
 
 1. Read `wiki/hot.md` and `wiki/index.md`.
 2. Identify all relevant sections (concepts, entities, sources, comparisons).
-3. Read every relevant page — no skipping.
+3. Read every relevant page. No skipping.
 4. If wiki coverage is thin, offer to supplement with web search.
 5. Synthesize a comprehensive answer with full citations.
-6. Always file the result back as a wiki page — deep answers are too valuable to lose.
+6. Always file the result back as a wiki page. Deep answers are too valuable to lose.
 
 ---
 
@@ -79,19 +79,19 @@ The master index (`wiki/index.md`) looks like:
 
 ```markdown
 ## Domains
-- [[Domain Name]] — description (N sources)
+- [[Domain Name]]: description (N sources)
 
 ## Entities
-- [[Entity Name]] — role (first: [[Source]])
+- [[Entity Name]]: role (first: [[Source]])
 
 ## Concepts
-- [[Concept Name]] — definition (status: developing)
+- [[Concept Name]]: definition (status: developing)
 
 ## Sources
-- [[Source Title]] — author, date, type
+- [[Source Title]]: author, date, type
 
 ## Questions
-- [[Question Title]] — answer summary
+- [[Question Title]]: answer summary
 ```
 
 Scan the section headers first to determine which sections to read.
@@ -111,13 +111,13 @@ updated: YYYY-MM-DD
 # Entities
 
 ## People
-- [[Person Name]] — role, org
+- [[Person Name]]: role, org
 
 ## Organizations
-- [[Org Name]] — what they do
+- [[Org Name]]: what they do
 
 ## Products
-- [[Product Name]] — category
+- [[Product Name]]: category
 ```
 
 Use sub-indexes when the question is scoped to one domain. Avoid reading the full master index for narrow queries.

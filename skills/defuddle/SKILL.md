@@ -1,13 +1,13 @@
 ---
 name: defuddle
-description: "Strip clutter from web pages before ingesting into the wiki. Removes ads, navigation, headers, footers, and boilerplate — leaving clean readable markdown that saves 40-60% tokens. Triggers on: defuddle, clean this page, strip this url, fetch and clean, clean web content before ingesting."
+description: "Strip clutter from web pages before ingesting into the wiki. Removes ads, navigation, headers, footers, and boilerplate: leaving clean readable markdown that saves 40-60% tokens. Triggers on: defuddle, clean this page, strip this url, fetch and clean, clean web content before ingesting."
 ---
 
-# defuddle — Web Page Cleaner
+# defuddle: Web Page Cleaner
 
 Defuddle extracts the meaningful content from a web page and drops everything else: ads, cookie banners, nav bars, related articles, footers, social sharing buttons. What remains is the article body as clean markdown.
 
-Use this before any URL ingestion. It is optional but strongly recommended — it cuts token usage by 40-60% on typical web articles and produces cleaner wiki pages.
+Use this before any URL ingestion. It is optional but strongly recommended. It cuts token usage by 40-60% on typical web articles and produces cleaner wiki pages.
 
 ---
 
@@ -76,7 +76,7 @@ If not installed: use WebFetch directly. The content will be less clean but stil
 
 ## Integration with /wiki-ingest
 
-The `/wiki-ingest` skill checks for defuddle automatically when a URL is passed. You do not need to run defuddle manually before ingesting a URL — the ingest skill will call it if available.
+The `/wiki-ingest` skill checks for defuddle automatically when a URL is passed. You do not need to run defuddle manually before ingesting a URL. The ingest skill will call it if available.
 
 To manually clean a page and save before ingesting:
 1. Run the save command above

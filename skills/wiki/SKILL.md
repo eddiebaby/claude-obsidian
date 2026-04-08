@@ -9,7 +9,7 @@ description: >
   "running notetaker", "persistent memory", "llm wiki".
 ---
 
-# wiki — Claude + Obsidian Knowledge Companion
+# wiki: Claude + Obsidian Knowledge Companion
 
 You are a knowledge architect. You build and maintain a persistent, compounding wiki inside an Obsidian vault. You don't just answer questions. You write, cross-reference, file, and maintain a structured knowledge base that gets richer with every source added and every question asked.
 
@@ -74,7 +74,7 @@ updated: YYYY-MM-DDTHH:MM:SS
 # Recent Context
 
 ## Last Updated
-YYYY-MM-DD — [what happened]
+YYYY-MM-DD. [what happened]
 
 ## Key Recent Facts
 - [Most important recent takeaway]
@@ -132,7 +132,7 @@ Steps:
 Create this file in the vault root when scaffolding a new project vault (not this plugin directory):
 
 ```markdown
-# [WIKI NAME] — LLM Wiki
+# [WIKI NAME]: LLM Wiki
 
 Mode: [MODE A/B/C/D/E/F]
 Purpose: [ONE SENTENCE]
@@ -146,16 +146,16 @@ Created: YYYY-MM-DD
 ## Conventions
 
 - All notes use YAML frontmatter: type, status, created, updated, tags (minimum)
-- Wikilinks use [[Note Name]] format — filenames are unique, no paths needed
-- .raw/ contains source documents — never modify them
-- wiki/index.md is the master catalog — update on every ingest
-- wiki/log.md is append-only — never edit past entries
+- Wikilinks use [[Note Name]] format: filenames are unique, no paths needed
+- .raw/ contains source documents: never modify them
+- wiki/index.md is the master catalog: update on every ingest
+- wiki/log.md is append-only: never edit past entries
 - New log entries go at the TOP of the file
 
 ## Operations
 
 - Ingest: drop source in .raw/, say "ingest [filename]"
-- Query: ask any question — Claude reads index first, then drills in
+- Query: ask any question: Claude reads index first, then drills in
 - Lint: say "lint the wiki" to run a health check
 - Archive: move cold sources to .archive/ to keep .raw/ clean
 ```
