@@ -39,13 +39,24 @@ Then in Obsidian: **Manage Vaults → Open folder as vault → select `claude-ob
 
 Open Claude Code in the same folder and type `/wiki`.
 
-### Option 2 — Install as Claude Code plugin
+### Option 2: Install as Claude Code plugin
+
+Plugin installation in Claude Code is a two-step process. First add the marketplace catalog, then install the plugin from it.
 
 ```bash
-claude plugin install github:AgriciDaniel/claude-obsidian
+# Step 1: add the marketplace
+claude plugin marketplace add AgriciDaniel/claude-obsidian
+
+# Step 2: install the plugin
+claude plugin install claude-obsidian@claude-obsidian-marketplace
 ```
 
-In any Claude Code session: type `/wiki` — Claude walks you through vault setup.
+Verify the install:
+```bash
+claude plugin list
+```
+
+In any Claude Code session: type `/wiki` and Claude walks you through vault setup.
 
 ### Option 3 — Add to an existing vault
 
