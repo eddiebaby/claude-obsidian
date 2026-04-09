@@ -11,12 +11,8 @@ Based on Andrej Karpathy's LLM Wiki pattern.
 
 ---
 
-## [Demo](https://www.youtube.com/watch?v=a2hgayvr-H4)
-
----
-
 ## What It Does
-
+### [Youtube Demo](https://www.youtube.com/watch?v=a2hgayvr-H4)
 <p align="center">
   <img src="wiki/meta/welcome-canvas.gif" alt="Welcome canvas. Visual demo board" width="96%" />
 </p>
