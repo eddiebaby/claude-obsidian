@@ -11,6 +11,18 @@ Based on Andrej Karpathy's LLM Wiki pattern.
 
 ---
 
+## Demo
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=a2hgayvr-H4">
+    <img src="https://img.youtube.com/vi/a2hgayvr-H4/maxresdefault.jpg" alt="claude-obsidian demo — 6 min walkthrough" width="80%" />
+  </a>
+</p>
+
+<p align="center"><em>6 min walkthrough: /save, /autoresearch, /canvas in action</em></p>
+
+---
+
 ## What It Does
 
 <p align="center">
