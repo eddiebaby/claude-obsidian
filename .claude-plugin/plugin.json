@@ -1,6 +1,6 @@
 {
   "name": "claude-obsidian",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Claude + Obsidian knowledge companion. Sets up a persistent, compounding wiki vault. Covers memory management, session notetaking, knowledge organization, and agent context across projects. Based on Andrej Karpathy's LLM Wiki pattern.",
   "author": {
     "name": "AgriciDaniel",
@@ -21,6 +21,8 @@
     "cross-project",
     "llm-wiki",
     "karpathy",
-    "pkm"
+    "pkm",
+    "canvas",
+    "visual"
   ]
 }

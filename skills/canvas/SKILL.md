@@ -269,3 +269,10 @@ When `/banana` finishes generating images, suggest:
 3. Create `_attachments/images/canvas/` for downloaded/copied images.
 4. Update `wiki/index.md` when creating new canvases.
 5. Report position and zone after every add operation.
+
+## See Also
+
+For standalone visual production (12 templates, 6 layout algorithms, AI generation,
+presentations), see [claude-canvas](https://github.com/AgriciDaniel/claude-canvas).
+This skill handles wiki-scoped visual boards. claude-canvas handles full-featured
+canvas orchestration for any project.

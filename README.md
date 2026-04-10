@@ -107,6 +107,8 @@ Then scaffold the full wiki structure.
 | `lint the wiki` | Health check: orphans, dead links, gaps, suggestions |
 | `update hot cache` | Refresh hot.md with latest context summary |
 
+> **Want more?** [claude-canvas](https://github.com/AgriciDaniel/claude-canvas) adds 12 templates, 6 layout algorithms, AI image generation, presentations, and full canvas orchestration. Install both — they complement each other.
+
 ---
 
 ## Cross-Project Power Move
