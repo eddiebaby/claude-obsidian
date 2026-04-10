@@ -1,13 +1,14 @@
 ---
 name: obsidian-bases
 description: "Create and edit Obsidian Bases (.base files): Obsidian's native database layer for dynamic tables, card views, list views, filters, formulas, and summaries over vault notes. Triggers on: create a base, add a base file, obsidian bases, base view, filter notes, formula, database view, dynamic table, task tracker base, reading list base."
+allowed-tools: Read Write
 ---
 
 # obsidian-bases: Obsidian's Database Layer
 
 Obsidian Bases (launched 2025) turns vault notes into queryable, dynamic views. Tables, cards, lists, maps. Defined in `.base` files. No plugin required; it is a core Obsidian feature.
 
-**Authoritative reference**: `kepano/obsidian-skills` publishes the canonical `obsidian-bases` skill with full syntax and function reference. Use this skill alongside that one. Official docs: https://help.obsidian.md/bases/syntax
+**Authoritative reference**: If the kepano/obsidian-skills plugin is installed, prefer its canonical obsidian-bases skill. Otherwise, use the reference below. Official docs: https://help.obsidian.md/bases/syntax
 
 ---
 

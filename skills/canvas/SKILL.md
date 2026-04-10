@@ -1,6 +1,7 @@
 ---
 name: canvas
 description: "Visual layer of the wiki. Add images, text cards, PDFs, and wiki pages to Obsidian canvas files with auto-positioning inside zones. Integrates with /banana for image capture. Triggers on: /canvas, canvas new, canvas add image, canvas add text, canvas add pdf, canvas add note, canvas zone, canvas list, canvas from banana, add to canvas, put this on the canvas, open canvas, create canvas."
+allowed-tools: Read Write Edit Glob Grep
 ---
 
 # canvas: Visual Reference Layer
@@ -10,7 +11,7 @@ The three knowledge capture layers:
 - `/autoresearch` → structured knowledge (wiki/sources/, wiki/concepts/)
 - `/canvas` → visual references (wiki/canvases/)
 
-A canvas is a JSON file Obsidian renders as an infinite visual board. This skill reads and writes canvas JSON directly. Read `references/canvas-spec.md` for the full format reference before making any edits. This spec aligns with the [JSON Canvas open standard](https://jsoncanvas.org/). If `kepano/obsidian-skills` is installed, its `json-canvas` skill is the authoritative cross-platform reference.
+A canvas is a JSON file Obsidian renders as an infinite visual board. This skill reads and writes canvas JSON directly. Read `references/canvas-spec.md` for the full format reference before making any edits. This spec aligns with the [JSON Canvas open standard](https://jsoncanvas.org/). If the kepano/obsidian-skills plugin is installed, its json-canvas skill is the authoritative canvas spec reference. Otherwise, use the guidance below.
 
 ---
 
@@ -172,7 +173,7 @@ wiki/canvases/design-ideas.canvas. 42 nodes (30 images, 4 text, 8 groups)
 
 ---
 
-### from banana (`/canvas from banana`)
+### from banana (`/canvas from banana`) (if the banana-claude plugin is installed)
 
 1. Check `wiki/canvases/.recent-images.txt` first (session log of newly written images).
 2. If not found or empty: use `find` with correct precedence (parentheses required. Without them `-newer` only binds to the last `-name` clause):
@@ -252,7 +253,7 @@ If `wiki/canvases/.recent-images.txt` exists, append any new image path written 
 
 ---
 
-## Banana Integration
+## Banana Integration (if the banana-claude plugin is installed)
 
 After any `/banana` run in the same session, if the user says "add to canvas" or "put on canvas", treat it as `/canvas from banana`.
 
