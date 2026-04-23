@@ -243,6 +243,8 @@ Verified against primary sources on 2026-04-23. **Scope of tagging**: the specif
 
 **v0.1 (2026-04-23, initial draft)** — written after a verification pass against Wikipedia, arXiv, and Anthropic docs. Four mechanisms proposed.
 
+**v0.3 (2026-04-23, Phase 2 alignment)** — Mechanism 2 rewritten to match the actual Phase 2 MVP shipped in `wiki-ingest` and `wiki-lint`. Renamed from "Content-Addressable Paths" to "Deterministic Page Addresses" (the MVP is a creation-order counter, not a content hash). Documented the extension path for fold-ancestry bits and content-hash suffix, both explicitly deferred.
+
 **v0.2 (2026-04-23, post-adversarial review)** — after `codex exec` adversarial review. All 7 critiques accepted:
 
 1. *LSM "structurally identical"* → weakened to "loosely analogous to hierarchical rollup"; non-inherited properties listed explicitly.
