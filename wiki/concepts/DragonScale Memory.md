@@ -151,13 +151,21 @@ Boundary pages (high out-degree relative to in-degree, recency-weighted) are the
 **Formula (exact)**:
 
 ```
-out_degree(p) = count of distinct wikilinks in body of p that resolve to scoreable pages
+out_degree(p) = count of distinct filename-stem wikilinks in body of p that resolve to scoreable pages
 in_degree(p)  = count of distinct scoreable pages whose body contains a wikilink to p
-recency_weight(p) = max(0.1, exp(-days_since_updated / 30))
+recency_weight(p) = exp(-days_since_updated / 30)      # no floor; old pages approach 0
 boundary_score(p) = (out_degree - in_degree) * recency_weight
 ```
 
-Scoreable = non-meta and non-fold pages; wikilinks inside fenced code blocks are ignored so documentation examples do not pollute the graph; symlinks and vault-root escapes are rejected. See `scripts/boundary-score.py:RECENCY_HALFLIFE_DAYS` and `:RECENCY_FLOOR` for the tunable constants.
+**Link resolution**: filename-stem only. `[[Foo]]` resolves to `Foo.md` anywhere in the vault. Aliases declared via frontmatter `aliases:` are NOT parsed. Folder-qualified links (e.g. `[[notes/Foo]]`) are resolved by stem alone. This matches Obsidian's default behavior for unique filenames but does not implement full alias resolution.
+
+**Scoreable** = any page NOT excluded by any of:
+- frontmatter `type: meta` or `type: fold`
+- filename in `{_index.md, index.md, log.md, hot.md, overview.md, dashboard.md, Wiki Map.md, getting-started.md}`
+- path prefix in `wiki/folds/` or `wiki/meta/`
+- symlinks or paths whose resolved target escapes the vault root (rejected at scan time)
+
+**Code-block filtering**: triple-backtick AND triple-tilde fenced code blocks are skipped, with CommonMark-like length tracking so a longer opening fence is not closed by a shorter inner fence. Indented code blocks (4+ spaces) are NOT filtered because Obsidian bullet lists commonly use 4-space indentation and contain real wikilinks. See `scripts/boundary-score.py:RECENCY_HALFLIFE_DAYS` for the sole tunable constant.
 
 **Honest labeling**: this mechanism is **agenda control**, not pure memory. It shapes what the agent researches next. It is included in DragonScale because it is a direct consequence of the dragon-curve boundary analogy, and because it pairs naturally with folds (freshly folded pages have low out-degree; frontier pages are pre-fold). But the "memory only, not reasoning" framing does not cover it. Users who want a strict memory-layer subset should omit this mechanism (simply do not invoke `/autoresearch` without a topic, or do not set up `scripts/boundary-score.py`).
 
