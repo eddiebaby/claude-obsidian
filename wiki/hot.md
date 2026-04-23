@@ -20,7 +20,11 @@ Navigation: [[index]] | [[log]] | [[overview]]
 
 ## Last Updated
 
-2026-04-24: Phase 3.5 hardening pass. Cross-phase audit ran (codex rated original Phase 1-3 output cross-phase risk as "high" with 10 hold-ship items). All 10 resolved: doc-lint contradiction fixed, Mechanism 4 labeled NOT IMPLEMENTED, DragonScale Memory.md assigned `address: c-000001`, agents/wiki-ingest.md + agents/wiki-lint.md updated to reflect Phase 2+3, hooks.json extended to stage `.vault-meta/`, `bin/setup-dragonscale.sh` created as opt-in installer, `tests/` + `Makefile` added (all tests pass), versions synced to 1.5.0 across plugin.json + marketplace.json, CHANGELOG.md created.
+2026-04-24 (late): Phase 4 shipped. Mechanism 4 (boundary-first autoresearch) implemented as `scripts/boundary-score.py` with expanded test coverage. `/autoresearch` without a topic now offers frontier candidates (opt-in, agenda-control labeled). Cross-file status updated. v1.6.0 tagged locally.
+
+2026-04-24 (afternoon): Phase 3.6 hardening, five surgical fixes (tiling --report path confinement, rollout baseline, AGENTS.md consistency, wiki-ingest .raw contradiction, install-guide version). v1.5.1.
+
+2026-04-24 (morning): Phase 3.5 hardening pass. Cross-phase audit resolved 10 hold-ship items. At that point Mechanism 4 was marked NOT IMPLEMENTED (later reversed in Phase 4 the same day). `bin/setup-dragonscale.sh` + tests + Makefile added, CHANGELOG created, versions synced to 1.5.0.
 
 2026-04-23 (3): Phase 3 complete. Semantic tiling lint shipped as opt-in. `scripts/tiling-check.py` (485 lines) with flock-guarded atomic cache, localhost-locked OLLAMA_URL default, symlink rejection, model-drift invalidation, and banded thresholds (error>=0.90, review>=0.80, conservative seeds). 4 codex review rounds, 10/10 accept.
 
