@@ -112,8 +112,14 @@ Format: `c-<6-digit-counter>`. `c-` means "creation-order counter." Zero-padded.
 - Content hash suffix (rotation policy unresolved; see limitations).
 
 **Implementation** (Phase 2, shipped):
-- `skills/wiki-ingest/SKILL.md` → Address Assignment section: read `.vault-meta/address-counter.txt`, use value, increment, write back. Bash-only to avoid PostToolUse hook side effects on the counter file.
-- `skills/wiki-lint/SKILL.md` → Address Validation section: format check, uniqueness check, counter-drift check. Pages without addresses are reported informationally, not as errors.
+- `scripts/allocate-address.sh`: flock-guarded atomic allocator. All counter reads/writes go through this script; direct Write/Edit on `.vault-meta/address-counter.txt` is prohibited (would fire PostToolUse hook).
+- `skills/wiki-ingest/SKILL.md` → Address Assignment section: opt-in feature detection; delegates allocation to the helper; records path-to-address mapping in `.raw/.manifest.json` `address_map` for re-ingest stability.
+- `skills/wiki-lint/SKILL.md` → Address Validation section: format check, uniqueness check, counter-drift check, address-map consistency check.
+
+**Lint severity model** (matches `skills/wiki-lint/SKILL.md` Address Validation behavior):
+- Post-rollout pages (frontmatter `created:` >= 2026-04-23, or any page newly created after DragonScale adoption) that lack an address are **errors**. This is the silent-regression guard.
+- Legacy pages (`created:` < 2026-04-23) without addresses are **informational**. The optional `.vault-meta/legacy-pages.txt` manifest can grandfather pages whose `created:` metadata is wrong or missing.
+- Meta pages (`_index.md`, `index.md`, `log.md`, `hot.md`, etc.) and fold pages are excluded entirely.
 
 ---
 
