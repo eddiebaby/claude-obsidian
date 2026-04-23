@@ -43,7 +43,7 @@ Navigation: [[index]] | [[log]] | [[overview]]
 1. **Fold operator** (Mechanism 1): `skills/wiki-fold/`, dry-run verified. No fold committed yet in this vault.
 2. **Deterministic addresses** (Mechanism 2): shipped; vault counter at 2 (DragonScale Memory.md holds c-000001).
 3. **Semantic tiling lint** (Mechanism 3): shipped; awaiting `ollama pull nomic-embed-text` to activate in this vault.
-4. **Boundary-first autoresearch** (Mechanism 4): **NOT IMPLEMENTED**. Design sketch only in the spec; `autoresearch/SKILL.md` unchanged.
+4. **Boundary-first autoresearch** (Mechanism 4): shipped (Phase 4, opt-in). `scripts/boundary-score.py` + `tests/test_boundary_score.py`. `/autoresearch` without a topic surfaces top-5 frontier pages as candidates; user picks, overrides, or declines. Explicitly labeled "agenda control" in both spec and skill.
 
 ## Key Lessons from This Release Cycle
 
