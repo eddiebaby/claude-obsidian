@@ -188,7 +188,7 @@ DragonScale composes patterns validated in adjacent systems: LSM *batching* (dat
 
 ## Primary Sources
 
-Verified against primary sources on 2026-04-23. Claims are tagged **[sourced]** when directly citable, **[derived]** when derivable from sourced material, or **[conjecture]** when based on reasoning without a specific source.
+Verified against primary sources on 2026-04-23. **Scope of tagging**: the specific numeric values, formulas, and named patterns below are tagged **[sourced]** when directly citable, **[derived]** when derivable from sourced material, or **[conjecture]** when based on reasoning without a specific source. **Not tagged** (and readers should treat as interpretive synthesis): framing sentences in the body such as "composes patterns validated," "self-similarity already exists," and the design rationale tying the four mechanisms together. These are editorial, not source-backed.
 
 **Dragon curve math [sourced]**
 - Boundary dimension `2·log₂(λ)` where `λ³ − λ² − 2 = 0`, giving 1.523627086: [Dragon curve, Wikipedia](https://en.wikipedia.org/wiki/Dragon_curve)
