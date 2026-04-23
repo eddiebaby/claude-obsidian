@@ -29,7 +29,7 @@ sources:
 
 A memory-layer design for LLM wiki vaults, inspired by the Heighway dragon curve. Four mechanisms (fold operator, deterministic page addresses, semantic tiling, boundary-first autoresearch) give an LLM-maintained wiki a principled way to grow, compact, and stay coherent. The dragon curve is a design-justification device, not a reasoning architecture.
 
-> **Status: proposed, v0.3 2026-04-23.** Phase 0 (spec) + Phase 1 (wiki-fold skill, dry-run verified) + Phase 2 (address MVP in wiki-ingest and wiki-lint) shipped. See Review History at the bottom for the progression.
+> **Status: v0.4 2026-04-24.** All four mechanisms shipped as opt-in features. Phase 0 (spec) + Phase 1 (wiki-fold skill, dry-run verified) + Phase 2 (address MVP) + Phase 3 (semantic tiling) + Phase 3.5/3.6 (hardening) + Phase 4 (boundary-first autoresearch). See Review History for the progression.
 
 ---
 
