@@ -191,7 +191,7 @@ DragonScale composes patterns validated in adjacent systems: LSM *batching* (dat
 
 ---
 
-## Known Limitations (v0.2)
+## Known Limitations (v0.3)
 
 - **Unvalidated at scale.** All four mechanisms are theoretical; none tested on a multi-thousand-page vault.
 - **Fold cadence is a knob, not a theorem.** `k=4` is a starting guess. Adaptive triggers are likely better.
