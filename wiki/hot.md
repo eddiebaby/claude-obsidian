@@ -61,7 +61,7 @@ Navigation: [[index]] | [[log]] | [[overview]]
 
 ## Active Threads
 
-- DragonScale Mechanism 4 (boundary-first autoresearch) is designed but not implemented; ship when a Phase 4 is triggered.
+- DragonScale Mechanism 4 shipped in Phase 4 as an opt-in Topic Selection mode in `skills/autoresearch/`. All four DragonScale mechanisms are now shipped and feature-gated.
 - v1.5.0 not yet pushed to GitHub. User controls the push timing.
 - CLAUDE.md has one pre-existing uncommitted change ("Release Blog Post" section) that predates this session.
 
