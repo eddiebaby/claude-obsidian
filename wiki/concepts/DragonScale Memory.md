@@ -236,7 +236,7 @@ Verified against primary sources on 2026-04-23. **Scope of tagging**: the specif
 4. *2^k cadence* → justified as implementation convenience; adaptive trigger flagged as preferred for production.
 5. *Scope boundary contradiction* → acknowledged; boundary-first explicitly labeled as agenda control.
 6. *Missing production mechanisms* → added Operational Policies section (retention, versioning, conflict resolution, concurrency, provenance).
-7. *Unverified claims* → tagged every claim as [sourced], [derived], or [conjecture].
+7. *Unverified claims* → tagged specific numeric values, formulas, and named patterns as [sourced], [derived], or [conjecture]. Editorial synthesis in the body explicitly flagged as not tagged (see scope note under Primary Sources).
 
 ---
 
