@@ -25,6 +25,48 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
 ---
 
+## [2026-04-15] save | Claude SEO v1.9.0 Slides and GitHub Release
+- Type: session
+- Location: wiki/meta/2026-04-15-slides-and-release-session.md
+- From: built 15-slide HTML presentation deck (v190.html), fixed hardcoded path in release_report.py, pushed 68 files to GitHub, tagged v1.9.0, created GitHub release with PDF asset
+- Key lessons: Path.home() not hardcoded paths, git pull --rebase before big pushes, Chrome blocks file:// cross-origin images, .claude/ always in .gitignore
+- Release: https://github.com/AgriciDaniel/claude-seo/releases/tag/v1.9.0
+
+## [2026-04-15] save | Claude SEO v1.9.0 Release Report — PDF Complete
+- Type: session
+- Location: wiki/meta/2026-04-15-release-report-session.md
+- From: full session completing the v1.9.0 PDF release report. Dark theme, 13 pages, 1.53 MB. Fixed logo (double-space filename), empty spaces, page-break orphans, file:// URL encoding.
+- Key fixes: `urllib.parse.quote()` for file:// URIs; `display:table-cell` is atomic in WeasyPrint (no page-break); fixed `height:297mm` causes empty space; replaced orphan tables with paragraphs
+- Challenge v2 added: keyword LEADS, $600 prize pool, deadline April 28
+- Output: `~/Desktop/Claude-SEO-v1.9.0-Release-Report.pdf`
+
+## [2026-04-14] save | Claude SEO v1.9.0 — Pro Hub Challenge Integration Session
+- Type: session + 4 concept pages + 1 entity page
+- Location: wiki/meta/2026-04-14-claude-seo-v190-session.md
+- From: full v1.9.0 implementation session — reviewed 5 community submissions, integrated 4 new skills (seo-cluster, seo-sxo, seo-drift, seo-ecommerce), enhanced seo-hreflang, added DataForSEO cost guardrails
+- Pages created: [[2026-04-14-claude-seo-v190-session]], [[Claude SEO]], [[Pro Hub Challenge]], [[Semantic Topic Clustering]], [[Search Experience Optimization]], [[SEO Drift Monitoring]]
+- Review rounds: 4 (code review x3 + cybersecurity audit). Score: 87 → 93 → 97 → 85 security
+- Key learnings: always verify subagent output (40-line count error caught), insertion-point bugs caught by max-effort plan review, pre-existing security debt identified (10 of 15 findings)
+
+## [2026-04-14] save | SVG Diagram Style Guide
+- Type: concept
+- Location: wiki/concepts/SVG Diagram Style Guide.md
+- From: extracted design tokens from 17 production SVGs in claude-ads/assets/diagrams/
+- Covers: colors, typography, layout primitives, card patterns, arrow connectors, numbered circles, file naming
+
+## [2026-04-14] save | Community CTA Footer Rollout
+- Type: decision
+- Location: wiki/meta/2026-04-14-community-cta-rollout.md
+- From: session adding Skool community footer to 6 skill repos (claude-ads, claude-seo, claude-obsidian, claude-blog, banana-claude, claude-cybersecurity)
+- Key insight: frequency calibration per tool type; single-point orchestrator instruction pattern
+
+## [2026-04-10] save | Backlink Empire - Blog Posts, Karpathy Gist, GitHub Cross-Linking
+- Type: session
+- Location: wiki/meta/2026-04-10-backlink-empire-session.md
+- From: full session covering blog creation (claude-obsidian + claude-canvas), Karpathy gist comment, 26 GitHub README updates with Author/community/backlink sections, homepage URLs on 10 repos, topics on 25 repos, rankenstein.pro backlinks on 5 SEO repos
+- Blog posts: agricidaniel.com/blog/claude-obsidian-ai-second-brain, agricidaniel.com/blog/claude-canvas-ai-visual-production
+- Impact: ~87 new backlinks from DA 96 github.com, 6 rankenstein.pro backlinks, 25 Skool community links
+
 ## [2026-04-08] save | claude-obsidian v1.4 Release Session
 - Type: session
 - Location: wiki/meta/claude-obsidian-v1.4-release-session.md

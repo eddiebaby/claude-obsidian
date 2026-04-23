@@ -19,7 +19,9 @@ related:
 Navigation: [[index]] | [[log]] | [[overview]]
 
 ## Last Updated
-2026-04-08: v1.4.1 hotfix shipped, plugin confirmed installed and enabled
+2026-04-15 (2): Claude SEO v1.9.0 slides + GitHub release complete. Built 15-slide HTML deck (`claude-seo-slides/v190.html`) with scroll-snap, IntersectionObserver, and screenshot fallbacks. Fixed hardcoded `/home/agricidaniel/` path in `release_report.py` (use `Path.home()`). Added `.claude/` and `.superpowers/` to `.gitignore`. Pushed 68 files (9,662 insertions). Tagged v1.9.0, created GitHub release with PDF attached. Session: [[2026-04-15-slides-and-release-session]].
+
+2026-04-15 (1): Claude SEO v1.9.0 Release Report PDF complete. 13 pages, dark theme, 1.53 MB at `~/Desktop/Claude-SEO-v1.9.0-Release-Report.pdf`. Key WeasyPrint fixes: file:// URI spaces need `urllib.parse.quote()`; `display:table-cell` is atomic (no page breaks inside); fixed `height:297mm` causes empty space; logo filename had double space "hub  pro". Pro Hub Challenge v2 live: keyword LEADS, $600 prize pool ($400/$200), deadline April 28. Session: [[2026-04-15-release-report-session]].
 
 ## Plugin State
 - **Version**: 1.4.1 (installed, enabled, user scope)
@@ -57,6 +59,20 @@ There is no `claude plugin install github:owner/repo` shortcut. Both steps are r
 
 ## Ecosystem Research (Done 2026-04-08)
 16+ Claude + Obsidian projects mapped. Full feature matrix at [[claude-obsidian-ecosystem]]. Prioritized backlog at [[cherry-picks]]. Top competitors: [[Ar9av-obsidian-wiki]] (multi-agent + delta tracking), [[rvk7895-llm-knowledge-bases]] (multi-depth query), [[ballred-obsidian-claude-pkm]] (goal cascade + auto-commit), [[kepano-obsidian-skills]] (authoritative Obsidian skills from Obsidian's own creator).
+
+## Blog Posts (agricidaniel.com)
+- 16 total blog posts, 23 sitemap URLs (+ claude-ads-v1-5-release not yet in sitemap)
+- Latest: how-i-got-8000-github-stars, claude-canvas-ai-visual-production, claude-obsidian-ai-second-brain (2026-04-10), claude-ads-v1-5-release (2026-04-13)
+- claude-ads-v1-5-release audited and fixed: added Key Takeaways box, 7/9 H2s as questions, answer-first stats, personal experience callout, cover PNG→WebP, meta desc trimmed, ads-demo.gif added
+- Google Indexing API submitted, Bing IndexNow submitted
+- Workflow: write JSON -> blogPosts.ts -> sitemap.xml -> llms.txt -> vite build -> prerender.mjs -> vercel deploy --prod -> google-index.py --submit -> IndexNow curl
+
+## GitHub Backlink State
+- 26 repos have Author section with agricidaniel.com + Skool + YouTube links
+- 5 SEO repos have rankenstein.pro mentions (claude-seo, claude-blog, on-page-seo, Keywordo-kun, marketing-skill-pack)
+- All repos have topics/tags set
+- All repos have homepage URLs set
+- For new repos: always add Author section + homepage URL + topics
 
 ## Active Threads
 - v1.5.0 backlog: `/adopt` command, vault graph analysis in wiki-lint, semantic search via qmd, Marp output
