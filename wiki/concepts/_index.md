@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Concepts Index"
-updated: 2026-04-07
+updated: 2026-06-24
 tags:
   - meta
   - index
@@ -37,6 +37,28 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 - [[Persistent Wiki Artifact]]: durable Markdown page as the LLM's memory object (developing)
 - [[Source-First Synthesis]]: provenance discipline for LLM wiki layers (developing)
 - [[Query-Time Retrieval]]: query synthesis with citations, complementary to Obsidian search (developing)
+
+---
+
+## Depth Psychology (Analytical Psychology / Jung)
+
+**Dream Work**
+- [[Dream Analysis and Interpretation]] — Jungian method: amplification, symbolism, dialogue approach (status: developing)
+- [[Dreams as Self-Knowledge]] — how dreams reveal the unconscious and guide individuation (status: developing)
+
+**Core Concepts & Foundational Essays**
+- [[Archetypes of the Collective Unconscious]] — Jung's 1934/1954 essay on archetype manifestation and consciousness (status: mature)
+- [[Concept of the Collective Unconscious]] — Jung's 1936 essay defining the collective layer (status: mature)
+- [[Collective Unconscious]] — the inborn, universal layer of the psyche; contains archetypes (status: mature)
+- [[Archetype]] — structural predispositions in the collective unconscious; tendencies to form certain images (status: mature)
+- [[Individuation]] — the lifelong process of becoming a whole, integrated Self (status: mature)
+- [[Self (archetype)]] — the totality of the psyche; the archetype of wholeness and the goal of individuation (status: mature)
+- [[Ego]] — the center of consciousness; the part that relates to the Self as part to whole (status: mature)
+- [[Shadow]] — the dark or inferior aspect of personality; what the ego rejects (status: mature)
+- [[Anima and Animus]] — the contrasexual archetypal figure (anima in men, animus in women) (status: mature)
+- [[Mother Archetype]] — the maternal principle as archetype; includes the Great Mother and mother-complex (status: developing)
+- [[Trickster]] — the pre-moral, chaotic collective shadow figure in mythology (status: developing)
+- [[Mandala Symbolism]] — circular symbols of psychic wholeness and the Self (status: developing)
 
 ---
 

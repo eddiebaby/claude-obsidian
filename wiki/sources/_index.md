@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Sources Index"
-updated: 2026-04-07
+updated: 2026-06-24
 tags:
   - meta
   - index
@@ -35,7 +35,19 @@ All source pages — summaries of ingested documents, transcripts, articles, and
 
 ## Papers
 
-<!-- Add paper source pages here -->
+- [[das2026-chronos-multivariate-forecasting]] — 2026-06-24 | Das, Goyal, Yadav (Santa Clara U.); arXiv 2605.21504 | Chronos-2 MV vs. UV forecasting on Mag-7 equities and Treasury rates; 1 source page
+
+---
+
+## Books
+
+- [[vonfranz-dreams-1998]] — 2026-06-24 | Marie-Louise von Franz (Shambhala, 1998) | Complete scan, 220 pages | 2 concept pages + 1 entity + 7 historical figure entity pages created
+- [[jung-cw9i-archetypes-collective-unconscious]] — 2026-06-24 | C.G. Jung, CW Vol. 9i (2nd ed. 1968) | Complete scan | 8 concept pages + 1 entity + 1 domain created
+- [[jung-cw9ii-aion]] — 2026-06-24 | C.G. Jung, CW Vol. 9ii (2nd ed. 1968) | Complete scan | 2 new concept pages; 2 concepts expanded to mature; 1 entity updated
+
+## Seminar Notes
+
+- [[jung-dream-analysis-1928-1930]] — 2026-06-24 | C.G. Jung (ed. McGuire), Bollingen Series XCIX, 1984 | Partial: Lecture I (7 Nov 1928) + front matter read | 1 source page created
 
 ---
 

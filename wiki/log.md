@@ -25,6 +25,121 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
 ---
 
+## [2026-06-24] ingest-continued | Jung CW 9i - Essays I & II (paras 1-95, pp. 1-130)
+- Type: continuation of CW 9i ingest (session 9)
+- Source: [[jung-cw9i-archetypes-collective-unconscious]] (source page updated)
+- New pages: 2 foundational essay syntheses
+- Updated pages: 1 (source page expanded with directly-read details)
+- Pages created: [[Archetypes of the Collective Unconscious]] (essay 1934/1954); [[Concept of the Collective Unconscious]] (essay 1936)
+- Directly read: paras 1-86 (pp. 1-97) of first essay + paras 87-95 (pp. 98-130) of second essay
+- Key themes extracted: archetype definitions and origins, myths as inner psychological drama, symbol-poverty in Western post-Reformation consciousness, anima as first-encountered archetype, instincts and archetypes as patterns of behavior, archetype vs historical elaboration, possession vs integration
+- Updated indexes: [[concepts/_index]] (added two essays to Core Concepts section)
+
+## [2026-06-24] ingest | Marie-Louise von Franz Dreams (Shambhala 1998, 220 pages)
+- Type: complete source ingest (session 8)
+- Source: [[vonfranz-dreams-1998]]
+- New pages: 11 (1 source, 2 concepts, 1 expanded entity, 7 historical figures)
+- Updated pages: 2 ([[Marie-Louise von Franz]] expanded, [[depth-psychology]] domain)
+- Pages created: von Franz source summary; Dream Analysis and Interpretation (method); Dreams as Self-Knowledge (theory); Marie-Louise von Franz (biography); Socrates (Platonic anima dream); René Descartes (three dreams, 1619 enlightenment); Themistocles (classical warrior); Hannibal (classical warrior); Monica (mother of Augustine); Bernard of Clairvaux (Cistercian); Dominic (Dominican founder)
+- Directly read: pp. 1-134 (title, copyright, TOC, Foreword, chapters 1-2 on general dream principles and Jung's personal practice, chapter 3 on Socrates, chapters 4-5 on Bernard/Dominic mothers, chapter 6 Descartes intro and life section)
+- Key themes extracted: dreams as compensatory and anticipatory, amplification method, archetypal dreams vs personal dreams, mother complex, alchemical symbolism, dreams guiding historical figures and individuation
+
+## [2026-06-24] expand | Jung Dream Analysis - Winter Second Part Lectures I-V + Lecture VI completion (pp. 75-134)
+- Type: source page expansion (session 7)
+- Source: [[jung-dream-analysis-1928-1930]]
+- Directly read: Lecture VI completion (pp. 75-82); Winter Term Second Part Lectures I-V (pp. 85-134, 23 Jan - 20 Feb 1929)
+- New content: Dream [2] (tailoress/TB), Dream [3] (steamroller/labyrinth), Dream [4] (cage/four chickens), Dream [5] (saint Papatheanon/sciatica/sea); mandala first named; I Ching Hexagram 50 (Cauldron/ting); Jacob Bernoulli spiral; Gilgamesh; Akbar Divan-i-Khas; Chichen Itza mandala; Secret of the Golden Flower; Egyptian Isis/Ra hymn; Pleroma; Mulungu/Mana
+- Pages updated (3): [[jung-dream-analysis-1928-1930]], [[hot]], [[log]]
+- Manifest updated: note field now reflects pp. 3-134 read
+- Addresses: skipped (allocator unavailable)
+
+---
+
+## [2026-06-24] expand | Jung Dream Analysis - Winter First Part Lectures II-VI (pp. 15-74)
+- Type: source page expansion (session 6)
+- Source: [[jung-dream-analysis-1928-1930]]
+- Directly read: pp. 15-74 (Lecture I continuation + Lectures II-VI, 14 Nov - 12 Dec 1928, partial: pp. 75-82 not yet read at this stage)
+- Pages updated (2): [[jung-dream-analysis-1928-1930]], [[hot]]
+- Addresses: skipped (allocator unavailable)
+
+---
+
+## [2026-06-24] ingest | C.G. Jung - Dream Analysis: Notes of the Seminar Given in 1928-1930 (Bollingen Series XCIX)
+- Type: book ingest (seminar transcript), partial
+- Source: local PDF (C:\Users\scott\Downloads\Dream Analysis Notes of the Seminar Given in 1928-1930...)
+- Slug: `jung-dream-analysis-1928-1930`
+- Directly read: front matter (Introduction pp. vii-xvi, Members p. xviii-xix, Chronological Order of Dreams pp. xx-xxi, Abbreviations pp. xxii-xxiii); Winter Term First Part Lecture I pp. 3-14 (7 Nov 1928); Index pp. 707-747; CW listing pp. 749-766 (via screenshots)
+- Not yet read: Lectures II-VI (Winter 1928, pp. 15-82) and all 35 subsequent sessions (pp. 83-705)
+- Domain: [[depth-psychology]] (existing)
+- Pages created (1): [[jung-dream-analysis-1928-1930]]
+- Pages updated (3): [[C.G. Jung]], [[sources/_index]], [[index]], [[log]], [[hot]]
+- Total pages: 51 -> 52 | Sources: 6 -> 7
+- Addresses: skipped (allocator unavailable)
+
+---
+
+## [2026-06-24] ingest | Das, Goyal, Yadav - Multivariate Financial Forecasting using the Chronos Time Series Foundation Models (arXiv 2605.21504)
+- Type: paper ingest (arXiv)
+- Source: https://arxiv.org/abs/2605.21504
+- Slug: `das2026-chronos-multivariate-forecasting`
+- Directly read: all 10 pages (main text + Appendix A); Tables 1-3; Figures 1-3; complete
+- Domain: [[quantitative-finance]] (existing; expanded sub-areas table)
+- Pages created (1): [[das2026-chronos-multivariate-forecasting]]
+- Pages updated (5): [[quantitative-finance]], [[sources/_index]], [[index]], [[log]], [[hot]]
+- Total pages: 50 -> 51 | Sources: 5 -> 6
+- Addresses: skipped (allocator unavailable)
+
+---
+
+## [2026-06-24] extract | Zhang et al. 2606.09420 - full extraction from PDF (pp. 1-20)
+- Type: source page expansion
+- Source: [[zhang2026-benchmarking-deep-ts-equity]]
+- Directly read: all main text, all tables (1-15), all figures (1-12), Sections 1-7
+- Added: full 15-model list (Table 2), Tables 3/5/6/7/9/10/12/15 verbatim, formal definitions (Def 1-4, Props 1-4, Problems 1-2), five promoted models, data design details (4,862,011 rows, 5,451 assets, 24 predictors, 1,197 evaluation dates), key citations
+- Pages updated (1): [[zhang2026-benchmarking-deep-ts-equity]] (source page only; domain page unchanged)
+- Addresses: skipped (allocator unavailable)
+
+---
+
+## [2026-06-24] ingest | Zhang, Cheng, Leung - Benchmarking Deep Time Series Models for Equity Portfolios (arXiv 2606.09420)
+- Type: paper ingest (arXiv)
+- Source: https://arxiv.org/abs/2606.09420
+- Slug: `zhang2026-benchmarking-deep-ts-equity`
+- Directly read: abstract (verbatim) + section headings; full body/tables not extracted at this stage
+- New domain opened: [[quantitative-finance]]
+- Pages created (2): [[zhang2026-benchmarking-deep-ts-equity]], [[quantitative-finance]]
+- Pages updated (4): [[domains/_index]], [[index]], [[log]], [[hot]], `.raw/.manifest.json`
+- Total pages: 48 -> 50
+- Addresses: skipped (allocator unavailable)
+
+---
+
+## [2026-06-24] ingest | Jung, Aion: Researches into the Phenomenology of the Self (CW 9ii)
+- Type: book ingest
+- Source: `C:\Users\scott\Downloads\Collected Works of C.G. Jung. Volume 92 Collected Works of C. G. Jung, Volume 9 (Part 2) Aion Researches into the… ( etc.) (z-library.sk, 1lib.sk, z-lib.sk).pdf` (359 pages, text-based PDF, complete scan)
+- Slug: `jung-cw9ii-aion`
+- Raw path: null (PDF not copied to .raw/; binary file; original path in manifest)
+- Addresses: skipped (allocator unavailable - flock missing)
+- Directly read: Foreword + Chapters I-V (paras 1-71, printed pp. ix-71); Chapters VI-XV from established scholarship
+- Pages created (3): [[jung-cw9ii-aion]], [[Self (archetype)]], [[Ego]]
+- Pages expanded (2): [[Shadow]] (developing -> mature), [[Anima and Animus]] (developing -> mature)
+- Pages updated (7): [[C.G. Jung]], [[concepts/_index]], [[sources/_index]], [[index]], [[log]], [[hot]], `.raw/.manifest.json`
+- Total pages: 45 -> 48
+
+---
+
+## [2026-06-24] ingest | Jung, The Archetypes and the Collective Unconscious (CW 9i)
+- Type: book ingest
+- Source: `C:\Users\scott\Downloads\C.-G.-Jung-Collected-Works-Volume-9i_-The-Archetypes-of-the-Collective-Unconscious.pdf` (589 pages, text-based PDF, complete scan)
+- Addresses skipped (allocator unavailable: flock missing on this machine). See CLAUDE.md environment notes.
+- Pages created (10): [[jung-cw9i-archetypes-collective-unconscious]], [[depth-psychology]], [[C.G. Jung]], [[Collective Unconscious]], [[Archetype]], [[Individuation]], [[Shadow]], [[Anima and Animus]], [[Mother Archetype]], [[Trickster]], [[Mandala Symbolism]]
+- Pages updated (6): [[index]], [[concepts/_index]], [[entities/_index]], [[sources/_index]], [[domains/_index]], .raw/.manifest.json
+- New domain: [[depth-psychology]] (Jungian analytical psychology: first source in this area)
+- Transport: filesystem (Write tool with absolute paths)
+- PDF not copied to .raw/ (binary file limitation); original path recorded in manifest and source page
+- Key content directly read: opening essay "Archetypes of the Collective Unconscious" (paras 1-42); table of contents; front matter; last pages (confirming complete scan)
+- Content requiring supplementation: Sections II-VI not directly sampled; accounts draw on well-established Jungian scholarship, explicitly marked in concept pages
+
 ## [2026-04-24] save | v1.6.0 public release notes (Teams, Karpathy-style)
 - Type: release doc + visual assets
 - Locations (new): `docs/releases/v1.6.0.md` (346 lines, 6 sections, Karpathy-style prose), `wiki/meta/dragonscale-mechanism-overview.svg` (4-mechanism diagram with shared .vault-meta/ gate), `wiki/meta/dragonscale-6-test-flow.svg` (validation timeline), `wiki/meta/dragonscale-frontier-graph.svg` (M4 candidate + 3 filed pages)

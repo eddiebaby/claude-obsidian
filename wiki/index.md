@@ -14,6 +14,7 @@ related:
   - "[[Wiki Map]]"
   - "[[concepts/_index]]"
   - "[[entities/_index]]"
+  - "[[domains/_index]]"
   - "[[sources/_index]]"
   - "[[LLM Wiki Pattern]]"
   - "[[Hot Cache]]"
@@ -23,14 +24,36 @@ related:
 
 # Wiki Index
 
-Last updated: 2026-04-15 | Total pages: 34 | Sources ingested: 2
+Last updated: 2026-06-24 | Total pages: 65 | Sources ingested: 8
 
 Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[getting-started]]
 
 ---
 
+## Depth Psychology
+
+**Foundational Essays**
+- [[Archetypes of the Collective Unconscious]] — Jung's 1934/1954 essay on archetype manifestation, mythological expression, symbol-poverty, and the anima (status: mature)
+- [[Concept of the Collective Unconscious]] — Jung's 1936 essay defining the collective layer, distinguishing it from personal unconscious, and establishing the archetype-instinct analogy (status: mature)
+
+**Core Concepts**
+- [[Collective Unconscious]] — the inborn, universal layer of the psyche shared by all humans; contains archetypes (status: mature)
+- [[Archetype]] — structural predispositions in the collective unconscious; universal images from the remotest times (status: mature)
+- [[Individuation]] — the lifelong process of becoming a whole, integrated Self (status: mature)
+- [[Self (archetype)]] — the totality of the psyche; the archetype of wholeness and the goal of individuation (status: mature)
+- [[Ego]] — the center of consciousness; relates to the Self as part to whole (status: mature)
+- [[Shadow]] — the dark or inferior aspect of personality; contents the ego rejects (status: mature)
+- [[Anima and Animus]] — the contrasexual archetypal figure mediating between ego and collective unconscious (status: mature)
+- [[Mother Archetype]] — the maternal principle as archetype; includes the Great Mother and mother-complex (status: developing)
+- [[Trickster]] — the pre-moral, boundary-crossing collective shadow figure in mythology (status: developing)
+- [[Mandala Symbolism]] — circular symbols of psychic wholeness and the Self archetype (status: developing)
+
+---
+
 ## Concepts
 
+- [[Dream Analysis and Interpretation]] — Jungian method of amplification, symbolism, and dialogue interpretation (status: developing)
+- [[Dreams as Self-Knowledge]] — how dreams reveal the unconscious and guide individuation (status: developing)
 - [[LLM Wiki Pattern]] — the pattern for building persistent, compounding knowledge bases using LLMs (status: mature)
 - [[Hot Cache]] — ~500-word session context file, updated after every ingest and session (status: mature)
 - [[Compounding Knowledge]] — why wiki knowledge grows more valuable over time, unlike RAG (status: mature)
@@ -49,6 +72,15 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 ## Entities
 
+- [[Marie-Louise von Franz]] — Swiss Jungian analyst (1915-1998); founder of C.G. Jung Institute; dream interpretation, alchemy, fairy tales (status: developing)
+- [[Socrates]] — classical Athenian philosopher (470-399 BCE); anima dream from Plato; split consciousness (status: developing)
+- [[René Descartes]] — French philosopher/mathematician (1596-1650); three enlightenment dreams 1619; Cartesian mind-body split (status: developing)
+- [[Themistocles]] — classical Athenian general (524-460 BCE); naval strategy, dreams guiding military decisions (status: developing)
+- [[Hannibal]] — Carthaginian general (247-183 BCE); warrior archetype; dreams and fate (status: developing)
+- [[Monica]] — North African Christian matron (331-387 CE); mother of Saint Augustine; dreams of spiritual reassurance (status: developing)
+- [[Bernard of Clairvaux]] — Cistercian abbot (1090-1153); mother complex; white/red dog symbolism; medieval theology (status: developing)
+- [[Dominic]] — Dominican founder (1170-1221); dog with shining torch; scholastic theology and heresy (status: developing)
+- [[C.G. Jung]] — Swiss psychiatrist, founder of analytical psychology; archetypes, collective unconscious, individuation (status: developing)
 - [[Andrej Karpathy]] — AI researcher, creator of the LLM Wiki pattern, former Tesla AI director (status: developing)
 - [[Ar9av-obsidian-wiki]] — multi-agent compatible LLM Wiki plugin; delta tracking manifest (status: current)
 - [[Nexus-claudesidian-mcp]] — native Obsidian plugin + MCP bridge; workspace memory, task management (status: current)
@@ -62,6 +94,12 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 ## Sources
 
+- [[vonfranz-dreams-1998]] — 2026-06-24 | Marie-Louise von Franz; Shambhala 1998 | Dreams of historical figures, Jungian dream interpretation
+- [[jung-dream-analysis-1928-1930]] — 2026-06-24 | C.G. Jung (ed. McGuire); Bollingen XCIX | Dream Analysis seminar 1928-1930; partial (Lecture I read)
+- [[das2026-chronos-multivariate-forecasting]] — 2026-06-24 | Das, Goyal, Yadav; arXiv 2605.21504 | Chronos-2 MV vs. UV forecasting, Mag-7 + Treasury rates
+- [[zhang2026-benchmarking-deep-ts-equity]] — 2026-06-24 | Zhang, Cheng, Leung; arXiv 2606.09420 | 2 new pages (source + domain)
+- [[jung-cw9ii-aion]] — 2026-06-24 | C.G. Jung CW 9ii (complete) | 3 new pages; 2 concepts expanded to mature
+- [[jung-cw9i-archetypes-collective-unconscious]] — 2026-06-24 | C.G. Jung CW 9i (complete) | 10 new pages created
 - [[claude-obsidian-ecosystem-research]] — 2026-04-08 | web research across 16+ repos | 8 wiki pages created
 
 ---
@@ -90,4 +128,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 ## Domains
 
-<!-- Add domain entries here after scaffold -->
+- [[depth-psychology]] — Jungian analytical psychology; archetypes, individuation, the collective unconscious
+- [[quantitative-finance]] — time-series forecasting for equities, portfolio optimization, multi-criteria model selection
+
+See [[domains/_index|Domains Index]].
