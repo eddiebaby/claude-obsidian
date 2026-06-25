@@ -39,8 +39,9 @@ All source pages — summaries of ingested documents, transcripts, articles, and
 
 ---
 
-## Books
+## Books & Papers
 
+- [[facemind-looped-world-models-2026]] — 2026-06-24 | FaceMind Research Asia (arXiv 2606.18208v1) | Complete, 34 pages | 4 concept pages + 1 source created; world models, looped transformers, adaptive depth, deferred decoding
 - [[vonfranz-dreams-1998]] — 2026-06-24 | Marie-Louise von Franz (Shambhala, 1998) | Complete scan, 220 pages | 2 concept pages + 1 entity + 7 historical figure entity pages created
 - [[jung-cw9i-archetypes-collective-unconscious]] — 2026-06-24 | C.G. Jung, CW Vol. 9i (2nd ed. 1968) | Complete scan | 8 concept pages + 1 entity + 1 domain created
 - [[jung-cw9ii-aion]] — 2026-06-24 | C.G. Jung, CW Vol. 9ii (2nd ed. 1968) | Complete scan | 2 new concept pages; 2 concepts expanded to mature; 1 entity updated

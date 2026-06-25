@@ -24,7 +24,7 @@ related:
 
 # Wiki Index
 
-Last updated: 2026-06-24 | Total pages: 65 | Sources ingested: 8
+Last updated: 2026-06-24 | Total pages: 70 | Sources ingested: 9
 
 Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[getting-started]]
 
@@ -47,6 +47,16 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[Mother Archetype]] — the maternal principle as archetype; includes the Great Mother and mother-complex (status: developing)
 - [[Trickster]] — the pre-moral, boundary-crossing collective shadow figure in mythology (status: developing)
 - [[Mandala Symbolism]] — circular symbols of psychic wholeness and the Self archetype (status: developing)
+
+---
+
+## AI & Machine Learning
+
+**World Models & Embodied AI**
+- [[World Models]] — neural networks learning environment evolution from observations and actions; core to model-based RL (status: mature)
+- [[Looped Transformers]] — parameter-efficient architectures applying same transformer block iteratively; 100× efficiency gains (status: mature)
+- [[Adaptive Depth]] — dynamic computational allocation based on input complexity; simple inputs exit early (status: developing)
+- [[Deferred Decoding]] — refine latent state before decoding to observations; improves reasoning quality (status: developing)
 
 ---
 

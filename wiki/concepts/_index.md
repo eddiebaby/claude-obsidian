@@ -62,4 +62,14 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 
 ---
 
+## AI & Machine Learning
+
+**World Models & Embodied AI**
+- [[World Models]] — neural networks that learn to predict environment evolution from observations and actions (status: mature)
+- [[Looped Transformers]] — architectures that apply the same transformer block iteratively; parameter-efficient for long-horizon tasks (status: mature)
+- [[Adaptive Depth]] — dynamic allocation of computational steps based on input complexity (status: developing)
+- [[Deferred Decoding]] — refine latent representations before decoding to observations; improves reasoning quality (status: developing)
+
+---
+
 ## Add new concepts here as they are extracted from sources.
