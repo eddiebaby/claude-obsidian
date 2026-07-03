@@ -138,6 +138,8 @@ Dorn's "golden hook" (God catching Leviathan with the cross-as-hook) traced to t
 
 Jung reads this as a precise psychological allegory of **anima-loss in a man who identifies wholly with reason and spirituality**: masculine consciousness perceives psychic suffering (Sophia's affects) but does not make itself conscious of *why* — a state that "can be observed today not only in all masculine neuroses but among so-called normal people who have come into conflict with the unconscious." Neither the light (Christ/spirit) nor the darkness (Sophia/emotion) will yield ground first; this is why **discrimination cannot be reunified without the extinction of consciousness**, and why the unconscious, not the rational intellect, is what produces the symbols of wholeness (quaternity, circle, cross). St. Augustine's image of the cross as bridal bed and the fairytale motif of the hero finding his bride in the crown of a great tree both express the coniunctio as **a culminating point of life that is simultaneously a death**.
 
+Full treatment: [[Sophia-Achamoth]].
+
 ### §19 — The Tree as Man (pars. 458–462)
 
 Old Rabbinic tradition: the tree of paradise *was* a man. The tree is an intermediate form between the Primordial Man and ordinary man. **For women, the feminine tree-numen represents the Self** (confirmed by the "Scriptum Alberti" and the patient pictures above); **for men, the feminine tree-figure is instead the anima** — a projection, not the Self itself, unless the man's own femininity is differentiated enough to be integrated with consciousness. Correspondingly, the patients who drew Figs. 29–30 rendered the tree-numen as the animus.
