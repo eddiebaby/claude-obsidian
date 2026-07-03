@@ -130,6 +130,32 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 
 ---
 
+## Quantitative Finance
+
+**Strategy Classes**
+- [[Trend-Following]] — time-series momentum as a strategy class; the impact feedback-loop mechanism; why short-term variants died post-2009 on small-tick contracts (status: developing)
+- [[Cross-Sectional-Momentum]] — ranking assets against each other vs. own-history signals; decile/quintile construction; relation to sector rotation (status: developing)
+- [[Sector-Rotation]] — rotating capital across sectors; two senses: tradeable alpha source (Miao-Polak, Karatas-Hirsa) and model-failure trigger (Sanderink) (status: developing)
+
+**Model Design & Training**
+- [[End-to-End-Portfolio-Optimization]] — map features directly to weights via differentiable performance loss, vs. predict-then-optimize (status: developing)
+- [[Learning-to-Rank]] — pairwise/listwise ranking objectives from IR applied to asset ranking; why regress-then-sort is structurally mismatched (status: developing)
+- [[Online-Ensemble-Learning]] — gradient-free online model combination weighted by rolling out-of-sample R²; regret guarantees under nonstationarity (status: developing)
+- [[Echo-State-Networks]] — reservoir computing: fixed random recurrent weights + trained linear readout; fast, won the Karatas-Hirsa sector benchmark (status: developing)
+- [[Turnover-Regularization]] — explicit turnover penalties in training loss vs. implicit low-turnover architectures; turnover decides net survival (status: developing)
+
+**Deployment & Validation**
+- [[Regime-Trust-Gating]] — strategy-level trade/abstain gates vs. position-level sizing; uncertainty as tail-risk guard, not sizing denominator (status: developing)
+- [[Deflated-Sharpe-Ratio]] — Sharpe corrected for selection bias under N trials, track length, skew/kurtosis (status: developing)
+- [[Backtest-Overfitting]] — winner's curse of multiple testing; expected max Sharpe under zero skill grows with N; defenses (status: developing)
+- [[Tick-Size-Microstructure]] — volatility-normalised tick size; sparse vs. dense order books condition strategy profitability (status: developing)
+
+**Agentic Trading Systems**
+- [[Loop-Engineering]] — designing the system that prompts the agent; the highest-leverage move for a solo quant operator (status: mature)
+- [[Maker-Checker-Pattern]] — institutional verification applied to agentic trading; verification debt as the silent failure mode (status: mature)
+
+---
+
 ## AI & Machine Learning
 
 **LM Optimization**

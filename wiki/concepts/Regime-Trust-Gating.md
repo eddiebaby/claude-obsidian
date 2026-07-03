@@ -1,5 +1,6 @@
 ---
 type: concept
+address: c-000022
 title: "Regime-Trust Gating"
 domain: quantitative-finance
 complexity: intermediate

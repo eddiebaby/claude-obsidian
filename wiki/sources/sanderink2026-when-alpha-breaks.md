@@ -1,5 +1,6 @@
 ---
 type: source
+address: c-000017
 title: "When Alpha Breaks: Two-Level Uncertainty for Safe Deployment of Cross-Sectional Stock Rankers"
 domain: quantitative-finance
 status: complete

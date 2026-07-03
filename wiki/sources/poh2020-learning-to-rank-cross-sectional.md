@@ -1,5 +1,6 @@
 ---
 type: source
+address: c-000016
 title: "Building Cross-Sectional Systematic Strategies By Learning to Rank"
 domain: quantitative-finance
 source_type: paper

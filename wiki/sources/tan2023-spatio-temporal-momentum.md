@@ -1,5 +1,6 @@
 ---
 type: source
+address: c-000015
 title: "Spatio-Temporal Momentum: Jointly Learning Time-Series and Cross-Sectional Strategies"
 domain: quantitative-finance
 source_type: paper

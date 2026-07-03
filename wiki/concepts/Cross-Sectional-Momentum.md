@@ -1,5 +1,6 @@
 ---
 type: concept
+address: c-000021
 title: "Cross-Sectional Momentum"
 domain: quantitative-finance
 complexity: intermediate
