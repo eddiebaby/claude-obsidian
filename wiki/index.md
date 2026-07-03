@@ -247,6 +247,14 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 ## Sources
 
+- [[kurth2026-trend-following-demise]] — 2026-07-02 | Kurth, Eisler, Rej, Bouchaud (CFM); arXiv 2607.01550 | Demise of short-term trend-following; tick-size microstructure; 5 new pages
+- [[pollok2026-end-to-end-portfolio-policies]] — 2026-07-02 | Pollok & Robik; arXiv 2607.00475 | End-to-end AI vs simple rules, 16 CME futures; 2 new pages
+- [[miao-polak-online-ensemble-sector-rotation]] — 2026-07-02 | Miao & Polak; arXiv 2304.09947 | Online ensemble sector rotation; 3 new pages
+- [[karatas2021-two-stage-sector-rotation]] — 2026-07-03 | Karatas & Hirsa; arXiv 2108.02838 | Two-stage macro+RNN sector-ETF rotation; 2 new pages, 1 updated
+- [[tan2023-spatio-temporal-momentum]] — 2026-07-03 | Tan, Roberts, Zohren; arXiv 2302.10175 | Joint TSM+CSM single-layer model; 2 new pages, 1 updated
+- [[poh2020-learning-to-rank-cross-sectional]] — 2026-07-03 | Poh, Lim, Zohren, Roberts; arXiv 2012.07149 | Learning-to-rank cross-sectional momentum; 3 new pages
+- [[sanderink2026-when-alpha-breaks]] — 2026-07-03 | Sanderink; arXiv 2603.13252 | Regime-trust gating for ranker deployment; 2 new pages, 1 updated
+- [[bailey-lopez-de-prado-2014-deflated-sharpe]] — 2026-07-03 | Bailey & López de Prado; JPM 2014 | Deflated Sharpe Ratio; 4 new pages
 - [[edinger-ego-and-archetype]] — 2026-06-30 | Edward F. Edinger; G.P. Putnam's Sons 1972 | Ego-Self Axis development cycle; three phases: Inflation, Alienation, Encounter with the Self; 10 chapter subpages; 3 new pages
 - [[jung-cw11-psychology-religion]] — 2026-06-30 | C.G. Jung CW 11 | Psychology and Religion West and East; Religious Function of the Psyche; Answer to Job; 2 new pages, 3 updated
 - [[jung-cw14-mysterium-coniunctionis]] — 2026-06-30 | C.G. Jung CW 14 | Mysterium Coniunctionis; coniunctio; unus mundus; Dorn's three degrees; 2 new pages, 1 major update (Unus Mundus → mature)
