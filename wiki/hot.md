@@ -18,7 +18,21 @@ related:
 
 ## Last Updated
 
-2026-07-02 (session 20b): **Latin phrase backfill — 17 new concept pages** from the CW13 ingest (standing rule: every Latin term gets a full concept page going forward).
+2026-07-03 (session 21): **Quant-finance sweep — 8 papers ingested (2 batches × 4 parallel agents), 23 new pages.** Purpose: literature base for Scott's sector-ETF (XLK etc.) time-series alpha project. THE BUILD IS NEXT — baseline momentum backtest repo, not more reading.
+
+**Sources**: [[kurth2026-trend-following-demise]] (CFM/Bouchaud: fast trend dead post-2009 on small-tick contracts; slow trend + large-tick survive), [[pollok2026-end-to-end-portfolio-policies]] (transformer's low turnover wins net; ties equal-weight), [[miao-polak-online-ensemble-sector-rotation]] (top-5 sector Sharpe 0.657, survives 5-15bps, COVID-robust), [[karatas2021-two-stage-sector-rotation]] (8 iShares sector ETFs; ESN wins), [[tan2023-spatio-temporal-momentum]] (single-layer net beats deep; turnover regularization), [[poh2020-learning-to-rank-cross-sectional]] (LambdaMART 3x Sharpe vs sorts, gross), [[sanderink2026-when-alpha-breaks]] (regime-trust gate is the dominant value driver; inverse-uncertainty sizing backfires; VIX gate ≈ coin flip), [[bailey-lopez-de-prado-2014-deflated-sharpe]] (expected max Sharpe under zero skill ~3.2 at N=1000 trials)
+
+**New concepts**: [[Trend-Following]], [[Cross-Sectional-Momentum]], [[Sector-Rotation]], [[Tick-Size-Microstructure]], [[End-to-End-Portfolio-Optimization]], [[Learning-to-Rank]], [[Online-Ensemble-Learning]], [[Echo-State-Networks]], [[Turnover-Regularization]], [[Regime-Trust-Gating]], [[Deflated-Sharpe-Ratio]], [[Backtest-Overfitting]]. **New entities**: [[Jean-Philippe Bouchaud]], [[Capital Fund Management]], [[Marcos Lopez de Prado]]
+
+**KEY cross-paper thesis** (now on [[quantitative-finance]] domain page): turnover, not gross accuracy, decides net survival — confirmed independently by Zhang, Pollok, Tan, Miao-Polak. Strategy design rules for the build: (1) simple architecture + low turnover + cost-awareness from day one; (2) rank cross-sectionally, don't forecast levels; (3) regime gate on top; (4) deflate the Sharpe by trials attempted; (5) beat 12-1 momentum rotation and SPY buy-and-hold or it isn't alpha.
+
+**Infra notes**: `flock` missing on Windows Git Bash → wiki-lock.sh and allocate-address.sh both broken; fix running in separate session (task_ae6acc01); addresses c-000003..c-000025 allocated manually this session. C: drive hit 100% full mid-session; ~1.4GB freed by purging npm/pip caches; root cause of the 475GB usage still unidentified.
+
+---
+
+## Previous Session (20b)
+
+2026-07-02: **Latin phrase backfill — 17 new concept pages** from the CW13 ingest (standing rule: every Latin term gets a full concept page going forward).
 
 **New Latin phrase pages**: [[Azoth]], [[prima-materia]], [[anima-mundi]], [[principium-individuationis]], [[cognitio-matutina-vespertina]], [[Tabula-Smaragdina]], [[servus-fugitivus]], [[anima-rationalis]], [[humidum-radicale]], [[spiritus-vegetativus]], [[filius-philosophorum]], [[stella-matutina]], [[ignis-fatuus]], [[deus-absconditus]], [[ex-tenebris-lux]], [[homo-maximus]], [[coincidentia-oppositorum]]
 
