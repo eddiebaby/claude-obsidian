@@ -604,7 +604,10 @@ Theosophy-influenced patient's inverted-cross/svādhiṣṭhāna-chakra mandala 
 - [[Individuation]] — "alchemy is a concretization of the process of individuation" (par. 140)
 - [[Mercurius]] — Essay IV, complete (pars. 239-303)
 - [[Philosophical-Tree]] — Essay V, complete (pars. 304-482)
-- [[Fourfold-Quaternio]] — the tetrasomia; Ezekiel's cherubim; Daniel's beasts
+- [[Tetrasomia]] — the fourfold reduction to unity; Ezekiel's cherubim; Daniel's beasts (Essay V §3)
+- [[Sophia-Achamoth]] — the Gnostic suffering myth; anima-loss in masculine consciousness (Essay V §18)
+- [[Rose Symbolism]] — rose-coloured blood; the rose as mandala (Essay V §7)
+- [[Fourfold-Quaternio]] — the parallel structure from *Aion*
 - [[Aqua-Permanens]] — the aqua permanens as image of wholeness (Essay V §4)
 - [[Dream-Analysis-and-Interpretation]] — the eagle dream; symbol vs. reduction (Essay V §20)
 - [[Coniunctio]] — the Sophia-Achamoth suffering material (Essay V §18)
