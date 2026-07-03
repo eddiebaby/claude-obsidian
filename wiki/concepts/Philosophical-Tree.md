@@ -178,7 +178,10 @@ The philosophical tree completes the picture that Mercurius (Essay IV) and the Z
 - [[Mandala Symbolism]] — the tree as "a mandala seen in profile"
 - [[Anima and Animus]] — the tree-numen as Self (for women) vs. anima/animus (for men); the animus figures of Figs. 29–30
 - [[Coniunctio]] — §18's Sophia-Achamoth material; suffering as the coniunctio's precondition
-- [[Fourfold-Quaternio]] — the tetrasomia; Ezekiel's cherubim; Daniel's beasts; the cross as quaternity
+- [[Sophia-Achamoth]] — the Gnostic myth in full (§18)
+- [[Tetrasomia]] — the fourfold reduction to unity in full (§3): Ezekiel's cherubim, Daniel's beasts, the cross as quaternity
+- [[Rose Symbolism]] — the rose-coloured blood and the rose as mandala in full (§7)
+- [[Fourfold-Quaternio]] — the parallel structure from *Aion*
 - [[Aqua-Permanens]] — the aqua permanens as image of wholeness (§4)
 - [[Lapis-Philosophorum]] — the tree's fruit; rose-coloured blood as the red tincture
 - [[Dream-Analysis-and-Interpretation]] — the eagle dream; symbol vs. reduction; devaluation vs. disguise
