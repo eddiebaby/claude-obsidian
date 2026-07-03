@@ -37,6 +37,12 @@ Ten papers ingested (2026-07-03 sweep added eight). Coverage now spans the full 
 |----------|-------------|-----------------|
 | **Loop engineering / agentic trading** | Autonomous recursive trading systems; maker-checker separation; self-improving skill files | [[loop-engineering-hedge-funds-2026]] |
 | Time-series forecasting for equities | Predicting asset returns using ML/statistical models | [[zhang2026-benchmarking-deep-ts-equity]], [[das2026-chronos-multivariate-forecasting]] |
+| **Sector rotation** | Ranking and rotating across sector portfolios/ETFs | [[miao-polak-online-ensemble-sector-rotation]], [[karatas2021-two-stage-sector-rotation]] |
+| Trend-following / CTA microstructure | Why and where momentum signals still have a live mechanism | [[kurth2026-trend-following-demise]] |
+| Momentum learning (TSM + CSM) | Joint/learned momentum strategies, learning-to-rank | [[tan2023-spatio-temporal-momentum]], [[poh2020-learning-to-rank-cross-sectional]] |
+| End-to-end portfolio policies | Features → weights via differentiable performance loss | [[pollok2026-end-to-end-portfolio-policies]] |
+| Deployment risk / regime gating | When to trust a live model; trade/abstain decisions | [[sanderink2026-when-alpha-breaks]] |
+| Backtest validation | Selection-bias-corrected performance statistics | [[bailey-lopez-de-prado-2014-deflated-sharpe]] |
 | Fixed-income / yield curve forecasting | Forecasting Treasury rates across maturities | [[das2026-chronos-multivariate-forecasting]] |
 | Multivariate vs. univariate forecasting | Whether MV inputs improve raw forecast accuracy | [[das2026-chronos-multivariate-forecasting]] |
 | Foundation models for time series | Zero-shot pretrained models (Chronos-2) applied to financial series | [[das2026-chronos-multivariate-forecasting]] |
