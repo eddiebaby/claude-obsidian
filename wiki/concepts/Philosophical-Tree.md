@@ -113,6 +113,8 @@ Khunrath's lion, "lured forth from the Saturnine mountain," has rose-coloured bl
 > [!key-insight] Blind love vs. love with understanding (par. 391)
 > "Love alone is useless if it does not also have understanding... The blinder love is, the more it is instinctual, and the more it is attended by destructive consequences, for it is a dynamism that needs form and direction. Therefore a compensatory Logos has been joined to it as a light that shines in the darkness." Solicitude without insight "can explain even a Torquemada."
 
+Full treatment: [[Rose Symbolism]].
+
 ### §8 — The Alchemical Mind (pars. 392–397)
 
 Petrus Bonus (14th c.) discovered that the alchemical opus anticipated, "feature for feature," the Christian myth of the Redeemer's generation, death, and resurrection — and concluded (astonishingly, to Jung) that Hermes Trismegistus, Moses, and Plato had *prophetically anticipated* Christ's coming, rather than that alchemists were unconsciously projecting Christian material onto matter. Jung calls this blindness "instructive": Bonus's mind, contemplating chemical transformation, became "suffused with archetypal, mythological parallels," exactly as happens today "when the imagination is given free play in the observation ... of the products of the unconscious."
