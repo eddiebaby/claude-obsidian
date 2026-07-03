@@ -15,6 +15,11 @@ related:
 
 # Operation Log
 
+## 2026-07-03 | cleanup | Split standalone concept pages out of Philosophical-Tree.md
+- Pages created: [[Tetrasomia]] (Essay V §3 — four sons of Horus, Ezekiel's cherubim, Daniel's beasts, cross as quaternity), [[Sophia-Achamoth]] (Essay V §18 — Gnostic suffering myth, anima-loss in masculine consciousness), [[Rose Symbolism]] (Essay V §7 — rose-coloured blood, Mechthild of Magdeburg, rose as mandala)
+- Pages updated: [[Philosophical-Tree]] (inline sections now point to full treatments), [[jung-cw13-alchemical-studies]] (see-also), [[index]]
+- Key insight: brings these three major non-Latin concepts up to the same per-concept granularity the Latin-phrase backfill applied to terms — mirrors the earlier Nigredo/Ialdabaoth/Filius-Macrocosmi precedent from the Mercurius essay.
+
 ## 2026-07-02 | backfill | Latin phrase pages — 17 new concept pages from CW 13 ingest
 - Pages created: [[Azoth]], [[prima-materia]], [[anima-mundi]], [[principium-individuationis]], [[cognitio-matutina-vespertina]], [[Tabula-Smaragdina]], [[servus-fugitivus]], [[anima-rationalis]], [[humidum-radicale]], [[spiritus-vegetativus]], [[filius-philosophorum]], [[stella-matutina]], [[ignis-fatuus]], [[deus-absconditus]], [[ex-tenebris-lux]], [[homo-maximus]], [[coincidentia-oppositorum]]
 - Pages updated: [[concepts/_index]] (Latin phrase section added to Alchemy), [[hot]] (session context)
