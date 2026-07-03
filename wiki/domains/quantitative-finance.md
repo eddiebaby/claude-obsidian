@@ -83,6 +83,14 @@ From [[zhang2026-benchmarking-deep-ts-equity]] (Zhang, Cheng, Leung 2026): no de
 - [[loop-engineering-hedge-funds-2026]] — v260615 practitioner essay | Anonymous 2026 | Five-stage autonomous trading loop, six primitives, maker-checker, SKILL.md, verification debt
 - [[zhang2026-benchmarking-deep-ts-equity]] — arXiv 2606.09420 | Zhang, Cheng, Leung 2026 | CRSP benchmark, 15 architectures, SMAA, constrained QP
 - [[das2026-chronos-multivariate-forecasting]] — arXiv 2605.21504 | Das, Goyal, Yadav 2026 | Chronos-2 foundation model, MV vs. UV forecasting, Mag-7 equities + Treasury rates 2000-2025
+- [[kurth2026-trend-following-demise]] — arXiv 2607.01550 | Kurth, Eisler, Rej, Bouchaud (CFM) 2026 | 100 futures 1995-2025; fast trend dead on small-tick contracts; tick-size mechanism
+- [[pollok2026-end-to-end-portfolio-policies]] — arXiv 2607.00475 | Pollok & Robik 2026 | 16 CME futures; differentiable Sharpe; transformer's low turnover wins net
+- [[miao-polak-online-ensemble-sector-rotation]] — arXiv 2304.09947 | Miao & Polak | 50 SIC sectors; MWUM online ensemble; top-5 Sharpe 0.657 net-survivable
+- [[karatas2021-two-stage-sector-rotation]] — arXiv 2108.02838 | Karatas & Hirsa 2021 | 8 iShares sector ETFs; macro + RNN two-stage; ESN wins
+- [[tan2023-spatio-temporal-momentum]] — arXiv 2302.10175 | Tan, Roberts, Zohren 2023 | joint TSM+CSM; single-layer net; turnover regularization
+- [[poh2020-learning-to-rank-cross-sectional]] — arXiv 2012.07149 | Poh, Lim, Zohren, Roberts 2020 | LambdaMART ranking 3x Sharpe vs classical sorts (gross)
+- [[sanderink2026-when-alpha-breaks]] — arXiv 2603.13252 | Sanderink 2026 | regime-trust gate + epistemic tail cap; deployment safety for rankers
+- [[bailey-lopez-de-prado-2014-deflated-sharpe]] — JPM 2014 | Bailey & López de Prado | DSR; expected max Sharpe under null; multiple-testing correction
 
 ---
 
