@@ -65,7 +65,7 @@ All entity pages — people, organizations, products, and tools.
 
 ## Organizations
 
-<!-- Add organization pages here -->
+- [[Capital Fund Management]] — Paris-based systematic hedge fund; econophysics research culture; affiliation of the Kurth/Eisler/Rej/Bouchaud trend-following paper (status: developing)
 
 ---
 
