@@ -17,7 +17,10 @@ related:
   - "[[Anima and Animus]]"
   - "[[Trickster]]"
   - "[[Self (archetype)]]"
+  - "[[Persona]]"
+  - "[[Personal Unconscious]]"
   - "[[C.G. Jung]]"
+  - "[[jung-cw7-two-essays]]"
   - "[[jung-cw9i-archetypes-collective-unconscious]]"
   - "[[jung-cw9ii-aion]]"
 ---
@@ -91,9 +94,38 @@ Source: [[jung-cw9ii-aion]], Ch II, paras 13-19 (directly read)
 
 ---
 
+## CW 7 Treatment: Shadow and Persona Compensation (Essay 1)
+
+CW 7 adds a critical structural insight to the shadow concept — the compensatory relationship between shadow and [[Persona]]. Essay 1 makes explicit what later volumes assume:
+
+**The brighter the persona, the darker the shadow**: the energy and content excluded from the social mask does not disappear — it migrates into the shadow, where it accumulates pressure and autonomy. A man who maintains an impeccably moral, controlled, virtuous public face feeds a shadow that will eventually erupt.
+
+**Shadow as inferior personality**: In Essay 1 Jung's term is "the inferior personality" or "alter ego" — the sum of everything the ego wishes not to be. This is the first encounter in analysis: the patient must acknowledge not only their conscious failures but the systematic pattern of rejection by which those failures were excluded from self-image.
+
+**Therapeutic context**: Essay 1 introduces the shadow primarily through the dynamics of the transference. Shadow contents are often first encountered as projections onto the analyst — the analyst appears threatening, dangerous, morally suspect, in ways that belong to the patient's own shadow rather than the analyst's actual character.
+
+Source: [[jung-cw7-two-essays]], Essay 1 (CW 7, paras 1-201)
+
+---
+
+## Edinger's Clinical Gloss (Aion Lectures, Lect. 4)
+
+From [[edinger-aion-lectures]]: shadow analysis is only possible after the ego is sufficiently strengthened. If a patient shows violent resistance to shadow recognition, it means the ego is too weak for the work — not obstinacy but structural incapacity. "The young ego, in order to develop, has to start out by separating itself from the shadow and establishing that it is good and worthy."
+
+**The reflux flask** (alchemical image, Fig. 3): shadow projections work like a distillation flask — contents heated at the bottom vaporize, rise, condense at top, and flow back into the belly of the flask. When we analyze shadow projections, we "feed them back into the belly of the flask" — into the projector's own psyche — rather than letting them leak onto the environment and isolate the subject from reality.
+
+**The Egyptian "negative confession"** (*Book of the Dead*): the preliminary move in shadow work — not acknowledging shadow contents but asserting the positive ego ("I have not committed fornication, I have not stolen..."). This *builds* ego confidence before shadow integration becomes possible. Premature shadow work in a fragile ego is destructive.
+
+**Key clinical question**: to whom are we speaking at any given moment in analysis? The person in the chair may be speaking from the ego, a complex, the shadow, the anima, or even the Self. The "who" fluctuates throughout a session, and the analyst's response must track this.
+
+---
+
 ## See Also
 
 - [[Archetype]] - the structural basis of the shadow
 - [[Trickster]] - the mythological expression of the collective shadow
 - [[Individuation]] - the process of integrating shadow contents
 - [[Anima and Animus]] - the next archetypal layer encountered after the shadow
+- [[Persona]] - the social mask that the shadow compensates
+- [[Personal Unconscious]] - the layer of the psyche where the personal shadow resides
+- [[edinger-aion-lectures]] - Edinger's clinical commentary (Lect. 4)

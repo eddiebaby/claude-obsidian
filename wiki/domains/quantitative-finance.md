@@ -32,6 +32,7 @@ Two papers ingested. [[zhang2026-benchmarking-deep-ts-equity]] covers architectu
 
 | Sub-area | Description | Sources in vault |
 |----------|-------------|-----------------|
+| **Loop engineering / agentic trading** | Autonomous recursive trading systems; maker-checker separation; self-improving skill files | [[loop-engineering-hedge-funds-2026]] |
 | Time-series forecasting for equities | Predicting asset returns using ML/statistical models | [[zhang2026-benchmarking-deep-ts-equity]], [[das2026-chronos-multivariate-forecasting]] |
 | Fixed-income / yield curve forecasting | Forecasting Treasury rates across maturities | [[das2026-chronos-multivariate-forecasting]] |
 | Multivariate vs. univariate forecasting | Whether MV inputs improve raw forecast accuracy | [[das2026-chronos-multivariate-forecasting]] |
@@ -59,10 +60,25 @@ From [[zhang2026-benchmarking-deep-ts-equity]] (Zhang, Cheng, Leung 2026): no de
 
 ---
 
+## Key Concepts
+
+- [[Loop-Engineering]] — the structural move from prompting agents to building systems that prompt agents; applied to autonomous trading
+- [[Maker-Checker-Pattern]] — the institutional verification pattern (Citadel, Jane Street, Renaissance) now automatable via agents; the scarce resource in any self-improving loop
+
+---
+
 ## Sources
 
+- [[loop-engineering-hedge-funds-2026]] — v260615 practitioner essay | Anonymous 2026 | Five-stage autonomous trading loop, six primitives, maker-checker, SKILL.md, verification debt
 - [[zhang2026-benchmarking-deep-ts-equity]] — arXiv 2606.09420 | Zhang, Cheng, Leung 2026 | CRSP benchmark, 15 architectures, SMAA, constrained QP
 - [[das2026-chronos-multivariate-forecasting]] — arXiv 2605.21504 | Das, Goyal, Yadav 2026 | Chronos-2 foundation model, MV vs. UV forecasting, Mag-7 equities + Treasury rates 2000-2025
+
+---
+
+## Adjacent ML Optimization (relevant to building trading models)
+
+- [[PACE Optimizer]] — lightweight AdamW wrapper that improves EMA-returned LLM checkpoints via optimal control pullback; directly applicable when fine-tuning LLMs on financial data (arXiv 2606.25086)
+- [[Iterate Averaging in LLM Training]] — why production LM pipelines return EMA of weights rather than final iterate; taxonomy of averaging schemes; the training–inference model gap
 
 ---
 

@@ -1,6 +1,7 @@
 ---
 name: facemind-looped-world-models-2026
 type: source
+domain: ai-ml
 title: "Looped World Models"
 status: complete
 created: 2026-06-24

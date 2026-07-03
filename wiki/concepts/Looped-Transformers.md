@@ -2,6 +2,7 @@
 name: looped-transformers
 type: concept
 title: "Looped Transformers"
+domain: ai-ml
 status: mature
 created: 2026-06-24
 updated: 2026-06-24

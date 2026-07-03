@@ -2,6 +2,7 @@
 name: adaptive-depth
 type: concept
 title: "Adaptive Depth"
+domain: ai-ml
 status: developing
 created: 2026-06-24
 updated: 2026-06-24

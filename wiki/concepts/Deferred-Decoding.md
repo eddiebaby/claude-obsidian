@@ -2,6 +2,7 @@
 name: deferred-decoding
 type: concept
 title: "Deferred Decoding"
+domain: ai-ml
 status: developing
 created: 2026-06-24
 updated: 2026-06-24

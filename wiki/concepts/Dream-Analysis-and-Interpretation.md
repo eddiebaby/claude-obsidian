@@ -4,7 +4,7 @@ type: concept
 title: "Dream Analysis and Interpretation"
 status: developing
 created: 2026-06-24
-updated: 2026-06-24
+updated: 2026-07-02
 tags:
   - jungian-psychology
   - dream-work
@@ -16,6 +16,8 @@ related:
   - "[[C.G. Jung]]"
   - "[[Individuation]]"
   - "[[vonfranz-dreams-1998]]"
+  - "[[jung-cw13-alchemical-studies]]"
+  - "[[Philosophical-Tree]]"
 ---
 
 # Dream Analysis and Interpretation
@@ -122,6 +124,21 @@ When a dream motif coincides with an outer event that could not have caused it, 
 
 Jung's 1913 flood vision preceded WWI by a year. The vision was "from above" yet accurately anticipated the historical catastrophe. This points to a connection between psyche and collective events that depth psychology cannot fully explain.
 
+## The Eagle Dream: Symbol vs. Reduction (Jung's Fullest Worked Example)
+
+Source: [[jung-cw13-alchemical-studies]], Essay V "The Philosophical Tree," §20 (pars. 463-481). A correspondent (X) reports his friend (Y)'s dream: back in a concentration camp, Y sees a mighty eagle circling overhead and escapes by shooting it down with a rocket-propelled aircraft — dreamed the day after Y read Jung's *Answer to Job*, which X had lent him. X assumes the eagle represents *himself* (X felt like Y's psychological mentor, "spying" on him from above); Y instead thinks the eagle is Jung, the book's author.
+
+**Jung's ruling**: "when our dream says 'eagle' it means an eagle." He explicitly rejects the Freudian model of a censor disguising a real person behind a symbol: "a dream is quite capable, if it wants to, of naming the most painful and disagreeable things without the least regard for the feelings of the dreamer. If the dream does not in fact do so, there is no sufficient reason for supposing that it means something other than what it says."
+
+**The correct procedure**: don't guess which acquaintance the symbol conceals. Investigate what the eagle means *as an eagle* — its general, cross-cultural meaning (a mythical, all-seeing bird surveying the earth) — and only then connect that general meaning to the dreamer's actual situation (Y is Jewish; the book concerns the fate of man's God-image; the concentration-camp setting is not incidental).
+
+> [!key-insight] Devaluation, not disguise (par. 479)
+> When a dream seems to disguise a real person under a symbol, the more likely explanation is **devaluation**, not concealment. Example: a woman patient dreams of her analyst as a hairdresser ("who fixes the head"). The dream isn't hiding his identity — it's telling her the analyst should have no more significance than someone who sets her head right so *she* can use it herself.
+
+This is the same anti-reductionist stance Jung takes against alchemists who collapsed symbols into literal chemical substances: "symbols mean very much more than can be known at first glance" (par. 397). Reducing a symbol to a known quantity — whether Freud's incest-motif or a literalized chemical recipe — forecloses exactly the compensatory work the symbol is trying to do. Confrontation with the unconscious "usually begins in the realm of the personal unconscious... and from there leads to archetypal symbols which represent the collective unconscious" (par. 481) — the amplification method (above) is how that second step actually gets done.
+
+---
+
 ## Practical Stance
 
 - Record dreams immediately upon waking
@@ -134,4 +151,4 @@ Jung's 1913 flood vision preceded WWI by a year. The vision was "from above" yet
 
 ---
 
-**See also**: [[Dreams as Self-Knowledge]], [[C.G. Jung]], [[Individuation]], [[vonfranz-dreams-1998]]
+**See also**: [[Dreams as Self-Knowledge]], [[C.G. Jung]], [[Individuation]], [[vonfranz-dreams-1998]], [[jung-cw13-alchemical-studies]], [[Philosophical-Tree]]

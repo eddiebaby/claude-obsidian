@@ -33,8 +33,16 @@ Top-level topic areas. Each domain groups the concepts, entities, and sources th
 
 ---
 
-## Add domain pages here as subject areas emerge from ingests.
+## AI / Machine Learning
 
-<!-- Example:
-- [[Knowledge Management]] — the LLM Wiki pattern, hot cache, compounding knowledge
--->
+- [[ai-ml]] — Architecture research (looped transformers, world models, adaptive depth), LLM optimization (iterate averaging, PACE). Overlaps with quantitative-finance and business.
+
+---
+
+## Business & AI Consulting
+
+- [[business]] — AI consulting for Hilo/Hawaii businesses; trading tools; individuation app. Greenfield as of 2026-06-27.
+
+---
+
+## Add domain pages here as subject areas emerge from ingests.

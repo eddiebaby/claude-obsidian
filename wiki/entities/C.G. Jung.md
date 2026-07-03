@@ -3,7 +3,7 @@ type: entity
 title: "C.G. Jung"
 status: developing
 created: 2026-06-24
-updated: 2026-06-24
+updated: 2026-06-28
 tags:
   - entity
   - person
@@ -21,6 +21,7 @@ related:
   - "[[depth-psychology]]"
   - "[[jung-cw9i-archetypes-collective-unconscious]]"
   - "[[jung-dream-analysis-1928-1930]]"
+  - "[[jung-man-and-his-symbols]]"
 ---
 
 # C.G. Jung
@@ -66,6 +67,15 @@ The standard English edition is the Bollingen Series XX, Princeton University Pr
 - CW 9i: [[jung-cw9i-archetypes-collective-unconscious]] (complete)
 - CW 9ii: [[jung-cw9ii-aion]] (complete)
 
+**Interpreted in this vault by:**
+- [[Edward-F-Edinger]] via [[edinger-aion-lectures]] (1988–89 lectures on *Aion*)
+
+---
+
+## Intellectual Debts
+
+**William James**: Jung acknowledged James directly. James's "subliminal self" became the Jungian unconscious; James's "More" (the wider reality contacted in conversion and mysticism) became the collective unconscious and the Self archetype. See [[William James]] and [[james-varieties-religious-experience]].
+
 ---
 
 ## Style and Method
@@ -82,6 +92,7 @@ His prose is dense with classical and cross-cultural allusion. He writes as a cl
 |------|---------|--------|
 | The Archetypes and the Collective Unconscious | 9i | In vault |
 | Aion | 9ii | In vault |
+| Man and His Symbols | (general audience) | In vault — [[jung-man-and-his-symbols]] |
 | Psychology and Alchemy | 12 | Not yet ingested |
 | Psychological Types | 6 | Not yet ingested |
 | Memories, Dreams, Reflections | (autobiography) | Not yet ingested |
@@ -91,3 +102,17 @@ His prose is dense with classical and cross-cultural allusion. He writes as a cl
 | Seminar | Dates | Bollingen | Status |
 |---------|-------|-----------|--------|
 | Dream Analysis | 1928-1930 | B.S. XCIX | Partial (Lecture I read; 40 sessions unread) |
+
+---
+
+## On *Aion* (His Own Words)
+
+Jung kept writing *Aion* despite severe criticism: he felt compelled "to complete his escrow account with history." In a 1947 letter to Victor White:
+
+> "Not very long after I wrote to you, I simply had to write a new essay I did not know about what. It occurred to me I should discuss some of the finer points about anima, animus, shadow, and last but not least the self. I was against it... Only after I had written about 25 pages in folio, it began to dawn on me that Christ — not the man but the divine being — was my secret goal."
+
+To Margaret Ostrowski-Sachs:
+
+> "Before my illness [in 1944] I had often asked myself if I were permitted to publish or even speak of my secret knowledge. I later set it all down in *Aion*. I realized it was my duty to communicate these thoughts, yet I doubted whether I was allowed to give expression to them. During my illness I received confirmation and I now knew that everything had meaning and that everything was perfect."
+
+*Aion* is the book Jung felt he had to write — not wanted to, but compelled to, as an obligation to history.

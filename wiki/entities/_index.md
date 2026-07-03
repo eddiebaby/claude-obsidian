@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Entities Index"
-updated: 2026-06-24
+updated: 2026-06-26
 tags:
   - meta
   - index
@@ -24,6 +24,10 @@ All entity pages — people, organizations, products, and tools.
 
 ## People
 
+**Philosophy**
+- [[Friedrich Nietzsche]] — German philosopher (1844-1900); Will to Power, Ubermensch, master/slave morality; direct precursor to Jung; inflation cautionary tale (status: developing)
+- [[William James]] — American philosopher and psychologist (1842-1910); founder of pragmatism; *Varieties of Religious Experience* (1902); subliminal self, four marks of mysticism, the "More"; direct intellectual predecessor of Jung (status: developing)
+
 **Historical Figures**
 - [[Socrates]] — classical Athenian philosopher (470-399 BCE); anima dreams; logos without eros
 - [[Themistocles]] — classical Athenian general (524-460 BCE); naval strategy; dreams and military decisions
@@ -34,11 +38,24 @@ All entity pages — people, organizations, products, and tools.
 - [[René Descartes]] — French philosopher/mathematician (1596-1650); enlightenment dreams; Cartesian philosophy
 
 **Depth Psychology**
-- [[Marie-Louise von Franz]] — Swiss Jungian analyst (1915-1998); founder of C.G. Jung Institute; dream interpretation, alchemy, fairy tales
+- [[Marie-Louise von Franz]] — Swiss Jungian analyst (1915-1998); founder of C.G. Jung Institute; dream interpretation, alchemy, fairy tales; wrote Parts 3 + Conclusion of *Man and His Symbols*; lectured on Gerhard Dorn and alchemy as active imagination with matter
+- [[Barbara-Hannah]] — British-Swiss Jungian analyst (1891-1986); one of Jung's earliest close associates; *Active Imagination: Encounters with the Soul*; biographer of Jung (status: developing)
 - [[C.G. Jung]] — Swiss psychiatrist; founder of analytical psychology; originator of the collective unconscious, archetype, and individuation concepts (1875-1961)
+- [[Joseph-L-Henderson]] — American Jungian analyst (1903-1982); Jung's close American student; founded CG Jung Institute of San Francisco; wrote Part 2 of *Man and His Symbols*; authority on Trickster, hero myth, initiation (status: developing)
+- [[Aniela-Jaffe]] — Swiss Jungian analyst/writer (1903-1991); Jung's secretary; editor of *Memories, Dreams, Reflections* and *Man and His Symbols*; wrote Part 4 (visual arts symbolism) (status: developing)
+- [[Jolande-Jacobi]] — Swiss-Hungarian Jungian analyst (1890-1973); Zürich Jung Institute founding member; systematizer of Jungian concepts; wrote Part 5 (Henry case study) in *Man and His Symbols* (status: developing)
+- [[Erich Neumann]] — German-Israeli Jungian analyst (1905-1960); Jung's most systematic theoretical heir; *Origins and History of Consciousness*, the Great Mother, uroboros, centroversion (status: developing)
+- [[Christian Roesler]] — contemporary Jungian analyst; developed Structural Dream Analysis, the empirical backbone for dream-ego agency tracking
+- [[James Hillman]] — post-Jungian; founder of archetypal psychology; "keep the snake there" anti-reduction stance on dream images
+- [[Wolfgang Pauli]] — Swiss-Austrian physicist (1900-1958); Nobel laureate (exclusion principle); Jung's patient then collaborator; co-authored *The Interpretation of Nature and the Psyche* (1952); contributed quaternio structure and quantum parallels to synchronicity theory (status: developing)
+
+**Existential Psychology**
+- [[Viktor Frankl]] — Austrian psychiatrist (1905-1997); Holocaust survivor; founder of logotherapy ("Third Viennese School"); *Man's Search for Meaning* (status: developing)
 
 **AI/Technology**
 - [[Andrej Karpathy]] — AI researcher, educator; originated the LLM Wiki pattern
+- Kwok Chun Au — Columbia University CS; co-author of PACE optimizer (arXiv 2606.25086); iterate averaging for LLMs (see [[training-model-you-return-iterate-averaging]])
+- Adam Block — Columbia University CS + EE; co-author of PACE optimizer; control-theory framing of LM optimization (see [[training-model-you-return-iterate-averaging]])
 
 ---
 

@@ -21,6 +21,7 @@ related:
   - "[[C.G. Jung]]"
   - "[[jung-cw9ii-aion]]"
   - "[[jung-cw9i-archetypes-collective-unconscious]]"
+  - "[[jung-cw13-alchemical-studies]]"
 ---
 
 # Self (archetype)
@@ -28,6 +29,18 @@ related:
 The Self is Jung's term for the totality of the psyche - the whole of which the ego is only a part. It is both the center and the circumference of the personality, encompassing both conscious and unconscious. The Self is the archetype of wholeness and order, the organizing principle behind the psyche's movement toward integration in [[Individuation]].
 
 Primary source: [[jung-cw9ii-aion]] (Ch IV, paras 43-67, directly read). Also treated in [[jung-cw9i-archetypes-collective-unconscious]] (Mandala Symbolism essay, individuation).
+
+---
+
+## CW 13 Definition (par. 67)
+
+Jung's earliest published formulation of the Self as a distinct locus:
+
+> "If the unconscious can be recognized as a co-determining factor along with consciousness, and if we can live in such a way that conscious and unconscious demands are taken into account as far as possible, then the centre of gravity of the total personality shifts its position. It is then no longer in the ego, which is merely the centre of consciousness, but in the hypothetical point between conscious and unconscious. **This new centre might be called the self.**"
+
+This formulation (1929) predates *Aion* (1951) by two decades. The Self here is explicitly a *hypothetical point* — not a substance, not a metaphysical entity, but the functional centre that becomes operative when ego and unconscious are both held. It is the *effect* of conscious–unconscious integration, not its presupposition.
+
+Source: [[jung-cw13-alchemical-studies]] (Essay I, par. 67).
 
 ---
 
@@ -103,12 +116,32 @@ This is the bridge to the Gnostic and alchemical material in Chs XIII-XIV. Gnost
 
 ---
 
+## Edinger's Elaboration: The Ego-Self Axis (Aion Lectures, Lect. 5)
+
+From [[edinger-aion-lectures]]: Edinger's central contribution is articulating the **Ego-Self Axis** as the conscious connecting link between the two centers. See [[Ego-Self-Axis]] for the full treatment, including the four stages of ego-Self development and the Psychic Life Cycle.
+
+Key clinical formulation: "The ego does not choose its symptoms — it is a victim of the symptom the unconscious throws up. The symptom is like a crocodile that grips and possesses one." This is how reasonable boundaries to the ego are fixed: by not granting the ego power and responsibility that don't properly belong to it.
+
+**The Psychic Life Cycle**: ego-Self identity (inflation) → encounter with reality (wounding) → metanoia (humility/repentance) → reconnection with Self → slightly less inflation, slightly more consciousness → cycle repeats. Each cycle dissolves a little more ego-Self identity and builds a little more of the conscious connecting axis.
+
+**The fish symbol as Self** (*Aion Lectures*, Lects. 12–13): The fish in *Aion* is simultaneously the lowest (cold-blooded, primordial, infantile psyche; original concupiscence) and the highest (Christ; symbol of the whole aeon; eucharistic food). This ambivalence is the mark of genuine Self symbolism: the Self unites the highest and lowest, not just the spiritual. The three steps in the Book of Tobit — catch the fish, extract its curative virtues, apply to the living situation — equal: encounter the unconscious, extract its contents, transform them through consciousness. These three steps *are* the analytic process.
+
+**Destruction of the God-image**: "The destruction of the God-image is followed by the annulment of the human personality" (*Aion*, para 170). The Self and the God-image are psychologically equivalent. All collective pathologies (addiction, abuse, disorientation) are symptoms of the destroyed God-image. The task of analysis is the *reconstruction* of the God-image in the individual — which is what *Aion*'s historical material is ultimately about.
+
+---
+
 ## See Also
 
 - [[Ego]] - the part that relates to the Self as center to circumference
+- [[Ego-Self-Axis]] - the conscious connecting link; Edinger's elaboration
 - [[Individuation]] - the process oriented toward the Self
 - [[Mandala Symbolism]] - the Self's primary symbolic form
 - [[Anima and Animus]] - the syzygy that must be navigated before Self-encounter
 - [[Shadow]] - the first obstacle in the individuation sequence
 - [[Archetype]] - the Self as archetype of wholeness
+- [[Inflation-Jungian]] - the primary pathology when the Ego-Self axis is disrupted
+- [[Pisces-Aeon]] - the collective-historical expression of the Self across 2,000 years
+- [[God-Image (Imago Dei)]] - the full treatment of the Self-God equation
 - [[jung-cw9ii-aion]] - primary source for this page
+- [[edinger-aion-lectures]] - Edinger's explication
+- [[jung-answer-to-job]] - the fullest exploration of the God-image as psychological subject

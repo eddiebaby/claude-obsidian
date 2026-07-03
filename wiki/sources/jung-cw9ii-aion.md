@@ -180,3 +180,4 @@ Jung's thesis, stated in the Foreword (directly read): "My investigation seeks, 
 - Chapters VI-XV synthesized from established scholarship; each concept page flags provenance
 - PDF not copied to .raw/ (binary file); original path preserved above
 - Addresses skipped (allocator unavailable - flock missing)
+- See also: [[jung-answer-to-job]] (CW 11, 1952) — the direct theological confrontation with Yahweh's shadow that Aion's historical survey of the Christ symbol prepares the ground for

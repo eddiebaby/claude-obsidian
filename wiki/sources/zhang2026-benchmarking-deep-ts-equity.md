@@ -1,6 +1,7 @@
 ---
 type: source
 title: "Benchmarking Deep Time Series Models for Equity Portfolios"
+domain: quantitative-finance
 status: complete
 created: 2026-06-24
 updated: 2026-06-24

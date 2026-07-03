@@ -45,24 +45,96 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 **Dream Work**
 - [[Dream Analysis and Interpretation]] — Jungian method: amplification, symbolism, dialogue approach (status: developing)
 - [[Dreams as Self-Knowledge]] — how dreams reveal the unconscious and guide individuation (status: developing)
+- [[Amplification]] — circumambulating the dream image; personal → cultural → archetypal; the anti-dictionary method (status: developing)
+- [[Dream Dramatic Structure]] — the four-act drama: exposition → development → culmination → lysis (status: developing)
+- [[Dream Compensation]] — the self-regulating psyche balancing one-sided conscious attitudes; prospective function (status: developing)
+- [[Structural Dream Analysis]] — Roesler's empirical method: five dream-ego agency patterns tracked across the series (status: developing)
+- [[Active Imagination]] — the waking follow-on method: dialogue with dream figures; the transcendent function; Jung's two-stage model (letting come / *Auseinandersetzung*); practical technique and common obstacles (Hannah); alchemy as active imagination with matter (von Franz/Dorn) (status: developing)
+- [[Dream Recall]] — sleep-science mechanics of remembering dreams: intention, stillness, WBTB, substances (status: developing)
+- [[Working with Dream Symbols]] — **the methodological guide**: the step-by-step amplification loop that orchestrates all the above and governs when the symbol corpus is consulted (status: developing)
 
 **Core Concepts & Foundational Essays**
 - [[Archetypes of the Collective Unconscious]] — Jung's 1934/1954 essay on archetype manifestation and consciousness (status: mature)
 - [[Concept of the Collective Unconscious]] — Jung's 1936 essay defining the collective layer (status: mature)
 - [[Collective Unconscious]] — the inborn, universal layer of the psyche; contains archetypes (status: mature)
 - [[Archetype]] — structural predispositions in the collective unconscious; tendencies to form certain images (status: mature)
-- [[Individuation]] — the lifelong process of becoming a whole, integrated Self (status: mature)
+- [[Individuation]] — the lifelong process of becoming a whole, integrated Self; expressed through the hero's journey (status: mature)
 - [[Self (archetype)]] — the totality of the psyche; the archetype of wholeness and the goal of individuation (status: mature)
 - [[Ego]] — the center of consciousness; the part that relates to the Self as part to whole (status: mature)
 - [[Shadow]] — the dark or inferior aspect of personality; what the ego rejects (status: mature)
 - [[Anima and Animus]] — the contrasexual archetypal figure (anima in men, animus in women) (status: mature)
-- [[Mother Archetype]] — the maternal principle as archetype; includes the Great Mother and mother-complex (status: developing)
+- [[Mother Archetype]] — the maternal principle as archetype; the source and obstacle in individuation (status: developing)
+- [[Hero Archetype]] — the mythological expression of individuation; psychological separation from the maternal matrix; Neumann's 8-stage developmental sequence (status: developing)
+- [[Uroboros]] — the primordial self-containing circle; pre-ego undifferentiated wholeness; Neumann's symbol for the starting state of consciousness (status: developing)
 - [[Trickster]] — the pre-moral, chaotic collective shadow figure in mythology (status: developing)
 - [[Mandala Symbolism]] — circular symbols of psychic wholeness and the Self (status: developing)
+
+**Transformation & Method**
+- [[Confrontation with the Unconscious]] — Jung's 1913-1917 descent period; the experiential source of all major theory; Philemon, Elijah/Salome, Siegfried dream, mandala resolution (status: developing)
+- [[Libido Transformation]] — psychic energy as undifferentiated and genuinely transforming through the lifespan (status: developing)
+- [[Symbol and Myth]] — myth as direct expression of the collective unconscious; symbol as bridge between conscious and unconscious (status: developing)
+- [[Psychological Sacrifice]] — the surrender of ego-identification required for individuation (status: developing)
+
+**Fairy Tales & Narrative**
+- [[vonfranz-interpretation-fairy-tales]] (source) — von Franz's four-step method; exposition/peripeteia/crisis/lysis applied to tales; Three Feathers worked example; shadow and Self in fairy tale structure; method directly transfers to dream interpretation (status: ingested)
+
+**Synchronicity & the Psychoid**
+- [[Synchronicity]] — meaningful coincidence without causal connection; the archetype as ordering principle of both psyche and matter; the golden scarab paradigm case (status: developing)
+- [[Unus Mundus]] — the unified substrate prior to the psyche-matter split; Dorn's three degrees of conjunction; the psychophysical background hypothesis; the psychoid factor (status: mature)
+
+**Alchemy**
+- [[Coniunctio]] — the alchemical union of opposites (Sol/Luna, Rex/Regina); Mercurius as mediator; Dorn's three degrees culminating in the unus mundus; the lapis as symbol of the Self (status: mature)
+- [[Mercurius]] — the central alchemical figure; *principium individuationis* in matter; compensatory counterpart to Christ; uroboros, trickster, psychopomp, prima materia and lapis in one (status: mature)
+- [[Nigredo]] — first stage of the opus; blackening, putrefaction, shadow encounter; lowest = symbol of highest (status: mature)
+- [[Filius-Macrocosmi]] — son of the macrocosm; circular return-to-earth movement contrasted with Christ; *Tabula smaragdina* (status: mature)
+- [[Ialdabaoth]] — Gnostic lion-headed demiurge = Saturn = Mercurius = child of chaos (status: mature)
+
+*Latin phrases (standing rule: every Latin term gets a full concept page)*
+- [[Azoth]] — Mercurius as alpha/omega totality; A+Z (Latin) + alpha+omega (Greek) + aleph+tau (Hebrew) (status: mature)
+- [[prima-materia]] — base matter of the opus; Saturnine; "cheap as dirt yet the stone itself" (status: mature)
+- [[anima-mundi]] — world-soul; Platonic animating principle of the cosmos; one of Mercurius's soul-names (status: mature)
+- [[principium-individuationis]] — Schopenhauer's term reinvested by Jung; the ordering intelligence of the psyche = spirit in the bottle (status: mature)
+- [[cognitio-matutina-vespertina]] — Augustine's morning/evening knowledge pair; Jung reads them as Self-knowledge vs ego-knowledge (status: mature)
+- [[Tabula-Smaragdina]] — Emerald Tablet; Mercurius's circular return to earth; *filius macrocosmi* movement (status: mature)
+- [[servus-fugitivus]] — fugitive slave/stag; epithet for philosophic Mercurius; Jung's statement on projection (status: mature)
+- [[anima-rationalis]] — immortal soul given by God; one of the two sources of illumination; contrasts with mercurial life-soul (status: mature)
+- [[humidum-radicale]] — root-moisture; primordial vital moisture underlying all life; Mercurius's water aspect (status: mature)
+- [[spiritus-vegetativus]] — vegetative spirit of the tree = *principium individuationis*; the Self at root level (status: mature)
+- [[filius-philosophorum]] — son of the philosophers; transformed hermaphroditic Mercurius; product of the coniunctio (status: mature)
+- [[stella-matutina]] — morning star; Lucifer as light-bringer from darkness; first light of Self after the nigredo (status: mature)
+- [[ignis-fatuus]] — will-o'-the-wisp; the *lumen naturae* without proper orientation; Mercurius as seducer rather than guide (status: mature)
+- [[deus-absconditus]] — hidden god in matter; divine Nous lost in Physis; the Self in its unrealized unconscious state (status: mature)
+- [[ex-tenebris-lux]] — out of darkness, light; the alchemical law; Paracelsus as exemplar (status: mature)
+- [[homo-maximus]] — Paracelsus's Primordial Man; the cosmic inner man = *adech*; alchemical form of the Anthropos (status: mature)
+- [[coincidentia-oppositorum]] — coincidence of opposites; Nicholas of Cusa; structural definition of Mercurius and the Self (status: mature)
+
+**Religion & the God-Image**
+- [[God-Image (Imago Dei)]] — the psychological God-image vs metaphysical claims; Self = God-image; Yahweh's shadow; Christ as first answer; Sophia as second answer; the quaternity (status: developing)
+- [[Numinous Experience]] — the overwhelming sacred encounter; James's four marks (ineffability, noetic quality, transiency, passivity); Otto's tremendum/fascinans/mysterium; Jung's 1937 definition of religion itself as "observation of the numinosum" (CW11); the phenomenological spine of conversion, individuation turning points, and deep dream material (status: developing)
+- [[Religious Function of the Psyche]] — Jung's structural-necessity thesis: religiousness as a built-in psychic function, not a cultural overlay; demonstrated via dream-series analysis (the autonomous "voice," spontaneous quaternity symbolism, the World Clock vision); clinical consequence when unmet (status: developing)
+
+---
+
+## Existential Psychology (Frankl / Logotherapy)
+
+- [[Logotherapy]] — Frankl's meaning-centered psychotherapy; will to meaning, existential vacuum, paradoxical intention, tragic optimism; relationship to Jungian individuation (status: developing)
+
+---
+
+## Depth Psychology (Analytical Psychology / Jung) — continued
+
+**CW 8 Theory of the Psyche** (see [[jung/theory/_index|theory folder]])
+- [[CW8 Theoretical Foundations]] — psychic energy/libido, causal-vs-final standpoint, entropy, progression/regression, symbol formation, complex, archetype/instinct, the Self, synchronicity (status: developing)
+- [[CW8 Dream Methodology]] — compensation + its 3 modes, "taking up the context", the four-phase dramatic structure, dream-series & "big" dreams (status: developing)
+- [[CW8 Integration Framework]] — how CW 8 grounds the CW 5 symbols + von Franz craft; thematic symbol bundles; second-half-of-life shift (status: developing)
 
 ---
 
 ## AI & Machine Learning
+
+**LM Optimization**
+- [[PACE Optimizer]] — AdamW wrapper derived from optimal control; pulls live weights toward EMA to improve the returned average model; strictly outperforms AdamW+EMA in fine-tuning (1–2B params) and GPT-2 pretraining (status: developing)
+- [[Iterate Averaging in LLM Training]] — Polyak-Ruppert / EMA in LLM training; the training–inference model gap; taxonomy of averaging variants; control-theory framing (status: developing)
 
 **World Models & Embodied AI**
 - [[World Models]] — neural networks that learn to predict environment evolution from observations and actions (status: mature)

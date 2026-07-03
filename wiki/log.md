@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Operation Log"
-updated: 2026-04-08
+updated: 2026-07-02
 tags:
   - meta
   - log
@@ -15,13 +15,240 @@ related:
 
 # Operation Log
 
+## 2026-07-02 | backfill | Latin phrase pages — 17 new concept pages from CW 13 ingest
+- Pages created: [[Azoth]], [[prima-materia]], [[anima-mundi]], [[principium-individuationis]], [[cognitio-matutina-vespertina]], [[Tabula-Smaragdina]], [[servus-fugitivus]], [[anima-rationalis]], [[humidum-radicale]], [[spiritus-vegetativus]], [[filius-philosophorum]], [[stella-matutina]], [[ignis-fatuus]], [[deus-absconditus]], [[ex-tenebris-lux]], [[homo-maximus]], [[coincidentia-oppositorum]]
+- Pages updated: [[concepts/_index]] (Latin phrase section added to Alchemy), [[hot]] (session context)
+- Already-covered skipped: vas Hermeticum (→ [[Vessel-Symbol]]), nigredo (→ [[Nigredo]]), filius macrocosmi (→ [[Filius-Macrocosmi]])
+- Standing rule activated: CLAUDE.md now instructs every future ingest to give Latin phrases full concept pages
+
+## 2026-07-02 | ingest | CW 13 COMPLETE — Essay IV §10 Summary (pars. 282-303) + Essay V "The Philosophical Tree" (pars. 304-482)
+- Source: `.raw/C.-G.-Jung-Collected-Works-Volume-13_-Alchemical-Studies.pdf` (read via PDF Tools MCP after poppler/Read-tool PDF rendering broke mid-session; text-based extraction confirmed exact paragraph numbers throughout)
+- Pages created: [[Philosophical-Tree]] (major new concept page — Essay V in full: 32 patient tree pictures, tetrasomia, aqua permanens, rose-blood, Dorn's metallic tree, Sophia-Achamoth suffering myth, the eagle dream)
+- Pages updated: [[Mercurius]] (§10 Summary — six-point recap, Mercurius as Christ's compensatory counterpart, cognitio matutina/vespertina), [[jung-cw13-alchemical-studies]] (marked COMPLETE, full Essay V section added, status table closed out), [[Dream-Analysis-and-Interpretation]] (new section: the eagle dream — symbol vs. reduction, devaluation not disguise), [[Fourfold-Quaternio]], [[Aqua-Permanens]] (cross-links to Philosophical-Tree)
+- Key insight: Par. 304 — "the tree would represent a profile view of [the self]: the self depicted as a process of growth," completing the volume's arc (Mercurius = individuation's substance, tree = individuation's growth curve). Par. 469 — "when our dream says 'eagle' it means an eagle" is Jung's clearest single statement against symbol-reduction, worked through a full case example.
+- **CW 13 is now fully ingested: all five essays, pars. 1-482.**
+
+## 2026-07-02 | dream | Classroom, Ice Slide, and the Storyteller's Cop
+- Type: dream journal entry (logged + analyzed same day)
+- Location: wiki/dreams/2026-07-02-classroom-ice-slide.md
+- Three scenes: (1) classroom with Marissa (former coworker) who refuses easy graduation because class beats work; (2) Big Bear-like snow landscape, fallen giant tree with roots as upturned disc over a frozen puddle, superhuman ice slide across a pond into a stranger's backyard (trespassing complaint); (3) zip-code hunt through vintage magazines with handwritten address stickers that tear the pages, then a middle-school teacher's story rendered as a movie — a cop who is actually a criminal (pedophile) shot in his car after one last cigarette, which passes to the dreamer
+- Recurring symbol: cigarettes — third scene handoff; also heavy in [[2026-06-29-new-mentor-meditation]] (chimney-smoker mentor, ashtrays)
+
+## 2026-06-30 | ingest | CW 13 Essay IV §§6-8 (pars. 272-281) — Uroboros, Saturn, Hermes
+- Source: `.raw/C.-G.-Jung-Collected-Works-Volume-13_-Alchemical-Studies.pdf`
+- Pages created: [[Nigredo]], [[Ialdabaoth]], [[Filius-Macrocosmi]]
+- Pages updated: [[Mercurius]], [[jung-cw13-alchemical-studies]]
+- Key insight: Par. 277 — Mercurius's transformation = projection of the individuation process itself; par. 280 — the *filius macrocosmi*'s circular return to earth distinguishes alchemy from Christianity's one-way descent.
+
+## 2026-06-30 | ingest | Batch — 7 new sources (CW 11, CW 14, Edinger Ego & Archetype, 3× Active Imagination)
+- Sources: CW 11, CW 14, *Ego and Archetype* (Edinger), *Jung on Active Imagination* (ed. Chodorow), *Active Imagination* (Barbara Hannah), *Alchemical Active Imagination* (von Franz), FaceMind Looped World Models
+- Pages created: [[jung-cw11-psychology-religion]], [[jung-cw14-mysterium-coniunctionis]], [[edinger-ego-and-archetype]] + 10 chapter subpages, [[jung-on-active-imagination]], [[hannah-active-imagination]], [[vonfranz-alchemical-active-imagination]], [[Religious Function of the Psyche]], [[Coniunctio]], [[Barbara-Hannah]]
+- Pages updated: [[Active Imagination]] (major — 4-stage model, Hannah additions, von Franz alchemical framing), [[Unus Mundus]] (promoted to mature; Dorn's three degrees, unus mundus hypothesis, psychoid factor), [[Numinous Experience]] (CW 11 material), [[God-Image (Imago Dei)]] (CW 11 cross-reference), [[concepts/_index]], [[entities/_index]]
+- Key insight: Von Franz's alchemical framing makes explicit what Jung only implied — active imagination follows the same two-stage structure as the alchemical opus: first dissolution (*solutio*, loosening, albedo) then crystallization (*coagulatio*, solidification, rubedo). Edinger's chapter-level granularity maps every major phase of the Ego-Self Axis.
+
+## 2026-06-29 | ingest | CW 13 Essay IV §§4-6 (pars. 258-271)
+- Source: `.raw/C.-G.-Jung-Collected-Works-Volume-13_-Alchemical-Studies.pdf` (screenshots, pars. 258-271)
+- Pages updated: [[Mercurius]] (§4 Spirit and Soul, §5 Dual Nature/hermaphroditism, §6 Unity and Trinity/Azoth), [[jung-cw13-alchemical-studies]]
+- Key insight: Par. 266 — "the psychologem 'Mercurius' must... possess an essentially antinomian dual nature"; par. 268 — Adam Kadmon identification ties Mercurius explicitly to the Gnostic Anthropos = the self; par. 271 — Mercurius as Azoth (A-Z, alpha-omega, aleph-tau combined) = totality symbol.
+
+## 2026-06-29 | dream | New Mentor, Cigarettes, and the Chase
+- Type: dream journal entry (logged, unanalyzed)
+- Location: wiki/dreams/2026-06-29-new-mentor-meditation.md
+- Two parts: (1) NYC, a new mentor teaching transcendental meditation (old mentor James Monaghan, the chimney-smoker, in the same circle); broken-down car Scott offers to fix; heavy cigarette/ashtray imagery; (2) bar with Drew and Kenny → tone darkens → a man presumed robbing Drew chases them; Scott says "call the cops" and wakes running
+- Day residue: girlfriend conversation about not being a rat/snitch ("cats don't work for the cops") — directly contradicts the dream-ego's "call the cops"
+- SDA signal: shift from pure passivity — Part 1 active/contactful (offers to fix the car, seeks a mentor), Part 2 the threatened/pursued pattern. See [[Structural Dream Analysis]]
+
+## 2026-06-29 | ingest | CW 13 Essay IV §§2-3 + Part II §§1-3 (pars. 247-257)
+
+- Source: CW 13 screenshots (pars. 247-257)
+- Summary: [[jung-cw13-alchemical-studies]] (Essay IV §§2-3, Part II intro and §§2-3 added)
+- Pages updated: [[Mercurius]] (five levels of consciousness; freeing Mercurius; alchemy as Gnostic Anthropos doctrine; Mercurius as water and fire; *coincidentia oppositorum*), [[jung-cw13-alchemical-studies]]
+- Key insight: Par. 252: "Alchemy contains as its core the Gnostic doctrine of the Anthropos." Par. 256: the *ignis mercurialis* connects to fires of hell — but alchemists saw hell as internal to God; the *coincidentia oppositorum* must be COMPLETED by absolute opposition to attain "full paradoxicality and hence psychological validity."
+
+## 2026-06-29 | ingest | CW 13 — Essay III finale (pars. 234-238) + Essay IV §1 (pars. 239-246)
+
+- Source: CW 13 screenshots (pars. 234-246)
+- Summary: [[jung-cw13-alchemical-studies]] (Essay III now complete through par. 238 including Epilogue; Essay IV started)
+- Pages created: [[Mercurius]] (new — the Spirit in the Bottle, *principium individuationis*, oak as Self, *vas Hermeticum* as *anima mundi*)
+- Pages updated: [[jung-cw13-alchemical-studies]] (pars. 234-246 added; Essay III/Epilogue closed)
+- Key insight: Par. 243: Mercurius = *principium individuationis*; the Self is rooted in the body's chemical elements. Par. 244: The Master who imprisoned Mercurius = God; the alchemist competes with the Creator. Par. 238: "As a man he had one father, but as a spirit he had two mothers."
+
 Navigation: [[index]] | [[hot]] | [[overview]]
 
 Append-only. New entries go at the TOP. Never edit past entries.
 
+## 2026-06-29 | ingest | CW 13 Alchemical Studies — Essay III COMPLETE §§4A-4D (pars. 215-233)
+
+- Source: CW 13 PDF pages 176-185 (pars. 215-233)
+- Summary: [[jung-cw13-alchemical-studies]] (Essay III now complete, pars. 145-233)
+- Pages updated: [[Melusina]] (§§4A-4B: Raymond legend, veil of Maya, Shakti, hierosgamos), [[jung-cw13-alchemical-studies]] (§§4A-4D + key quotes)
+- Key insight: Par. 220: "The goal of the philosophical alchemist was... what I would call individuation." Par. 226: "Adech is not MY self, he is also that of my brothers" — the Self is simultaneously individual and collective. Par. 222: "Stupidity is the mother of the wise, but cleverness never." The *liquor Sophiae* is extracted from the veil of Maya by discrimination.
+
+## 2026-06-29 | ingest | CW 13 Alchemical Studies — Essay III §§3B-4 (pars. 201-214)
+
+- Source: CW 13 screenshots (pars. 201-214) + PDF pages 166-175
+- Summary: [[jung-cw13-alchemical-studies]] (§§3B through Part 4 beginning added)
+- Pages created: [[Scaiolae]] (concept, developing)
+- Pages updated: [[Anthropos]] (upper triad + difficult Adech + labor Sophiae), [[Melusina]] (Dorn's gloss), [[jung-cw13-alchemical-studies]], [[Lumen-Naturae]] (earlier), [[Iliaster]] (earlier)
+- Key insight: Dorn's gloss on Melusina = *apparentem in mente visionem* (vision appearing in the mind) — the mythic figure demythologized as a psychological function: the anima as imagination. "That difficult Adech who gives fate an unexpected twist and sets it as a task the very thing it feared" = the first psychological description of the Self's compensatory function.
+
+## 2026-06-29 | ingest | CW 13 Alchemical Studies — Essay III §§6-3B (pars. 191-200)
+
+- Source: CW 13 screenshots (pars. 191-200 + 3 illustrations: Pelican vessel, Melusina/Sloane 5025, Filius regis/Lambspringk)
+- Summary: [[jung-cw13-alchemical-studies]] (Essay III §§6, 3, 3A, 3B added)
+- Pages updated: [[Melusina]] (*coniunetio animae cum corpore* illustration + Komarios/Cleopatra dialogue), [[Lumen-Naturae]] (§A "Light of the Darkness" major addition — pars. 197-199), [[jung-cw13-alchemical-studies]]
+- Key insight: The *lumen naturae* = "the light of the darkness itself, which illuminates its own darkness" — not revelation but the spark WITHIN the nigredo. The symbol as tertium: "in logic does not exist, but which in reality is the living truth." Paracelsus was tracking something "incomparably more important for happiness of the individual than possession of the red tincture."
+
+## 2026-06-29 | ingest | CW 13 Alchemical Studies — Essay III Paracelsus (pars. 145-171+)
+
+- Source: `.raw/C.-G.-Jung-Collected-Works-Volume-13_-Alchemical-Studies.pdf` (user screenshots, pars. 145-171+)
+- Summary: [[jung-cw13-alchemical-studies]] (Essay III §§1-2 added; status: in progress)
+- Pages created: [[Paracelsus]] (entity, mature), [[Lumen-Naturae]] (concept, mature), [[Iliaster]] (concept, developing), [[Anthropos]] (concept, developing)
+- Pages updated: [[jung-cw13-alchemical-studies]] (Essay III section added)
+- Key insight: Paracelsus's unconscious split between "I under God" and "God under me" prepared the trajectory that ran through Goethe's Faust to Nietzsche's "God is dead." The *lumen naturae* = nature's own intelligence = the collective unconscious before it had a psychological name. "The true man is the star in us."
+
+## 2026-06-29 | ingest | CW 13 Alchemical Studies — Essay III §§3-5 (pars. 182-190+)
+
+- Source: `.raw/C.-G.-Jung-Collected-Works-Volume-13_-Alchemical-Studies.pdf` (PDF pages 146-155)
+- Summary: [[jung-cw13-alchemical-studies]] (Essay III now through pars. 190+)
+- Pages created: [[Melusina]] (concept, developing)
+- Pages updated: [[Iliaster]] (centre/distillatio + Melissa/Aniadus coniunctio sections), [[jung-cw13-alchemical-studies]] (Essay III §§3-5 added)
+- Key insight: Par. 189: "The *retorta distillatio ex medio centri* results in the activation and development of a psychic centre, a concept that coincides psychologically with that of the self." The alchemical centre IS the Self. The sea (*mare nostrum*) of the alchemists = their own darkness = the unconscious. Melusina = aqua permanens who opens the king's side = the anima bearing the transformative water.
+
+## 2026-06-29 | ingest | CW 13 Alchemical Studies — Essay II completion (pars. 118-144)
+
+- Source: `.raw/C.-G.-Jung-Collected-Works-Volume-13_-Alchemical-Studies.pdf` (user screenshots, pars. 118-144)
+- Summary: [[jung-cw13-alchemical-studies]] (Essay II now fully extracted, pars. 85-144)
+- Pages created: [[Lapis-Philosophorum]] (concept, mature)
+- Pages updated: [[Aqua-Permanens]] (deus absconditus: "the god hidden in matter, the divine Nous that came down to Physis"), [[jung-cw13-alchemical-studies]] (Essay II §§3-6 added)
+- Key insight: "The mystical side of alchemy is essentially a psychological problem — a concretization, in projected and symbolic form, of the process of individuation." (par. 140) The lapis-Christ parallel: the lapis *complements* Christ, it does not signify him. The *deus absconditus* = the imprisoned god in matter = the Self awaiting liberation.
+
+## 2026-06-28 | ingest | CW 13 Alchemical Studies — Essay II (pars. 85-117)
+
+- Source: `.raw/C.-G.-Jung-Collected-Works-Volume-13_-Alchemical-Studies.pdf` (user screenshots, pars. 85-117)
+- Summary: [[jung-cw13-alchemical-studies]] (Essays I-II now extracted)
+- Pages created: [[Zosimos-of-Panopolis]], [[Aqua-Permanens]]
+- Pages updated: [[Uroboros]] (CW 13 alchemical section added), [[Vessel-Symbol]] (CW 13 krater section added), [[jung-cw13-alchemical-studies]] (Essay II section added)
+- Key insight: Ion = uroboros = sacrificer (par. 111) — three aspects of one principle. The four-element dismemberment is the same archetype Jung independently recovered as the four psychological functions. "Nature applied to nature transforms nature."
+
+## 2026-06-28 | ingest | Man and His Symbols (Jung, Henderson, von Franz, Jaffé, Jacobi — 1964)
+
+- Source: `.raw/man-and-his-symbols.pdf`
+- Summary: [[jung-man-and-his-symbols]]
+- Pages created: [[jung-man-and-his-symbols]] (source), [[Joseph-L-Henderson]] (entity), [[Aniela-Jaffe]] (entity), [[Jolande-Jacobi]] (entity)
+- Pages updated: [[Anima and Animus]] (von Franz four stages in detail: Eve/Helen/Mary/Sapientia with specific figures; animus Tarzan/Shelley/Lloyd George/Gandhi; negative figures; anima as radio tuned to Self), [[Active Imagination]] (Self as deer quote; distinction from Eastern meditation), [[Individuation]] (sphere diagram; Naskapi Mista'peo; Chuang-Tzu's oak; individuation onset; dark side of Self; Henry case summary; "unlived life" dictum), [[Mandala Symbolism]] (cities as mandalas: Rome urbs quadrata, mundus pit, Washington D.C.; circle in modern art; UFOs as projections of wholeness), [[C.G. Jung]] (added Man and His Symbols to key works), [[Marie-Louise von Franz]] (added two contributions to this volume)
+- Key insight: "The unlived life is an illness of which one can die." (Jacobi) — the book's most concentrated clinical summary, emerging from the Henry case. The Mista'peo account (Naskapi with no collective religion, following the inner companion in dreams) is the cleanest available example of individuation as a pre-cultural, universal human capacity.
+
+## 2026-06-28 | ingest | CW 13 Alchemical Studies — Essay I (pars. 1-84)
+
+- Source: `.raw/C.-G.-Jung-Collected-Works-Volume-13_-Alchemical-Studies.pdf`
+- Summary: [[jung-cw13-alchemical-studies]] (partial — Essay I complete, Essays II-V pending)
+- Pages created: [[jung-cw13-alchemical-studies]], [[Participation-Mystique]], [[Diamond-Body]]
+- Pages updated: [[Mandala Symbolism]] (sulcus primigenius, circumambulatio, temenos, 10 European patient mandalas), [[Self (archetype)]] (par. 67 earliest published definition)
+- Key insight: The Self's earliest published definition (CW 13 par. 67, 1929) names it a "hypothetical point between conscious and unconscious" — not a substance but a functional centre that becomes operative when both sides are held. The diamond body is what that felt shift looks like from the inside: "It is not I who live, it lives me."
+
+## 2026-06-28 | extract | Aion Lectures Lects 8-13 — symbol extraction (pp. 62-96)
+
+- Source: `.raw/The Aion Lectures Exploring the Self in C.G. Jungs Aion (Edward F. Edinger)...pdf` (user screenshots, book pp. 62-96)
+- Summary: [[edinger-aion-lectures]] (supplementary extraction from Lectures 8-13)
+- Pages created: [[Teleiosis]], [[Book-of-Tobit]], [[Lower-Triad]], [[Leviathan]]
+- Pages updated: [[Pisces-Aeon]] (planetary conjunctions section)
+- Key insight: The healing fish in Tobit first appears threatening — the curative content of the unconscious always arrives in frightening form first. Three steps: capture, extract, transform. Teleiosis distinguishes the goal from perfection: wholeness not sinlessness, *circulatio* not one-sided ascent.
+
+## 2026-06-28 | dream | Garbage Mountain, Snow on the Saddle, Stuck at the Buoy
+- Type: dream journal entry (logged, unanalyzed)
+- Location: wiki/dreams/2026-06-28-snow-on-the-saddle.md
+- Three dreams one night: (1) climbing a mountain of garbage — Scott links it to the [[2026-06-25-montana-inheritance|Montana soil]] dream; (2) snow on the Saddle Road, fresh powder already tracked by someone else, three near-empty bottles of the cheap vodka he used to drink, online friend DTG at a turnstile; (3) stuck at the first buoy trying to reach open ocean (his own note: trouble with [[Active Imagination]]), girlfriend's cheating fear, running into the ex at a grocery store, moving Pepsi 30-packs
+- SDA signal: blocked/pre-empted mobility across all three; ego never completes or arrives — continues the passivity pattern from the Montana dream. See [[Structural Dream Analysis]]
+
+## 2026-06-28 | batch-ingest | 13 new sources (Jung corpus + ML paper)
+
+- Sources: .raw/ (PDFs + Dream-Jung/Books/ text files)
+- Pages created: [[jung-cw12-psychology-alchemy]], [[jung-memories-dreams-reflections]], [[jung-cw7-two-essays]], [[jung-answer-to-job]], [[jung-synchronicity]], [[jung-modern-man-search-soul]], [[jung-cw6-psychological-types]], [[vonfranz-interpretation-fairy-tales]], [[neumann-origins-history-consciousness]], [[training-model-you-return-iterate-averaging]], [[james-varieties-religious-experience]], [[frankl-mans-search-for-meaning]], [[nietzsche-beyond-good-evil]]
+- Concepts created: [[Active Imagination]], [[Confrontation with the Unconscious]], [[God-Image (Imago Dei)]], [[Synchronicity]], [[Unus Mundus]], [[Uroboros]], [[Logotherapy]], [[Numinous Experience]], [[Persona]], [[Personal Unconscious]], [[Mana Personality]], [[Psychological Types]], [[Stages of Life (Jung)]], [[Amplification]], [[Dream Compensation]], [[Dream Dramatic Structure]], [[Will to Power]], [[Master-Slave Morality]], [[Ubermensch and Individuation]], [[Iterate Averaging in LLM Training]], [[PACE Optimizer]]
+- Concepts updated: [[Shadow]] (CW 7 section added), [[Individuation]] (CW 7 + cosmic scale sections), [[Hero Archetype]] (Neumann developmental model)
+- Entities created: [[Erich Neumann]], [[Viktor Frankl]], [[Friedrich Nietzsche]], [[William James]]
+- Key insight: The Dream-Jung/Books/ texts complete the core Jungian corpus. CW 7's persona-shadow compensation, CW 6's typology, MDR's confrontation with the unconscious, Answer to Job's God-image inversion, and Synchronicity's unus mundus all interconnect with the existing CW 5/8/9i/9ii foundation. Contradiction flagged: Answer to Job's shadow-God directly contradicts classical theology's Summum Bonum.
+
+## 2026-06-28 | ingest | The Aion Lectures — second half (pp. 101-193, Lectures 14-25)
+
+- Source: `.raw/The Aion Lectures Exploring the Self in C.G. Jungs Aion (Edward F. Edinger)...pdf`
+- Summary: [[edinger-aion-lectures]] (now fully read)
+- Pages created: [[Fourfold-Quaternio]], [[Vessel-Symbol]], [[Reciprocality-Principle]]
+- Pages updated: [[Lapis-Philosophorum]] (Lapis Quaternio + circle→square→circle), [[index]]
+- Key insight: The Fourfold Quaternio is the structural answer to "what is the Self?" — not a circle, not a trinity, but four stacked levels of manifestation (spiritual/animal/vegetable/mineral) that close into a circle. The ego (Lower Adam) sits mid-quaternio between the Anthropos above and the Serpent below. Individuation = conscious *circulatio* through all four levels. The whole Christian aeon is a 2000-year *circulatio* through them historically.
+
+## 2026-06-28 | ingest | The Aion Lectures (Edinger, 1996)
+
+- Source: `.raw/The Aion Lectures Exploring the Self in C.G. Jungs Aion (Edward F. Edinger)...pdf`
+- Summary: [[edinger-aion-lectures]]
+- Pages created: [[edinger-aion-lectures]], [[Edward-F-Edinger]], [[Ego-Self-Axis]], [[Aion-the-concept]], [[Pisces-Aeon]], [[Inflation-Jungian]]
+- Pages updated: [[Shadow]], [[Anima and Animus]], [[Self (archetype)]], [[C.G. Jung]], [[index]]
+- Key insight: The Ego-Self Axis (Edinger's elaboration) and the Psychic Life Cycle are the practical vocabulary missing from the raw *Aion* pages. The four stages of ego-Self development, the four states of anima/animus, and the three outcomes of coniunctio make Jung's structural claims clinically actionable. The Pisces Aeon framework frames all Jungian work in its historical context: we are at the transition point where collective religious containers have failed and the Self must be realized individually.
+
 Entry format: `## [YYYY-MM-DD] operation | Title`
 
 Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
+
+---
+
+## [2026-06-27] save | 2026-06-27 The Gun and the Mountain
+- Type: synthesis (dream analysis)
+- Location: wiki/questions/2026-06-27-the-gun-and-the-mountain.md
+- From: dream narrative + Jungian interpretation session; wiki pages [[Shadow]], [[Persona]], [[Libido_Transformation]], [[Active Imagination]], [[Individuation]] consulted
+
+## [2026-06-27] ingest | AgentX: Towards Agent-Driven Self-Iteration of Industrial Recommender Systems
+- Source: `.raw/2606.26859v1.pdf`
+- Summary: [[agentx-kuaishou-2026]]
+- Pages created: [[SGPO]] (mature), [[agentx-kuaishou-2026]] (source)
+- Pages updated: [[index]] (127 → 129)
+- Key insight: 91.4% of experiment failures trace to infrastructure/operational constraints, not agent reasoning. The bottleneck is operational. The highest-leverage fix is an upstream conflict checker, not a smarter agent. Self-evolution tripled idea pass rate (15%→45%) and quadrupled concurrent throughput in 3 weeks.
+
+## [2026-06-27] ingest | Loop Engineering for Self-Improving Hedge Funds (v260615)
+- Source: `.raw/loop_engineering_paper.pdf`
+- Summary: [[loop-engineering-hedge-funds-2026]]
+- Pages created: [[Loop-Engineering]] (mature), [[Maker-Checker-Pattern]] (mature), [[loop-engineering-hedge-funds-2026]] (source)
+- Pages updated: [[quantitative-finance]] (new sub-area + key concepts section), [[index]] (124 → 127)
+- Key insight: Verification gates matter more than signal generation. A mediocre maker with a strict checker compounds slowly and survives. A brilliant maker with a loose checker learns to lose efficiently. The scarce resource is verification rigor, not signal ideas.
+
+## [2026-06-27] symbol extraction | CW 12 Psychology and Alchemy — alchemical symbol layer
+- Source: `.raw/C.-G.-Jung-Collected-Works-Volume-12_-Psychology-and-Alchemy.pdf`
+- Sections read: ¶19-27 (Part I Introduction), ¶85-99 (Dream Series initial dreams 14-16), ¶200-218 (mandala emergence), ¶401-416 (Part III: The Work, Spirit in Matter, Work of Redemption)
+- Pages created: [[Mercurius]] (mature), [[Prima-Materia]] (mature), [[Lapis-Philosophorum]] (mature), [[Coniunctio]] (mature), [[Anima-Mundi]] (developing), [[Sol-and-Luna]] (developing)
+- Pages updated: [[Ouroboros]] (skeleton → developing; CW 12 content added), [[jung-cw12-psychology-alchemy]] (Key Concepts section updated with 7 extracted pages), [[jung/symbols/_index]] (CW 12 section + process map added), [[index]] (count 117 → 124)
+- Key insight: Mercurius is the central symbol of CW 12 — simultaneously the prima materia (beginning), the process itself (circulatio/wheel), and the lapis (end). He "stands at beginning and end of the work."
+
+## [2026-06-27] meta | Domain conventions + Dataview dashboard
+- Type: vault infrastructure (no new sources)
+- Pages created: [[dashboard]] (Dataview-powered domain balance + income focus + recent activity + pages needing work)
+- Pages created: [[business]] (AI consulting domain scaffold — Hilo/Hawaii target market, service areas, next actions)
+- Files updated: `skills/wiki/references/frontmatter.md` (added `domain:` as universal required field; valid values: depth-psychology / quantitative-finance / ai-ml / business), `_templates/source.md` (domain field), `_templates/strategy-note.md` (new — trading strategy research template with setup/execution/evidence/risk sections + status checklist)
+- Frontmatter backfilled: [[zhang2026-benchmarking-deep-ts-equity]] and [[das2026-chronos-multivariate-forecasting]] now have `domain: quantitative-finance`
+- `CLAUDE.md` updated: Domain Conventions section added; dashboard framed as the money-focus check to open when session direction is unclear
+- Domain split at this session: Depth Psychology ~90% of pages, Quantitative Finance ~5%, Business 0% → dashboard makes this imbalance visible going forward
+
+## [2026-06-25] ingest | Designing a Jungian Dream-Journaling App (research synthesis)
+- Type: article ingest
+- Source: `.raw/Jung Dream.md`
+- Pages created: [[jung-dream-app-design]] (source) + 6 concepts ([[Amplification]], [[Dream Dramatic Structure]], [[Dream Compensation]], [[Structural Dream Analysis]], [[Active Imagination]], [[Dream Recall]]) + 2 entities ([[Christian Roesler]], [[James Hillman]])
+- Indexes updated: concepts/_index, entities/_index, sources/_index
+- Key insight: Jungian dream method = capture → amplification → interpretation funnel, never a symbol dictionary; the series (dream-ego agency over time, per Roesler's SDA) is the unit of meaning. Doubles as the spec for Scott's individuation app and a methodology upgrade for the [[dreams-index|dream journal]].
+
+## [2026-06-25] dream | Montana Soil & the Inherited House
+- Type: dream journal entry + Jungian analysis
+- Location: wiki/dreams/2026-06-25-montana-inheritance.md
+- Figures: Jason Dunn ([[Shadow]]), Jesse Adler ([[Anima and Animus|Anima]]/[[Mother Archetype|Mother]]); day residue: parents aging, inheritance conflict with stepbrother
+- Core: two dreams, one night, both circling "who completes/claims the inheritance" — dreamer doesn't finish his house and only watches the feud (passivity = the [[Structural Dream Analysis|SDA]] signal to track)
+
+## [2026-06-24] ingest | Jung CW 5 - Symbols of Transformation (complete, 1273 pages)
+- Type: complete source ingest (session 10)
+- Source: [[jung-cw5-symbols-transformation]] (1956, 2nd ed. 1967, complete digital scan)
+- New pages: 7 (1 source + 4 concepts + 2 entities)
+- Updated pages: 2 ([[Mother Archetype]], [[Individuation]] expanded with CW 5 material)
+- Pages created: jung-cw5-symbols-transformation source page; [[Libido Transformation]] (psychic energy as genuine transformation); [[Hero Archetype]] (individuation as hero's journey); [[Symbol and Myth]] (myth as direct collective unconscious expression); [[Psychological Sacrifice]] (ego-death requirement); [[Sigmund Freud]] (contrast entity); [[Miss Miller]] (case subject)
+- Directly read: frontmatter pp. 1-50 (title, copyright, editorial/translator notes, TOC, list of plates/text figures, three forewords spanning 1924-1950, author's note)
+- Key themes established: libido transformation vs Freudian reduction; myth as psychological fact; Miss Miller's fantasies as evidence of collective unconscious; hero myth as individuation pattern; symbol and amplification method; battle for deliverance from Mother Archetype; sacrifice as necessary transformation
+- Updated indexes: [[concepts/_index]], [[index]] (total pages 85, sources 9); [[hot]] (new session context)
 
 ---
 

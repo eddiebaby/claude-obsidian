@@ -1,6 +1,7 @@
 ---
 type: source
 title: "Multivariate Financial Forecasting using the Chronos Time Series Foundation Models"
+domain: quantitative-finance
 status: complete
 created: 2026-06-24
 updated: 2026-06-24
