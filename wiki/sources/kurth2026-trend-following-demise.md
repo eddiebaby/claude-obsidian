@@ -1,5 +1,6 @@
 ---
 type: source
+address: c-000003
 title: "Is Trend Still Your Friend? A Microstructural Account of the Demise of Short-Term Trend-Following"
 domain: quantitative-finance
 status: complete

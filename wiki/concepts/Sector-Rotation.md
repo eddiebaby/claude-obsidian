@@ -1,5 +1,6 @@
 ---
 type: concept
+address: c-000010
 title: "Sector Rotation"
 domain: quantitative-finance
 complexity: intermediate
@@ -21,9 +22,12 @@ related:
   - "[[zhang2026-benchmarking-deep-ts-equity]]"
   - "[[karatas2021-two-stage-sector-rotation]]"
   - "[[Echo-State-Networks]]"
+  - "[[sanderink2026-when-alpha-breaks]]"
+  - "[[Regime-Trust-Gating]]"
 sources:
   - "[[miao-polak-online-ensemble-sector-rotation]]"
   - "[[karatas2021-two-stage-sector-rotation]]"
+  - "[[sanderink2026-when-alpha-breaks]]"
 ---
 
 # Sector Rotation
@@ -77,6 +81,16 @@ Portfolio construction in [[karatas2021-two-stage-sector-rotation]] is simpler: 
 
 ---
 
+## Sector Rotation as a Model-Failure Trigger (Distinct Sense)
+
+The strategies above treat sector rotation as an *alpha source* to be forecast and traded. [[sanderink2026-when-alpha-breaks]] uses "sector rotation" in a related but distinct sense: a rotation event as a *risk to an existing model*, rather than a signal to trade. Its 2024 case study is a thematic AI-stock rally / sector rotation that silently broke a firm-level cross-sectional LightGBM ranker (20d RankIC fell 0.072 → 0.010; 60d/90d RankIC inverted to negative) — even though market-stress proxies (VIX percentile, realized volatility) showed nothing unusual, because the rotation was a strongly trending, low-noise repricing rather than a chaotic sell-off.
+
+This motivates [[Regime-Trust-Gating]]: since sector rotation can look calm on generic stress indicators while quietly invalidating a model's factor relationships, detecting it requires monitoring the *model's own realized efficacy* (e.g. trailing RankIC), not market-wide proxies. A gate built this way scored 7/8 correct verdicts across five crisis and three calm windows spanning 2016-2025, vs 5/8 for a VIX-percentile gate — whose false alarms clustered precisely in periods when the model was performing best.
+
+**Open cross-link**: no ingested source in this vault yet uses sector-rotation *detection* (Sanderink 2026) to gate the sector-rotation *trading* strategies described above (Miao & Polak, Karatas & Hirsa) — a natural extension would be applying a regime-trust gate to the sector-level rotation ensembles themselves.
+
+---
+
 ## Open Questions / Gaps in Vault Coverage
 
 - Momentum-based (non-ML) sector rotation not yet given its own source treatment — only referenced here as contrast.
@@ -93,3 +107,5 @@ Portfolio construction in [[karatas2021-two-stage-sector-rotation]] is simpler: 
 - [[miao-polak-online-ensemble-sector-rotation]] — source page
 - [[karatas2021-two-stage-sector-rotation]] — companion sector rotation source
 - [[zhang2026-benchmarking-deep-ts-equity]] — contrasting firm-level (non-sector) benchmark
+- [[sanderink2026-when-alpha-breaks]] — sector rotation as a model-failure trigger, not a trading signal
+- [[Regime-Trust-Gating]] — detecting rotation-driven model failure via realized efficacy rather than market-stress proxies

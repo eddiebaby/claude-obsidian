@@ -1,5 +1,6 @@
 ---
 type: source
+address: c-000006
 title: "Two-Stage Sector Rotation Methodology Using Machine Learning and Deep Learning Techniques"
 domain: quantitative-finance
 status: complete

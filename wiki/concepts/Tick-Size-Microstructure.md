@@ -1,5 +1,6 @@
 ---
 type: concept
+address: c-000008
 title: "Tick-Size Microstructure"
 domain: quantitative-finance
 complexity: advanced

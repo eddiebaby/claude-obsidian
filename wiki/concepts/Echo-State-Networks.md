@@ -1,5 +1,6 @@
 ---
 type: concept
+address: c-000012
 title: "Echo State Networks"
 domain: ai-ml
 complexity: intermediate

@@ -1,11 +1,12 @@
 ---
 type: concept
+address: c-000007
 title: "Trend-Following"
 domain: quantitative-finance
 complexity: intermediate
 status: developing
 created: 2026-07-02
-updated: 2026-07-02
+updated: 2026-07-03
 tags:
   - concept
   - quantitative-finance
@@ -19,9 +20,12 @@ aliases:
 related:
   - "[[kurth2026-trend-following-demise]]"
   - "[[Tick-Size-Microstructure]]"
+  - "[[tan2023-spatio-temporal-momentum]]"
+  - "[[Cross-Sectional-Momentum]]"
   - "[[quantitative-finance]]"
 sources:
   - "[[kurth2026-trend-following-demise]]"
+  - "[[tan2023-spatio-temporal-momentum]]"
 ---
 
 # Trend-Following
@@ -73,6 +77,10 @@ The mechanism is structural, not a temporary cost problem: passive (limit-order)
 [[kurth2026-trend-following-demise]] is a futures/CTA-specific microstructural account, distinct from the cross-sectional deep-learning equity forecasting benchmarked in [[zhang2026-benchmarking-deep-ts-equity]]. Both papers converge on a broader theme in this vault: strategy profitability claims from raw signal accuracy or historical Sharpe collapse once realistic execution frictions (transaction costs, turnover, liquidity constraints) are imposed. Where Zhang et al. show constrained-portfolio net Sharpe turning negative for all promoted equity models at 20bps, Kurth et al. show trend's own signal (not just its harvest) structurally decaying once the microstructure underlying its execution changes.
 
 [[pollok2026-end-to-end-portfolio-policies]] uses time-series momentum (TSM) as a benchmark strategy for evaluating end-to-end learned portfolio policies — a parallel ingest in this vault; see that page for the comparison once filed.
+
+## Unification with Cross-Sectional Momentum
+
+Trend-following (TSMOM) and [[Cross-Sectional-Momentum]] (CSMOM) have historically been treated as distinct strategy classes: TSMOM builds a signal for each asset from only that asset's own history; CSMOM ranks assets against each other and takes a maximum long/short position on the top/bottom deciles, ignoring signal strength for everything in between. [[tan2023-spatio-temporal-momentum]] (Tan, Roberts, Zohren 2023) unifies both into a single learned "spatio-temporal momentum" (STMOM) model: a multitask neural network takes a spatio-temporal tensor of momentum features from the *entire asset universe* as input and directly outputs a trading signal for every asset simultaneously, learning cross-asset interactions that pure TSMOM cannot see while avoiding CSMOM's binary long/short discretization. Notably, the paper finds the simplest possible architecture — a single fully-connected layer — outperforms deeper networks (MLP, CNN, LSTM) at this task, and that the resulting strategy retains its edge over TSMOM/CSMOM/long-only benchmarks at realistic transaction costs (5-10 bps).
 
 ## See Also
 

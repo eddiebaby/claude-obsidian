@@ -1,5 +1,6 @@
 ---
 type: entity
+address: c-000013
 title: "Jean-Philippe Bouchaud"
 entity_type: person
 domain: quantitative-finance
