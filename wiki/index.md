@@ -233,6 +233,11 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[Bernard of Clairvaux]] — Cistercian abbot (1090-1153); mother complex; white/red dog symbolism; medieval theology (status: developing)
 - [[Dominic]] — Dominican founder (1170-1221); dog with shining torch; scholastic theology and heresy (status: developing)
 
+**Quantitative Finance**
+- [[Jean-Philippe Bouchaud]] — French physicist-quant; econophysics pioneer; CFM chairman (status: developing)
+- [[Marcos Lopez de Prado]] — quant researcher; Deflated Sharpe Ratio; *Advances in Financial Machine Learning* (status: developing)
+- [[Capital Fund Management]] — Paris systematic hedge fund; econophysics research culture (status: developing)
+
 **Other**
 - [[Andrej Karpathy]] — AI researcher, creator of the LLM Wiki pattern, former Tesla AI director (status: developing)
 - [[Ar9av-obsidian-wiki]] — multi-agent compatible LLM Wiki plugin; delta tracking manifest (status: current)
