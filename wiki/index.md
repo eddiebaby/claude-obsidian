@@ -136,6 +136,29 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 ## Quantitative Finance
 
+**Papers**
+- [[kurth2026-trend-following-demise]] — CFM/Bouchaud: why fast trend died post-2009; volatility-normalised tick size separates dead from alive; slow trend and large-tick contracts survive (status: ingested 2026-07-02)
+- [[pollok2026-end-to-end-portfolio-policies]] — end-to-end AI vs simple rules on 16 CME futures; transformer's implicit low turnover wins net of costs; statistical tie with equal-weight (status: ingested 2026-07-02)
+- [[miao-polak-online-ensemble-sector-rotation]] — online 16-model ensemble for sector rotation; top-5 sectors Sharpe 0.657, survives 5-15bps costs; edge strengthens in COVID (status: ingested 2026-07-02)
+- [[karatas2021-two-stage-sector-rotation]] — macro → RNN forecast → rank 8 iShares sector ETFs; Echo State Networks best; equal-weight benchmark never wins (status: ingested 2026-07-03)
+- [[tan2023-spatio-temporal-momentum]] — Oxford: joint time-series + cross-sectional momentum; single-layer net beats deep architectures; turnover regularization is the survival mechanism (status: ingested 2026-07-03)
+- [[poh2020-learning-to-rank-cross-sectional]] — Oxford: LambdaMART ranking triples Sharpe vs classical momentum sorts (gross of costs) (status: ingested 2026-07-03)
+- [[sanderink2026-when-alpha-breaks]] — regime-trust gate + epistemic tail cap for safe ranker deployment; the gate, not the model, drives value (status: ingested 2026-07-03)
+- [[bailey-lopez-de-prado-2014-deflated-sharpe]] — the Deflated Sharpe Ratio; selection-bias correction under multiple trials; winner's-curse arithmetic (status: ingested 2026-07-03)
+
+**Strategy & Model Concepts**
+- [[Trend-Following]] — strategy class + the impact feedback-loop mechanism; where it still works (status: developing)
+- [[Cross-Sectional-Momentum]] — relative ranking vs own-history; the natural frame for sector rotation (status: developing)
+- [[Sector-Rotation]] — tradeable alpha source AND ranker-failure trigger; ML approaches compared (status: developing)
+- [[End-to-End-Portfolio-Optimization]] — differentiable Sharpe loss, features → weights directly (status: developing)
+- [[Learning-to-Rank]] — pairwise/listwise objectives for asset ranking (status: developing)
+- [[Online-Ensemble-Learning]] — R²-weighted model combination under nonstationarity (status: developing)
+- [[Echo-State-Networks]] — reservoir computing; fast winner of the sector-ETF benchmark (status: developing)
+- [[Turnover-Regularization]] — the recurring survival variable across all 2026 benchmarks (status: developing)
+- [[Regime-Trust-Gating]] — trade/abstain gates; uncertainty as tail guard, not sizing input (status: developing)
+- [[Deflated-Sharpe-Ratio]] / [[Backtest-Overfitting]] — evaluation discipline before believing any backtest (status: developing)
+- [[Tick-Size-Microstructure]] — order-book density as a strategy-viability screen (status: developing)
+
 **Agentic Trading Systems**
 - [[Loop-Engineering]] — replacing yourself as the agent-prompter; designing the system that prompts the agent; the highest-leverage move for a solo quant operator (status: mature)
 - [[Maker-Checker-Pattern]] — the institutional verification pattern (Citadel, Jane Street, Renaissance) applied to agentic trading; 40-60% rejection rate is healthy; verification debt is the silent failure mode (status: mature)
