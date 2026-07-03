@@ -15,6 +15,14 @@ related:
 
 # Operation Log
 
+## 2026-07-03 | batch ingest | Quant-finance sweep: 8 papers, 2 rounds of 4 parallel agents
+- Sources: `.raw/2607.01550.pdf`, `.raw/2607.00475.pdf`, `.raw/2304.09947.pdf`, `.raw/2108.02838.pdf` (round 1); `.raw/2302.10175.pdf`, `.raw/2012.07149.pdf`, `.raw/2603.13252.pdf`, `.raw/bailey-lopez-de-prado-deflated-sharpe.pdf` (round 2)
+- Summaries: [[kurth2026-trend-following-demise]], [[pollok2026-end-to-end-portfolio-policies]], [[miao-polak-online-ensemble-sector-rotation]], [[karatas2021-two-stage-sector-rotation]], [[tan2023-spatio-temporal-momentum]], [[poh2020-learning-to-rank-cross-sectional]], [[sanderink2026-when-alpha-breaks]], [[bailey-lopez-de-prado-2014-deflated-sharpe]]
+- Pages created (23): 8 sources + [[Trend-Following]], [[Tick-Size-Microstructure]], [[End-to-End-Portfolio-Optimization]], [[Sector-Rotation]], [[Online-Ensemble-Learning]], [[Echo-State-Networks]], [[Turnover-Regularization]], [[Learning-to-Rank]], [[Cross-Sectional-Momentum]], [[Regime-Trust-Gating]], [[Deflated-Sharpe-Ratio]], [[Backtest-Overfitting]] + [[Jean-Philippe Bouchaud]], [[Capital Fund Management]], [[Marcos Lopez de Prado]]
+- Pages updated: [[Sector-Rotation]] (twice: Karatas framing + Sanderink failure-trigger sense), [[Trend-Following]] (Tan joint-learning section), [[quantitative-finance]] (7 new sub-areas, cross-paper thesis callout, 8 sources), [[index]], [[concepts/_index]] (new Quantitative Finance section), [[entities/_index]], [[sources/_index]], [[hot]]
+- Addresses: c-000003 through c-000025 (manual allocation — allocate-address.sh broken by missing flock on Windows; same semantics preserved, counter now 26)
+- Key insight: the turnover thesis — four independent papers agree net survival is decided by turnover, not gross accuracy. Purpose of this sweep: literature base for the sector-ETF alpha project; next step is the baseline 12-1 momentum backtest, not more papers.
+
 ## 2026-07-03 | cleanup | Split standalone concept pages out of Philosophical-Tree.md
 - Pages created: [[Tetrasomia]] (Essay V §3 — four sons of Horus, Ezekiel's cherubim, Daniel's beasts, cross as quaternity), [[Sophia-Achamoth]] (Essay V §18 — Gnostic suffering myth, anima-loss in masculine consciousness), [[Rose Symbolism]] (Essay V §7 — rose-coloured blood, Mechthild of Magdeburg, rose as mandala)
 - Pages updated: [[Philosophical-Tree]] (inline sections now point to full treatments), [[jung-cw13-alchemical-studies]] (see-also), [[index]]
