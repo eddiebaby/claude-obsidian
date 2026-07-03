@@ -35,6 +35,14 @@ All source pages — summaries of ingested documents, transcripts, articles, and
 
 ## Papers
 
+- [[kurth2026-trend-following-demise]] — 2026-07-02 | Kurth, Eisler, Rej, Bouchaud (CFM); arXiv 2607.01550 | Post-2009 death of fast trend on small-tick futures; volatility-normalised tick size as the separating variable; HFT liquidity-withdrawal mechanism | 1 source + 2 concepts + 2 entities
+- [[pollok2026-end-to-end-portfolio-policies]] — 2026-07-02 | Pollok & Robik; arXiv 2607.00475 | End-to-end AI policies vs simple rules on 16 CME futures; transformer's low turnover wins net; ties equal-weight statistically | 1 source + 1 concept
+- [[miao-polak-online-ensemble-sector-rotation]] — 2026-07-02 | Miao & Polak; arXiv 2304.09947 | Gradient-free online 16-model ensemble for 50-sector rotation; top-5 Sharpe 0.657, survives 5-15bps; COVID-robust | 1 source + 2 concepts
+- [[karatas2021-two-stage-sector-rotation]] — 2026-07-03 | Karatas & Hirsa (Columbia); arXiv 2108.02838 | Macro indicators → RNN forecasts → rank 8 iShares sector ETFs; Echo State Networks win on accuracy and speed | 1 source + 1 concept, 1 updated
+- [[tan2023-spatio-temporal-momentum]] — 2026-07-03 | Tan, Roberts, Zohren (Oxford); arXiv 2302.10175 | Joint TSM+CSM learning; single-layer net beats deep; turnover regularization keeps it alive at 5-10bps | 1 source + 1 concept, 1 updated
+- [[poh2020-learning-to-rank-cross-sectional]] — 2026-07-03 | Poh, Lim, Zohren, Roberts (Oxford); arXiv 2012.07149 | Learning-to-rank for cross-sectional momentum; LambdaMART Sharpe 2.156 vs 0.696 best classical (gross) | 1 source + 2 concepts
+- [[sanderink2026-when-alpha-breaks]] — 2026-07-03 | Sanderink; arXiv 2603.13252 | Two-level uncertainty for ranker deployment; regime-trust gate is the dominant value driver; inverse-uncertainty sizing backfires | 1 source + 1 concept, 1 updated
+- [[bailey-lopez-de-prado-2014-deflated-sharpe]] — 2026-07-03 | Bailey & López de Prado; JPM 2014 | DSR corrects Sharpe for selection bias under N trials; expected max Sharpe under zero skill ~3.2 at N=1000 | 1 source + 2 concepts + 1 entity
 - [[training-model-you-return-iterate-averaging]] — 2026-06-26 | Au, Block (Columbia University); arXiv 2606.25086 | PACE optimizer: optimal-control-derived AdamW wrapper for iterate-averaged LLMs; 1 source + 2 concept pages
 - [[das2026-chronos-multivariate-forecasting]] — 2026-06-24 | Das, Goyal, Yadav (Santa Clara U.); arXiv 2605.21504 | Chronos-2 MV vs. UV forecasting on Mag-7 equities and Treasury rates; 1 source page
 
