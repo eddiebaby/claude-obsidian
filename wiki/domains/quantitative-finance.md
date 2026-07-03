@@ -71,8 +71,10 @@ From [[zhang2026-benchmarking-deep-ts-equity]] (Zhang, Cheng, Leung 2026): no de
 
 ## Key Concepts
 
-- [[Loop-Engineering]] — the structural move from prompting agents to building systems that prompt agents; applied to autonomous trading
-- [[Maker-Checker-Pattern]] — the institutional verification pattern (Citadel, Jane Street, Renaissance) now automatable via agents; the scarce resource in any self-improving loop
+**Strategy classes**: [[Trend-Following]], [[Cross-Sectional-Momentum]], [[Sector-Rotation]]
+**Model design**: [[End-to-End-Portfolio-Optimization]], [[Learning-to-Rank]], [[Online-Ensemble-Learning]], [[Echo-State-Networks]], [[Turnover-Regularization]]
+**Deployment & validation**: [[Regime-Trust-Gating]], [[Deflated-Sharpe-Ratio]], [[Backtest-Overfitting]], [[Tick-Size-Microstructure]]
+**Agentic systems**: [[Loop-Engineering]] — the structural move from prompting agents to building systems that prompt agents; [[Maker-Checker-Pattern]] — the institutional verification pattern now automatable via agents
 
 ---
 
