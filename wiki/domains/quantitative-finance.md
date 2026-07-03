@@ -24,7 +24,10 @@ Navigation: [[index]] | [[domains/_index]]
 
 ## Scope in This Vault
 
-Two papers ingested. [[zhang2026-benchmarking-deep-ts-equity]] covers architecture benchmarking and portfolio deployment for equities. [[das2026-chronos-multivariate-forecasting]] covers multivariate vs. univariate forecasting accuracy using a foundation model on equities and Treasury rates.
+Ten papers ingested (2026-07-03 sweep added eight). Coverage now spans the full strategy stack: signal mechanisms ([[kurth2026-trend-following-demise]]), forecasting ([[das2026-chronos-multivariate-forecasting]], [[zhang2026-benchmarking-deep-ts-equity]]), sector rotation blueprints ([[miao-polak-online-ensemble-sector-rotation]], [[karatas2021-two-stage-sector-rotation]]), model/objective design ([[tan2023-spatio-temporal-momentum]], [[poh2020-learning-to-rank-cross-sectional]], [[pollok2026-end-to-end-portfolio-policies]]), deployment risk ([[sanderink2026-when-alpha-breaks]]), and evaluation discipline ([[bailey-lopez-de-prado-2014-deflated-sharpe]]).
+
+> [!key-insight] Cross-paper thesis: turnover determines net survival
+> Four independent studies converge: gross forecast accuracy does not decide whether a strategy makes money — turnover does. Zhang's TS-RIDGE (gross Sharpe 3.88, turnover 7.95/day) dies at 20bps; Pollok's transformer (turnover ~0.02/day) beats an LSTM with identical gross performance; Tan's explicit [[Turnover-Regularization]] is what keeps the single-layer model alive at 10bps; Miao-Polak's monthly sector rotation survives costs precisely because sector-level signals rebalance slowly. Design for low turnover first, accuracy second.
 
 ---
 
