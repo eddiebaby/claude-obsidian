@@ -3,7 +3,7 @@ type: domain
 title: "Quantitative Finance"
 status: developing
 created: 2026-06-24
-updated: 2026-06-24
+updated: 2026-07-03
 tags:
   - domain
   - quantitative-finance
