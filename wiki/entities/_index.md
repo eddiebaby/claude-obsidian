@@ -52,6 +52,10 @@ All entity pages — people, organizations, products, and tools.
 **Existential Psychology**
 - [[Viktor Frankl]] — Austrian psychiatrist (1905-1997); Holocaust survivor; founder of logotherapy ("Third Viennese School"); *Man's Search for Meaning* (status: developing)
 
+**Quantitative Finance**
+- [[Jean-Philippe Bouchaud]] — French physicist and quant (b. 1962); econophysics pioneer; chairman of Capital Fund Management; co-author of the 2026 trend-following demise paper (status: developing)
+- [[Marcos Lopez de Prado]] — quant researcher; *Advances in Financial Machine Learning*; Deflated Sharpe Ratio, backtest-overfitting statistics (status: developing)
+
 **AI/Technology**
 - [[Andrej Karpathy]] — AI researcher, educator; originated the LLM Wiki pattern
 - Kwok Chun Au — Columbia University CS; co-author of PACE optimizer (arXiv 2606.25086); iterate averaging for LLMs (see [[training-model-you-return-iterate-averaging]])
