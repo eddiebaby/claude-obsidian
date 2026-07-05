@@ -15,6 +15,12 @@ related:
 
 # Operation Log
 
+## [2026-07-05] save | Individuation App Differentiators
+- Type: synthesis
+- Location: wiki/questions/Individuation App Differentiators.md
+- From: conversation on improving the individuation app; follows the depth-quality review folded into individuation-app/docs/design.md as v0.1 (dream-app merge decision, interactive stages, dreamer-response capture)
+- 10 differentiators with build-phase ordering; excludes further corpus ingestion and wellness-market features by design
+
 ## 2026-07-03 | batch ingest | Quant-finance sweep: 8 papers, 2 rounds of 4 parallel agents
 - Sources: `.raw/2607.01550.pdf`, `.raw/2607.00475.pdf`, `.raw/2304.09947.pdf`, `.raw/2108.02838.pdf` (round 1); `.raw/2302.10175.pdf`, `.raw/2012.07149.pdf`, `.raw/2603.13252.pdf`, `.raw/bailey-lopez-de-prado-deflated-sharpe.pdf` (round 2)
 - Summaries: [[kurth2026-trend-following-demise]], [[pollok2026-end-to-end-portfolio-policies]], [[miao-polak-online-ensemble-sector-rotation]], [[karatas2021-two-stage-sector-rotation]], [[tan2023-spatio-temporal-momentum]], [[poh2020-learning-to-rank-cross-sectional]], [[sanderink2026-when-alpha-breaks]], [[bailey-lopez-de-prado-2014-deflated-sharpe]]
