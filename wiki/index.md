@@ -295,6 +295,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 ## Questions
 
+- [[Individuation App Differentiators]] — 10 features that separate the app from dream journals and LLM chat: voice capture, association-test onboarding, personal symbol lexicon, active imagination mode, big-dream detection, individuation timeline, compensation check-ins, analyst export, provenance tiers, local mode (status: developing)
 - [[How does the LLM Wiki pattern work]] — how the pattern works and why it outperforms RAG at human scale (status: developing)
 
 ---
