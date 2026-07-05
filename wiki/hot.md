@@ -18,7 +18,17 @@ related:
 
 ## Last Updated
 
-2026-07-03 (session 21): **Quant-finance sweep — 8 papers ingested (2 batches × 4 parallel agents), 23 new pages.** Purpose: literature base for Scott's sector-ETF (XLK etc.) time-series alpha project. THE BUILD IS NEXT — baseline momentum backtest repo, not more reading.
+2026-07-05 (session 22): **Individuation app — design bumped to v0.1 + differentiator roadmap filed.** Depth-quality review folded into `individuation-app/docs/design.md`: decision to **absorb dream-app** (its pipeline ports onto the ¶-anchored CW corpus; wiki pages become the retrieval router, CW chunks the citable evidence), Stage-4 interpretive judgment rules (objective/subjective as a choice per CW 8 ¶¶508–510; little dreams don't get big-dream amplification; absent lysis is diagnostic), mandatory dreamer-response capture (CW 16 ¶320 — doubles as the eval set), clinical-severity guardrail, reordered MVP cut (interactive Stage 0/2 first — the pipeline is currently one-shot and fabricates associations, the horoscope failure mode).
+
+**New page**: [[Individuation App Differentiators]] — 10 features separating the app from dream journals and LLM chat: wake-time voice capture, association-test onboarding (CW 2 complex map), personal symbol lexicon (the per-user data moat), active imagination mode, big-dream detection, individuation timeline (Pauli-series style), proactive compensation check-ins, analyst-ready export (B2B channel to Jungian therapists), provenance-tiered corpus (Jung-only filter; tag at ingest — retrofitting is expensive), fully-local privacy mode. Deliberately excludes: more corpus reading beyond Dream Analysis seminar / CW 12 Part II / CW 16, social features, wellness market.
+
+**Build next**: retrofit the dream-app CLI so Stages 0 and 2 pause and ask (conscious situation + per-symbol associations), add the dreamer-response field, then the merge. Sector-ETF momentum backtest repo is still the other open build (see session 21).
+
+---
+
+## Previous Session (21)
+
+2026-07-03: **Quant-finance sweep — 8 papers ingested (2 batches × 4 parallel agents), 23 new pages.** Purpose: literature base for Scott's sector-ETF (XLK etc.) time-series alpha project. THE BUILD IS NEXT — baseline momentum backtest repo, not more reading.
 
 **Sources**: [[kurth2026-trend-following-demise]] (CFM/Bouchaud: fast trend dead post-2009 on small-tick contracts; slow trend + large-tick survive), [[pollok2026-end-to-end-portfolio-policies]] (transformer's low turnover wins net; ties equal-weight), [[miao-polak-online-ensemble-sector-rotation]] (top-5 sector Sharpe 0.657, survives 5-15bps, COVID-robust), [[karatas2021-two-stage-sector-rotation]] (8 iShares sector ETFs; ESN wins), [[tan2023-spatio-temporal-momentum]] (single-layer net beats deep; turnover regularization), [[poh2020-learning-to-rank-cross-sectional]] (LambdaMART 3x Sharpe vs sorts, gross), [[sanderink2026-when-alpha-breaks]] (regime-trust gate is the dominant value driver; inverse-uncertainty sizing backfires; VIX gate ≈ coin flip), [[bailey-lopez-de-prado-2014-deflated-sharpe]] (expected max Sharpe under zero skill ~3.2 at N=1000 trials)
 
