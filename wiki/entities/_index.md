@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Entities Index"
-updated: 2026-06-26
+updated: 2026-07-03
 tags:
   - meta
   - index
