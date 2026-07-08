@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Operation Log"
-updated: 2026-07-05
+updated: 2026-07-07
 tags:
   - meta
   - log
@@ -14,6 +14,12 @@ related:
 ---
 
 # Operation Log
+
+## 2026-07-07 | dream | NYC Romance, Milk Studios Cavern, Gun at the Workstation
+- Type: dream journal entry (logged, unanalyzed)
+- Location: wiki/dreams/2026-07-07-nyc-tent-cavern-gun.md
+- Three scenes: (1) NYC — fast passionate relationship with an unknown young woman from a posh background (met online; just finished her semester; doing real estate deals in the city); camping — she leaves, dream-ego stays in the tent alone reading the CW of Jung and moves the mattress to another room of the tent so his head lies elevated above his feet; (2) working for Milk Studios again in a very big new cavern-like space, with the anima, joking with old friends from there; (3) night — working with the old boss and a different unknown woman, each at their own workstation; a gun out lying on the ground; notes spread across different clipboards; trying to concentrate but distracted
+- Recurring symbols: gun — see [[2026-06-27 The Gun and the Mountain]]; milk (Milk Studios) — see [[2026-06-30-court-and-overflowing-milk]]; NYC + old-workplace circle — see [[2026-06-29-new-mentor-meditation]]
 
 ## [2026-07-07] autoresearch | Intraday futures strategies under prop-firm constraints (arXiv sweep)
 - Rounds: 2 | Searches: 8 | Fetches: 8 (2 blocked: SSRN + NY Fed 403)

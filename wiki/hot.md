@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-07-06T00:00:00
+updated: 2026-07-07T00:00:00
 tags:
   - meta
   - hot-cache
@@ -17,6 +17,8 @@ related:
 # Recent Context
 
 ## Last Updated
+
+2026-07-07 (session 25): **Sector-ETF momentum backtest BUILT — first strategy in the vault to move from spec to code.** `sector-momentum/` repo (pandas/numpy only, free Yahoo chart API for the 11 SPDRs + SPY + `^IRX` T-bill hurdle; Stooq now PoW-walled, FRED SSL-flaky). Full data→signal→backtest→DSR→walk-forward harness. Result (2000-2026, net 5bps/side): best config **Top-3 + abs-mom overlay + band(5)** = 10.3% CAGR / Sharpe 0.57 / MaxDD −30.3% vs SPY 8.2% / 0.41 / −55.2%. Full-sample it beats SPY on every axis (13.2x vs 8.1x) and **passes the spec kill criterion**. BUT walk-forward (pick on 2000-15, read 2016-26 untouched): OOS Sharpe 0.71 vs SPY 0.75 — SPY edges it in the pure-bull decade. **The entire edge is crash avoidance** (lead built in 2002 + 2008; 2008: 1.50 vs 0.72). Verdict: **defensive equity sleeve, not standalone alpha** — exactly what the momentum lit + "Sharpe>1 = overfit" discipline predicted. The overlay's job is the drawdown cut (−45%→−30%), not return. [[Sector-ETF Momentum Strategy]] page updated with the results table + status now `[x] Backtested`. **Next money-pointed build**: the capacity-constrained edges ([[Post-Earnings Announcement Drift Strategy]], [[LLM Filings Alpha Strategy]]) — momentum tuning has diminishing returns; this repo is the reusable harness they inherit.
 
 2026-07-07 (session 24 cont.): **arXiv sweep filed — 7 pages; the intraday evidence base is now in the vault.** [[Research - Intraday Futures Strategies Under Prop-Firm Constraints]]: [[mesfin2026-mnq-intraday-falsification]] kills all 14 OHLCV signal families on 5-min MNQ 2021-25 net of costs (ORB falsified in every variant; gross edge 0.07-1.5 pts vs ~2-pt costs) — with Kurth + Byrd-Balch that is FOUR independent confirmations of the post-2009 fast-edge death. The surviving edge class is structural-slow: [[Overnight-Drift]] (nearly all index return accrues overnight per [[glasserman2025-overnight-news]]; ES drift concentrates around European open via dealer inventory per [[boyarchenko-larsen-whelan-overnight-drift]] — partial-night hold refinement). PRD re-graded: ORB B→C, folklore families presumed dead, Phase 1 order = overnight drift (if Phase 0 clears legality) + exact-spec Gao first-half-hour momentum. Open: Boyarchenko primary PDF (403 on SSRN + NY Fed), Lucid's written overnight ruling.
 

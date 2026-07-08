@@ -96,11 +96,31 @@ ETF universe means no survivorship-bias problem, which is exactly why this is th
 - Net of costs, fails to beat SPY buy-and-hold over the full sample: do not trade it.
 - Live 12-month tracking error vs backtest expectation exceeds 2x modeled slippage: halt and audit execution.
 
+## Backtest Result (2026-07-07)
+
+Built as the `sector-momentum/` repo (pandas/numpy, free Yahoo data). 2000–2026, net of 5 bps/side, monthly rebalance. Six configs evaluated.
+
+| Config | CAGR | Sharpe | MaxDD |
+|---|---|---|---|
+| Plain top-3 (no overlay) | 9.4% | 0.47 | −45.0% |
+| Top-3 + abs-mom overlay | 8.5% | 0.46 | −31.7% |
+| **Top-3 + overlay + band(5)** | **10.3%** | **0.57** | **−30.3%** |
+| SPY buy & hold | 8.2% | 0.41 | −55.2% |
+| Equal-weight sectors | 8.7% | 0.45 | −53.5% |
+
+**Full-sample verdict**: band(5) beats SPY on every axis (13.2x vs 8.1x terminal, higher Sharpe, half the drawdown). **Passes the spec kill criterion.**
+
+**Walk-forward verdict (the honest test)**: params picked on 2000–2015 (band(5), IS Sharpe 0.47) then read untouched on 2016–2026 → OOS Sharpe **0.71 vs SPY 0.75**, CAGR 13.8% vs 15.1%, MaxDD −30% vs −34%. SPY edges it on risk-adjusted return in the pure-bull decade.
+
+**Interpretation**: the entire edge is **crash avoidance** — the lead is built in 2000–02 and 2008 (2008: strategy 1.50 vs SPY 0.72). In a decade without a sustained bear it tracks/slightly lags SPY with lower drawdown. This is a **defensive equity sleeve, not standalone alpha** — precisely what the momentum literature ([[Cross-Sectional-Momentum]], [[Trend-Following]]) and the "treat Sharpe >1 as overfit" discipline predicted. The absolute-momentum overlay's real job is the drawdown cut (−45% → −30%), not return.
+
+**Implication for the roadmap**: momentum tuning has diminishing returns; the capacity-constrained edges ([[Post-Earnings Announcement Drift Strategy]], [[LLM Filings Alpha Strategy]]) are where genuine retail alpha lives. This repo is now the reusable harness (data → signal → backtest → DSR → walk-forward) those builds inherit.
+
 ## Status
 
 - [x] Hypothesis formed
 - [x] Literature base ingested (2026-07-03 sweep)
-- [ ] Backtested
+- [x] Backtested (2026-07-07 — `sector-momentum/` repo; defensive sleeve, not standalone alpha)
 - [ ] Paper traded
 - [ ] Live (small size)
 - [ ] Scaled
