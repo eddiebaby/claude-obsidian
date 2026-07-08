@@ -24,7 +24,7 @@ related:
 
 # Wiki Index
 
-Last updated: 2026-07-07 | Total pages: 324 | Sources ingested: 43 | Dream Symbols: 86 (CW5: 22, CW12: 64)
+Last updated: 2026-07-07 | Total pages: 328 | Sources ingested: 46 | Dream Symbols: 86 (CW5: 22, CW12: 64)
 
 Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[getting-started]]
 
@@ -138,6 +138,9 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 ## Quantitative Finance
 
 **Papers**
+- [[baltussen2021-hedging-demand-intraday-momentum]] — JFE: intraday momentum mechanism (dealer gamma + leveraged-ETF hedging), 60+ futures 1974-2020; the flow conditioning is outside OHLCV falsification scope (status: researched 2026-07-07)
+- [[busseti-ryu-boyd-2016-risk-constrained-kelly]] — convex position sizing under a hard drawdown-probability constraint; dominates fractional Kelly; maps onto the eval MLL (status: researched 2026-07-07)
+- [[cont2021-cross-impact-ofi]] — order-flow imbalance predicts returns only at sub-minute horizons; an execution tool, not a 1-30min signal (status: researched 2026-07-07)
 - [[mesfin2026-mnq-intraday-falsification]] — 14 OHLCV intraday signal families on 5-min MNQ 2021-25: ALL fail net of costs; gross edge 0.07-1.5 pts vs ~2-pt costs; ORB falsified in every variant (status: researched 2026-07-07)
 - [[glasserman2025-overnight-news]] — 30 yrs, 2.4M articles: nearly all index gains accrue overnight; news topics partially explain the premium (status: researched 2026-07-07)
 - [[boyarchenko-larsen-whelan-overnight-drift]] — NY Fed: ES overnight drift = dealer inventory compensation, concentrates around European open (status: researched 2026-07-07, primary unfetched)
@@ -165,7 +168,9 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 **Strategy & Model Concepts**
 - [[Overnight-Drift]] — indices earn ~all return overnight; dealer-inventory + news mechanisms; the strongest documented effect available to the LucidFlex account class (status: developing)
+- [[Prop-Firm-Eval-Sizing]] — sizing for accounts that die at a fixed trailing drawdown; risk-constrained Kelly + the eval-as-sizing go/no-go math (status: developing)
 - [[Research - Intraday Futures Strategies Under Prop-Firm Constraints]] — synthesis of the 2026-07 arXiv sweep: bar-level intraday signals falsified, overnight/announcement structure is the surviving edge class (status: developing)
+- [[Research - Strengthening the LucidFlex Bot Plan]] — second sweep: gamma-conditioned momentum (outside OHLCV falsification), risk-constrained Kelly sizing, OFI as execution layer (status: developing)
 - [[Trend-Following]] — strategy class + the impact feedback-loop mechanism; where it still works (status: developing)
 - [[Cross-Sectional-Momentum]] — relative ranking vs own-history; the natural frame for sector rotation (status: developing)
 - [[Sector-Rotation]] — tradeable alpha source AND ranker-failure trigger; ML approaches compared (status: developing)

@@ -116,6 +116,21 @@ Built as the `sector-momentum/` repo (pandas/numpy, free Yahoo data). 2000–202
 
 **Implication for the roadmap**: momentum tuning has diminishing returns; the capacity-constrained edges ([[Post-Earnings Announcement Drift Strategy]], [[LLM Filings Alpha Strategy]]) are where genuine retail alpha lives. This repo is now the reusable harness (data → signal → backtest → DSR → walk-forward) those builds inherit.
 
+### Improvement experiments (2026-07-07, `experiments.py`) — NEGATIVE RESULT
+
+Tested six *principled* variants (not a config sweep) on two windows and kept only what beats SPY on **both**:
+
+| Idea | Last 15y Sharpe (SPY 0.78) | Full Sharpe (SPY 0.41) | Robust? |
+|---|---|---|---|
+| Baseline top-3 + overlay + band(5) | 0.71 | 0.57 | crash-only |
+| Faster momentum (6-1 lookback) | 0.57 | 0.47 | crash-only |
+| Multi-horizon blend (3/6/9/12) | 0.63 | 0.50 | crash-only |
+| Market-regime gate (SPY dual-mom) | 0.69 | 0.59 | crash-only |
+| Concentrated top-2, no overlay | 0.65 | 0.51 | crash-only |
+| Gate + blend combined | 0.59 | 0.58 | crash-only |
+
+**Every variant is "crash-only": beats SPY on the full sample (has 2008) but NONE beats SPY over the last 15 years (no sustained bear).** The regime gate barely fired because SPY's 12-mo momentum was positive almost the whole 2011-26 window. Conclusion: **you cannot make long-only sector rotation beat buy-and-hold in a bull regime by tuning the signal** — the win mechanism *is* crash avoidance. Do not re-run signal-tuning experiments on this universe expecting to beat SPY; the next build must be a genuinely uncorrelated edge, not a better momentum signal.
+
 ## Status
 
 - [x] Hypothesis formed

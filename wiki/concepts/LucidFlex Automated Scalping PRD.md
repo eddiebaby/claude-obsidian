@@ -22,10 +22,16 @@ related:
   - "[[Short-Term Mean Reversion Strategy]]"
   - "[[Tick-Size-Microstructure]]"
   - "[[Overnight-Drift]]"
+  - "[[Prop-Firm-Eval-Sizing]]"
   - "[[Research - Intraday Futures Strategies Under Prop-Firm Constraints]]"
+  - "[[Research - Strengthening the LucidFlex Bot Plan]]"
   - "[[mesfin2026-mnq-intraday-falsification]]"
+  - "[[baltussen2021-hedging-demand-intraday-momentum]]"
 sources:
   - "[[kurth2026-trend-following-demise]]"
+  - "[[baltussen2021-hedging-demand-intraday-momentum]]"
+  - "[[busseti-ryu-boyd-2016-risk-constrained-kelly]]"
+  - "[[cont2021-cross-impact-ofi]]"
   - "Gao, Han, Li & Zhou 2018 JFE — Market Intraday Momentum"
   - "Lou, Polk & Skouras 2019 JFE — A Tug of War: Overnight vs Intraday Expected Returns"
   - "Zarattini, Aziz & Barbon 2023 SSRN — Can Day Trading Really Be Profitable?"
@@ -102,7 +108,8 @@ Every family that survives the rule set: intraday-only (flat by 4:45pm ET), non-
 | # | Family | Mechanism | Hold | Trades/day | Notes |
 |---|---|---|---|---|---|
 | 9 | **Open-to-close session momentum** | Daily signal (prior-day return sign, gap direction, price vs 20/50-day MA) sets direction; enter near open, hold to 4:15pm flat | ~6.5 h | 0–1 | Intraday time-series momentum; the "slow" anchor of the book |
-| 10 | **First-half-hour momentum** | First 30-min return (and 12:00–13:00) predicts last 30-min direction; trade 15:30–16:00 accordingly | 30 min | 0–1 | Gao–Han–Li–Zhou intraday momentum result; strongest documented time-of-day effect on index products |
+| 10 | **Intraday momentum (rest-of-day → last 30 min)** | Rest-of-day return predicts the last 30-min direction; trade the 15:15–15:45 window (before 4:15 hard-flat) | 30 min | 0–1 | Gao–Han–Li–Zhou 2018 pattern + **peer-reviewed mechanism** [[baltussen2021-hedging-demand-intraday-momentum]] (dealer gamma hedging + leveraged-ETF rebalancing, 60+ futures, 46 yrs). See #14 for the conditioned version |
+| 14 | **Gamma-conditioned intraday momentum** | Family #10 filtered by a dealer-gamma-exposure proxy: take the signal only when dealers are short gamma (must hedge with the move) | 30 min | 0–1 | The Baltussen mechanism made explicit. Gamma exposure is NOT in OHLCV bars → outside [[mesfin2026-mnq-intraday-falsification]]'s falsification scope. The single most promising *new* sleeve from the 2026-07 sweep |
 | 11 | **Trend-day capture** | Daily-bar setups (NR7, inside day, gap-and-go) flag trend days; ride with ATR trailing stop all session | 2–6.5 h | 0–1 | The higher-timeframe sibling of #5; one fat winner pays for several scratches |
 | 12 | **Daily mean-reversion, expressed intraday** | Yesterday closed oversold (RSI(2)-style) → long at open, exit at close | ~6.5 h | 0–1 | HONEST CAVEAT: much of short-term MR payoff historically accrues overnight, which this structurally cannot capture — backtest before trusting, expect a weakened edge |
 | 13 | **Globex overnight-session drift** ⚠ CONDITIONAL | Overnight equity premium: long 6pm → 9:30am (or → next 4:45pm close) | 15–22 h | 0–1 | The well-documented overnight-drift anomaly — but third-party sources contradict each other on whether a position opened 8pm can be held past midnight to the next day's close. **Phase 0 must get this in writing from Lucid support before this family exists** |
@@ -120,7 +127,7 @@ Rule-legal is not the same as works. Grading the menu by the quality of evidence
 
 | Grade | Family | Evidence | Post-publication caveat |
 |---|---|---|---|
-| **A (fragile)** | #10 First-half-hour → last-half-hour momentum | Gao, Han, Li & Zhou 2018, *Journal of Financial Economics* ("Market Intraday Momentum") — 20 yrs SPY, replicated on index futures and internationally | Weakened but not dead post-2018; TENSION: [[mesfin2026-mnq-intraday-falsification]]'s cross-session momentum family failed on MNQ 2021–25, though his definitions may not include the exact 9:30–10:00 → 15:30–16:00 formulation — Phase 1 tests the exact JFE spec first |
+| **A (mechanism-backed)** | #10 / #14 Intraday momentum, rest-of-day → last 30 min | Gao-Han-Li-Zhou 2018 JFE (pattern) **+ [[baltussen2021-hedging-demand-intraday-momentum]] JFE 2021 (mechanism: dealer gamma + leveraged-ETF hedging, 60+ futures, 1974–2020)** | Upgraded from "fragile": the mechanism explains why Mesfin's *unconditioned* OHLCV momentum failed while the flow-conditioned version can survive (gamma exposure isn't in OHLCV). #14 tests the conditioned form. Residual risk: LucidFlex 4:15 hard-flat truncates the last-30-min window — may need the 3:15–3:45 window |
 | **A (conditional)** | #13 Globex overnight drift | [[Overnight-Drift]]: Cooper-Cliff-Gulen 2008; Lou-Polk-Skouras 2019 JFE; [[glasserman2025-overnight-news]] (30 yrs, news-linked); [[boyarchenko-larsen-whelan-overnight-drift]] (ES-specific dealer-inventory mechanism — drift concentrates around the European open, so a partial-night hold may capture most of it) | Only exists if Phase 0 confirms the hold is legal; index-level version robust, cross-sectional version decaying post-2015; post-2020 ES magnitude unverified — measure in Phase 1 |
 | **A−** | #7 Scheduled-news momentum | Macro-announcement premia literature (Savor & Wilson 2013; Lucca & Moench 2015 pre-FOMC drift) — announcement days carry outsized, directionally persistent returns | Pre-FOMC drift specifically decayed post-publication; post-release surprise continuation holds up better; funded-only regardless (slippage + consistency cap) |
 | **C (downgraded from B)** | #1 Opening-range breakout | Zarattini, Aziz & Barbon 2023/24 SSRN — QQQ net-positive; BUT [[mesfin2026-mnq-intraday-falsification]] falsifies ORB in every entry variant on 5-min MNQ 2021–25 with realistic costs | Direct falsification on our instrument outweighs the ETF-based positive; contradiction logged in [[Research - Intraday Futures Strategies Under Prop-Firm Constraints]]; Phase 1 adjudicates |
@@ -140,7 +147,7 @@ Rule-legal is not the same as works. Grading the menu by the quality of evidence
 | Hold time | Per sleeve table — tier 1: 1–120 min; tier 2: up to full session, hard flat 4:15pm |
 | Stop | Hard stop every trade, in the engine AND resting at the exchange — tier 1: 6–10 ticks; tier 2: 0.3–0.6× daily ATR |
 | Target | Tier 1: 8–16 ticks or time-stop, R:R ≥ 1.2; tier 2: trail or session close |
-| Risk per trade | Tier 1 ≤ $100 (5% of MLL); tier 2 ≤ $150 (7.5% of MLL), ≤ 2 tier-2 entries/day |
+| Risk per trade | **Risk-constrained Kelly** ([[Prop-Firm-Eval-Sizing]]): solve max growth s.t. P(hit MLL) < β from the backtested per-trade distribution. Caps below are the pre-Phase-1 placeholders until that distribution exists — tier 1 ≤ $100 (5% of MLL); tier 2 ≤ $150 (7.5% of MLL), ≤ 2 tier-2 entries/day |
 | Self-imposed daily stop | −$300 (15% of MLL) → all sleeves flat + disabled until next session |
 | Daily profit cap (eval only) | +$600 → stop trading (keeps largest day ≤ 50% rule safe at 20% of target) |
 | Trade frequency | ≤ 20 trades/day across all sleeves |
@@ -151,6 +158,7 @@ Rule-legal is not the same as works. Grading the menu by the quality of evidence
 - Independent risk-supervisor process (separate from signal engine): monitors position vs. expected state, P&L vs. daily stop, and connectivity; any mismatch → flatten + halt + alert.
 - Distance-to-MLL throttle: when equity − MLL < $600, cut size 50%; < $400, halt for the day.
 - Every order and fill logged; daily reconciliation vs. platform statement.
+- **OFI execution layer** (optional, Phase 4+): once a sleeve has triggered, use order-flow-imbalance from the L2 feed to time the actual entry/exit within seconds and shave slippage. OFI decays too fast to be a *signal* at 1–30 min ([[cont2021-cross-impact-ofi]]) but recovering ~½ tick/side directly improves net expectancy against the cost model. Requires Rithmic/Tradovate depth data — Phase 0 platform question.
 
 ## Cost Model (the gate everything hangs on)
 
@@ -168,7 +176,7 @@ Therefore: **gross edge must be ≥ 4–5 ticks/trade for net ≥ 2 ticks.** Any
 Re-verify all rules on official Lucid docs/support: intraday MLL touch, current pricing, payout count, max accounts per trader, copier policy, **supported platforms/API path** (NinjaTrader ATS vs Tradovate API vs Rithmic R|API — this decides the execution stack), and **in writing from support: can a Globex position opened after 6pm ET be held through the night to the next day's 4:45pm close?** (Third-party sources contradict each other; the answer gates family #13.) GATE: rules still compatible with this PRD.
 
 **Phase 1 — Data + Backtest (2–4 weeks, ~$100–200)**
-Databento 1-min + tick MES/MNQ, 4+ years. Backtest in EVIDENCE ORDER (see Evidence Ranking): A-grades first (#10 first-half-hour momentum; #13 overnight drift if Phase 0 clears it), then B (#1 ORB, #9 session momentum, #4 gap), C families only if A/B yields fewer than 2 shippable sleeves. ONE event-driven harness (Python) with the full cost model — pre-registered parameter grid per family, walk-forward, deflated Sharpe across ALL families tested (every family tried adds trials; the DSR haircut applies to the menu, not each family alone — [[Deflated-Sharpe-Ratio]]). Rank by net expectancy × out-of-sample robustness; ship the top 1–2 with pairwise daily-P&L correlation < 0.3. GATE (per shipped sleeve): net expectancy ≥ 2 ticks/trade AND profit factor ≥ 1.3 out-of-sample AND combined max sim drawdown ≤ 60% of MLL under eval sizing. No family passes → kill the track, spend $0 on evals.
+Databento 1-min + tick MES/MNQ, 4+ years. Backtest in EVIDENCE ORDER (see Evidence Ranking): A-grades first (#14 gamma-conditioned intraday momentum + #10 base; #13 overnight drift if Phase 0 clears it), then B (#9 session momentum), C families only if A/B yields fewer than 2 shippable sleeves. ONE event-driven harness (Python) with the full cost model — pre-registered parameter grid per family, walk-forward, deflated Sharpe across ALL families tested (every family tried adds trials; the DSR haircut applies to the menu, not each family alone — [[Deflated-Sharpe-Ratio]]). Rank by net expectancy × out-of-sample robustness; ship the top 1–2 with pairwise daily-P&L correlation < 0.3. GATE (per shipped sleeve): net expectancy ≥ 2 ticks/trade AND profit factor ≥ 1.3 out-of-sample AND combined max sim drawdown ≤ 60% of MLL under eval sizing. The backtest also produces the per-trade return distribution that feeds risk-constrained Kelly sizing ([[Prop-Firm-Eval-Sizing]]). No family passes → kill the track, spend $0 on evals.
 
 **Phase 2 — Sim (4 weeks, $0)**
 Run the bot live-sim on the execution platform with eval rules simulated (MLL, daily stop, profit cap). GATE: ≥ 20 trading days, positive P&L, slippage within 1 tick of backtest assumption, zero guardrail breaches.
@@ -186,6 +194,8 @@ Copier to additional LucidFlex accounts (permitted; verify account cap), minis i
 
 Total cap **$1,000** (data ~$200 + eval fees ≤ $650 + buffer) and **16 weeks** Phase 0 → first payout. Hit either cap without a payout → track closes, post-mortem filed, capital and attention return to [[Sector-ETF Momentum Strategy]].
 
+**Eval-as-sizing decision (the go/no-go math).** Before Phase 3, Monte Carlo the full eval as a system (target + MLL + consistency cap + daily stop) using the Phase 1 distribution to get per-attempt pass probability `p`. Expected eval spend to funding = $130 / p. If that exceeds the value of ~2 payouts (~$1,000), the strategy is not worth running *even if its edge is real* — a genuine-but-small edge with p ≈ 0.15 costs ~$870 in expected fees before the first funded dollar. This is the number that decides whether to spend eval money at all, and it only exists after Phase 1.
+
 ## Risks & Failure Modes
 
 - **The edge doesn't exist.** Most likely outcome; that is what the Phase 1 gate is for. The eval fee asymmetry only pays if the bot is genuinely +EV — a −EV bot on 5 evals just donates $650.
@@ -201,6 +211,10 @@ Total cap **$1,000** (data ~$200 + eval fees ≤ $650 + buffer) and **16 weeks**
 - [[Micro-Futures Trend Strategy]] — the slow-only constraint this PRD deliberately works around via prop structure
 - [[Short-Term Mean Reversion Strategy]] — signal-family cousin (VWAP-stretch variant)
 - [[Tick-Size-Microstructure]] — why sub-4-tick edges are noise
+- [[Overnight-Drift]] — the structural basis for family #13
+- [[Prop-Firm-Eval-Sizing]] — risk-constrained Kelly + the eval-as-sizing go/no-go math
+- [[Research - Intraday Futures Strategies Under Prop-Firm Constraints]] — what was falsified
+- [[Research - Strengthening the LucidFlex Bot Plan]] — what upgrades survived (this sweep)
 
 ## Status
 

@@ -26,6 +26,12 @@ related:
 - Three scenes: (1) NYC — fast passionate relationship with an unknown young woman from a posh background (met online; just finished her semester; doing real estate deals in the city); camping — she leaves, dream-ego stays in the tent alone reading the CW of Jung and moves the mattress to another room of the tent so his head lies elevated above his feet; (2) working for Milk Studios again in a very big new cavern-like space, with the anima, joking with old friends from there; (3) night — working with the old boss and a different unknown woman, each at their own workstation; a gun out lying on the ground; notes spread across different clipboards; trying to concentrate but distracted
 - Recurring symbols: gun — see [[2026-06-27 The Gun and the Mountain]]; milk (Milk Studios) — see [[2026-06-30-court-and-overflowing-milk]]; NYC + old-workplace circle — see [[2026-06-29-new-mentor-meditation]]
 
+## [2026-07-07] autoresearch | Strengthening the LucidFlex bot plan (second sweep)
+- Rounds: 2 | Searches: 5 | Fetches: 4 (1 blocked: phidias 403)
+- Pages created (4): [[baltussen2021-hedging-demand-intraday-momentum]], [[busseti-ryu-boyd-2016-risk-constrained-kelly]], [[cont2021-cross-impact-ofi]], [[Prop-Firm-Eval-Sizing]] + synthesis [[Research - Strengthening the LucidFlex Bot Plan]]
+- Pages updated: [[LucidFlex Automated Scalping PRD]] (added family #14 gamma-conditioned momentum, risk-constrained Kelly sizing, OFI execution layer, eval-as-sizing go/no-go math), [[index]], [[hot]]
+- Key finding: three concrete upgrades outside the falsified OHLCV space — (1) Baltussen 2021 JFE gives intraday momentum a peer-reviewed MECHANISM (dealer gamma + leveraged-ETF hedging); the gamma-conditioning is not in OHLCV bars so it survives Mesfin's falsification; (2) Busseti-Ryu-Boyd risk-constrained Kelly replaces ad-hoc sizing and maps onto the MLL; (3) OFI is execution-timing only (decays sub-minute). Plus the eval-as-sizing math: expected eval spend = $130/p, if > ~$1,000 don't run even with real edge.
+
 ## [2026-07-07] autoresearch | Intraday futures strategies under prop-firm constraints (arXiv sweep)
 - Rounds: 2 | Searches: 8 | Fetches: 8 (2 blocked: SSRN + NY Fed 403)
 - Pages created (7): [[mesfin2026-mnq-intraday-falsification]], [[glasserman2025-overnight-news]], [[boyarchenko-larsen-whelan-overnight-drift]], [[byrd-balch-2019-intraday-ml-market-efficiency]], [[knuteson2020-overnight-intraday-returns]], [[Overnight-Drift]], [[Research - Intraday Futures Strategies Under Prop-Firm Constraints]]
