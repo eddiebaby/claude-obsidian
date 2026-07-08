@@ -3,7 +3,7 @@ name: dreams-index
 type: index
 title: "Dream Journal"
 created: 2026-06-25
-updated: 2026-06-25
+updated: 2026-07-07
 tags:
   - dream
   - index
@@ -17,6 +17,8 @@ related:
 # Dream Journal
 
 Personal dream record + Jungian analysis, drawing on the [[Dream-Analysis-and-Interpretation|amplification method]] and the vault's concept base ([[Shadow]], [[Anima and Animus]], [[Self (archetype)]], [[Mother Archetype]], [[Hero_Archetype]], [[Trickster]], [[Individuation]]).
+
+**Series synthesis:** [[dream-threads]] — recurring motifs across all entries (the unfinished structure, the gun's trajectory, water states, anima development, agency arc). Updated 2026-07-07.
 
 ## How to log a dream
 

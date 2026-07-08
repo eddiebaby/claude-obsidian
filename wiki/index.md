@@ -130,6 +130,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - **[[jung/symbols/_index]]** — Jung's symbol corpus from CW 5 + CW 12. CW 5: Dragon, Horse, Arrow, Sword, Serpent, Cave, Sun, Mother, Child + 53 more. CW 12 alchemical layer (extracted 2026-06-27): Mercurius, Prima Materia, Lapis Philosophorum, Coniunctio, Anima Mundi, Sol and Luna, Ouroboros (status: developing)
 
 **Dream Log**
+- [[dream-threads]] — synthesis across the nine-dream series 2026-06-25 → 2026-07-07: the unfinished structure (study vs. the deal), the gun's legalization arc, water in every state, the anima's costume changes, agency migrating from body to attention (status: developing)
 - [[2026-06-27 The Gun and the Mountain]] — gun as mid-transformation libido; Drew as persona-carrier; metal detectors as the persona threshold; malnourishment as libido withdrawn from the wrong climb (status: developing)
 
 ---

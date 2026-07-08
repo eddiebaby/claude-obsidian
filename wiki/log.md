@@ -15,6 +15,11 @@ related:
 
 # Operation Log
 
+## 2026-07-07 | dream-analysis + synthesis | Tent/Cavern/Gun analyzed + Dream Threads recap
+- Analyzed: [[2026-07-07-nyc-tent-cavern-gun]] (status → analyzed). Core reading: the anima appears as a posh real-estate dealmaker — she finishes her semester and does deals (the exact sequence the ego hasn't performed) — and leaves while the dream-ego stays in the tent reading the CW; Milk Studios returns interiorized as a cavern (persona-world composted, anima present, mood friendly); the 06-27 gun now lies legal and openly on the night-office floor but unused, while notes scatter across clipboards — the series' blockage has migrated from mobility (buoy, ice, malnourishment) to attention itself
+- Created: [[dream-threads]] (wiki/dreams/dream-threads.md) — synthesis of 8 threads across the 9-dream series 2026-06-25 → 2026-07-07: unfinished structure (study vs. deal), gun/libido legalization arc, water in every state, anima costume changes, NYC/photo-world composting, authority in transition, renounced comforts circling, agency arc. Linked from [[dreams-index]] and the main index Dream Log section
+- Flag: [[2026-07-03-forest-lantern-dog]] looks like dream-app pipeline output, not a real capture (corpus-citation analysis format, stray characters, no ingest-log entry; the dream-app test fixture is a copy of the 06-30 milk dream). Threads don't lean on it — confirm and keep or prune
+
 ## 2026-07-07 | dream | NYC Romance, Milk Studios Cavern, Gun at the Workstation
 - Type: dream journal entry (logged, unanalyzed)
 - Location: wiki/dreams/2026-07-07-nyc-tent-cavern-gun.md
