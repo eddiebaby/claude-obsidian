@@ -3,7 +3,7 @@ type: domain
 title: "Quantitative Finance"
 status: developing
 created: 2026-06-24
-updated: 2026-07-03
+updated: 2026-07-05
 tags:
   - domain
   - quantitative-finance
@@ -66,6 +66,22 @@ Ten papers ingested (2026-07-03 sweep added eight). Coverage now spans the full 
 ## Key Empirical Finding (from vault)
 
 From [[zhang2026-benchmarking-deep-ts-equity]] (Zhang, Cheng, Leung 2026): no deep or statistical architecture dominates across all preference orderings on CRSP daily data 2018-2024. Best model (TransEnc-8) achieves rank-1 acceptability of only 0.352. After a 20bps transaction cost assumption, net Sharpe is negative for every model tested. Rankings vary substantially with market state, feature universe, and transaction costs.
+
+---
+
+## Strategy Build Guides (2026-07-05)
+
+The retail-scale strategy book, each with a full build guide: data, signal rules, backtest plan, kill criteria, expansion hooks. Master page: [[Retail Alpha Strategy Roadmap]] (capacity-constraint thesis, build order, shared harness).
+
+| Build guide | Sleeve role |
+|---|---|
+| [[Sector-ETF Momentum Strategy]] | Portfolio base + infrastructure carrier; build first |
+| [[Post-Earnings Announcement Drift Strategy]] | Small-cap informational alpha |
+| [[LLM Filings Alpha Strategy]] | The moat: LLM-scored EDGAR filings in uncovered names |
+| [[Index Rebalance and Event-Driven Strategy]] | Episodic structural edges, stacks on the book |
+| [[Short-Term Mean Reversion Strategy]] | Capacity-constrained liquidity provision |
+| [[Micro-Futures Trend Strategy]] | Crisis-alpha diversifier |
+| [[Volatility Risk Premium Strategy]] | Carry diversifier; defined risk always |
 
 ---
 

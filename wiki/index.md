@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Wiki Index"
-updated: 2026-07-02
+updated: 2026-07-05
 tags:
   - meta
   - index
@@ -24,7 +24,7 @@ related:
 
 # Wiki Index
 
-Last updated: 2026-07-03 | Total pages: 308 | Sources ingested: 38 | Dream Symbols: 86 (CW5: 22, CW12: 64)
+Last updated: 2026-07-07 | Total pages: 324 | Sources ingested: 43 | Dream Symbols: 86 (CW5: 22, CW12: 64)
 
 Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[getting-started]]
 
@@ -137,6 +137,11 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 ## Quantitative Finance
 
 **Papers**
+- [[mesfin2026-mnq-intraday-falsification]] — 14 OHLCV intraday signal families on 5-min MNQ 2021-25: ALL fail net of costs; gross edge 0.07-1.5 pts vs ~2-pt costs; ORB falsified in every variant (status: researched 2026-07-07)
+- [[glasserman2025-overnight-news]] — 30 yrs, 2.4M articles: nearly all index gains accrue overnight; news topics partially explain the premium (status: researched 2026-07-07)
+- [[boyarchenko-larsen-whelan-overnight-drift]] — NY Fed: ES overnight drift = dealer inventory compensation, concentrates around European open (status: researched 2026-07-07, primary unfetched)
+- [[byrd-balch-2019-intraday-ml-market-efficiency]] — intraday ML prediction on US equities profitable until 2009, dead after (status: researched 2026-07-07)
+- [[knuteson2020-overnight-intraday-returns]] — decades of overnight-positive/intraday-negative index returns; use the data, not the manipulation theory (status: researched 2026-07-07)
 - [[kurth2026-trend-following-demise]] — CFM/Bouchaud: why fast trend died post-2009; volatility-normalised tick size separates dead from alive; slow trend and large-tick contracts survive (status: ingested 2026-07-02)
 - [[pollok2026-end-to-end-portfolio-policies]] — end-to-end AI vs simple rules on 16 CME futures; transformer's implicit low turnover wins net of costs; statistical tie with equal-weight (status: ingested 2026-07-02)
 - [[miao-polak-online-ensemble-sector-rotation]] — online 16-model ensemble for sector rotation; top-5 sectors Sharpe 0.657, survives 5-15bps costs; edge strengthens in COVID (status: ingested 2026-07-02)
@@ -146,7 +151,20 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[sanderink2026-when-alpha-breaks]] — regime-trust gate + epistemic tail cap for safe ranker deployment; the gate, not the model, drives value (status: ingested 2026-07-03)
 - [[bailey-lopez-de-prado-2014-deflated-sharpe]] — the Deflated Sharpe Ratio; selection-bias correction under multiple trials; winner's-curse arithmetic (status: ingested 2026-07-03)
 
+**Strategy Build Guides (retail-scale)**
+- [[LucidFlex Automated Scalping PRD]] — Track B: short-hold intraday bot on a Lucid prop account; edge is the eval-fee/payout asymmetry, not HFT alpha; phased gates, $1K cap, 16-week timebox (status: seed)
+- [[Retail Alpha Strategy Roadmap]] — master page: capacity-constraint thesis, ranking table, build order, shared infrastructure, portfolio logic (status: developing)
+- [[Sector-ETF Momentum Strategy]] — 12-1 momentum + absolute-momentum overlay on 11 SPDR sectors; the infrastructure carrier; build first (status: seed)
+- [[Short-Term Mean Reversion Strategy]] — RSI(2)-style liquidity provision in liquid equities, 1-5 day holds; dies above ~$1-5M, which is why it is retail-sized (status: seed)
+- [[Post-Earnings Announcement Drift Strategy]] — earnings-day reaction as surprise proxy in under-covered small caps; 30-60 day drift (status: seed)
+- [[Index Rebalance and Event-Driven Strategy]] — four modules: deletion reversal, spin-offs, insider clusters, buybacks; forced flows + attention gaps (status: seed)
+- [[Volatility Risk Premium Strategy]] — defined-risk premium selling on SPX/XSP + earnings vol crush; a premium with tail risk, sized to survive (status: seed)
+- [[Micro-Futures Trend Strategy]] — slow diversified trend on CME micros; crisis-alpha sleeve; slow-only per the Kurth tick-size result (status: seed)
+- [[LLM Filings Alpha Strategy]] — EDGAR → LLM extraction → maker-checker verify → score → trade small-cap filings drift; the moat build (status: seed)
+
 **Strategy & Model Concepts**
+- [[Overnight-Drift]] — indices earn ~all return overnight; dealer-inventory + news mechanisms; the strongest documented effect available to the LucidFlex account class (status: developing)
+- [[Research - Intraday Futures Strategies Under Prop-Firm Constraints]] — synthesis of the 2026-07 arXiv sweep: bar-level intraday signals falsified, overnight/announcement structure is the surviving edge class (status: developing)
 - [[Trend-Following]] — strategy class + the impact feedback-loop mechanism; where it still works (status: developing)
 - [[Cross-Sectional-Momentum]] — relative ranking vs own-history; the natural frame for sector rotation (status: developing)
 - [[Sector-Rotation]] — tradeable alpha source AND ranker-failure trigger; ML approaches compared (status: developing)

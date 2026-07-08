@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Concepts Index"
-updated: 2026-07-03
+updated: 2026-07-05
 tags:
   - meta
   - index
@@ -131,6 +131,16 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 ---
 
 ## Quantitative Finance
+
+**Strategy Build Guides (retail-scale)**
+- [[Retail Alpha Strategy Roadmap]] — master page: capacity-constraint thesis, ranking, build order, shared harness (status: developing)
+- [[Sector-ETF Momentum Strategy]] — 12-1 top-3 + absolute-momentum overlay; the infrastructure carrier (status: seed)
+- [[Short-Term Mean Reversion Strategy]] — liquidity provision, 1-5 day holds, capacity-constrained by design (status: seed)
+- [[Post-Earnings Announcement Drift Strategy]] — small-cap PEAD via earnings-day reaction proxy (status: seed)
+- [[Index Rebalance and Event-Driven Strategy]] — deletions, spin-offs, insider clusters, buybacks (status: seed)
+- [[Volatility Risk Premium Strategy]] — defined-risk premium harvesting; sizing is the strategy (status: seed)
+- [[Micro-Futures Trend Strategy]] — slow diversified trend on micros; crisis alpha (status: seed)
+- [[LLM Filings Alpha Strategy]] — EDGAR pipeline + LLM scoring of small-cap filings; the moat (status: seed)
 
 **Strategy Classes**
 - [[Trend-Following]] — time-series momentum as a strategy class; the impact feedback-loop mechanism; why short-term variants died post-2009 on small-tick contracts (status: developing)

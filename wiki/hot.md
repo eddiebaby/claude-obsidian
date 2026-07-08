@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-07-05T00:00:00
+updated: 2026-07-06T00:00:00
 tags:
   - meta
   - hot-cache
@@ -17,6 +17,26 @@ related:
 # Recent Context
 
 ## Last Updated
+
+2026-07-07 (session 24 cont.): **arXiv sweep filed — 7 pages; the intraday evidence base is now in the vault.** [[Research - Intraday Futures Strategies Under Prop-Firm Constraints]]: [[mesfin2026-mnq-intraday-falsification]] kills all 14 OHLCV signal families on 5-min MNQ 2021-25 net of costs (ORB falsified in every variant; gross edge 0.07-1.5 pts vs ~2-pt costs) — with Kurth + Byrd-Balch that is FOUR independent confirmations of the post-2009 fast-edge death. The surviving edge class is structural-slow: [[Overnight-Drift]] (nearly all index return accrues overnight per [[glasserman2025-overnight-news]]; ES drift concentrates around European open via dealer inventory per [[boyarchenko-larsen-whelan-overnight-drift]] — partial-night hold refinement). PRD re-graded: ORB B→C, folklore families presumed dead, Phase 1 order = overnight drift (if Phase 0 clears legality) + exact-spec Gao first-half-hour momentum. Open: Boyarchenko primary PDF (403 on SSRN + NY Fed), Lucid's written overnight ruling.
+
+2026-07-06 (session 24): **[[LucidFlex Automated Scalping PRD]] filed — Track B prop-firm bot plan.** Scott is opening a Lucid Trading LucidFlex account (50K tier recommended: $130 eval, $3,000 target, $2,000 EOD-trailing MLL that locks at breakeven+$100). Rules verified: bots/APIs/copiers explicitly allowed, pure HFT banned (automated detection), 50% consistency in eval only, 90/10 split, payout = 5 days ≥ $150 + $500 min, ~5-6 payouts then live.
+
+**Core framing**: the edge is the eval-fee/payout asymmetry, NOT scalping alpha — the Kurth slow-only result stands. All-in costs ≈ 2-3 ticks/RT → gross edge must be ≥ 4-5 ticks. LucidFlex is intraday-only (flat by 4:45pm ET, no overnight/weekend) → the PRD carries a two-tier rule-compatible menu. **Tier 1** (minutes): ORB, VWAP-stretch MR, prior-level reactions, gap fade, trend pullback, range-day midday fade + news-event momentum (funded-only) + time-of-day overlays. **Tier 2** (hours, flat-by-close = legal): open-to-close session momentum, first-half-hour→last-half-hour momentum (Gao-Han-Li-Zhou), trend-day capture, daily-MR-expressed-intraday (weakened — overnight premium lost), Globex overnight-drift (CONDITIONAL: sources contradict on holding 6pm→next close; Phase 0 must get written answer). Swing/latency/tick-scalping excluded. **Menu is now evidence-graded**: A = first-half-hour→last-half-hour momentum (Gao-Han-Li-Zhou 2018 JFE), overnight drift (Lou-Polk-Skouras, conditional on rule), news momentum (funded-only); B = ORB (Zarattini-Aziz, SSRN-only), session momentum, gap; C = VWAP/levels/pullback/range-fade (practitioner folklore, deprioritized). Phase 1 tests in evidence order; all A-grades are slow/once-a-day effects — the Kurth result from the other direction. DSR-deflate across the whole menu, ship top 1-2 uncorrelated sleeves for eval. Hard gates: Phase 1 backtest must show ≥ 2 ticks/trade net + PF ≥ 1.3 OOS before ANY eval dollar; $1K total cap; 16-week timebox; failure returns attention to [[Sector-ETF Momentum Strategy]]. Phase 0 open items: official rule re-verification, supported platform/API path (NinjaTrader vs Tradovate vs Rithmic), intraday-MLL-touch semantics, max accounts.
+
+---
+
+## Previous Session (23)
+
+2026-07-05 (session 23): **Retail alpha strategy book filed — 8 new pages, the vault's first strategy build guides.** Master page [[Retail Alpha Strategy Roadmap]]: the two retail edges are (1) capacity constraints institutions cannot touch and (2) LLM build speed; the dream-app pipeline (fetch → extract → score → writeback) is architecturally the LLM-filings signal generator already written once.
+
+**Seven build guides** (wiki/concepts/, each with data vendors, concrete signal rules, backtest plan, kill criteria, expansion hooks): [[Sector-ETF Momentum Strategy]] (12-1 top-3 + absolute-momentum overlay, 11 SPDRs; the infrastructure carrier, BUILD FIRST — it is the open sector-ETF repo), [[Post-Earnings Announcement Drift Strategy]] (small-cap PEAD, earnings-day reaction × volume as the surprise proxy, no IBES needed), [[LLM Filings Alpha Strategy]] (EDGAR poller → Claude structured extraction → maker-checker quote verification → -5..+5 score; contamination rule: only post-knowledge-cutoff paper trading counts as evidence), [[Index Rebalance and Event-Driven Strategy]] (deletion reversal, spin-offs, Form-4 insider clusters, buybacks), [[Short-Term Mean Reversion Strategy]] (RSI(2)-style, dies above $1-5M by design), [[Micro-Futures Trend Strategy]] (slow-only per Kurth tick-size result; crisis alpha), [[Volatility Risk Premium Strategy]] (defined-risk always; sizing IS the strategy).
+
+**Build order**: sector-ETF momentum backtest → PEAD event study + LLM-filings eval set (shared small-cap data layer: Norgate/Sharadar) → trend + VRP diversifiers. Validation discipline carried from session 21: low turnover first, rank don't forecast, regime gate, deflate Sharpe, beat 12-1 + SPY net or it is not alpha.
+
+---
+
+## Previous Session (22)
 
 2026-07-05 (session 22): **Individuation app — design bumped to v0.1 + differentiator roadmap filed.** Depth-quality review folded into `individuation-app/docs/design.md`: decision to **absorb dream-app** (its pipeline ports onto the ¶-anchored CW corpus; wiki pages become the retrieval router, CW chunks the citable evidence), Stage-4 interpretive judgment rules (objective/subjective as a choice per CW 8 ¶¶508–510; little dreams don't get big-dream amplification; absent lysis is diagnostic), mandatory dreamer-response capture (CW 16 ¶320 — doubles as the eval set), clinical-severity guardrail, reordered MVP cut (interactive Stage 0/2 first — the pipeline is currently one-shot and fabricates associations, the horoscope failure mode).
 

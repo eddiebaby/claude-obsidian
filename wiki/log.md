@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Operation Log"
-updated: 2026-07-02
+updated: 2026-07-05
 tags:
   - meta
   - log
@@ -14,6 +14,29 @@ related:
 ---
 
 # Operation Log
+
+## [2026-07-07] autoresearch | Intraday futures strategies under prop-firm constraints (arXiv sweep)
+- Rounds: 2 | Searches: 8 | Fetches: 8 (2 blocked: SSRN + NY Fed 403)
+- Pages created (7): [[mesfin2026-mnq-intraday-falsification]], [[glasserman2025-overnight-news]], [[boyarchenko-larsen-whelan-overnight-drift]], [[byrd-balch-2019-intraday-ml-market-efficiency]], [[knuteson2020-overnight-intraday-returns]], [[Overnight-Drift]], [[Research - Intraday Futures Strategies Under Prop-Firm Constraints]]
+- Pages updated: [[LucidFlex Automated Scalping PRD]] (evidence table re-graded), [[index]], [[hot]]
+- Key finding: Mesfin 2026 falsifies all 14 OHLCV intraday signal families on 5-min MNQ 2021-25 net of costs (ORB in every variant) — fourth independent confirmation of the post-2009 fast-edge death; the overnight drift (dealer-inventory mechanism, concentrates around European open) is the strongest surviving documented effect and is conditional on Lucid's overnight-hold ruling
+- PRD consequences: ORB downgraded B→C, tier-1 folklore families now "presumed dead", build order = overnight drift + first-half-hour momentum first
+
+## [2026-07-06] save | LucidFlex Automated Scalping PRD
+- Type: concept (strategy PRD)
+- Location: wiki/concepts/LucidFlex Automated Scalping PRD.md
+- From: conversation on opening a Lucid Trading LucidFlex account and running an automated scalping bot
+- Rules verified 2026-07-06: automation/bots/copiers explicitly allowed (pure HFT banned, automated detection), EOD trailing MLL that locks at breakeven+$100, 50% consistency in eval only, 90/10 split, 5 × min-profit days per payout cycle, $0 activation
+- Key insight: the viable edge is the payoff structure (eval fee = option premium on a funded account), not scalping alpha — the Kurth tick-size result still holds; "scalping" reframed to 1-30 min holds with 8-16 tick targets because all-in costs are ~2-3 ticks per round turn. Hard gates: backtest ≥2 ticks/trade net before any eval dollar, $1K total cap, 16-week timebox, Track B to the roadmap
+- Updated same day: expanded to the full rule-compatible strategy menu after verifying LucidFlex is intraday-only (flat by 4:45pm ET, no overnight/weekend). 6 backtestable families + news-event sleeve (funded-only) + overlays; DSR deflation applies across the whole menu; ship top 1-2 uncorrelated sleeves
+- Updated again: added tier 2 (higher-timeframe intraday — session momentum, first-half-hour momentum, trend-day capture, daily-MR-intraday, conditional Globex overnight-drift). Flat-by-close kills overnight, not long holds; hours-scale sleeves are legal, cheaper per tick of target, and diversify tier 1 by construction
+- Updated third time: menu evidence-graded A/B/C with citations (Gao-Han-Li-Zhou 2018 JFE intraday momentum, Lou-Polk-Skouras 2019 overnight drift, Zarattini-Aziz ORB, Lucca-Moench pre-FOMC). Phase 1 build order now follows evidence, not convenience; C-grade practitioner families (VWAP stretch, levels, pullbacks, range fades) only get harness time if A/B underdelivers. Key: all A-grade intraday edges are slow/once-a-day — Kurth confirmed from the other direction
+- Type: overview + 7 concept (strategy build guides)
+- Location: wiki/concepts/ (8 pages)
+- From: conversation on retail-scale alpha strategies ("what strats generate alpha at this scale?")
+- Pages: [[Retail Alpha Strategy Roadmap]], [[Sector-ETF Momentum Strategy]], [[Short-Term Mean Reversion Strategy]], [[Post-Earnings Announcement Drift Strategy]], [[Index Rebalance and Event-Driven Strategy]], [[Volatility Risk Premium Strategy]], [[Micro-Futures Trend Strategy]], [[LLM Filings Alpha Strategy]]
+- Each guide: thesis, universe, concrete signal rules, data vendors + costs, backtest plan with benchmarks, execution, risks, kill criteria, expansion hooks, status checkboxes
+- Key insight: retail edge = capacity constraints institutions cannot touch + LLM build speed; build order = sector-ETF momentum first (infrastructure carrier), then PEAD/LLM-filings (the real alpha), then trend + VRP as diversifiers. First strategy-book pages in the vault; ties directly to the session-21 paper sweep (turnover thesis, DSR discipline, regime gating)
 
 ## [2026-07-05] save | Individuation App Differentiators
 - Type: synthesis
