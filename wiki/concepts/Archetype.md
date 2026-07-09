@@ -2,8 +2,9 @@
 type: concept
 title: "Archetype"
 status: mature
+address: c-000067
 created: 2026-06-24
-updated: 2026-06-24
+updated: 2026-07-09
 tags:
   - concept
   - depth-psychology
@@ -17,6 +18,7 @@ related:
   - "[[Trickster]]"
   - "[[Mandala Symbolism]]"
   - "[[Individuation]]"
+  - "[[Deconstructing Archetype Theory]]"
   - "[[C.G. Jung]]"
   - "[[jung-cw9i-archetypes-collective-unconscious]]"
 ---
@@ -26,6 +28,9 @@ related:
 The archetype is Jung's term for the structural predispositions that constitute the contents of the [[Collective Unconscious]]. An archetype is not itself an image; it is a tendency to form images of a certain type. The specific image that appears in a given dream or myth is an "archetypal image" - the archetype's particular expression in a particular consciousness at a particular time.
 
 Source: [[jung-cw9i-archetypes-collective-unconscious]] (CW 9i) - directly read (paras 4-7 of opening essay).
+
+> [!contradiction] Contested by [[Deconstructing Archetype Theory]] (Roesler 2023/2025)
+> This page presents the archetype in Jung's own terms — a biologically-rooted, universal structural predisposition ("analogous to a crystal lattice," "universal images that have existed since the remotest times"). [[Christian-Roesler|Christian Roesler]] argues that "archetype theory" is really **four separable theories** (biological, anthropological, transcendental, process) and that the biological and anthropological strands — including exactly the crystal-lattice/universality framing below — are **refuted by contemporary genetics, anthropology, and archaeology**; what is innate are capacities for relationship and sociality, not preformed images. Roesler keeps only the *process* strand, demoted from biological fact to a **clinical hermeneutics**. This is a live scholarly disagreement, not a settled correction. See [[Deconstructing Archetype Theory]] and [[roesler2025-process-of-transformation]] for the full argument; the sections below preserve Jung's own position.
 
 ---
 
