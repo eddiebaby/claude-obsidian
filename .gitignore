@@ -26,6 +26,10 @@ __pycache__/
 *.pyc
 .venv/
 
+# individuation-app: extracted CW text is copyrighted (Princeton/Bollingen) —
+# never commit derived corpus data to this public repo
+individuation-app/data/
+
 # Node
 node_modules/
 

@@ -149,13 +149,26 @@ is_alive() {
 
 # Atomic meta-lock wrapper. Funcs that mutate LOCK_DIR call under this lock so
 # acquire/release/clear-stale don't race against each other.
+# mkdir is atomic on every POSIX filesystem (including Git Bash on Windows,
+# where `flock` is often absent) so it's used as a portable spinlock instead.
 with_meta_lock() {
   ensure_dirs
-  # Use flock under bash's redirect; meta lock is short-lived per command.
-  (
-    flock -x -w 5 9 || die "could not acquire meta-lock within 5s" 1
-    "$@"
-  ) 9>"$META_LOCK"
+  local mlockdir="${META_LOCK}.d"
+  local i=0
+  while ! mkdir "$mlockdir" 2>/dev/null; do
+    i=$((i + 1))
+    [ "$i" -ge 50 ] && die "could not acquire meta-lock within 5s" 1
+    sleep 0.1
+  done
+  # Run in a subshell: validate_path/die() call `exit` directly (not `return`),
+  # which would otherwise kill the whole script mid-critical-section and skip
+  # the rmdir below, wedging the meta-lock for every subsequent invocation.
+  # A subshell contains that exit to itself; `set -e` propagates it as the
+  # subshell's own exit status, which `|| rc=$?` then captures normally.
+  local rc=0
+  ( "$@" ) || rc=$?
+  rmdir "$mlockdir" 2>/dev/null
+  return $rc
 }
 
 read_lockfile() {

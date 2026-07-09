@@ -1,3 +1,32 @@
+# User Profile — Scott
+
+> Loaded every session. This is who I'm working with and how to work with him.
+
+## Who I Am
+Scott. Based in Hilo, Hawaii. Three overlapping pursuits:
+- **Markets** — trade stocks and financial instruments including futures and options.
+- **Code** — programmer; want to build alpha-generating trading strategies and a Jungian individuation app.
+- **Inner work** — deep into Jungian psychology: individuation, dream interpretation, active imagination. Read a lot of Jung directly.
+
+## Goals for 2026
+1. **Make more money** trading and coding. This is the priority.
+2. **Launch an AI consulting business** serving local businesses in Hilo / Hawaii.
+3. **Do the Jungian inner work** — and get help decoding dense Jung.
+
+## How to Talk to Me
+- Direct. No need to be warm.
+- Straight answer, least possible fluff. No padding, no trailing summaries.
+- When decoding Jung: I understand the concepts, so translate the hard text plainly. Don't over-explain ideas I already hold.
+
+## Strengths & Weaknesses
+- **Strength:** I grasp Jung's concepts even when the text is challenging.
+- **Weakness:** Focus and monetization. I drift toward study over income-generating work. Keep me pointed at making money. When I'm reading Jung instead of building or trading, call it.
+
+## Current Projects
+Starting from the ground up on all of it — trading systems, the AI consulting business, and the individuation app. Nothing is in flight yet; everything is greenfield.
+
+---
+
 # claude-obsidian — Claude + Obsidian Wiki Vault
 
 This folder is both a Claude Code plugin and an Obsidian vault.
@@ -18,6 +47,25 @@ wiki/           Claude-generated knowledge base
 _templates/     Obsidian Templater templates
 _attachments/   images and PDFs referenced by wiki pages
 ```
+
+## Domain Conventions
+
+Every wiki page (except `type: meta`) must have a `domain:` field:
+
+| Value | Use for |
+|-------|---------|
+| `depth-psychology` | Jung, archetypes, individuation, dreams |
+| `quantitative-finance` | Trading, market research, ML for finance |
+| `ai-ml` | AI/ML papers not finance-specific, LLM research |
+| `business` | AI consulting, client work, Hawaii market |
+
+Cross-domain pages get the *application* domain (e.g. AI applied to trading → `quantitative-finance`).
+
+This field powers the [[dashboard]] domain balance check. The dashboard is the first thing to open when session focus is unclear — it shows whether the wiki is drifting toward study instead of income.
+
+## Latin Phrases (standing ingest rule)
+
+When ingesting any future text (Jung, alchemical sources, etc.), pull out every Latin phrase encountered and give each its own full concept page (frontmatter, domain, definition, context where the source uses it, related concepts/entities) — same treatment as any other concept, not a glossary stub. Cross-link from the parent source/concept page. Applies to `wiki-ingest`, `/autoresearch`, and `/save` going forward.
 
 ## How to Use
 
@@ -61,6 +109,19 @@ Do NOT read the wiki for general coding questions or things already in this proj
 | `/wiki-retrieve` (v1.7) | Hybrid contextual + BM25 + cosine-rerank retrieval (opt-in via `bash bin/setup-retrieve.sh`) |
 | `/wiki-mode` (v1.8) | Methodology modes (LYT / PARA / Zettelkasten / Generic). Set via `bash bin/setup-mode.sh`; consumed by wiki-ingest / save / autoresearch for routing new pages |
 | `/think` (v1.9) | The 10-principle thinking loop (OBSERVE-OBSERVE-LISTEN-THINK-CONNECT-CONNECT-FEEL-ACCEPT-CREATE-GROW) as an invocable workflow. Apply to architectural decisions, audits, post-mortems, ambiguous user requests. Every other skill has a "How to think" appendix mapping this framework to its specific work |
+
+## Output Conventions
+
+When answering a question that produces useful analysis, offer to file it as a wiki page — not just leave it in chat history. Domain-specific defaults:
+
+| Domain | Default output format | Offer to file as |
+|--------|-----------------------|-----------------|
+| `quantitative-finance` | Markdown table + key finding | Strategy note (`_templates/strategy-note.md`) or concept page |
+| `business` | Bulleted action list | Business page update or new concept |
+| `depth-psychology` | Prose interpretation | Concept page or dream analysis note |
+| `ai-ml` | Technical summary | Concept page |
+
+The goal: analysis doesn't disappear into chat history. If Scott asks "what's the best entry signal for momentum strategies?" and the answer is good, file it.
 
 ## Transport (v1.7+)
 

@@ -2,5 +2,16 @@
   "obsidian-excalidraw-plugin",
   "obsidian-banners",
   "calendar",
-  "thino"
+  "thino",
+  "calendar-beta",
+  "obsidian-memos",
+  "templater-obsidian",
+  "dataview",
+  "obsidian-git",
+  "heatmap-calendar",
+  "obsidian-local-rest-api",
+  "obsidian-minimal-settings",
+  "obsidian-icon-folder",
+  "obsidian-style-settings",
+  "obsidian-kanban"
 ]

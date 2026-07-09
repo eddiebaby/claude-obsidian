@@ -14,6 +14,7 @@ type: <source|entity|concept|domain|comparison|question|overview|meta>
 title: "Human-Readable Title"
 created: 2026-04-07
 updated: 2026-04-07
+domain: <depth-psychology|quantitative-finance|ai-ml|business>
 tags:
   - <domain-tag>
   - <type-tag>
@@ -24,6 +25,14 @@ sources:
   - "[[.raw/articles/source-file.md]]"
 ---
 ```
+
+**domain values** (pick the primary domain; cross-domain pages get the application domain):
+- `depth-psychology` — Jung, archetypes, individuation, dreams, analytical psychology
+- `quantitative-finance` — trading strategies, market research, ML applied to finance
+- `ai-ml` — AI/ML papers not finance-specific; LLM research, world models
+- `business` — AI consulting, client work, local Hawaii market
+
+This field powers the [[dashboard]] domain balance queries. Omit only for `type: meta` pages.
 
 **status values:**
 - `seed`: exists, barely populated

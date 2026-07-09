@@ -24,7 +24,7 @@ related:
 
 # Wiki Index
 
-Last updated: 2026-07-08 | Total pages: 344 | Sources ingested: 49 | Dream Symbols: 86 (CW5: 22, CW12: 64)
+Last updated: 2026-07-09 | Total pages: 362 | Sources ingested: 52 | Dream Symbols: 86 (CW5: 22, CW12: 64)
 
 Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[getting-started]]
 

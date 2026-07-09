@@ -42,7 +42,6 @@ Exit codes:
 """
 
 import argparse
-import fcntl
 import json
 import math
 import os
@@ -54,6 +53,11 @@ import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
+
+if sys.platform == "win32":
+    import msvcrt
+else:
+    import fcntl
 
 VAULT_ROOT = Path(__file__).resolve().parent.parent
 META_DIR = VAULT_ROOT / ".vault-meta"
@@ -126,6 +130,26 @@ def embed_one(url, model, text):
         return data.get("embedding") or []
 
 
+def _try_lock_exclusive(fd):
+    try:
+        if sys.platform == "win32":
+            os.lseek(fd, 0, os.SEEK_SET)
+            msvcrt.locking(fd, msvcrt.LK_NBLCK, 1)
+        else:
+            fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        return True
+    except (BlockingIOError, OSError):
+        return False
+
+
+def _unlock(fd):
+    if sys.platform == "win32":
+        os.lseek(fd, 0, os.SEEK_SET)
+        msvcrt.locking(fd, msvcrt.LK_UNLCK, 1)
+    else:
+        fcntl.flock(fd, fcntl.LOCK_UN)
+
+
 def load_cache():
     if not EMBED_CACHE_PATH.is_file():
         return {}
@@ -147,16 +171,16 @@ def save_cache(cache):
     even without the lock; the lock only serializes concurrent writers.
     """
     META_DIR.mkdir(parents=True, exist_ok=True)
-    fd = os.open(str(CACHE_LOCK), os.O_CREAT | os.O_WRONLY, 0o644)
+    fd = os.open(str(CACHE_LOCK), os.O_CREAT | os.O_RDWR, 0o644)
+    if sys.platform == "win32":
+        os.write(fd, b"\0")
     locked = False
     try:
         for attempt in range(3):
-            try:
-                fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            if _try_lock_exclusive(fd):
                 locked = True
                 break
-            except BlockingIOError:
-                time.sleep(0.1)
+            time.sleep(0.1)
         if not locked:
             msg = ("WARN: rerank embed-cache lock unavailable after 3 tries; "
                    "writing unlocked (atomic via temp+rename). Concurrent writers "
@@ -179,7 +203,7 @@ def save_cache(cache):
     finally:
         if locked:
             try:
-                fcntl.flock(fd, fcntl.LOCK_UN)
+                _unlock(fd)
             except OSError:
                 pass
         os.close(fd)

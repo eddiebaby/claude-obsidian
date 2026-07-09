@@ -6,7 +6,7 @@ Indexes the `contextualized_text` field of every chunk under .vault-meta/chunks/
 emits a single JSON file at .vault-meta/bm25/index.json with the schema below.
 
 Concurrency:
-- Locks .vault-meta/.bm25.lock (fcntl exclusive) around any index write.
+- Locks .vault-meta/.bm25.lock (fcntl exclusive on POSIX, msvcrt on Windows) around any index write.
 - Atomic .tmp + rename for the index file.
 
 Index schema (.vault-meta/bm25/index.json):
@@ -46,7 +46,6 @@ Exit codes:
 """
 
 import argparse
-import fcntl
 import json
 import math
 import os
@@ -55,6 +54,11 @@ import sys
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
+
+if sys.platform == "win32":
+    import msvcrt
+else:
+    import fcntl
 
 VAULT_ROOT = Path(__file__).resolve().parent.parent
 META_DIR = VAULT_ROOT / ".vault-meta"
@@ -98,9 +102,14 @@ def tokenize(text):
 
 def acquire_lock():
     META_DIR.mkdir(parents=True, exist_ok=True)
-    fd = os.open(str(LOCK_PATH), os.O_CREAT | os.O_WRONLY, 0o644)
+    fd = os.open(str(LOCK_PATH), os.O_CREAT | os.O_RDWR, 0o644)
     try:
-        fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        if sys.platform == "win32":
+            os.write(fd, b"\0")
+            os.lseek(fd, 0, os.SEEK_SET)
+            msvcrt.locking(fd, msvcrt.LK_NBLCK, 1)
+        else:
+            fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
     except OSError:
         os.close(fd)
         log("ERR: could not acquire bm25 lock")
@@ -110,7 +119,11 @@ def acquire_lock():
 
 def release_lock(fd):
     try:
-        fcntl.flock(fd, fcntl.LOCK_UN)
+        if sys.platform == "win32":
+            os.lseek(fd, 0, os.SEEK_SET)
+            msvcrt.locking(fd, msvcrt.LK_UNLCK, 1)
+        else:
+            fcntl.flock(fd, fcntl.LOCK_UN)
     finally:
         os.close(fd)
 

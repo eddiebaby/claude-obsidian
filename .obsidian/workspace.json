@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "477f1cf965ca606e",
+        "id": "4d42b9b3f4be252f",
         "type": "tabs",
         "children": [
           {
-            "id": "a31de1b302cdc5cf",
+            "id": "36fd9f7d16fe6cd6",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "wiki/jung/symbols/Mercurius.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Mercurius"
             }
           }
         ]
@@ -90,16 +94,17 @@
             "state": {
               "type": "backlink",
               "state": {
-                "collapseAll": false,
+                "file": "wiki/jung/symbols/Mercurius.md",
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
-                "showSearch": false,
+                "showSearch": true,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Mercurius"
             }
           },
           {
@@ -167,13 +172,23 @@
               "icon": "lucide-ghost",
               "title": "calendar"
             }
+          },
+          {
+            "id": "fa428c4492c00760",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
-        ]
+        ],
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -183,9 +198,52 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "obsidian-memos:Thino": false,
+      "obsidian-memos:Thino Super": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-git:Open Git source control": false,
+      "obsidian-kanban:Create new board": false
     }
   },
-  "active": "a31de1b302cdc5cf",
-  "lastOpenFiles": []
+  "active": "36fd9f7d16fe6cd6",
+  "lastOpenFiles": [
+    "wiki/dreams/2026-07-09-promotion-to-customer.md",
+    "wiki/concepts/_index.md.tmp.11608.dedd290beb7e",
+    "wiki/concepts/_index.md.tmp.11608.287669e14750",
+    "wiki/concepts/Upside-Screen-2026-07.md",
+    "wiki/concepts/Upside-Screen-2026-07.md.tmp.53776.15a0201b37ca",
+    "wiki/entities/Nathan-Fraikin.md",
+    "wiki/entities/Nathan-Fraikin.md.tmp.11608.343ff069c7fb",
+    "wiki/entities/Jingchao-Zeng.md",
+    "wiki/entities/Richard-Tarnas.md",
+    "wiki/entities/Liz-Greene.md",
+    "wiki/entities/Liz-Greene.md.tmp.11608.b1a9b24469f9",
+    "wiki/entities/Ignatius-of-Loyola.md",
+    "wiki/entities/Ignatius-of-Loyola.md.tmp.11608.f1b91a81c6a6",
+    "wiki/entities/Wilfred-Bion.md",
+    "wiki/entities/Wilfred-Bion.md.tmp.11608.2450805b4800",
+    "wiki/entities/Eckhard-Frick.md",
+    "wiki/entities/Eckhard-Frick.md.tmp.11608.330a579d5e38",
+    "wiki/concepts/Qualitative-Time.md",
+    "wiki/concepts/Deconstructing-Archetype-Theory.md",
+    "wiki/concepts/In-Stercore-Invenitur.md",
+    "wiki/concepts/Createdness.md",
+    "wiki/concepts/Createdness.md.tmp.11608.bee8fac257c1",
+    "wiki/concepts/Spiritus-contra-spiritum.md",
+    "wiki/concepts/Discernment-of-Spirits.md",
+    "wiki/concepts/Faith-in-O.md",
+    "wiki/concepts/Faith-in-O.md.tmp.11608.5730b274c01c",
+    "wiki/sources/zeng-fraikin2026-synchronicity-postjungian-astrology.md",
+    "wiki/sources/frick2025-spiritual-path-transformation.md",
+    "wiki/sources/roesler2025-process-of-transformation.md",
+    "wiki/entities/Sofie-Qwarnstrom.md",
+    "wiki/concepts/Enantiodromia.md",
+    "wiki/hot.md",
+    "wiki/concepts/One-Sidedness.md",
+    "wiki/sources/qwarnstrom2026-onesidedness-coriolanus-timon.md",
+    "wiki/entities/Amalia-X.md",
+    "wiki/sources/yago2026-hour-that-never-comes-time-that-remains.md"
+  ]
 }

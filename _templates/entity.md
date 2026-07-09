@@ -2,6 +2,7 @@
 type: entity
 title: "<% tp.file.title %>"
 entity_type: person
+domain: ""
 role: ""
 first_mentioned: "[[]]"
 created: <% tp.date.now("YYYY-MM-DD") %>

@@ -1,6 +1,7 @@
 ---
 type: source
 title: "<% tp.file.title %>"
+domain: ""
 source_type: article
 author: ""
 date_published: <% tp.date.now("YYYY-MM-DD") %>
