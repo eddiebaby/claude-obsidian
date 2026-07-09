@@ -24,6 +24,7 @@ related:
 sources:
   - "[[jung-dream-app-design]]"
   - "[[roesler2026-jung-dream-theory-empirical-research]]"
+  - "[[roesler2025-process-of-transformation]]"
 ---
 
 # Christian Roesler
