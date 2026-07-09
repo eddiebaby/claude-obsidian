@@ -2,8 +2,9 @@
 type: concept
 title: "Individuation"
 status: mature
+address: c-000069
 created: 2026-06-24
-updated: 2026-06-28
+updated: 2026-07-09
 tags:
   - concept
   - depth-psychology
@@ -18,6 +19,7 @@ related:
   - "[[Persona]]"
   - "[[Mana Personality]]"
   - "[[Personal Unconscious]]"
+  - "[[Faith in O]]"
   - "[[C.G. Jung]]"
   - "[[jung-cw7-two-essays]]"
   - "[[jung-cw9i-archetypes-collective-unconscious]]"
