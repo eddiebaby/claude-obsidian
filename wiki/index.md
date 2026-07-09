@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Wiki Index"
-updated: 2026-07-05
+updated: 2026-07-08
 tags:
   - meta
   - index
@@ -24,7 +24,7 @@ related:
 
 # Wiki Index
 
-Last updated: 2026-07-07 | Total pages: 328 | Sources ingested: 46 | Dream Symbols: 86 (CW5: 22, CW12: 64)
+Last updated: 2026-07-08 | Total pages: 329 | Sources ingested: 46 | Dream Symbols: 86 (CW5: 22, CW12: 64)
 
 Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[getting-started]]
 
@@ -325,6 +325,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 ## Questions
 
+- [[Workflow Loops Review]] — the current setup mapped against the four-type loop taxonomy: knowledge loops industrialized, money loops all manual; five moves up the delegation ladder, rebalance routine first (status: developing)
 - [[Individuation App Differentiators]] — 10 features that separate the app from dream journals and LLM chat: voice capture, association-test onboarding, personal symbol lexicon, active imagination mode, big-dream detection, individuation timeline, compensation check-ins, analyst export, provenance tiers, local mode (status: developing)
 - [[How does the LLM Wiki pattern work]] — how the pattern works and why it outperforms RAG at human scale (status: developing)
 

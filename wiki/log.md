@@ -15,6 +15,13 @@ related:
 
 # Operation Log
 
+## 2026-07-08 | save | Workflow Loops Review
+- Type: synthesis
+- Location: wiki/questions/Workflow Loops Review.md
+- From: conversation reviewing the current workflow against the ClaudeDevs loops article and picking 5 productivity moves
+- Address: c-000030 (manual allocation — allocate-address.sh flock still broken on Windows; counter now 31)
+- Key insight: the vault's knowledge loops are industrialized (hooks, locks, verifier) but the money loops are still turn-based/manual (first exception: the equity-book scheduled tasks). Five moves up the delegation ladder: (1) verify-backtest skill, (2) /goal for the next PRD sleeves, (3) /schedule the monthly sector-momentum rebalance — do this one first, code already exists, (4) weekly proactive Hilo consulting-prospect routine, (5) fix allocate-address.sh + extend commit discipline to app dirs (fix the system, not the instance)
+
 ## 2026-07-08 | analysis | Equity Upside Book 2026 H2
 - Created: [[Equity-Upside-Book-2026H2]] (wiki/concepts/, address c-000029)
 - Hedge-fund-analyst exercise: highest 12-24mo upside in SPX + R2000, web-sourced 2026-07-08
