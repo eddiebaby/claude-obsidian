@@ -97,3 +97,4 @@ Archetypal images carry what Jung (following Rudolf Otto) calls "numinosity" - a
 - [[Collective Unconscious]] - the layer of the psyche that contains archetypes
 - [[Individuation]] - the process of consciously relating to archetypal contents
 - [[Mandala Symbolism]] - the archetype of the Self expressed geometrically
+- [[Deconstructing Archetype Theory]] - Roesler's four-strand critique; why the biological/universal framing above is contested and what survives (the process-theory strand as clinical hermeneutics)
