@@ -100,6 +100,8 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 - [[Ialdabaoth]] — Gnostic lion-headed demiurge = Saturn = Mercurius = child of chaos (status: mature)
 
 *Latin phrases (standing rule: every Latin term gets a full concept page)*
+- [[Spiritus contra spiritum]] — "spirit against spirit"; Jung's letter to AA's Bill Wilson; discernment between the Devil and the Holy Spirit; seed of the 12 steps (status: developing)
+- [[In stercore invenitur]] — "found in filth"; the treasure/lapis hidden in base matter; oratory + laboratory; anti-spiritual-bypassing (status: developing)
 - [[Azoth]] — Mercurius as alpha/omega totality; A+Z (Latin) + alpha+omega (Greek) + aleph+tau (Hebrew) (status: mature)
 - [[prima-materia]] — base matter of the opus; Saturnine; "cheap as dirt yet the stone itself" (status: mature)
 - [[anima-mundi]] — world-soul; Platonic animating principle of the cosmos; one of Mercurius's soul-names (status: mature)

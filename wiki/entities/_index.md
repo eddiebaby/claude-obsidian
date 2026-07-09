@@ -41,6 +41,8 @@ All entity pages — people, organizations, products, and tools.
 - [[René Descartes]] — French philosopher/mathematician (1596-1650); enlightenment dreams; Cartesian philosophy
 
 **Depth Psychology**
+- [[Eckhard Frick]] — Munich Jungian analyst *and* Jesuit; "The Spiritual Path of Transformation" (2025); Bion's O, Ignatian discernment (status: seed)
+- [[Wilfred Bion]] — British psychoanalyst (1897-1979); O and K; faith in O; "without memory or desire" (status: seed)
 - [[Amalia-X]] — pseudonymous specimen case (Ulm Textbank, 500+ sessions, 95 dreams); core evidence for Structural Dream Analysis (status: seed)
 - [[Sofie Qwarnström]] — author, "One-Sidedness and the Inferior Function in Coriolanus and Timon of Athens" (2026) (status: seed)
 - [[Daniel Françoli Yago]] — Jungian analyst; author, "The Hour that Never Comes and the Time that Remains" (2026); Orphic listening (status: seed)
