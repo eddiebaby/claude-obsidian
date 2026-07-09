@@ -24,7 +24,7 @@ related:
 
 # Wiki Index
 
-Last updated: 2026-07-08 | Total pages: 329 | Sources ingested: 46 | Dream Symbols: 86 (CW5: 22, CW12: 64)
+Last updated: 2026-07-08 | Total pages: 344 | Sources ingested: 49 | Dream Symbols: 86 (CW5: 22, CW12: 64)
 
 Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[getting-started]]
 
@@ -103,6 +103,8 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[Anima and Animus]] — the contrasexual archetypal figure mediating between ego and collective unconscious (status: mature)
 - [[Mana Personality]] — the inflation danger when one identifies with the archetype of the wise old man/woman after engaging the unconscious (status: developing)
 - [[Psychological Types]] — introversion/extraversion; four functions (thinking, feeling, sensation, intuition); typological basis of personality (status: developing)
+- [[One-Sidedness]] — over-development of one function at the expense of its opposite; hubris as "virtue gone mad"; worked through Coriolanus vs. Timon of Athens (Qwarnström 2026) (status: developing)
+- [[Enantiodromia]] — the psychological law that sustained one-sidedness flips into its opposite; catastrophic when unconscious (status: developing)
 - [[Stages of Life (Jung)]] — youth (ego building), midlife turning point, second half (inner work, meaning over achievement) (status: developing)
 - [[Uroboros]] — the self-consuming serpent circle; Neumann's symbol of pre-ego primordial wholeness; CW 13: Ion = uroboros = sacrificer; "the dragon slays itself, weds itself, impregnates itself" (status: developing)
 - [[Numinous Experience]] — Rudolf Otto's category; the overwhelming, wholly-other quality of the sacred; connects to archetypal activation (status: developing)
@@ -128,6 +130,9 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[Dream Analysis and Interpretation]] — Jungian method: amplification, symbolism, dialogue interpretation (status: developing)
 - [[Dreams as Self-Knowledge]] — how dreams reveal the unconscious and guide individuation (status: developing)
 - **[[jung/symbols/_index]]** — Jung's symbol corpus from CW 5 + CW 12. CW 5: Dragon, Horse, Arrow, Sword, Serpent, Cave, Sun, Mother, Child + 53 more. CW 12 alchemical layer (extracted 2026-06-27): Mercurius, Prima Materia, Lapis Philosophorum, Coniunctio, Anima Mundi, Sol and Luna, Ouroboros (status: developing)
+- [[The Hour That Never Comes]] — suspended desire, the non-event that becomes trauma; fidelity-postponement (Demeter) vs. anxious paralysis (Sisyphus); threshold dream imagery (Yago 2026) (status: developing)
+- [[The Time That Remains]] — post-collapse survival time, the future cancelled; the wanderer-among-ruins; possibly a condition of individuation, not only its casualty (Yago 2026) (status: developing)
+- [[Orphic Listening]] — clinical stance to sustain suspended psychic time rather than resolve it; grounds the individuation-app's no-confirming-verdict rule (Yago 2026) (status: developing)
 
 **Dream Log**
 - [[dream-threads]] — synthesis across the nine-dream series 2026-06-25 → 2026-07-07: the unfinished structure (study vs. the deal), the gun's legalization arc, water in every state, the anima's costume changes, agency migrating from body to attention (status: developing)
@@ -240,9 +245,16 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[Jolande-Jacobi]] — Swiss-Hungarian Jungian analyst (1890-1973); systematizer of Jungian psychology; author of Part 5 (Henry case study) in *Man and His Symbols* (status: developing)
 - [[Erich Neumann]] — German-Israeli Jungian analyst (1905-1960); *Origins and History of Consciousness*; developmental stages of ego from uroboros through hero to integration (status: developing)
 - [[James-Hillman]] — American Jungian analyst (1926-2011); archetypal psychology; "stay with the image" (status: developing)
-- [[Christian-Roesler]] — contemporary Jungian researcher; Structural Dream Analysis; empirical validation of dream-ego agency tracking (status: developing)
+- [[Christian-Roesler]] — contemporary Jungian researcher; Structural Dream Analysis (now 6-pattern typology, H1-H3 empirically confirmed); empirical validation of dream-ego agency tracking (status: developing)
+- [[Amalia-X]] — pseudonymous specimen case (500+ sessions, 95 dreams); core evidence for Structural Dream Analysis (status: seed)
+- [[Sofie Qwarnström]] — author, "One-Sidedness and the Inferior Function in Coriolanus and Timon of Athens" (2026) (status: seed)
+- [[Daniel Françoli Yago]] — Jungian analyst; "The Hour that Never Comes and the Time that Remains" (2026); Orphic listening (status: seed)
+- [[Donald Kalsched]] — Jungian analyst and trauma theorist; *The Inner World of Trauma*; the "personal spirit," dissociative defenses (status: seed)
 
 **Philosophers & Adjacent Thinkers**
+- [[Walter Benjamin]] — German-Jewish philosopher/critic (1892-1940); non-continuous historical time; Angelus Novus (status: seed)
+- [[Mark Fisher]] — British cultural theorist (1968-2017); *Capitalist Realism*; cancellation of the future (status: seed)
+- [[Byung-Chul Han]] — South Korean-German philosopher; *The Transparency Society*; hyperactive stagnation (status: seed)
 - [[Friedrich Nietzsche]] — German philosopher (1844-1900); Will to Power; Übermensch; Beyond Good and Evil; Jung engaged his work extensively in the Zarathustra Seminars (status: developing)
 - [[William James]] — American philosopher/psychologist (1842-1910); Varieties of Religious Experience; the subliminal self (precursor to Jung's unconscious); numinous experience (status: developing)
 - [[Viktor Frankl]] — Austrian psychiatrist (1905-1997); Logotherapy; Man's Search for Meaning; will to meaning as complement to Jungian individuation (status: developing)

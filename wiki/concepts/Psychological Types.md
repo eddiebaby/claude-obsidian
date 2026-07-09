@@ -176,6 +176,10 @@ The typology is not merely descriptive — it is a map of what must be *integrat
 
 ---
 
+## Literary Application: One-Sidedness in Shakespeare
+
+[[Sofie Qwarnström|Qwarnström's]] 2026 essay reads *Coriolanus* and *Timon of Athens* as mirror-image case studies of typological [[One-Sidedness|one-sidedness]]: Coriolanus (dominant Introverted Thinking, inferior Extraverted Feeling) starves his own capacity for felt relation exactly as he starves the plebeians he governs; Timon (dominant Extraverted Feeling, inferior Introverted Thinking) floods himself with undiscriminating generosity, having silenced the judging function that would let him see his flatterers clearly. Both endings enact [[Enantiodromia|enantiodromia]] directly. See [[One-Sidedness]] for the full treatment, and the updated [[Superior Function]] / [[Inferior Function]] symbol pages for von Franz's clinical mechanics (the superior function's tendency to "seize" rather than sacrifice its opposite).
+
 ## Cross-Reference: Transcendent Function
 
 The **transcendent function** is Jung's term for the psychic function that bridges the gap between conscious (superior-function) orientation and unconscious (inferior-function) contents. It arises when the tension of opposites is held without premature resolution. See [[Active Imagination]] (where it appears as the outcome of the waking method) and [[jung-cw8-structure-dynamics-psyche]] (¶131–193 — the dedicated essay).

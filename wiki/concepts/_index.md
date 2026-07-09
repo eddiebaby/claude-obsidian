@@ -48,10 +48,15 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 - [[Amplification]] — circumambulating the dream image; personal → cultural → archetypal; the anti-dictionary method (status: developing)
 - [[Dream Dramatic Structure]] — the four-act drama: exposition → development → culmination → lysis (status: developing)
 - [[Dream Compensation]] — the self-regulating psyche balancing one-sided conscious attitudes; prospective function (status: developing)
-- [[Structural Dream Analysis]] — Roesler's empirical method: five dream-ego agency patterns tracked across the series (status: developing)
+- [[Structural Dream Analysis]] — Roesler's empirical method: six dream-ego agency patterns (20 sub-patterns) tracked across the series; H1-H3 empirically confirmed 2026 (status: mature)
 - [[Active Imagination]] — the waking follow-on method: dialogue with dream figures; the transcendent function; Jung's two-stage model (letting come / *Auseinandersetzung*); practical technique and common obstacles (Hannah); alchemy as active imagination with matter (von Franz/Dorn) (status: developing)
 - [[Dream Recall]] — sleep-science mechanics of remembering dreams: intention, stillness, WBTB, substances (status: developing)
 - [[Working with Dream Symbols]] — **the methodological guide**: the step-by-step amplification loop that orchestrates all the above and governs when the symbol corpus is consulted (status: developing)
+- [[The Hour That Never Comes]] — suspended desire, the non-event that becomes trauma; fidelity-postponement (Demeter) vs. anxious paralysis (Sisyphus); threshold dream imagery (Yago 2026) (status: developing)
+- [[The Time That Remains]] — post-collapse survival time, the future cancelled; the wanderer-among-ruins; possibly a condition of individuation, not only its casualty (Yago 2026) (status: developing)
+- [[Orphic Listening]] — the clinical stance for both: sustain suspended time rather than resolve it; grounds the individuation-app's no-confirming-verdict rule (Yago 2026) (status: developing)
+- [[One-Sidedness]] — over-development of one psychic function at the expense of its opposite; hubris as "virtue gone mad"; worked through Coriolanus vs. Timon of Athens (Qwarnström 2026) (status: developing)
+- [[Enantiodromia]] — the psychological law that sustained one-sidedness flips into its opposite; catastrophic when unconscious, individuation's task when met deliberately (status: developing)
 
 **Core Concepts & Foundational Essays**
 - [[Archetypes of the Collective Unconscious]] — Jung's 1934/1954 essay on archetype manifestation and consciousness (status: mature)

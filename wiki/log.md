@@ -15,6 +15,25 @@ related:
 
 # Operation Log
 
+## 2026-07-08 | ingest | Two Journal of Analytical Psychology papers (Roesler 2026, Qwarnström 2026)
+- Sources: `.raw/Jung's Theory of Dreaming and the Findings of Empirical and Clinical Dream Research.md`; `.raw/One‐Sidedness and the Inferior Function in Coriolanus and Timon of Athens.md`
+- Summaries: [[roesler2026-jung-dream-theory-empirical-research]] (c-000042), [[qwarnstrom2026-onesidedness-coriolanus-timon]] (c-000046)
+- **Roesler paper — major update, not just new pages.** [[Structural Dream Analysis]] rewritten in place: 5-pattern summary → full 6-pattern typology with 20 numbered sub-patterns (new Pattern 6 "Autonomy" wasn't in the vault at all); added the three formally-tested hypotheses (H1-H3, all confirmed across 150 Jung-Institut Stuttgart case reports + named cases), the nonlinear mid-therapy regression finding, and the no-fixed-symbol-meanings result (a snake threatened one dreamer, helped another). [[Christian-Roesler]] updated to match. New entity [[Amalia-X]] (the specimen case) — matches the existing [[Miss Miller]] precedent for named case-study entities
+- **Qwarnström paper — new territory + two existing symbol pages enriched.** New concepts [[One-Sidedness]] (hubris as "virtue gone mad," not arrogance) and [[Enantiodromia]] (Heraclitus's flip-to-opposite, previously load-bearing across ingested CW material but never given its own page). Updated the long-skeleton [[Superior Function]] and [[Inferior Function]] symbol pages (created 2026-06-25, still `status: skeleton`) with von Franz's clinical mechanics — the superior function's "eagle seizing a mouse" capture reflex, the "mixtum compositum" integration alternative — worked through Coriolanus vs. Timon of Athens. Added a literary-application note to the existing mature [[Psychological Types]] page rather than duplicating its typology
+- Address backfill: Structural Dream Analysis, Christian-Roesler, Superior-Function, Inferior-Function were all created 2026-06-25 (post-rollout) but had never been assigned addresses — backfilled per the idempotency rule rather than left missing. Manual allocation again (flock still broken on Windows): c-000040 through c-000049, counter now 50
+- No contradictions flagged — Roesler 2026's "confronting reality, not just compensating" nuance deepens rather than reverses the vault's existing completion-over-compensation note; the new SDA typology is presented as the fuller/later version of the same method, not a conflicting one
+- Not folded into `individuation-app/docs/design.md`: both papers are directly relevant (SDA's 6-pattern table is the concrete scoring rubric the design's dream-ego-agency tracking gestures at) but that edit is left for if/when Scott makes the link explicit, same pattern as the Yago ingest
+
+## 2026-07-08 | ingest | The Hour that Never Comes and the Time that Remains (Yago 2026)
+- Source: `.raw/The Hour that Never Comes and the Time that Remains.md` (Journal of Analytical Psychology, Wiley)
+- Summary: [[yago2026-hour-that-never-comes-time-that-remains]] (c-000031)
+- Pages created (9): [[The Hour That Never Comes]] (c-000037), [[The Time That Remains]] (c-000038), [[Orphic Listening]] (c-000039), [[Daniel Françoli Yago]] (c-000032), [[Donald Kalsched]] (c-000033), [[Walter Benjamin]] (c-000034), [[Mark Fisher]] (c-000035), [[Byung-Chul Han]] (c-000036)
+- Pages updated: sources/_index, entities/_index, concepts/_index, index, hot
+- Address counter: manual allocation again (flock still broken on Windows Git Bash) — c-000031 through c-000039, counter now 40
+- Key insight: two paired temporal figures — suspended-desire trauma (fidelity-postponement/Demeter vs. anxious paralysis/Sisyphus) and post-collapse survival time (the wanderer among ruins; possibly a condition of individuation, not only its casualty). The essay's "Orphic listening" clinical stance is, read after the fact, the Jungian-tradition justification for the individuation-app v0.2 rules added earlier today (no confirming the dreamer's self-narrative, mandatory counter-reading) — not folded into design.md itself, flagged as the grounding source if that link is made explicit later
+- Editorial call: 10+ secondary thinkers cited in the essay (Kast, Schwartz, Caruth, Rolnik, Martins, Dufourmantelle, Pelbart, Didi-Huberman, Bergson, Weiner) were NOT given standalone entity pages — single-citation depth only; noted inline in the source page instead
+- Cross-reference to personal dream log: [[dream-threads]]'s 2026-07-07 entry (staying in the tent with the CW while the anima-figure who completes structures leaves) reads as a live instance of the hour-that-never-comes ambiguity; noted in the new concept page, dream-threads itself left untouched
+
 ## 2026-07-08 | save | Workflow Loops Review
 - Type: synthesis
 - Location: wiki/questions/Workflow Loops Review.md

@@ -27,6 +27,14 @@ All source pages — summaries of ingested documents, transcripts, articles, and
 
 ---
 
+## Papers (Depth Psychology)
+
+- [[roesler2026-jung-dream-theory-empirical-research]] — 2026-07-08 | Christian Roesler; Journal of Analytical Psychology | Full 6-pattern Structural Dream Analysis typology + H1-H3 empirically confirmed across 150 case reports; updates [[Structural Dream Analysis]] and [[Christian-Roesler]] | 1 source + 1 entity, 2 pages updated
+- [[qwarnstrom2026-onesidedness-coriolanus-timon]] — 2026-07-08 | Sofie Qwarnström; Journal of Analytical Psychology | Coriolanus and Timon of Athens as mirror-image case studies in typological one-sidedness; enantiodromia as tragic mechanism | 1 source + 2 concepts + 1 entity, 3 pages updated
+- [[yago2026-hour-that-never-comes-time-that-remains]] — 2026-07-08 | Daniel Françoli Yago; Journal of Analytical Psychology (Wiley) | The Hour That Never Comes (suspended desire, trauma without an event) and The Time That Remains (post-collapse survival time); Orphic Listening as clinical stance | 1 source + 3 concepts + 5 entities
+
+---
+
 ## Articles
 
 - [[ClaudeDevs-Getting-Started-with-Loops]] — 2026-07-08 | Delba de Oliveira via @ClaudeDevs (Anthropic) | Official loop definition + four-type taxonomy; /goal evaluator; quality & token discipline | 1 source + 1 concept + 1 entity, [[Loop-Engineering]] updated

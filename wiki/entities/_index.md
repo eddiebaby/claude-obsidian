@@ -25,6 +25,9 @@ All entity pages — people, organizations, products, and tools.
 ## People
 
 **Philosophy**
+- [[Walter Benjamin]] — German-Jewish philosopher/critic (1892-1940); non-continuous historical time; Angelus Novus (status: seed)
+- [[Mark Fisher]] — British cultural theorist (1968-2017); *Capitalist Realism*; cancellation of the future (status: seed)
+- [[Byung-Chul Han]] — South Korean-German philosopher; *The Transparency Society*, *The Expulsion of the Other*; hyperactive stagnation (status: seed)
 - [[Friedrich Nietzsche]] — German philosopher (1844-1900); Will to Power, Ubermensch, master/slave morality; direct precursor to Jung; inflation cautionary tale (status: developing)
 - [[William James]] — American philosopher and psychologist (1842-1910); founder of pragmatism; *Varieties of Religious Experience* (1902); subliminal self, four marks of mysticism, the "More"; direct intellectual predecessor of Jung (status: developing)
 
@@ -38,6 +41,10 @@ All entity pages — people, organizations, products, and tools.
 - [[René Descartes]] — French philosopher/mathematician (1596-1650); enlightenment dreams; Cartesian philosophy
 
 **Depth Psychology**
+- [[Amalia-X]] — pseudonymous specimen case (Ulm Textbank, 500+ sessions, 95 dreams); core evidence for Structural Dream Analysis (status: seed)
+- [[Sofie Qwarnström]] — author, "One-Sidedness and the Inferior Function in Coriolanus and Timon of Athens" (2026) (status: seed)
+- [[Daniel Françoli Yago]] — Jungian analyst; author, "The Hour that Never Comes and the Time that Remains" (2026); Orphic listening (status: seed)
+- [[Donald Kalsched]] — Jungian analyst and trauma theorist; *The Inner World of Trauma* (1996); the "personal spirit," dissociative defenses, frozen traumatic temporality (status: seed)
 - [[Marie-Louise von Franz]] — Swiss Jungian analyst (1915-1998); founder of C.G. Jung Institute; dream interpretation, alchemy, fairy tales; wrote Parts 3 + Conclusion of *Man and His Symbols*; lectured on Gerhard Dorn and alchemy as active imagination with matter
 - [[Barbara-Hannah]] — British-Swiss Jungian analyst (1891-1986); one of Jung's earliest close associates; *Active Imagination: Encounters with the Soul*; biographer of Jung (status: developing)
 - [[C.G. Jung]] — Swiss psychiatrist; founder of analytical psychology; originator of the collective unconscious, archetype, and individuation concepts (1875-1961)
