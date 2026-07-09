@@ -90,6 +90,7 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 **Synchronicity & the Psychoid**
 - [[Synchronicity]] — meaningful coincidence without causal connection; the archetype as ordering principle of both psyche and matter; the golden scarab paradigm case (status: developing)
 - [[Unus Mundus]] — the unified substrate prior to the psyche-matter split; Dorn's three degrees of conjunction; the psychophysical background hypothesis; the psychoid factor (status: mature)
+- [[Qualitative Time]] — Jung's early, abandoned synchronicity model (the birth moment's quality of time); revived by post-Jungian astrology (Greene, Tarnas) after Jung discarded it (status: developing)
 
 **Alchemy**
 - [[Coniunctio]] — the alchemical union of opposites (Sol/Luna, Rex/Regina); Mercurius as mediator; Dorn's three degrees culminating in the unus mundus; the lapis as symbol of the Self (status: mature)
