@@ -43,6 +43,10 @@ All entity pages — people, organizations, products, and tools.
 **Depth Psychology**
 - [[Eckhard Frick]] — Munich Jungian analyst *and* Jesuit; "The Spiritual Path of Transformation" (2025); Bion's O, Ignatian discernment (status: seed)
 - [[Wilfred Bion]] — British psychoanalyst (1897-1979); O and K; faith in O; "without memory or desire" (status: seed)
+- [[Liz Greene]] — British Jungian analyst; psychological astrology; revived Jung's abandoned qualitative-time model of synchronicity (status: seed)
+- [[Richard Tarnas]] — cultural historian; archetypal astrology (*Cosmos and Psyche*); synchronicity as cosmological axiom (status: seed)
+- [[Jingchao Zeng]] — synchronicity/astrology researcher (Essex); co-author, post-Jungian astrology critique (2026) (status: seed)
+- [[Nathan Fraikin]] — post-Jungian studies; co-author, post-Jungian astrology critique (2026) (status: seed)
 - [[Amalia-X]] — pseudonymous specimen case (Ulm Textbank, 500+ sessions, 95 dreams); core evidence for Structural Dream Analysis (status: seed)
 - [[Sofie Qwarnström]] — author, "One-Sidedness and the Inferior Function in Coriolanus and Timon of Athens" (2026) (status: seed)
 - [[Daniel Françoli Yago]] — Jungian analyst; author, "The Hour that Never Comes and the Time that Remains" (2026); Orphic listening (status: seed)
