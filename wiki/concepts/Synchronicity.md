@@ -4,8 +4,9 @@ title: "Synchronicity"
 aliases: ["acausal connecting principle", "meaningful coincidence"]
 domain: depth-psychology
 complexity: advanced
+address: c-000068
 created: 2026-06-27
-updated: 2026-06-27
+updated: 2026-07-09
 tags:
   - concept
   - jungian-psychology
@@ -18,6 +19,7 @@ related:
   - "[[Collective Unconscious]]"
   - "[[Individuation]]"
   - "[[Unus Mundus]]"
+  - "[[Qualitative Time]]"
   - "[[CW8 Theoretical Foundations]]"
   - "[[Symbol and Myth]]"
   - "[[Self (archetype)]]"
@@ -25,6 +27,7 @@ related:
 sources:
   - "[[jung-synchronicity]]"
   - "[[CW8 Theoretical Foundations]]"
+  - "[[zeng-fraikin2026-synchronicity-postjungian-astrology]]"
 ---
 
 # Synchronicity
