@@ -4,7 +4,7 @@ title: "Nathan Fraikin"
 created: 2026-07-09
 updated: 2026-07-09
 domain: depth-psychology
-address: c-000066
+address: c-000067
 entity_type: person
 role: "Synchronicity and post-Jungian studies researcher"
 first_mentioned: "[[zeng-fraikin2026-synchronicity-postjungian-astrology]]"

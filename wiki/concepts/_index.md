@@ -79,6 +79,10 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 - [[Libido Transformation]] — psychic energy as undifferentiated and genuinely transforming through the lifespan (status: developing)
 - [[Symbol and Myth]] — myth as direct expression of the collective unconscious; symbol as bridge between conscious and unconscious (status: developing)
 - [[Psychological Sacrifice]] — the surrender of ego-identification required for individuation (status: developing)
+- [[Deconstructing Archetype Theory]] — Roesler's four-strand critique; biological + anthropological strands refuted, only the process theory survives as clinical hermeneutics (status: developing)
+- [[Faith in O]] — Bion's O (unknowable ultimate reality) vs K (knowledge); transformation as K→O; apophatic/negative theology; Frick's bridge to the Jungian Self (status: developing)
+- [[Discernment of Spirits]] — Ignatian method (consolation/desolation); the bipolar spirit archetype; three failure modes: spiritual bypassing, neglect, inflation (status: developing)
+- [[Createdness]] — *Creatus est homo*, "we are created, not creators"; creativity as acceptance of the unconscious's priority; the anti-inflation disposition (status: developing)
 
 **Fairy Tales & Narrative**
 - [[vonfranz-interpretation-fairy-tales]] (source) — von Franz's four-step method; exposition/peripeteia/crisis/lysis applied to tales; Three Feathers worked example; shadow and Self in fairy tale structure; method directly transfers to dream interpretation (status: ingested)

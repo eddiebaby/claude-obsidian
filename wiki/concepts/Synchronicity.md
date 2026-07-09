@@ -4,7 +4,7 @@ title: "Synchronicity"
 aliases: ["acausal connecting principle", "meaningful coincidence"]
 domain: depth-psychology
 complexity: advanced
-address: c-000068
+address: c-000069
 created: 2026-06-27
 updated: 2026-07-09
 tags:

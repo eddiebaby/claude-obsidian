@@ -18,6 +18,7 @@ related:
   - "[[Index Rebalance and Event-Driven Strategy]]"
   - "[[Deflated-Sharpe-Ratio]]"
   - "[[ClaudeDevs-Getting-Started-with-Loops]]"
+  - "[[Upside-Screen-2026-07]]"
 sources:
   - "web research 2026-07-08 (Schwab/Fidelity mid-year outlooks, MarketWatch H1 losers, TIKR, William Blair, Motley Fool bank M&A, company 8-Ks)"
 ---
@@ -25,6 +26,8 @@ sources:
 # Equity Upside Book — 2026 H2 (SPX + R2000 + Nasdaq)
 
 Hedge-fund-analyst exercise, 2026-07-08. Question: highest 12-24 month upside in the S&P 500 and Russell 2000. All price targets are sourced consensus/analyst figures from web research, **not verified against a terminal** — verify before any position.
+
+Broad candidate layer (20 tickers per universe, tiered A/B/C): [[Upside-Screen-2026-07]] (2026-07-09).
 
 ## Market frame (as of 2026-07-08)
 

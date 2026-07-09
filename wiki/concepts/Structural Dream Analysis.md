@@ -24,6 +24,7 @@ related:
 sources:
   - "[[jung-dream-app-design]]"
   - "[[roesler2026-jung-dream-theory-empirical-research]]"
+  - "[[roesler2025-process-of-transformation]]"
 ---
 
 # Structural Dream Analysis
@@ -78,7 +79,12 @@ The 2026 findings support Jung's subjective-level method but complicate strict [
 - Qualifies the strict [[Dream Compensation|compensation]] claim in favor of *completion / confrontation*.
 - Self-tracking implication for the [[dreams-index|dream journal]]: the `dream-ego stance` field is the spine of series analytics; the full 6-pattern/20-sub-pattern table above is now the concrete scoring rubric to code against, not just the earlier 5-pattern summary.
 
+## Why SDA Matters Beyond Dreams
+
+In [[roesler2025-process-of-transformation]], SDA is presented as the **worked example** of Roesler's larger argument: that Analytical Psychology can and must investigate the transformation process empirically instead of forcing Jung's concepts onto patients. SDA is the proof-of-concept that a Jungian claim (rising dream-ego agency = increasing ego strength = therapeutic progress) can be operationalized, coded reliably, and tested — the antidote to the "case reports as compromise formations" problem. See [[Deconstructing Archetype Theory]] for the framing.
+
 ## Sources
 
 - [[jung-dream-app-design]]
 - [[roesler2026-jung-dream-theory-empirical-research]]
+- [[roesler2025-process-of-transformation]]

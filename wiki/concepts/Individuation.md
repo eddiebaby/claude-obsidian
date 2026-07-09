@@ -2,7 +2,7 @@
 type: concept
 title: "Individuation"
 status: mature
-address: c-000069
+address: c-000070
 created: 2026-06-24
 updated: 2026-07-09
 tags:

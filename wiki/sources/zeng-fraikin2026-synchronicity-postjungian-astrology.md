@@ -4,7 +4,7 @@ title: "Synchronicity in Post-Jungian Astrology: A Cosmological Quest"
 created: 2026-07-09
 updated: 2026-07-09
 domain: depth-psychology
-address: c-000052
+address: c-000053
 tags:
   - source
   - depth-psychology

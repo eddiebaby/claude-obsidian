@@ -4,7 +4,7 @@ title: "Discernment of Spirits"
 created: 2026-07-09
 updated: 2026-07-09
 domain: depth-psychology
-address: c-000054
+address: c-000055
 complexity: intermediate
 tags:
   - concept

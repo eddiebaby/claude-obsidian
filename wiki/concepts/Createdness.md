@@ -4,7 +4,7 @@ title: "Createdness"
 created: 2026-07-09
 updated: 2026-07-09
 domain: depth-psychology
-address: c-000056
+address: c-000057
 complexity: intermediate
 tags:
   - concept

@@ -4,7 +4,7 @@ title: "Spiritus contra spiritum"
 created: 2026-07-09
 updated: 2026-07-09
 domain: depth-psychology
-address: c-000055
+address: c-000056
 complexity: intermediate
 tags:
   - concept

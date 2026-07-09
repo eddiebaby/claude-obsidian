@@ -2,7 +2,7 @@
 type: concept
 title: "Archetype"
 status: mature
-address: c-000067
+address: c-000068
 created: 2026-06-24
 updated: 2026-07-09
 tags:

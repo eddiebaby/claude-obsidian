@@ -4,7 +4,7 @@ title: "Liz Greene"
 created: 2026-07-09
 updated: 2026-07-09
 domain: depth-psychology
-address: c-000063
+address: c-000064
 entity_type: person
 role: "British Jungian analyst and psychological astrologer (b. 1946)"
 first_mentioned: "[[zeng-fraikin2026-synchronicity-postjungian-astrology]]"

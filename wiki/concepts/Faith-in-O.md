@@ -4,7 +4,7 @@ title: "Faith in O"
 created: 2026-07-09
 updated: 2026-07-09
 domain: depth-psychology
-address: c-000053
+address: c-000054
 complexity: advanced
 tags:
   - concept

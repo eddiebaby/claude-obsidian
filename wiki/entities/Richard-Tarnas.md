@@ -4,7 +4,7 @@ title: "Richard Tarnas"
 created: 2026-07-09
 updated: 2026-07-09
 domain: depth-psychology
-address: c-000064
+address: c-000065
 entity_type: person
 role: "American cultural historian and archetypal astrologer (b. 1950)"
 first_mentioned: "[[zeng-fraikin2026-synchronicity-postjungian-astrology]]"

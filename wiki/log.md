@@ -15,6 +15,12 @@ related:
 
 # Operation Log
 
+## 2026-07-09 | analysis | Upside Screen — 20 tickers per universe
+- Created: [[Upside-Screen-2026-07]] (wiki/concepts/, c-000050; manual allocation, flock still broken)
+- Broad candidate layer over [[Equity-Upside-Book-2026H2]]: 20 SPX + 20 R2000 + 20 Nasdaq, tiered A (re-underwritten) / B (sourced thesis) / C (screen-grade lead); index-membership flags on borderline names; anti-picks MU/SNDK marked; SPRY stays excluded on watchlist
+- Known gaps recorded in the file: small-bank basket rows need an actual screen; CRWD has conflicting web PT data; Tier C rows are leads, not picks
+- Opened in VS Code for Scott's markup
+
 ## 2026-07-08 | ingest | Two Journal of Analytical Psychology papers (Roesler 2026, Qwarnström 2026)
 - Sources: `.raw/Jung's Theory of Dreaming and the Findings of Empirical and Clinical Dream Research.md`; `.raw/One‐Sidedness and the Inferior Function in Coriolanus and Timon of Athens.md`
 - Summaries: [[roesler2026-jung-dream-theory-empirical-research]] (c-000042), [[qwarnstrom2026-onesidedness-coriolanus-timon]] (c-000046)

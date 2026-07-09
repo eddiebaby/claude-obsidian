@@ -4,7 +4,7 @@ title: "Wilfred Bion"
 created: 2026-07-09
 updated: 2026-07-09
 domain: depth-psychology
-address: c-000061
+address: c-000062
 entity_type: person
 role: "British psychoanalyst (1897-1979); theorist of thinking, 'O', and K"
 first_mentioned: "[[frick2025-spiritual-path-transformation]]"

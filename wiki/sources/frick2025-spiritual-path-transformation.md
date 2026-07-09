@@ -4,7 +4,7 @@ title: "The Spiritual Path of Transformation"
 created: 2026-07-09
 updated: 2026-07-09
 domain: depth-psychology
-address: c-000050
+address: c-000051
 tags:
   - source
   - depth-psychology

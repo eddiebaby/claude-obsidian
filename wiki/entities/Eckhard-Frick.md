@@ -4,7 +4,7 @@ title: "Eckhard Frick"
 created: 2026-07-09
 updated: 2026-07-09
 domain: depth-psychology
-address: c-000060
+address: c-000061
 entity_type: person
 role: "Jungian analyst and Jesuit priest; author on spirituality and transformation"
 first_mentioned: "[[frick2025-spiritual-path-transformation]]"

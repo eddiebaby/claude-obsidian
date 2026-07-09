@@ -4,7 +4,7 @@ title: "The Process of Transformation — The Core of Analytical Psychology and 
 created: 2026-07-09
 updated: 2026-07-09
 domain: depth-psychology
-address: c-000051
+address: c-000052
 tags:
   - source
   - depth-psychology

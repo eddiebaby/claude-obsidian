@@ -4,7 +4,7 @@ title: "Jingchao Zeng"
 created: 2026-07-09
 updated: 2026-07-09
 domain: depth-psychology
-address: c-000065
+address: c-000066
 entity_type: person
 role: "Synchronicity and astrology researcher (University of Essex)"
 first_mentioned: "[[zeng-fraikin2026-synchronicity-postjungian-astrology]]"

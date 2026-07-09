@@ -4,7 +4,7 @@ title: "Qualitative Time"
 created: 2026-07-09
 updated: 2026-07-09
 domain: depth-psychology
-address: c-000059
+address: c-000060
 complexity: advanced
 tags:
   - concept

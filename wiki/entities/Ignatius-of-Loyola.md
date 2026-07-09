@@ -4,7 +4,7 @@ title: "Ignatius of Loyola"
 created: 2026-07-09
 updated: 2026-07-09
 domain: depth-psychology
-address: c-000062
+address: c-000063
 entity_type: person
 role: "Founder of the Jesuits (1491-1556); author of the Spiritual Exercises"
 first_mentioned: "[[frick2025-spiritual-path-transformation]]"

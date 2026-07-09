@@ -4,7 +4,7 @@ title: "In stercore invenitur"
 created: 2026-07-09
 updated: 2026-07-09
 domain: depth-psychology
-address: c-000057
+address: c-000058
 complexity: intermediate
 tags:
   - concept
