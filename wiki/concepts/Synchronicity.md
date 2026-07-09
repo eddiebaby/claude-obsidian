@@ -124,6 +124,26 @@ Individuation, at its deepest, is participation in the unus mundus. Synchronisti
 
 ---
 
+## The Empirical Caution: Jung's Failed Astrological Experiment
+
+A point the vault's confident presentation above should be read against (per [[zeng-fraikin2026-synchronicity-postjungian-astrology]]): Jung conceived synchronicity strictly as an **empirical** claim, not a metaphysical assumption, and his one attempt to demonstrate it statistically **failed**. His "astrological experiment" — correlating married couples' horoscopes with traditional marriage aspects — produced statistically insignificant results; the connection was "merely chance" (¶901). Jung published it anyway, to insist synchronicity be approached "through experience rather than from a purely theoretical point of view." Roderick Main: Jung "does not deny the possible existence of a metaphysical reality, but is wary of any claims about such a reality that are not based on experiences amenable to psychological investigation."
+
+Note also the ambiguity the astrology reception exploits: Jung treated the archetype as the **formal cause** (Aristotelian) linking synchronistic events — so synchronicity is "acausal" only in the *efficient*-cause sense. It is not causeless; it is formally/archetypally caused.
+
+## Qualitative Time — the Abandoned Early Model
+
+Before the mature concept, Jung floated (1930, Wilhelm memorial) a model of **[[Qualitative Time|qualitative time]]**: a moment possesses a quality, and whatever begins at that moment shares it — "not the influence of the stars but our own hypothetical time qualities." He **abandoned** this in the 1952 essay after the failed experiment, moving to synchronicity as *beyond* time/space/causality. This matters because post-Jungian astrology revived the model Jung discarded — see [[Qualitative Time]].
+
+## Synchronicity I vs. Synchronicity II (Hyde)
+
+Maggie Hyde (*Jung and Astrology*, 1992) splits the concept: **Synchronicity I** — an objective observer + an objectively observed synchronistic event (this is what fails statistically in natal astrology); **Synchronicity II** — includes the observer's *subjective participation*, "partly the astrologer's meaningful encounter with a symbol, and partly that strange feeling that the material is also about oneself." Zeng & Fraikin argue authentic synchronicity in a reading is Synchronicity II — a numinous present-moment act of interpretation — not a cosmological quality inhering in the chart. This returns the emphasis to Jung's grounding in **numinosity** (Otto): synchronicity "closely resembles numinous experiences where space, time, and causality are abolished."
+
+## Reception in Post-Jungian Astrology
+
+Two major post-Jungians stretched synchronicity toward cosmology, each losing something Jung guarded (see [[zeng-fraikin2026-synchronicity-postjungian-astrology]]):
+- **[[Liz Greene]]** (psychological astrology) — faithful to the psychical aspect but slid into the physical/metaphysical qualitative-time model (Hermetic "as above, so below").
+- **[[Richard Tarnas]]** (archetypal astrology, *Cosmos and Psyche*) — made synchronicity a metaphysical axiom of planetary order, rendering events predictable so "the abnormal becomes normal" and the numinous, rare character is lost.
+
 ## What Synchronicity is Not
 
 - **Not mere coincidence.** Ordinary improbable events are not synchronistic; the criterion is *meaning*, not rarity.
