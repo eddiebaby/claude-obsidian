@@ -32,6 +32,7 @@ All entity pages — people, organizations, products, and tools.
 - [[William James]] — American philosopher and psychologist (1842-1910); founder of pragmatism; *Varieties of Religious Experience* (1902); subliminal self, four marks of mysticism, the "More"; direct intellectual predecessor of Jung (status: developing)
 
 **Historical Figures**
+- [[Ignatius of Loyola]] — founder of the Jesuits (1491-1556); *Spiritual Exercises*; discernment of spirits; *Creatus est homo*; subject of Jung's 1939-40 seminar (status: seed)
 - [[Socrates]] — classical Athenian philosopher (470-399 BCE); anima dreams; logos without eros
 - [[Themistocles]] — classical Athenian general (524-460 BCE); naval strategy; dreams and military decisions
 - [[Hannibal]] — Carthaginian general (247-183 BCE); warrior archetype
