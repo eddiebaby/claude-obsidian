@@ -3,7 +3,7 @@ type: concept
 title: "Loop Engineering"
 status: mature
 created: 2026-06-27
-updated: 2026-06-27
+updated: 2026-07-08
 domain: quantitative-finance
 tags:
   - concept
@@ -16,6 +16,8 @@ related:
   - "[[loop-engineering-hedge-funds-2026]]"
   - "[[zhang2026-benchmarking-deep-ts-equity]]"
   - "[[Andrej Karpathy]]"
+  - "[[Claude Code Loop Taxonomy]]"
+  - "[[ClaudeDevs-Getting-Started-with-Loops]]"
 ---
 
 # Loop Engineering
@@ -45,6 +47,8 @@ Spring 2026. Three practitioners converged in one week:
 - Andrej Karpathy: "Remove yourself as the bottleneck"
 
 The predecessor terms — prompt engineering, context engineering, harness engineering — all assumed a human seated at the keyboard. Loop engineering deletes that assumption.
+
+**Official canonization (Jul 2026):** Anthropic's Claude Code team published its own definition and four-type taxonomy (turn-based / goal-based / time-based / proactive) via [[ClaudeDevs-Getting-Started-with-Loops]] — the vendor's instruction set for the practitioner stance described here. See [[Claude Code Loop Taxonomy]].
 
 ---
 

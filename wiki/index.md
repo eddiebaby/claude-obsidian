@@ -183,6 +183,9 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[Deflated-Sharpe-Ratio]] / [[Backtest-Overfitting]] — evaluation discipline before believing any backtest (status: developing)
 - [[Tick-Size-Microstructure]] — order-book density as a strategy-viability screen (status: developing)
 
+**Idea Books & Screens**
+- [[Equity-Upside-Book-2026H2]] — 12-24mo upside book (2026-07-08): AI-roadkill derating (INTU/ADBE) + small-cap M&A gravity (SPRY/SFNC/OMCL); pre-committed falsifiers; hypothesis stage (status: seed)
+
 **Agentic Trading Systems**
 - [[Loop-Engineering]] — replacing yourself as the agent-prompter; designing the system that prompts the agent; the highest-leverage move for a solo quant operator (status: mature)
 - [[Maker-Checker-Pattern]] — the institutional verification pattern (Citadel, Jane Street, Renaissance) applied to agentic trading; 40-60% rejection rate is healthy; verification debt is the silent failure mode (status: mature)
@@ -193,6 +196,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 **Agentic Self-Evolving Systems**
 - [[SGPO]] — Semantic-Gradient-based Prompt Optimization; turns execution trajectories into natural-language "semantic gradients" that revise subagent prompts; the self-improvement mechanism inside AgentX (status: mature)
+- [[Claude Code Loop Taxonomy]] — Anthropic's official four-type loop classification (turn-based / goal / time / proactive); the ladder of delegation: hand off the check → stop condition → trigger → prompt (status: developing)
 
 **World Models & Embodied AI**
 - [[World Models]] — neural networks learning environment evolution from observations and actions; core to model-based RL (status: mature)
@@ -264,6 +268,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 **Other**
 - [[Andrej Karpathy]] — AI researcher, creator of the LLM Wiki pattern, former Tesla AI director (status: developing)
+- [[Delba de Oliveira]] — DevRel on the Claude Code team; author of the official loops article (status: seed)
 - [[Ar9av-obsidian-wiki]] — multi-agent compatible LLM Wiki plugin; delta tracking manifest (status: current)
 - [[Nexus-claudesidian-mcp]] — native Obsidian plugin + MCP bridge; workspace memory, task management (status: current)
 - [[ballred-obsidian-claude-pkm]] — goal cascade PKM; auto-commit hooks, /adopt command (status: current)
@@ -276,6 +281,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 ## Sources
 
+- [[ClaudeDevs-Getting-Started-with-Loops]] — 2026-07-08 | Delba de Oliveira via @ClaudeDevs (Anthropic) | Official four-type loop taxonomy (turn/goal/time/proactive); /goal evaluator model; token discipline; 3 new pages, 1 updated
 - [[kurth2026-trend-following-demise]] — 2026-07-02 | Kurth, Eisler, Rej, Bouchaud (CFM); arXiv 2607.01550 | Demise of short-term trend-following; tick-size microstructure; 5 new pages
 - [[pollok2026-end-to-end-portfolio-policies]] — 2026-07-02 | Pollok & Robik; arXiv 2607.00475 | End-to-end AI vs simple rules, 16 CME futures; 2 new pages
 - [[miao-polak-online-ensemble-sector-rotation]] — 2026-07-02 | Miao & Polak; arXiv 2304.09947 | Online ensemble sector rotation; 3 new pages

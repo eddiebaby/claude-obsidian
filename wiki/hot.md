@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-07-07T00:00:00
+updated: 2026-07-08T00:00:00
 tags:
   - meta
   - hot-cache
@@ -17,6 +17,8 @@ related:
 # Recent Context
 
 ## Last Updated
+
+2026-07-08 (session 27): **Official Anthropic loops article ingested.** [[ClaudeDevs-Getting-Started-with-Loops]] (Delba de Oliveira via @ClaudeDevs, 07-06): loops = agents repeating cycles until a stop condition; four types = turn-based / goal-based (`/goal` + evaluator model) / time-based (`/loop`, `/schedule`) / proactive (composed routines). New concept [[Claude Code Loop Taxonomy]] — the ladder of delegation (hand off check → stop condition → trigger → prompt); [[Loop-Engineering]] updated with the canonization note. Quant mapping: `/goal` for signal search with Sharpe threshold, `/schedule` for market-hours routines. Same session: **[[Equity-Upside-Book-2026H2]] filed** — 12-24mo upside book. Market frame: SPX ~7,537 near ATH, narrow AI/energy leadership, R2000 +21% YTD (best start since '91) but interest expense = 31% of EBITDA. Core insight: asymmetry lives in the AI-roadkill derating (INTU -51% with EPS +12% at 15.9x vs 30-40x historical; ADBE) and M&A gravity (bank M&A 7-yr high → SFNC; biotech $106B → SPRY/XENE basket; OMCL upgrade cycle), not in crowded AI momentum (MU +242% YTD, snapback warnings). All PTs web-sourced, pre-committed falsifiers per name; next step = re-underwrite from filings. **Nasdaq extension added**: even Mag-7 quality is dislocated (MSFT -19% YTD / +44% consensus, META +44%), MELI/PLTR/S mid-tier, INTC deep turnaround (7/23 earnings catalyst); anti-pick = MU +248% / SNDK +736% memory parabola. **Contradiction flagged**: Fed signalled a likely 2026 HIKE (06-17) — R2000 sleeve must be catalyst-driven, not rate-beta. **Loop 2 re-underwriting**: INTU confirmed (guide raised, ~17x fwd), OMCL qualified-confirmed (net cash, watch H2 bookings), **SPRY killed** — CVS Caremark rejected 6/24 (−23% AH, fraud investigations, burn vs $201M cash → dilution risk); the book had filed a stale May catalyst. Rule encoded: past-dated catalysts must be re-verified before they count. Next catalysts: INTC 7/23, July FOMC, INTU FY27 guide late Aug.
 
 2026-07-07 (session 26): **Dream logged + analyzed; series recap filed.** [[2026-07-07-nyc-tent-cavern-gun]]: the anima as posh real-estate dealmaker who finishes her semester and does deals, then leaves while the dream-ego stays in the tent reading the CW; Milk Studios interiorized as a cavern; the 06-27 gun now legal but idle on the night-office floor among scattered clipboards — blockage migrated from mobility to attention. New synthesis page [[dream-threads]]: 8 threads across the 9-dream series (06-25 → 07-07); core repeats = completing/monetizing energy projected onto others, vessel/containment task, anima never held; standing next step is still active imagination on the gun (assigned 06-27, undone). Flagged: [[2026-07-03-forest-lantern-dog]] may be dream-app test output, not a real dream — confirm with Scott.
 

@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Operation Log"
-updated: 2026-07-07
+updated: 2026-07-08
 tags:
   - meta
   - log
@@ -14,6 +14,34 @@ related:
 ---
 
 # Operation Log
+
+## 2026-07-08 | analysis | Equity Upside Book 2026 H2
+- Created: [[Equity-Upside-Book-2026H2]] (wiki/concepts/, address c-000029)
+- Hedge-fund-analyst exercise: highest 12-24mo upside in SPX + R2000, web-sourced 2026-07-08
+- Core insight: asymmetry is in the AI-roadkill derating (INTU -51% w/ EPS +12%, ADBE) and small-cap M&A gravity (bank M&A 7-yr high, biotech M&A $106B), NOT in crowded AI momentum
+- SPX book: INTU, ADBE, CMCSA, NVDA, NEM. R2000 book: SPRY, OMCL, SFNC, XENE, FRPT
+- Nasdaq extension (same session): MSFT (+44% consensus, -19% YTD), META (+44%), MELI (+28%), PLTR (+40%, speculative), INTC (turnaround, 7/23 catalyst), S (+48%); anti-pick = MU/SNDK memory parabola
+- Contradiction flagged: Fed signalled a likely 2026 HIKE on 06-17 — weakens the R2000 rate-tailwind leg; small-cap picks must be catalyst-driven, not rate-beta
+- Loop 2 (same session): top-3 re-underwritten from filings. INTU = YES (Q3 +10.4%, guide raised, ~17x fwd, falsifier not firing). SPRY = KILLED (CVS Caremark rejected 6/24, −23% AH to ~$8, fraud investigations, $60.6M/qtr loss vs $201M cash → dilution risk; removed to watchlist). OMCL = qualified YES (Q1 +15%, net cash, guide raised; watch H2 bookings not EPS)
+- Lesson encoded: SPRY was filed with a stale catalyst (rejection had been disclosed 2 weeks before filing) — new book rule: past-dated catalysts must be re-verified against latest news before they count
+- Status: top-3 re-underwritten; remaining names still marketing-grade
+- Loop infrastructure armed: 4 scheduled tasks created (weekly Monday sweep 06:00 HST + one-shots INTC 7/23, FOMC 7/29, INTU 8/25) — the book's trigger is now handed off per [[Claude Code Loop Taxonomy]]; tasks run while the desktop app is open
+
+## 2026-07-08 | ingest | Getting Started with Loops (ClaudeDevs)
+- Source: `.raw/2026-07-06-claudedevs-getting-started-with-loops.md` (X article, captured via Claude in Chrome)
+- Summary: [[ClaudeDevs-Getting-Started-with-Loops]]
+- Pages created: [[ClaudeDevs-Getting-Started-with-Loops]], [[Claude Code Loop Taxonomy]], [[Delba de Oliveira]]
+- Pages updated: [[Loop-Engineering]] (official-canonization note), index, sources/concepts/entities sub-indexes
+- Key insight: Anthropic officially canonized the loop-engineering stance as a four-type taxonomy (turn/goal/time/proactive) — a ladder of delegation where you progressively hand off the check, the stop condition, the trigger, and finally the prompt itself
+- Note: allocate-address.sh flock unavailable on Windows Git Bash — addresses c-000026..28 allocated manually with identical read-increment-write logic (single writer); wiki-lock.sh works fine
+
+## 2026-07-08 | dream | Shared Bed, the Brother, and the Roller Skates
+- Type: dream journal entry (logged + analyzed — fragment, little-dream treatment)
+- Location: wiki/dreams/2026-07-08-shared-bed-roller-skates.md
+- Fragment: beach vacation town with girlfriend + her family; sharing a bed with her hostile brother who keeps waking the dream-ego by punching the mattress; later a doctor's office, putting on roller skates, skating the boardwalk and pier
+- Day residue: girlfriend said 07-07 she had to wait a day for her mother's birthday cake because her brother had to get to her house
+- Analysis applied the new v0.2 discipline (first test of it): objective reading first (the brother is a real relation, not auto-shadow — CW 8 ¶¶508–510), a mandatory counter-reading on the roller-skating (series says dry-avoidance-over-water; counter says healthy self-propelled motion after a cramped hostile bed), and little-dream restraint (no archetypal apparatus). Two associations flagged as deciding: Scott's real standing with her brother/family, and whether the skating felt like fleeing or freedom
+- One structural signal: constraint (shared bed, no rest) → self-propelled motion (skating) is the only arc; closest thing to a lysis. Series echoes noted but held second — see [[dream-threads]]
 
 ## 2026-07-07 | dream-analysis + synthesis | Tent/Cavern/Gun analyzed + Dream Threads recap
 - Analyzed: [[2026-07-07-nyc-tent-cavern-gun]] (status → analyzed). Core reading: the anima appears as a posh real-estate dealmaker — she finishes her semester and does deals (the exact sequence the ego hasn't performed) — and leaves while the dream-ego stays in the tent reading the CW; Milk Studios returns interiorized as a cavern (persona-world composted, anima present, mood friendly); the 06-27 gun now lies legal and openly on the night-office floor but unused, while notes scatter across clipboards — the series' blockage has migrated from mobility (buoy, ice, malnourishment) to attention itself

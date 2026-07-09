@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Sources Index"
-updated: 2026-07-03
+updated: 2026-07-08
 tags:
   - meta
   - index
@@ -29,6 +29,7 @@ All source pages — summaries of ingested documents, transcripts, articles, and
 
 ## Articles
 
+- [[ClaudeDevs-Getting-Started-with-Loops]] — 2026-07-08 | Delba de Oliveira via @ClaudeDevs (Anthropic) | Official loop definition + four-type taxonomy; /goal evaluator; quality & token discipline | 1 source + 1 concept + 1 entity, [[Loop-Engineering]] updated
 - [[jung-dream-app-design]] — 2026-06-25 | research synthesis | Designing a Jungian dream-journaling app: capture → amplification → interpretation funnel; recall science; Roesler's SDA | 6 concept pages + 2 entity pages created; doubles as app spec + dream-journal methodology
 
 ---

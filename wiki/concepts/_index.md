@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Concepts Index"
-updated: 2026-07-05
+updated: 2026-07-08
 tags:
   - meta
   - index
@@ -167,6 +167,9 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 ---
 
 ## AI & Machine Learning
+
+**Agentic Systems**
+- [[Claude Code Loop Taxonomy]] — Anthropic's official four-type loop classification; ladder of delegation: check → stop condition → trigger → prompt (status: developing)
 
 **LM Optimization**
 - [[PACE Optimizer]] — AdamW wrapper derived from optimal control; pulls live weights toward EMA to improve the returned average model; strictly outperforms AdamW+EMA in fine-tuning (1–2B params) and GPT-2 pretraining (status: developing)

@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Entities Index"
-updated: 2026-07-03
+updated: 2026-07-08
 tags:
   - meta
   - index
@@ -58,6 +58,7 @@ All entity pages — people, organizations, products, and tools.
 
 **AI/Technology**
 - [[Andrej Karpathy]] — AI researcher, educator; originated the LLM Wiki pattern
+- [[Delba de Oliveira]] — DevRel/docs on the Claude Code team (Anthropic); author of the official "Getting started with loops" article; ex-Vercel Next.js docs (status: seed)
 - Kwok Chun Au — Columbia University CS; co-author of PACE optimizer (arXiv 2606.25086); iterate averaging for LLMs (see [[training-model-you-return-iterate-averaging]])
 - Adam Block — Columbia University CS + EE; co-author of PACE optimizer; control-theory framing of LM optimization (see [[training-model-you-return-iterate-averaging]])
 
