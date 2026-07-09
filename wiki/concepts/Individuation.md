@@ -245,9 +245,20 @@ First half = ego establishment through shadow work and anima integration. Second
 
 ---
 
+## Transformation as a Circular Process (Frick / Roesler 2025)
+
+Two papers from the 2024 Freiburg "Process of Transformation" conference sharpen the *shape* of individuation:
+
+- **Circular, not linear** ([[frick2025-spiritual-path-transformation|Frick 2025]]). Transformation "is not a linear but a circular process, encompassing experiences of standstill and deadlock where no longitudinal continuation is visible." Vogel (2017) calls the Jungian model a circular "therapeutic process theory"; Stein (2008): it "never comes to a final resting place where one can say 'It is done.'" The **Self never manifests entirely** — individuation orients toward an uncontrollable archetype that stays partly out of reach. Frick maps this onto [[Wilfred Bion|Bion's]] [[Faith in O|O]]: the ego-Self axis has an **active** pole (agency — e.g. the dream-ego's rising agency across a [[Structural Dream Analysis|dream series]]) and a **passive/receptive** pole (being *seized*, *ergriffen*; [[Createdness|"we are created, not creators"]]).
+- **The defensible core of AP, demoted to hermeneutics** ([[roesler2025-process-of-transformation|Roesler 2025]]). Of Jung's four archetype-theory strands (see [[Deconstructing Archetype Theory]]), the *process* theory — a force in the psyche driving integration toward wholeness — is the one that survives, but as a "clinically applied hermeneutics," not a biological universal. Roesler flags the **stage-sequence model** of individuation (shadow → anima/animus → wise old man/great mother → Self) as the most contestable, nomothetic part; the *centring* and *process* readings are more defensible.
+
+Both stress the same guardrail: individuation is not spiritual bypassing. It must pass *through* the body, the shadow, the base ([[In stercore invenitur|"found in filth"]]) — not rise above them. See [[Discernment of Spirits]] for the failure modes (bypassing, neglect, inflation).
+
 ## See Also
 
 - [[Collective Unconscious]] - the source of unconscious contents encountered in individuation
+- [[Faith in O]] - Bion's name for what the circular process orients toward; the receptive pole of transformation
+- [[Deconstructing Archetype Theory]] - Roesler's critique; the process theory as the surviving core of AP
 - [[Shadow]] - the first and most accessible layer of the unconscious to confront
 - [[Anima and Animus]] - the contrasexual mediating figure
 - [[Mandala Symbolism]] - the geometric expression of achieved wholeness
