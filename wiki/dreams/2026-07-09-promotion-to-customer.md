@@ -29,6 +29,9 @@ related:
 
 # 2026-07-09 Thursday
 
+> [!note] Same night as [[2026-07-09-cops-on-jet-skis]]
+> Second dream of the night logged separately; the paired reading (this dream confirms the liberation, the second prices it) is in that entry's analysis.
+
 ## The Dream
 
 I'm at a fast food restaurant, and I notice my old boss from Walmart — Sharon, the one who fired me — is working the counter. She calls my name for the food. I open the bag, and inside with the food is stuff I left in my locker or something — an inverter that's also a charger.
