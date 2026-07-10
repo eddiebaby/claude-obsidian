@@ -106,6 +106,8 @@ Direction of travel: from mother-bound caretaker toward a worldly figure who **f
 
 Drew (recurring; the unlived photo-industry career), Jesse (photo coworker), the Monaghan mentor circle (06-29), Milk Studios itself with the old boss (07-07). The old career's movement across the series: **gatekept outer world** (metal detectors screening for the right signature) → **interior cavern** (Milk's new space: vast, underground, friendly, anima present). The road-not-taken has stopped being an outer option and become inner material. The 07-07 mood — joking, ease — suggests the composting is nearly done.
 
+**07-10 counterpoint — the other city.** The new deep material is staged not in NYC but in **Chicago**, which Scott names (association) as the great American city he "missed out on the most" — the *unlived* city against the lived-and-composted one. The marble hall still "reminds me of" the NYC museums: the metabolized past furnishes the architecture, but the river runs through unlived potential, entered at immigrant-family, corner-store scale ([[2026-07-10-courthouse-river-fishing]]).
+
 ## Thread 6 — Authority in Transition
 
 Old professor (chimney-smoker mentor) → new TM mentor, poor but deeply respected (06-29) → the lawyer-advocate who forecloses reckoning (06-30) → the storyteller-teacher and the cop-who-is-criminal, shot (07-02) → the old boss working harmlessly at the next desk (07-07). The inner masculine authority is being churned: corrupt law executed, nostalgic bosses de-fanged — and the one genuinely respected new figure teaches **transcendental meditation**, i.e., *concentration*. Set that against the 07-07 complaint ("I keep trying to concentrate but I'm distracted"): the series proposed its own remedy a week before naming the symptom.
