@@ -112,8 +112,8 @@ Against the [[Structural Dream Analysis]] arc this is a new position: the ego is
 
 ### Open Questions
 
-- The grandfather: which one, and what did he carry for you? Did you actually fish with him? The popper as a *real remembered object* would sharpen the inherited-method reading considerably.
-- Chicago: any biography there, or pure "big city, not New York"?
+- ~~The popper as a real remembered object?~~ → **Confirmed** — grandfather's tacklebox. Remaining: which grandfather, and did you fish together, or is the tacklebox itself the whole memory?
+- ~~Chicago: any biography there?~~ → **Answered** — the great American city "I missed out on the most." The unlived-city reading is now primary.
 - What would "live bait" be, concretely, in your next active imagination attempt — which current affect has real stakes? (Candidates from the series' own material: the money not yet made; the robbery-feeling of value leaking from the enterprise; the anima left standing on the beach.)
-- What is being robbed from the bodega in waking terms — time, attention, capital, energy? Name the thief.
+- The robbery is fuzzy — no thief to name. Working read: diffuse drift rather than a discrete loss. If a later dream shows the theft *on-screen*, the thief's face is the answer.
 - Watch: does a later dream show a fish *biting* — or the ego entering the water? Either would mark the Thread 3 stage change proper.
