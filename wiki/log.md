@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Operation Log"
-updated: 2026-07-08
+updated: 2026-07-09
 tags:
   - meta
   - log
@@ -15,10 +15,29 @@ related:
 
 # Operation Log
 
+## 2026-07-10 | dream | The River Under the Courthouse
+- Created: [[2026-07-10-courthouse-river-fishing]] (wiki/dreams/; no address — dream pages are address-less per series convention)
+- Updated: [[dream-threads]] — new table row (13th dream); Thread 2 (rod-and-line = third energy-interface image, channel deployed but no current); Thread 3 (**stage-change marker substantially met**: liquid + contained in a marble hall, first direct engagement with water, first fish; qualifiers = opaque + no exchange); Thread 6 (under the courthouse is the river; father called, first police-free law dream); Thread 8 (failure-mode migration extended: body → attention → relatedness → **grip**); "What the Series Keeps Saying" #2/#3; watch list
+- Scott's own association (active-imagination trouble) confirmed and corrected: the unconscious is not dry — fish swarm every cast — the failure is inherited surface tackle (grandfather's popper, sight-lure in opaque water) + commentator stance. Practical corrective recorded on the page: live bait (current affect with stakes), fish the mud by feel, no narration
+- Open associations to fill: Chicago, the grandfather/popper as real object, what the bodega robbery takes in waking terms
+
+## 2026-07-09 | ingest | Three JOAP 2025-26 papers (Frick, Roesler, Zeng & Fraikin)
+- Sources: `.raw/…Frick - The Spiritual Path of Transformation…pdf`; `.raw/…Roesler - The Process of Transformation…pdf`; `.raw/Synchronicity in Post‐Jungian Astrology_ A Cosmological Quest.md`
+- Summaries: [[frick2025-spiritual-path-transformation]] (c-000051), [[roesler2025-process-of-transformation]] (c-000052), [[zeng-fraikin2026-synchronicity-postjungian-astrology]] (c-000053)
+- Pages created (17): sources ×3 above; concepts [[Faith in O]] (c-000054), [[Discernment of Spirits]] (c-000055), [[Spiritus contra spiritum]] (c-000056), [[Createdness]] (c-000057), [[In stercore invenitur]] (c-000058), [[Deconstructing Archetype Theory]] (c-000059), [[Qualitative Time]] (c-000060); entities [[Eckhard Frick]] (c-000061), [[Wilfred Bion]] (c-000062), [[Ignatius of Loyola]] (c-000063), [[Liz Greene]] (c-000064), [[Richard Tarnas]] (c-000065), [[Jingchao Zeng]] (c-000066), [[Nathan Fraikin]] (c-000067)
+- Pages updated: [[Archetype]] (c-000068), [[Synchronicity]] (c-000069), [[Individuation]] (c-000070) — the three concept pages were post-rollout but address-less; **backfilled** per the idempotency rule; plus [[Christian-Roesler]], [[Structural Dream Analysis]], and the 4 sub-indexes + index/hot/log
+- **Contradiction flagged (not silently corrected).** Roesler 2025 argues Jung's archetype theory is *four separable strands* and that the biological + anthropological strands — exactly the "crystal-lattice / universal images" framing on the existing [[Archetype]] page — are refuted by current genetics/anthropology/archaeology; only the *process* strand survives, demoted to a "clinical hermeneutics." A `[!contradiction]` callout was added to **both** [[Archetype]] and [[Deconstructing Archetype Theory]] rather than overwriting Jung's position — live scholarly dispute, recorded on both sides
+- **Synchronicity re-graded.** Zeng & Fraikin: Jung's synchronicity was a cautious *empirical* claim and his own astrological experiment *failed statistically*; he abandoned the early "qualitative time" model that post-Jungian astrology (Greene, Tarnas) later revived. Added the failed-experiment caution, [[Qualitative Time]], Hyde's Synchronicity I/II, and the acausal-but-formally-causal ambiguity to [[Synchronicity]]
+- **Three papers, one conference.** Frick (spiritual/circular transformation via Bion's O) and Roesler (empirical/SDA transformation) are companions from the 2024 Freiburg "Process of Transformation" issue; Frick explicitly cites Roesler's dream-ego-agency work. Cross-linked via [[Individuation]]'s new "circular process" section
+- Latin-phrase rule honoured: [[Spiritus contra spiritum]] and [[In stercore invenitur]] got full concept pages (not stubs); *Creatus est homo* covered under [[Createdness]]
+- **Concurrency incident handled:** a parallel session took c-000050 (Upside-Screen) mid-ingest while my pages were being written with addresses starting at c-000050 — detected the collision against the counter, shifted all 20 of my addresses +1 to c-000051–c-000070, updated manifest + counter (now 71). No duplicate addresses
+- Editorial calls: secondary figures (Maggie Hyde, Roderick Main, Keiron Le Grice, Geoffrey Cornelius, Robert Sacco, Vogel, Stein) cited inline, not entified — single-citation depth. `individuation-app/docs/design.md` not edited (Roesler's "clinical hermeneutics, not vulgar Jungianism" and Frick's clinical-severity guardrails are flagged as relevant in the source pages if/when Scott makes the link explicit)
+
 ## 2026-07-09 | analysis | Upside Screen — 20 tickers per universe
 - Created: [[Upside-Screen-2026-07]] (wiki/concepts/, c-000050; manual allocation, flock still broken)
 - Broad candidate layer over [[Equity-Upside-Book-2026H2]]: 20 SPX + 20 R2000 + 20 Nasdaq, tiered A (re-underwritten) / B (sourced thesis) / C (screen-grade lead); index-membership flags on borderline names; anti-picks MU/SNDK marked; SPRY stays excluded on watchlist
 - Known gaps recorded in the file: small-bank basket rows need an actual screen; CRWD has conflicting web PT data; Tier C rows are leads, not picks
+- Added SPDR sector layer (same session): top-3 holdings of all 11 XL funds as of 07-02..07-08; concentration reads (XLY = AMZN+TSLA 42%, XLE = XOM+CVX 35%, XLC effectively META+GOOG 37%); relevant to the sector-momentum repo which trades these tickers
 - Opened in VS Code for Scott's markup
 
 ## 2026-07-08 | ingest | Two Journal of Analytical Psychology papers (Roesler 2026, Qwarnström 2026)

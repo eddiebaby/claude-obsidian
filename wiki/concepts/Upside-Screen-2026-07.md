@@ -1,6 +1,6 @@
 ---
 type: concept
-title: "Upside Screen — 20 Tickers per Universe (2026-07)"
+title: "Upside Screen — 20 Tickers per Universe + XL Sector Layer (2026-07)"
 created: 2026-07-09
 updated: 2026-07-09
 domain: quantitative-finance
@@ -113,6 +113,30 @@ Overlap with the SPX list is inherent (most mega-caps are Nasdaq-listed); rows 1
 | 20 | CRWD | C | UBS PT $235 vs a $750 consensus figure in another source — **conflicting web data, resolve before considering** | Unresolved |
 
 Anti-picks: **MU**, **SNDK** (+248% / +736% YTD memory parabola — the snapback warning applies here first).
+
+## SPDR sector layer — top 3 holdings per XL fund
+
+Weights from stockanalysis.com, as of 2026-07-02 to 07-08 (varies by fund). This is the *market-structure* layer — what you own by owning each sector — not an upside ranking. ✦ = name also appears in the screens above.
+
+| Sector | ETF | #1 | #2 | #3 |
+|--------|-----|----|----|----|
+| Technology | XLK | NVDA ✦ 13.6% | AAPL 12.6% | MSFT ✦ 7.8% |
+| Financials | XLF | BRK.B 11.7% | JPM 11.4% | V 7.4% |
+| Health Care | XLV | LLY 16.4% | JNJ 10.8% | ABBV 7.6% |
+| Energy | XLE | XOM 20.3% | CVX 14.6% | COP 5.9% |
+| Industrials | XLI | CAT 7.7% | GE ✦ 6.9% | GEV 5.4% |
+| Cons. Discretionary | XLY | AMZN ✦ 22.6% | TSLA 19.5% | HD 5.8% |
+| Cons. Staples | XLP | WMT 10.4% | COST 9.0% | PG 7.5% |
+| Utilities | XLU | NEE 12.8% | SO 7.6% | DUK 6.9% |
+| Materials | XLB | LIN 14.4% | NEM ✦ 5.9% | CTVA 5.0% |
+| Communications | XLC | META ✦ 17.1% | GOOGL ✦ 10.9% | GOOG 8.7% |
+| Real Estate | XLRE | WELL 11.3% | PLD 9.0% | EQIX 6.9% |
+
+Notes:
+- XLC's #2/#3 are both Alphabet (~19.6% combined) — META + GOOGL effectively dominate the fund; next distinct holding is typically NFLX (verify).
+- Concentration reads: XLY is a two-stock fund (AMZN+TSLA ≈ 42%), XLE is XOM+CVX ≈ 35%, XLV is LLY-heavy at 16.4%. Sector "bets" via these ETFs are mostly single-stock bets in disguise — relevant to the sector-momentum repo, which trades these exact tickers.
+- Sector tailwinds from the July outlooks: energy (Iran premium + AI datacenter power demand), financials (rising long rates), healthcare (JPM favorite: ~14% fwd EPS growth at low valuations), utilities (AI power demand). Tech/discretionary carry the snapback risk flagged in [[Equity-Upside-Book-2026H2]].
+- Overlap with the upside screens: NVDA, MSFT, GE, AMZN, NEM, META, GOOGL. The rest of the sector leaders (AAPL, BRK.B, JPM, LLY, XOM, CAT, WMT, NEE, LIN, WELL…) are ballast/quality, not 12-24mo upside candidates per current sourcing — they're here for completeness and sector context.
 
 ## Next actions
 
