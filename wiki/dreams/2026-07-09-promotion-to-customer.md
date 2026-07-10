@@ -16,6 +16,7 @@ lucid: false
 archetypes: [persona, negative-authority]
 symbols: [fast-food-restaurant, old-boss, food-bag, locker-contents, inverter-charger, promotion-to-customer, appeal, tape-measure, cops, rake, parking-lot, evening-sky]
 related:
+  - "[[2026-07-09-cops-on-jet-skis]]"
   - "[[dream-threads]]"
   - "[[2026-06-29-new-mentor-meditation]]"
   - "[[2026-07-02-classroom-ice-slide]]"
