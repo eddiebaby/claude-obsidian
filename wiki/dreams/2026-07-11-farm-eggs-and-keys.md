@@ -36,7 +36,8 @@ I start talking to her and she offers me a job making deliveries for her. She ha
 ## Waking Associations
 
 - The farm is a real place near home; the woman is someone Scott actually knows there.
-- To fill: what is she like in waking life? Any recent contact with the farm? Anything yesterday about jobs, hiring, deliveries?
+- Filled 2026-07-11: "a real farm down the street from me — I know the woman, she's very pleasant, she works there and is always nice to see." Note the waking/dream gap: in waking life she is **staff**, not the owner — the dream gives her hiring authority and the keys. The psyche promotes her: it isn't her worldly position that qualifies her as the employer-figure, it's the quality of the contact (pleasant, reliable, always nice to see). Farm name/spelling still to confirm.
+- Still to fill: any recent contact with the farm? Anything pending there in waking life?
 
 ## Feeling-Tone
 
