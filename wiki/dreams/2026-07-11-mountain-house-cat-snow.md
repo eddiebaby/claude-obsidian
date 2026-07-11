@@ -47,7 +47,7 @@ I go back in the house. I see some roommates — one still in pajamas while her 
 
 ## Day Residue
 
--
+- None recalled (asked same day, for all three of the night's dreams).
 
 ---
 
