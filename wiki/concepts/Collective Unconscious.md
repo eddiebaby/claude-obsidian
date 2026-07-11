@@ -18,6 +18,7 @@ related:
   - "[[C.G. Jung]]"
   - "[[depth-psychology]]"
   - "[[jung-cw9i-archetypes-collective-unconscious]]"
+  - "[[Cultural Layer of the Psyche]]"
 ---
 
 # Collective Unconscious
@@ -83,9 +84,16 @@ A crucial point in Jung's view: the collective unconscious is not passive or mer
 
 ---
 
+## The Layered Psyche, Refined (Charura & Bushell 2023)
+
+[[Divine Charura]] and [[Stephen Bushell]] elaborate a finer-grained internal structure within the collective layer, drawn from Jung's 1925 seminar notes (*Introduction to Jungian Psychology*, ed. McGuire, 2012): family and tribal layers sit closer to consciousness, resting upon a **cultural layer** that "undergirds the stability, customs and distinctiveness of cultures." This is an extension of the model above, not a contradiction of it — see [[Cultural Layer of the Psyche]] for the full treatment, including its role in grounding the [[Colonizer Archetype]] and [[Ethnic Shadow]].
+
+---
+
 ## See Also
 
 - [[Archetype]] - the specific contents of the collective unconscious
 - [[Individuation]] - the developmental process of relating consciously to these contents
 - [[Shadow]] - the personal-and-collective dark side
 - [[Anima and Animus]] - the contrasexual archetypal figure
+- [[Cultural Layer of the Psyche]] - a finer-grained layering (family/tribal/cultural) within this collective layer

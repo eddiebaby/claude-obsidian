@@ -29,6 +29,7 @@ All source pages — summaries of ingested documents, transcripts, articles, and
 
 ## Papers (Depth Psychology)
 
+- [[JOAP-68-1-Charura-Bushell-Duoethnographic-Colonialism]] — 2023 (ingested 2026-07-10) | Divine Charura & Stephen Bushell; Journal of Analytical Psychology 68/1 | Duoethnographic dialogue between a Black British and White British psychotherapist; introduces the Colonizer Archetype and Ethnic Shadow; Ubuntu philosophy; the layered/cultural psyche; direct engagement with the race critique of Jung | 1 source + 8 concepts + 5 entities, 5 pages updated
 - [[frick2025-spiritual-path-transformation]] — 2025 | Eckhard Frick (analyst + Jesuit); Journal of Analytical Psychology | Transformation as circular/spiritual process; Bion's O + faith in O; Ignatian discernment of spirits; spiritus contra spiritum; createdness | 1 source + 5 concepts + 3 entities
 - [[roesler2025-process-of-transformation]] — 2025 | Christian Roesler; Journal of Analytical Psychology | Archetype theory is four separable strands; biological + anthropological refuted; only the process theory survives as clinical hermeneutics; SDA as the research exemplar | 1 source + 1 concept, updates [[Archetype]]/[[Individuation]]
 - [[zeng-fraikin2026-synchronicity-postjungian-astrology]] — 2026 | Jingchao Zeng & Nathan Fraikin; Journal of Analytical Psychology | Jung's synchronicity was cautious/empirical (his astrology experiment failed); Greene & Tarnas over-extended it into cosmology by reviving abandoned qualitative-time | 1 source + 1 concept + 4 entities, updates [[Synchronicity]]
@@ -56,6 +57,7 @@ All source pages — summaries of ingested documents, transcripts, articles, and
 - [[sanderink2026-when-alpha-breaks]] — 2026-07-03 | Sanderink; arXiv 2603.13252 | Two-level uncertainty for ranker deployment; regime-trust gate is the dominant value driver; inverse-uncertainty sizing backfires | 1 source + 1 concept, 1 updated
 - [[bailey-lopez-de-prado-2014-deflated-sharpe]] — 2026-07-03 | Bailey & López de Prado; JPM 2014 | DSR corrects Sharpe for selection bias under N trials; expected max Sharpe under zero skill ~3.2 at N=1000 | 1 source + 2 concepts + 1 entity
 - [[training-model-you-return-iterate-averaging]] — 2026-06-26 | Au, Block (Columbia University); arXiv 2606.25086 | PACE optimizer: optimal-control-derived AdamW wrapper for iterate-averaged LLMs; 1 source + 2 concept pages
+- [[li2026-llm-psychology-measurement-survey]] — 2026-07-10 | Li, Chen, Cai, Zhong, Yang, Tang, Shen; arXiv 2606.20603, IEEE TCDS | Survey: LLMs as psychometric instruments; three measurement paradigms; validity scorecard (convergent shown, criterion/test-retest untested); screening-not-diagnosis verdict | 1 source + 3 concepts
 - [[das2026-chronos-multivariate-forecasting]] — 2026-06-24 | Das, Goyal, Yadav (Santa Clara U.); arXiv 2605.21504 | Chronos-2 MV vs. UV forecasting on Mag-7 equities and Treasury rates; 1 source page
 
 ---

@@ -6,7 +6,7 @@ complexity: beginner
 domain: depth-psychology
 aliases: [dream memory, WBTB, MILD]
 created: 2026-06-25
-updated: 2026-06-25
+updated: 2026-07-10
 tags:
   - concept
   - dream-work
@@ -45,6 +45,11 @@ During REM, **norepinephrine** (essential for stabilizing new memories) drops to
 
 No capture, no material. For Scott's [[dreams-index|journal]] and the [[jung-dream-app-design|app]], this is the MVP constraint: the capture surface must be reachable and usable within the golden first minutes, before movement.
 
+## Adjacent Technique: AIM-Based Dream Reconstruction (Experimental)
+
+[[Alexey Turchin|Turchin's]] active-imagination pilot ([[turchin-active-imagination-lucid-dreaming]]) proposes a different-in-kind approach to a half-lost dream: rather than racing the clock at waking, ask a sitter-guided [[Active Imagination]] session to "take you into the space of dreams," find the place where the wanted dream is located, and re-enter it from the beginning — with the option to view it from other vantage points. This is a post-hoc reconstruction, not a recall-speed technique, and Turchin reports his own attempts to use AIM to *induce* lucid dreams at night (rather than reconstruct daytime memories of them) failed. Unvalidated and experimental, but worth flagging as a second-line option when the golden-minutes window above has already closed.
+
 ## Sources
 
 - [[jung-dream-app-design]]
+- [[turchin-active-imagination-lucid-dreaming]]

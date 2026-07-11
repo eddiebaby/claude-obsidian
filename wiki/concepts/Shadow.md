@@ -23,6 +23,8 @@ related:
   - "[[jung-cw7-two-essays]]"
   - "[[jung-cw9i-archetypes-collective-unconscious]]"
   - "[[jung-cw9ii-aion]]"
+  - "[[Ethnic Shadow]]"
+  - "[[Colonizer Archetype]]"
 ---
 
 # Shadow
@@ -120,6 +122,12 @@ From [[edinger-aion-lectures]]: shadow analysis is only possible after the ego i
 
 ---
 
+## Ethnic Shadow (Charura & Bushell 2023)
+
+[[Divine Charura]] and [[Stephen Bushell]] specialize the collective shadow further into an **[[Ethnic Shadow]]**: the split-off, unconscious material a people, nation, or individual carries specifically about race, conquest, and colonial domination. Their exemplar is Jung's own 1925 conversation with Taos Pueblo chief Mountain Lake, which Jung reports "struck our vulnerable spot" and released a flood of imagery (Roman legions, Columbus, Cortés) bringing him to confront his own "European ethnic shadow of colonialism" (*Memories, Dreams, Reflections*, p. 250). They argue facing the ethnic shadow requires a two-level dialogue — societal (with those who carried the oppression) and internal (with the archetype's own images and energies) — and that this shadow is not one-sided: both colonizer and colonized populations carry ethnic-shadow material, differently constellated. See [[Ethnic Shadow]] and [[Colonizer Archetype]] for the full treatment; source: [[JOAP-68-1-Charura-Bushell-Duoethnographic-Colonialism]].
+
+---
+
 ## See Also
 
 - [[Archetype]] - the structural basis of the shadow
@@ -129,3 +137,5 @@ From [[edinger-aion-lectures]]: shadow analysis is only possible after the ego i
 - [[Persona]] - the social mask that the shadow compensates
 - [[Personal Unconscious]] - the layer of the psyche where the personal shadow resides
 - [[edinger-aion-lectures]] - Edinger's clinical commentary (Lect. 4)
+- [[Ethnic Shadow]] - the racial/colonial specialization of the collective shadow (Charura & Bushell 2023)
+- [[Colonizer Archetype]] - the archetypal pattern the ethnic shadow's content organizes around

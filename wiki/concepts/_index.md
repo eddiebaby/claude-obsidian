@@ -125,6 +125,16 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 - [[Numinous Experience]] — the overwhelming sacred encounter; James's four marks (ineffability, noetic quality, transiency, passivity); Otto's tremendum/fascinans/mysterium; Jung's 1937 definition of religion itself as "observation of the numinosum" (CW11); the phenomenological spine of conversion, individuation turning points, and deep dream material (status: developing)
 - [[Religious Function of the Psyche]] — Jung's structural-necessity thesis: religiousness as a built-in psychic function, not a cultural overlay; demonstrated via dream-series analysis (the autonomous "voice," spontaneous quaternity symbolism, the World Clock vision); clinical consequence when unmet (status: developing)
 
+**Colonialism, Race & Culture (Charura & Bushell 2023)**
+- [[Colonizer Archetype]] — the polarized colonizer-colonized pattern manifesting in all forms of oppression and inequality; the Self as "archetype of diversity"; how it operates intrapsychically (ego formation, complexes/WAT) and in the consulting room (status: developing)
+- [[Ethnic Shadow]] — collective shadow content organized around race, conquest, and colonization; Jung's own encounter with his "European ethnic shadow" via chief Mountain Lake; the two-level (societal + internal) dialogue required to face it (status: developing)
+- [[Cultural Layer of the Psyche]] — finer-grained layered-psyche model (family → tribal → cultural) refining the standard personal/collective unconscious split (status: developing)
+- [[Duoethnography]] — Norris & Sawyer's dialogic research method; two voices, neither dominant, applied to colonialism/race (status: developing)
+- [[Ubuntu]] — African philosophy of humanity, community, belonging; complement to the Jungian frame; grounds a non-colonizing therapeutic stance (status: developing)
+- [[Cultural Complex]] — Kimbles' collective-level complex theory; cultural phantoms; mechanism transmitting ethnic-shadow content (status: developing)
+- [[ipso facto]] — Latin: "by the fact itself"; the structural-inevitability claim behind the colonizer archetype constellating in any client-as-other encounter (status: developing)
+- [[mundus imaginalis]] — Latin/Corbin: "the imaginal world"; the shared, non-colonizable therapeutic imaginal field (status: developing)
+
 ---
 
 ## Existential Psychology (Frankl / Logotherapy)
@@ -186,6 +196,11 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 **LM Optimization**
 - [[PACE Optimizer]] — AdamW wrapper derived from optimal control; pulls live weights toward EMA to improve the returned average model; strictly outperforms AdamW+EMA in fine-tuning (1–2B params) and GPT-2 pretraining (status: developing)
 - [[Iterate Averaging in LLM Training]] — Polyak-Ruppert / EMA in LLM training; the training–inference model gap; taxonomy of averaging variants; control-theory framing (status: developing)
+
+**LLM Psychometrics**
+- [[LLM Psychological Assessment Paradigms]] — the three ways an LLM measures a psyche: active conversational, passive natural-language, multimodal fusion (status: developing)
+- [[Machine Theory of Mind]] — ToM evidence in LLMs vs the broken-benchmark critique; literal vs functional ToM (status: developing)
+- [[Psychometric Validity for LLMs]] — validity scorecard: convergent demonstrated, test-retest/discriminant/criterion/cross-cultural untested; the app's epistemic guardrail (status: developing)
 
 **World Models & Embodied AI**
 - [[World Models]] — neural networks that learn to predict environment evolution from observations and actions (status: mature)

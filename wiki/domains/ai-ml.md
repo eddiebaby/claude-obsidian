@@ -4,7 +4,7 @@ title: "AI / Machine Learning"
 domain: ai-ml
 status: developing
 created: 2026-06-27
-updated: 2026-06-27
+updated: 2026-07-10
 tags:
   - domain
   - ai-ml
@@ -13,7 +13,7 @@ related:
   - "[[quantitative-finance]]"
   - "[[business]]"
 subdomain_of: ""
-page_count: 6
+page_count: 10
 ---
 
 # AI / Machine Learning
@@ -37,6 +37,7 @@ Architecture research, optimization methods, and world model theory. Sources ing
 | World models | Neural nets learning environment dynamics from observation | [[facemind-looped-world-models-2026]] |
 | Looped / parameter-efficient architectures | Same transformer block applied iteratively; 100× efficiency | [[facemind-looped-world-models-2026]] |
 | LLM optimization | Iterate averaging, EMA weights, PACE optimizer | [[training-model-you-return-iterate-averaging]] |
+| LLM psychometrics | LLMs as instruments measuring human psychology; validity gaps | [[li2026-llm-psychology-measurement-survey]] |
 
 ---
 
@@ -46,6 +47,9 @@ Architecture research, optimization methods, and world model theory. Sources ing
 - [[Looped Transformers]] — parameter-efficient architectures; same block applied N times
 - [[Adaptive Depth]] — dynamic computation allocation; simple inputs exit early
 - [[Deferred Decoding]] — refine latent state before decoding; improves reasoning quality
+- [[LLM Psychological Assessment Paradigms]] — active conversational / passive language / multimodal fusion measurement
+- [[Machine Theory of Mind]] — ToM evidence in LLMs; literal vs functional ToM; broken benchmarks
+- [[Psychometric Validity for LLMs]] — the validity scorecard; convergent shown, test-retest/criterion/cross-cultural untested
 
 ---
 
@@ -60,3 +64,4 @@ Architecture research, optimization methods, and world model theory. Sources ing
 
 - [[facemind-looped-world-models-2026]] — arXiv 2506.XXXX | FaceMind 2026 | Looped world models, 34-page survey
 - [[training-model-you-return-iterate-averaging]] — arXiv 2606.25086 | Au, Block 2026 | PACE optimizer, EMA weight averaging for LLMs
+- [[li2026-llm-psychology-measurement-survey]] — arXiv 2606.20603 | Li et al. 2026, IEEE TCDS | Survey: LLMs measuring human psychology; three paradigms; validity gaps

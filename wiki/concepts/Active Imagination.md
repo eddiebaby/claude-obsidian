@@ -6,7 +6,7 @@ complexity: advanced
 domain: depth-psychology
 aliases: [transcendent function]
 created: 2026-06-25
-updated: 2026-06-29
+updated: 2026-07-10
 tags:
   - concept
   - jungian-psychology
@@ -23,6 +23,10 @@ related:
   - "[[Marie-Louise von Franz]]"
   - "[[Unus Mundus]]"
   - "[[Mercurius]]"
+  - "[[Lucid Dreaming]]"
+  - "[[Mental Screen]]"
+  - "[[Aphantasia]]"
+  - "[[Alexey Turchin]]"
 sources:
   - "[[jung-dream-app-design]]"
   - "[[jung-memories-dreams-reflections]]"
@@ -30,6 +34,7 @@ sources:
   - "[[jung-on-active-imagination]]"
   - "[[hannah-active-imagination]]"
   - "[[vonfranz-alchemical-active-imagination]]"
+  - "[[turchin-active-imagination-lucid-dreaming]]"
 ---
 
 # Active Imagination
@@ -115,6 +120,29 @@ The absence of a program is not passivity. The ego maintains its position — it
 
 This formulation identifies the Self's function in active imagination: not as a figure the ego imagines, but as the animating intelligence that moves between the ego and the unconscious, connecting the person to everything they are in relation with — including physical reality ("stones"). The "objective I" means: the I that is more truly me than the I I usually call myself.
 
+## Turchin: AIM as a Lucid-Dreaming Substitute (Empirical Pilot)
+
+[[Alexey Turchin]]'s open-label pilot (~100 participants, Moscow 2004–2005; see [[turchin-active-imagination-lucid-dreaming]]) approaches active imagination from a completely different direction than the Jungian sources above: not individuation, but a **reliable, drug-free alternative to lucid dreaming (LD)** for people who struggle to attain, retain, or capitalize on lucid dreams. His central practical contribution is a **sitter–viewer protocol**:
+
+- **Opening script**: "Imagine you are on the beach — what do you see?" — the sea as unconscious, the beach as the meeting point of conscious and unconscious.
+- **3D presence-building**: a fixed circuit of open (non-leading) questions across visual, auditory, and kinesthetic modalities before anything is asked to "happen."
+- **Invitation of an internal helper** (functionally Jung's autonomous figure, approached via a scripted invitation rather than spontaneous emergence) — with detailed troubleshooting for six failure modes: no-show, unsuitable/hostile guide, uncommunicative guide, the viewer unconsciously scripting the guide's answers, the viewer treating the guide as uncritically real, and fear of "demons."
+- **Explicit task/goal formulation**: past-life exploration, OBE simulation, meeting a spiritual teacher or deity, tulpa creation, parapsychological remote viewing, dream reconstruction, or — Turchin's own extension — recording the séance as raw material for **digital immortality** (data for a hypothetical future AI reconstruction of the person).
+- **Ending protocol**: gradual return, 1–10 depth self-rating, caution against re-entering ordinary activity too fast.
+
+His key transferable finding is a typology of imaginal capacity — see **[[Mental Screen]]** (low-resolution, non-overlapping, activation-associated internal imagery) versus the **visual screen** (bright, hypnagogia-adjacent imagery, relaxation-associated) — which determines whether AIM can substitute for LD at all for a given person. Roughly half his sample got full LD-equivalent visual intensity; the other half got real emotional content but not brightness, and were less satisfied. See **[[Aphantasia]]** for why "no visual imagery" is not the same thing as "no imagery." See **[[Lucid Dreaming]]** for the four LD complications (attaining, retaining, concentrating, remembering) this substitution is meant to solve, and for the adjacent hypnagogia-induction catalog.
+
+**Other methods cataloged as AIM-adjacent** (not developed to independent concept-page depth, proportional to the source's own treatment): Stone & Stone's **Voice Dialogue** — a "controller-protector" subpersonality that functions as a guide-equivalent, governing which other subpersonalities are allowed to surface, and negotiated with rather than broken through; spontaneous dance; spontaneous drawing; "instant"/"absolute" active imagination (a few seconds of eyes-closed free imagery as a diagnostic of imaginal style); self-administered AIM (reported ~10x weaker than sitter-guided); group AIM; role-playing games as collective AIM; and repetition of affirmations as a seeding technique.
+
+### Contradiction — Classical Jungian AIM vs. Turchin's LD-Substitute Protocol
+
+> [!contradiction] Discovery-not-invention vs. a scripted algorithm with explicit goals
+> The Jungian material above converges on three commitments: **(1)** contents must be genuinely *discovered*, not authored — Hannah: "No one who is convinced that the unconscious has no life of its own should even attempt the method"; **(2)** the method has **no pre-set program** — this is exactly what distinguishes it from Eastern meditation in von Franz's account ("Von Franz: Deliberate Contact Without a Goal," above); **(3)** it carries real clinical weight — friendliness-not-fear discipline, shadow-before-anima ordering, and an explicit warning that it "is not suitable for everyone and can be destabilizing."
+>
+> Turchin's protocol runs against all three. It opens with a **fixed script** ("imagine you are on the beach"), builds presence through a **standardized question circuit**, and explicitly offers a **menu of pre-formulated tasks** (past lives, deities, tulpas, digital-immortality data collection) for the viewer to pursue — the opposite of entering "the unconscious to engage whatever is actually there, without knowing in advance what will appear." Turchin states outright that AIM is **"neutral to interpretation"**: "it is not necessary to interpret anything which will appear in the séance as Jungian archetypes... For the sitter, it is better to escape pressing interpretations or fight interpretations of the person. If a person wants to believe that he met the spirit or angel, it is better neither to support nor disavow this idea." Where Hannah and Jung treat the technique as demanding — a real *Auseinandersetzung*, generally requiring some psychotherapeutic grounding — Turchin excludes only psychosis, PTSD, and suicidal depression, and otherwise offers AIM as available to "any positive and reasonable person," suitable for a bus, a text chat, or an art festival, framed as **"an instrument for self-exploration and pleasure seeking, like lucid dreams, but not a psychotherapy."**
+>
+> This is not recorded as an error to correct — both traditions may be internally coherent on their own terms. But they are not describing the same activity with different vocabulary: they disagree about whether the technique requires a goalless, discovery-oriented, clinically-weighted stance (Jung/Hannah/von Franz) or functions equally well as a directed, goal-formulating, consumer-grade self-exploration tool (Turchin). Anyone building on this page for the individuation app should be explicit about which model they are implementing — the two have different safety postures.
+
 ## Sources
 
 - [[jung-dream-app-design]]
@@ -123,3 +151,4 @@ This formulation identifies the Self's function in active imagination: not as a 
 - [[jung-on-active-imagination]] — Jung's own theoretical writing (Chodorow ed.): two-stage model, transcendent function, active/passive fantasy distinction
 - [[hannah-active-imagination]] — Barbara Hannah's practical technique, common obstacles, the Edward case
 - [[vonfranz-alchemical-active-imagination]] — von Franz on Gerhard Dorn: alchemy as active imagination with matter, nigredo/albedo/rubedo as stages
+- [[turchin-active-imagination-lucid-dreaming]] — Turchin's open-label pilot: sitter-viewer protocol, mental/visual screen typology, AIM as an LD substitute; contradicts the discovery-not-invention/no-program stance above on method and framing

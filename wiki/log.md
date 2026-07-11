@@ -15,6 +15,16 @@ related:
 
 # Operation Log
 
+## 2026-07-10 | ingest | LLMs for Perception and Measurement of Human Psychology (Li et al. 2026)
+- Source: `.raw/articles/li2026-llm-psychology-measurement-survey-2026-07-10.md` (WebFetch of arXiv 2606.20603 abs + HTML full text, 3 extraction passes)
+- Summary: [[li2026-llm-psychology-measurement-survey]] (c-000071)
+- Pages created: [[LLM Psychological Assessment Paradigms]] (c-000072), [[Machine Theory of Mind]] (c-000073), [[Psychometric Validity for LLMs]] (c-000074)
+- Pages updated: [[ai-ml]] (new LLM-psychometrics sub-area, page_count 6→10), [[concepts/_index]], [[sources/_index]], [[index]], [[hot]]
+- Key insight: the survey is the **validity map for the individuation app** — LLM psychological assessment has demonstrated only convergent validity; test-retest, discriminant, criterion, and cross-cultural validity are all untested, so LLM readings must ship as hypotheses (dreamer confirms = the missing criterion loop), never verdicts — the psychometric argument for what [[Orphic Listening]] argues clinically
+- Domain call: filed `ai-ml` (LLM research, application domain), cross-linked into depth-psychology via [[Structural Dream Analysis]] (proposed as validated anchor) and [[Psychological Types]] (MBTI lineage)
+- Latin-phrase rule checked: none found in this source
+- Infra: `flock` still missing on Windows Git Bash → allocate-address.sh failed; addresses c-000071–74 allocated manually via counter read-check-write (71→75), consistent with highest-in-use c-000070
+
 ## 2026-07-10 | dream | The River Under the Courthouse
 - Created: [[2026-07-10-courthouse-river-fishing]] (wiki/dreams/; no address — dream pages are address-less per series convention)
 - Updated: [[dream-threads]] — new table row (13th dream); Thread 2 (rod-and-line = third energy-interface image, channel deployed but no current); Thread 3 (**stage-change marker substantially met**: liquid + contained in a marble hall, first direct engagement with water, first fish; qualifiers = opaque + no exchange); Thread 6 (under the courthouse is the river; father called, first police-free law dream); Thread 8 (failure-mode migration extended: body → attention → relatedness → **grip**); "What the Series Keeps Saying" #2/#3; watch list

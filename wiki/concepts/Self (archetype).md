@@ -22,6 +22,7 @@ related:
   - "[[jung-cw9ii-aion]]"
   - "[[jung-cw9i-archetypes-collective-unconscious]]"
   - "[[jung-cw13-alchemical-studies]]"
+  - "[[Colonizer Archetype]]"
 ---
 
 # Self (archetype)
@@ -127,6 +128,12 @@ Key clinical formulation: "The ego does not choose its symptoms — it is a vict
 **The fish symbol as Self** (*Aion Lectures*, Lects. 12–13): The fish in *Aion* is simultaneously the lowest (cold-blooded, primordial, infantile psyche; original concupiscence) and the highest (Christ; symbol of the whole aeon; eucharistic food). This ambivalence is the mark of genuine Self symbolism: the Self unites the highest and lowest, not just the spiritual. The three steps in the Book of Tobit — catch the fish, extract its curative virtues, apply to the living situation — equal: encounter the unconscious, extract its contents, transform them through consciousness. These three steps *are* the analytic process.
 
 **Destruction of the God-image**: "The destruction of the God-image is followed by the annulment of the human personality" (*Aion*, para 170). The Self and the God-image are psychologically equivalent. All collective pathologies (addiction, abuse, disorientation) are symptoms of the destroyed God-image. The task of analysis is the *reconstruction* of the God-image in the individual — which is what *Aion*'s historical material is ultimately about.
+
+---
+
+## The Self as Archetype of Diversity (Charura & Bushell 2023)
+
+[[Divine Charura]] and [[Stephen Bushell]] ([[JOAP-68-1-Charura-Bushell-Duoethnographic-Colonialism|2023]]) extend the Self's totality-of-opposites structure into a claim about diversity: because the Self "contains the potentiality for all forms of human cultural expression," the tendency of oppositional positions (e.g. racial/cultural difference) to polarize is not itself pathological but the necessary precondition for activating the transcendent function — "the innate capacity for opposites to be reconciled... through the symbolic images that emerge from the unconscious" (Jung 1916/1957). Where the polarization calcifies into domination rather than moving toward reconciliation, they name the resulting pattern the [[Colonizer Archetype]].
 
 ---
 

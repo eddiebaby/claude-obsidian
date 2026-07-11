@@ -62,6 +62,11 @@ All entity pages — people, organizations, products, and tools.
 - [[Christian Roesler]] — contemporary Jungian analyst; developed Structural Dream Analysis, the empirical backbone for dream-ego agency tracking
 - [[James Hillman]] — post-Jungian; founder of archetypal psychology; "keep the snake there" anti-reduction stance on dream images
 - [[Wolfgang Pauli]] — Swiss-Austrian physicist (1900-1958); Nobel laureate (exclusion principle); Jung's patient then collaborator; co-authored *The Interpretation of Nature and the Psyche* (1952); contributed quaternio structure and quantum parallels to synchronicity theory (status: developing)
+- [[Divine Charura]] — Black British psychologist of Zimbabwean heritage; co-author of the 2023 duoethnographic colonialism paper; introduced [[Ubuntu]] philosophy into the method (status: seed)
+- [[Stephen Bushell]] — White British psychotherapist; co-author of the 2023 duoethnographic colonialism paper (status: seed)
+- [[Andrew Samuels]] — British Jungian analyst (Essex); leading critic of Jung's writing on race ("Jung and 'Africans'" 2018; 2019 Open Letter) (status: seed)
+- [[Sam Kimbles]] — American Jungian analyst; cultural complex and cultural phantom theory; *Phantom Narratives* (2014) (status: seed)
+- [[Namfundo Lily-Rose Mlisa]] — South African traditional health practitioner and clinical psychologist; named Jung "our ancestor" at IAAP 2019 (status: seed)
 
 **Existential Psychology**
 - [[Viktor Frankl]] — Austrian psychiatrist (1905-1997); Holocaust survivor; founder of logotherapy ("Third Viennese School"); *Man's Search for Meaning* (status: developing)

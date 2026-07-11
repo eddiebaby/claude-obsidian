@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Wiki Index"
-updated: 2026-07-08
+updated: 2026-07-10
 tags:
   - meta
   - index
@@ -24,7 +24,7 @@ related:
 
 # Wiki Index
 
-Last updated: 2026-07-09 | Total pages: 362 | Sources ingested: 52 | Dream Symbols: 86 (CW5: 22, CW12: 64)
+Last updated: 2026-07-10 | Total pages: 366 | Sources ingested: 53 | Dream Symbols: 86 (CW5: 22, CW12: 64)
 
 Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[getting-started]]
 
@@ -210,6 +210,12 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[Deferred Decoding]] — refine latent state before decoding to observations; improves reasoning quality (status: developing)
 - [[facemind-looped-world-models-2026]] — FaceMind 2026: looped transformer world models combining Adaptive Depth and Deferred Decoding; 34-page technical paper (status: ingested 2026-06-29)
 
+**LLM Psychometrics**
+- [[li2026-llm-psychology-measurement-survey]] — Li et al. 2026 (IEEE TCDS): survey of LLMs as instruments measuring human psychology; three paradigms; screening-not-diagnosis verdict (status: ingested 2026-07-10)
+- [[LLM Psychological Assessment Paradigms]] — active conversational / passive natural-language / multimodal fusion; the taxonomy for any LLM-reads-a-psyche feature (status: developing)
+- [[Machine Theory of Mind]] — ToM evidence in LLMs vs the broken-benchmark critique; literal vs functional ToM (status: developing)
+- [[Psychometric Validity for LLMs]] — validity scorecard: convergent demonstrated, test-retest/discriminant/criterion/cross-cultural untested; epistemic guardrail for the individuation app (status: developing)
+
 ---
 
 ## Concepts
@@ -293,6 +299,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 ## Sources
 
+- [[li2026-llm-psychology-measurement-survey]] — 2026-07-10 | Li et al.; arXiv 2606.20603, IEEE TCDS | Survey: LLMs measuring human psychology; 3 paradigms, validity gaps; 4 new pages
 - [[ClaudeDevs-Getting-Started-with-Loops]] — 2026-07-08 | Delba de Oliveira via @ClaudeDevs (Anthropic) | Official four-type loop taxonomy (turn/goal/time/proactive); /goal evaluator model; token discipline; 3 new pages, 1 updated
 - [[kurth2026-trend-following-demise]] — 2026-07-02 | Kurth, Eisler, Rej, Bouchaud (CFM); arXiv 2607.01550 | Demise of short-term trend-following; tick-size microstructure; 5 new pages
 - [[pollok2026-end-to-end-portfolio-policies]] — 2026-07-02 | Pollok & Robik; arXiv 2607.00475 | End-to-end AI vs simple rules, 16 CME futures; 2 new pages

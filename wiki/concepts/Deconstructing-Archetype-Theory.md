@@ -23,8 +23,11 @@ related:
   - "[[Synchronicity]]"
   - "[[Unus Mundus]]"
   - "[[Christian-Roesler]]"
+  - "[[Sign and Symbol]]"
+  - "[[Raya Jones]]"
 sources:
   - "[[roesler2025-process-of-transformation]]"
+  - "[[jones2023-dialectics-sign-symbol-archetype]]"
 ---
 
 # Deconstructing Archetype Theory
@@ -59,6 +62,12 @@ Roesler's sharpest methodological charge: Jung "did not occupy himself with the 
 > [!contradiction] Live disagreement with [[Archetype]]
 > The vault's [[Archetype]] page presents the archetype in Jung's own biological/universalist terms ("a crystal lattice," "universal images that have existed since the remotest times"). Roesler argues that framing is refuted. This is an open scholarly dispute — recorded on both pages, not resolved by fiat.
 
+## Independent Corroboration: Jones (2023)
+
+[[Raya Jones|Raya Jones's]] semiotic critique ([[jones2023-dialectics-sign-symbol-archetype]]) reaches the same conclusion on the biological strand by an entirely different route — not genetics/anthropology but the observation that Jung's germ-plasm/hereditary claim is unfalsifiable by ordinary scientific method, since "archetypes-as-such cannot be observed directly." Jones quotes an *earlier* (2012) Roesler paper making the same argument almost verbatim to the 2025 book this page is built on: "we Jungians cannot go on basing our theory of archetypes on scientific assumptions which have been falsified.… It is important that we stop arguing that archetypes are transmitted genetically if we want to be taken seriously" (Roesler, 2012, p. 234). Two independent Roesler citations (2012 and 2023/2025), now converged on via two independent methodologies (genetics/anthropology and semiotics), is stronger evidence than either alone.
+
+Jones does **not** offer Roesler's process-hermeneutics as her replacement strand. Her own reconstructive move is different in kind: relocate the archetypal in the **probabilistic patterning of the experiential realm** (via Gibson's ecological "affordances") rather than either a preformed biological structure (Roesler's rejected strand 1) or a demoted clinical-hermeneutic process (Roesler's surviving strand 4). See [[Sign and Symbol]] for the full argument. The two critiques are compatible but not identical — Roesler's is a taxonomy-and-evidence argument; Jones's is a semiotic-and-epistemological one.
+
 ## Connections
 
 - [[Archetype]] — the target of the critique (contradiction callout on both).
@@ -66,3 +75,4 @@ Roesler's sharpest methodological charge: Jung "did not occupy himself with the 
 - [[Individuation]] — the "process theory" strand is the surviving core; the stage-sequence model carries the contestable weight.
 - [[Synchronicity]] / [[Unus Mundus]] — the "fruitful" transcendental strand.
 - [[frick2025-spiritual-path-transformation]] — the companion paper: same conference, transformation approached spiritually rather than empirically.
+- [[jones2023-dialectics-sign-symbol-archetype]] / [[Sign and Symbol]] — independent semiotic corroboration of the biological-strand critique, with a distinct positive proposal (patterning of the experiential realm, not clinical hermeneutics).

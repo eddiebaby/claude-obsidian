@@ -22,6 +22,12 @@ related:
   - "[[jung-cw9i-archetypes-collective-unconscious]]"
   - "[[jung-dream-analysis-1928-1930]]"
   - "[[jung-man-and-his-symbols]]"
+  - "[[Colonizer Archetype]]"
+  - "[[Ethnic Shadow]]"
+  - "[[Andrew Samuels]]"
+  - "[[Divine Charura]]"
+  - "[[Stephen Bushell]]"
+  - "[[JOAP-68-1-Charura-Bushell-Duoethnographic-Colonialism]]"
 ---
 
 # C.G. Jung
@@ -29,6 +35,9 @@ related:
 Carl Gustav Jung (1875-1961). Swiss psychiatrist and psychologist; founder of analytical psychology. One of the most influential figures in the history of psychology and in the broader cultural study of myth, symbol, and religion.
 
 Navigation: [[depth-psychology]] | [[jung-cw9i-archetypes-collective-unconscious]]
+
+> [!contradiction] The race critique of Jung (Dalal 1988; Samuels 2018/2019)
+> This page's biography and "Key Conceptual Contributions" sections present Jung's theoretical legacy largely without qualification. [[Andrew Samuels]] (2018, "Jung and 'Africans': a critical and contemporary review") and Farhad Dalal (1988, "Jung: a racist") document that Jung's writing on the psyche of Black and other non-European peoples advanced claims of "lowered consciousness" and racial hierarchy that are not defensible extensions of archetype theory but are themselves racist theorizing. A 2019 Open Letter led by Samuels, signed by a group of Jungians, formally acknowledges "the lack of regard in Jung of the psyche of black people" while also naming the ongoing structures of discrimination and white domination within psychotherapeutic/analytic training institutions. [[Divine Charura]] and [[Stephen Bushell]] ([[JOAP-68-1-Charura-Bushell-Duoethnographic-Colonialism|2023]]) take the position — which this vault records rather than resolves — that naming Jung "colonial" and "racist" and stopping there is simplistic, as is dismissing the charge as "he was just a man of his time"; per [[Sam Kimbles|Kimbles]]' (2014) theory of cultural complexes, Jung would not have escaped the racial dynamics of his era regardless of his personal reflectiveness. This is a live, unresolved tension in the vault, not a settled correction — see [[Colonizer Archetype]] and [[Ethnic Shadow]] for the fuller treatment, and compare the parallel `[!contradiction]` callout on [[Archetype]] regarding Roesler's separate (non-racial) critique of archetype theory's biological claims.
 
 ---
 
@@ -39,7 +48,7 @@ Navigation: [[depth-psychology]] | [[jung-cw9i-archetypes-collective-unconscious
 - Early collaborator with Sigmund Freud (1907-1913); broke with Freud over the nature of libido and the role of sexuality
 - Founded analytical psychology as a distinct school
 - Professor at ETH Zurich and University of Basel
-- Traveled widely: North Africa, New Mexico (Pueblo peoples), East Africa (Elgonyi tribe), India
+- Traveled widely: North Africa (1920), New Mexico (Taos Pueblo, 1925), East Africa (five-month stay with the Elgonyi people, Mount Elgon, Uganda, 1925-26), India. In Taos, his conversation with chief Mountain Lake (Ochwiay Biano) — who told him "we think they are mad... they say they think with their heads," pointing to his own heart when asked what the Pueblo think with — is recorded in *Memories, Dreams, Reflections* as bringing Jung to confront what [[Divine Charura|Charura]] and [[Stephen Bushell|Bushell]] (2023) call his own "European ethnic shadow of colonialism": a flood of imagery from Roman legions to Columbus and Cortés, concluding "what from our point of view we call colonization... has another face — the face of a bird of prey seeking with cruel intentness for distant quarry" (p. 250). See [[Ethnic Shadow]] and the contradiction callout above for the fuller, more critical treatment of this material.
 - Autobiography: "Memories, Dreams, Reflections" (1962, posthumous)
 - Painted the frontispiece mandala ("Mandala of a Modern Man") in 1916
 
