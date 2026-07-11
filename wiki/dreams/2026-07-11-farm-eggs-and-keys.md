@@ -45,7 +45,7 @@ I start talking to her and she offers me a job making deliveries for her. She ha
 
 ## Day Residue
 
--
+- None recalled (asked same day, for all three of the night's dreams).
 
 ---
 
