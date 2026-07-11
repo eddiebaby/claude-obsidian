@@ -51,7 +51,7 @@ Then I'm on a reconnaissance-type mission, sitting in my car, looking at the hou
 
 ## Day Residue
 
-> [Anything from the previous day that may have seeded this — events, conversations, things seen.]
+- None recalled (asked same day, for all three of the night's dreams).
 
 
 ---
