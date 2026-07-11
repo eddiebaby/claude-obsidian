@@ -1,4 +1,5 @@
 ---
+address: c-000102
 type: concept
 title: "Visio Arislei"
 aliases: ["Vision of Arisleus", "The Vision"]

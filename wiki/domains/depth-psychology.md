@@ -3,7 +3,7 @@ type: domain
 title: "Depth Psychology"
 status: developing
 created: 2026-06-24
-updated: 2026-06-24
+updated: 2026-07-10
 tags:
   - domain
   - psychology
@@ -66,6 +66,14 @@ The vault currently holds material primarily from Jung's analytical psychology. 
 - [[Divine Charura]] and [[Stephen Bushell]] - duoethnographic exploration of colonialism in the cultural layer of the psyche (2023)
 - [[Andrew Samuels]] - leading post-Jungian critic of Jung's writing on race
 - [[Sam Kimbles]] - cultural complex theory
+- [[Raya Jones]] - contemporary critical theorist; semiotic/discursive audit of archetype theory (2023)
+- [[Christian-Roesler]] - contemporary Jungian analyst; empirical dream research + four-strand deconstruction of archetype theory
+
+---
+
+## Epistemology and Critique of Archetype Theory
+
+A recurring thread in the vault's more recent ingests: archetype theory's scientific credibility is contested from multiple independent directions. [[Deconstructing Archetype Theory]] (Roesler) argues on genetic/anthropological grounds that the biological and anthropological strands are refuted; [[Sign and Symbol]] (Jones, 2023) reaches a compatible conclusion via semiotics and discourse theory, reframing "archetype" as an irreducibly dual sign-and-symbol term and archetype theory itself as a century-long [[Utterance (Bakhtin)|Bakhtinian utterance]]. Both critiques, and Jung's own position, are recorded on [[Archetype]] with `[!contradiction]` callouts rather than resolved by fiat.
 
 ---
 
@@ -73,6 +81,10 @@ The vault currently holds material primarily from Jung's analytical psychology. 
 
 - [[jung-cw9i-archetypes-collective-unconscious]] - CW Vol. 9i, complete (2026-06-24)
 - [[JOAP-68-1-Charura-Bushell-Duoethnographic-Colonialism]] - duoethnographic study of colonialism, the colonizer archetype, and the ethnic shadow (2023, ingested 2026-07-10)
+- [[turchin-active-imagination-lucid-dreaming]] - Turchin's empirical pilot on active imagination as a lucid-dreaming substitute; a non-clinical, consumer-grade extension of [[Active Imagination]] that contradicts the classical Jungian method on several points (2026-07-10)
+- [[jones2023-dialectics-sign-symbol-archetype]] - Jones, JAP 2023; semiotic critique of archetype theory (2026-07-10)
+- [[osterhold2023-chasing-the-numinous]] - Osterhold & Fernandes-Osterhold, JAP 2023; Hungry Ghost archetype read onto the psychedelic renaissance's collective shadow (2026-07-10)
+- [[ajuonuma2023-alchemical-oedipus]] - Ajuonuma, JAP 2023; the full Oedipus cycle amplified via the alchemical Visio Arislei; Oedipus as the Jungian Self (2026-07-10)
 
 ---
 

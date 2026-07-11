@@ -18,11 +18,16 @@ related:
   - "[[Hero_Archetype]]"
   - "[[Individuation]]"
   - "[[jung-man-and-his-symbols]]"
+  - "[[Cultural Complex]]"
+  - "[[osterhold2023-chasing-the-numinous]]"
 ---
 
 # Joseph L. Henderson
 
 American Jungian analyst (1903–1982). One of Jung's closest American students; had a long personal analysis with Jung in Zürich. Founded the C.G. Jung Institute of San Francisco and played a central role in establishing analytical psychology in the United States.
+
+> [!contradiction] Death year vs. cited 1984 publication
+> This page states Henderson died in 1982, but the "Selected Works" section below lists *Cultural Attitudes in Psychological Perspective* (1984) — a work he could not have published two years after his death. [[osterhold2023-chasing-the-numinous]] independently cites "Henderson, 1984" as one of the originators of cultural-unconscious/cultural-complex theory (see [[Cultural Complex]]), which matches this same 1984 book and further confirms the discrepancy. The real Joseph L. Henderson lived 1903-2007; "1982" appears to be an error introduced somewhere in this vault's earlier ingest. Recorded rather than silently corrected, per standing vault practice.
 
 ---
 

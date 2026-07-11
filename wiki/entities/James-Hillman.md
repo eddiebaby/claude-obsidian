@@ -2,6 +2,7 @@
 name: james-hillman
 type: entity
 title: "James Hillman"
+aliases: ["James Hillman"]
 entity_type: person
 role: "Post-Jungian psychologist, founder of archetypal psychology"
 profession: "Psychologist, author"

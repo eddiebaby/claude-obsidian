@@ -1,4 +1,5 @@
 ---
+address: c-000087
 type: source
 title: "Dialectics of Sign and Symbol and the Utterance of Archetype Theory"
 created: 2026-07-10

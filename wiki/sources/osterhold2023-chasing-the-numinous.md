@@ -1,4 +1,5 @@
 ---
+address: c-000095
 type: source
 title: "Chasing the Numinous: Hungry Ghosts in the Shadow of the Psychedelic Renaissance"
 created: 2026-07-10

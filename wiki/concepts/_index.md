@@ -57,6 +57,9 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 - [[Orphic Listening]] — the clinical stance for both: sustain suspended time rather than resolve it; grounds the individuation-app's no-confirming-verdict rule (Yago 2026) (status: developing)
 - [[One-Sidedness]] — over-development of one psychic function at the expense of its opposite; hubris as "virtue gone mad"; worked through Coriolanus vs. Timon of Athens (Qwarnström 2026) (status: developing)
 - [[Enantiodromia]] — the psychological law that sustained one-sidedness flips into its opposite; catastrophic when unconscious, individuation's task when met deliberately (status: developing)
+- [[Lucid Dreaming]] — LD's four persistent complications (attaining/retaining/directing/recalling lucidity); nightmare-adjacent content; Turchin's case that Active Imagination substitutes for it without sleep-stage timing (status: developing)
+- [[Aphantasia]] — true absence of voluntary visual imagery; distinguished from Turchin's "mental-screen-only" type, which still carries rich non-visual content (status: developing)
+- [[Mental Screen]] — Turchin's typology: bright overlay-real "visual screen" vs. low-resolution non-overlapping "mental screen" during Active Imagination; neither trainable into the other (status: developing)
 
 **Core Concepts & Foundational Essays**
 - [[Archetypes of the Collective Unconscious]] — Jung's 1934/1954 essay on archetype manifestation and consciousness (status: mature)
@@ -73,6 +76,12 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 - [[Uroboros]] — the primordial self-containing circle; pre-ego undifferentiated wholeness; Neumann's symbol for the starting state of consciousness (status: developing)
 - [[Trickster]] — the pre-moral, chaotic collective shadow figure in mythology (status: developing)
 - [[Mandala Symbolism]] — circular symbols of psychic wholeness and the Self (status: developing)
+
+**Semiotics of Archetype (Jones 2023)**
+- [[Sign and Symbol]] — Jung's own dichotomy (fixed sign vs. living symbol) deepened via Raya Jones's semiotic audit, beyond the brief mention on [[Symbol and Myth]] (status: developing)
+- [[Peircean Semiotics]] — Charles Sanders Peirce's sign framework used as the comparison lens for Jung's archetype-as-symbol (status: developing)
+- [[Utterance (Bakhtin)]] — Bakhtin's dialogic "utterance" as Jones's organizing device: archetype theory as a century-long communicative act, pulled between centripetal (fixed-meaning) and centrifugal (contested) forces (status: developing)
+- [[a-priori]] — Latin phrase, Kantian lineage; the a priori status claimed (and contested) for archetypes (status: developing)
 
 **Transformation & Method**
 - [[Confrontation with the Unconscious]] — Jung's 1913-1917 descent period; the experiential source of all major theory; Philemon, Elijah/Salome, Siegfried dream, mandala resolution (status: developing)
@@ -99,6 +108,12 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 - [[Filius-Macrocosmi]] — son of the macrocosm; circular return-to-earth movement contrasted with Christ; *Tabula smaragdina* (status: mature)
 - [[Ialdabaoth]] — Gnostic lion-headed demiurge = Saturn = Mercurius = child of chaos (status: mature)
 
+**Alchemical Oedipus (Ajuonuma 2023)**
+- [[Kings Renewal Parable]] — the alchemical trope of the corrupt/sterile king renewed via nigredo and a son, spanning CW12/CW14/Answer to Job (status: developing)
+- [[Visio Arislei]] — "Vision of Arisleus," the 1593 king's-renewal parable (Rex Marinus, Gabricus, Beya, Harforetus) Jung uses in CW12 and Ajuonuma maps onto Laius/Oedipus (status: developing)
+- [[Complementary Oedipus Complex]] — Devereux's/Ross's "Laius complex": the parent's own filicidal fantasies constellating the child's Oedipus complex from the other direction (status: developing)
+- [[Pharmakon]] — Derrida's remedy/poison/scapegoat term; applied by Ajuonuma to both Oedipus and the alchemical *filius regius* (status: developing)
+
 *Latin phrases (standing rule: every Latin term gets a full concept page)*
 - [[Spiritus contra spiritum]] — "spirit against spirit"; Jung's letter to AA's Bill Wilson; discernment between the Devil and the Holy Spirit; seed of the 12 steps (status: developing)
 - [[In stercore invenitur]] — "found in filth"; the treasure/lapis hidden in base matter; oratory + laboratory; anti-spiritual-bypassing (status: developing)
@@ -119,11 +134,19 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 - [[ex-tenebris-lux]] — out of darkness, light; the alchemical law; Paracelsus as exemplar (status: mature)
 - [[homo-maximus]] — Paracelsus's Primordial Man; the cosmic inner man = *adech*; alchemical form of the Anthropos (status: mature)
 - [[coincidentia-oppositorum]] — coincidence of opposites; Nicholas of Cusa; structural definition of Mercurius and the Self (status: mature)
+- [[coniunctio-oppositorum]] — "union of opposites," the specific alchemical operation-name for a morally-charged (incestuous) union; Ajuonuma's application to the Gabricus/Beya and Laius/Oedipus pairings (status: developing)
+- [[rex-marinus]] — "King of the Sea," the sterile king of the *Visio Arislei*; identified by Ajuonuma with Laius (status: developing)
+- [[filius-regius]] — "royal son" (incl. *puellus regius*), the renewed king/lapis produced by the coniunctio; identified by Ajuonuma with Oedipus (status: developing)
+- [[lapis-exilis]] — "stone of no worth"; the overlooked fragment that turns out to be the goal; applied to Oedipus's expulsion-then-apotheosis (status: developing)
 
 **Religion & the God-Image**
 - [[God-Image (Imago Dei)]] — the psychological God-image vs metaphysical claims; Self = God-image; Yahweh's shadow; Christ as first answer; Sophia as second answer; the quaternity (status: developing)
-- [[Numinous Experience]] — the overwhelming sacred encounter; James's four marks (ineffability, noetic quality, transiency, passivity); Otto's tremendum/fascinans/mysterium; Jung's 1937 definition of religion itself as "observation of the numinosum" (CW11); the phenomenological spine of conversion, individuation turning points, and deep dream material (status: developing)
+- [[Numinous Experience]] — the overwhelming sacred encounter; James's four marks (ineffability, noetic quality, transiency, passivity); Otto's tremendum/fascinans/mysterium; Jung's 1937 definition of religion itself as "observation of the numinosum" (CW11); the phenomenological spine of conversion, individuation turning points, and deep dream material; extended by Osterhold 2023 to a contested, chemically-mediated route (psychedelics) alongside dreams and active imagination (status: developing)
 - [[Religious Function of the Psyche]] — Jung's structural-necessity thesis: religiousness as a built-in psychic function, not a cultural overlay; demonstrated via dream-series analysis (the autonomous "voice," spontaneous quaternity symbolism, the World Clock vision); clinical consequence when unmet (status: developing)
+
+**Psychedelics & Cultural Shadow (Osterhold 2023)**
+- [[Hungry Ghost]] — Buddhist *preta*/*peta*: a being with a huge belly and needle-thin throat, forever starving because it cannot metabolize what it consumes; Osterhold's archetypal diagnostic image for the psychedelic "gold rush" (status: developing)
+- [[Psychedelic Renaissance]] — the 2020s clinical/commercial resurgence of psychedelic-assisted therapy; genuine therapeutic promise shadowed by a collective-shadow "gold rush" of patents, venture capital, and neo-colonial appropriation (status: developing)
 
 **Colonialism, Race & Culture (Charura & Bushell 2023)**
 - [[Colonizer Archetype]] — the polarized colonizer-colonized pattern manifesting in all forms of oppression and inequality; the Self as "archetype of diversity"; how it operates intrapsychically (ego formation, complexes/WAT) and in the consulting room (status: developing)

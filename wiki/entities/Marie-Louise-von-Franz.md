@@ -2,6 +2,7 @@
 name: marie-louise-von-franz
 type: entity
 title: "Marie-Louise von Franz"
+aliases: ["Marie-Louise von Franz"]
 birth_year: 1915
 death_year: 1998
 birth_place: "Munich, Germany"

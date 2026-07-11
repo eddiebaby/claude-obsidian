@@ -1,4 +1,5 @@
 ---
+address: c-000112
 type: source
 title: "Active Imagination as an Alternative to Lucid Dreaming: Theory and Experimental Results"
 author: "Alexey Turchin"

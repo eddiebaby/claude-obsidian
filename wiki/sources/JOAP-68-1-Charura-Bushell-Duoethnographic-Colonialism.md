@@ -1,4 +1,5 @@
 ---
+address: c-000075
 type: source
 title: "A Duoethnographic Exploration of Colonialism in the Cultural Layer of the Objective Psyche"
 status: ingested

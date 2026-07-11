@@ -1,4 +1,5 @@
 ---
+address: c-000100
 type: source
 title: "The Alchemical Oedipus: Re-Visioning the Myth"
 author: "Reginald Ajuonuma"
@@ -37,7 +38,6 @@ related:
   - "[[coniunctio-oppositorum]]"
   - "[[rex-marinus]]"
   - "[[filius-regius]]"
-  - "[[opus-contra-naturam]]"
   - "[[lapis-exilis]]"
   - "[[jung-cw12-psychology-alchemy]]"
   - "[[jung-cw14-mysterium-coniunctionis]]"
@@ -145,7 +145,6 @@ This paper is a direct extension of the CW12/CW13/CW14 alchemy material already 
 - [[coniunctio-oppositorum]] — Latin phrase, "union of opposites"
 - [[rex-marinus]] — Latin phrase, "King of the Sea," the sterile king of the *Visio Arislei*
 - [[filius-regius]] — Latin phrase, "royal son" (incl. *puellus regius*), the renewed king/lapis
-- [[opus-contra-naturam]] — Latin phrase, "work against nature"
 - [[lapis-exilis]] — Latin phrase, "stone of no worth"
 
 ## New/Updated Entities

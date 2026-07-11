@@ -74,6 +74,15 @@ alone — the dream material is worked further. This moves the app from
 occupies. Needs the clinical-severity guardrail from design v0.1 first.
 **Phase 1–2.**
 
+Design note: [[Mental Screen]] (Turchin's mental-screen/visual-screen
+typology, see [[turchin-active-imagination-lucid-dreaming]]) is directly
+actionable here — screen the user's imaginal type before promising "vivid"
+visualization, accept text/verbal-only engagement as first-class (not a
+degraded fallback; see [[Aphantasia]]), and decide explicitly whether this
+feature follows the classical discovery-not-invention model or a more
+scripted, goal-formulating protocol — [[Active Imagination]] now documents
+a live `[!contradiction]` between the two.
+
 ## 5. Big-dream detection
 
 Score each dream on affect intensity × archetypal density × collective

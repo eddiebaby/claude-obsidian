@@ -1,4 +1,5 @@
 ---
+address: c-000110
 type: entity
 title: "George Devereux"
 entity_type: person

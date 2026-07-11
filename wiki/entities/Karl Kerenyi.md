@@ -1,4 +1,5 @@
 ---
+address: c-000111
 type: entity
 title: "Karl Kerényi"
 aliases: ["Karl Kerenyi", "C. Kerényi", "Karoly Kerenyi"]

@@ -1,9 +1,10 @@
 ---
 type: concept
 title: "Symbol and Myth"
+aliases: ["Symbol and Myth"]
 status: developing
 created: 2026-06-24
-updated: 2026-06-24
+updated: 2026-07-10
 tags:
   - concept
   - depth-psychology
@@ -24,6 +25,7 @@ related:
   - "[[jung-cw5-symbols-transformation]]"
   - "[[Dream Analysis and Interpretation]]"
   - "[[CW8 Theoretical Foundations]]"
+  - "[[Sign and Symbol]]"
 ---
 
 # Symbol and Myth
@@ -41,6 +43,8 @@ Jung distinguishes symbol from sign:
 A **sign** has a fixed, conventional meaning. A red light means stop. It is arbitrary and learned.
 
 A **symbol** is living and multivalent. It cannot be reduced to a single meaning. The symbol carries more than consciousness can comprehend. A symbol (like the serpent, the fire, the mother) condenses multiple layers of meaning and connects the conscious to the unconscious.
+
+For the deeper epistemological stakes of this distinction — including the claim that the word "archetype" itself is simultaneously sign and symbol, and the resulting categorization problems this creates for archetype theory — see [[Sign and Symbol]] (Jones, 2023).
 
 Examples of Jungian symbols:
 - The serpent: simultaneously devouring and healing, death and resurrection, the unconscious itself

@@ -147,6 +147,10 @@ The *Consilium coniugii*: "Four are the natures which compose the philosophical 
 
 ---
 
+## Further Synonyms (Ajuonuma 2023, Oedipus Application)
+
+[[ajuonuma2023-alchemical-oedipus]] adds three more names to the lapis's catalogue of synonyms, encountered while identifying Oedipus himself with the lapis: *[[filius-regius]]* (royal son — the renewed king), *[[lapis-exilis]]* (stone of no worth — the overlooked fragment that turns out to be the goal), and *homo altus* (lofty man — Oedipus's final, "other-than-man" state at Colonus). See those pages and [[Visio Arislei]] for the full mythological amplification.
+
 ## See Also
 
 - [[Aqua-Permanens]] — the divine water; the lapis's content and origin

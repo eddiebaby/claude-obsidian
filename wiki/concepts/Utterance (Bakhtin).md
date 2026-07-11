@@ -1,4 +1,5 @@
 ---
+address: c-000090
 type: concept
 title: "Utterance (Bakhtin)"
 status: developing

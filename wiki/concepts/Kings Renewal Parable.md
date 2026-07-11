@@ -1,4 +1,5 @@
 ---
+address: c-000101
 type: concept
 title: "King's Renewal Parable"
 domain: depth-psychology

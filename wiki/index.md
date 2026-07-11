@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Wiki Index"
-updated: 2026-07-10
+updated: 2026-07-11
 tags:
   - meta
   - index
@@ -24,7 +24,7 @@ related:
 
 # Wiki Index
 
-Last updated: 2026-07-10 | Total pages: 366 | Sources ingested: 53 | Dream Symbols: 86 (CW5: 22, CW12: 64)
+Last updated: 2026-07-11 | Total pages: 462 | Sources ingested: 64 | Dream Symbols: 86 (CW5: 22, CW12: 64)
 
 Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[getting-started]]
 

@@ -67,6 +67,16 @@ All entity pages — people, organizations, products, and tools.
 - [[Andrew Samuels]] — British Jungian analyst (Essex); leading critic of Jung's writing on race ("Jung and 'Africans'" 2018; 2019 Open Letter) (status: seed)
 - [[Sam Kimbles]] — American Jungian analyst; cultural complex and cultural phantom theory; *Phantom Narratives* (2014) (status: seed)
 - [[Namfundo Lily-Rose Mlisa]] — South African traditional health practitioner and clinical psychologist; named Jung "our ancestor" at IAAP 2019 (status: seed)
+- [[Raya Jones]] — author of the 2023 semiotic audit of archetype theory (Bakhtinian utterance, Peircean signs) (status: seed)
+- [[Charles Sanders Peirce]] — American philosopher/logician; sign theory used as Jones's comparison framework for Jung's archetype (status: seed)
+- [[Mikhail Bakhtin]] — Russian literary theorist; "utterance" as Jones's organizing device for archetype theory as contested discourse (status: seed)
+- [[Helge Michael Osterhold]] — Jungian-oriented clinician, San Francisco; co-author of the 2023 psychedelics/Hungry Ghost paper (status: seed)
+- [[Gisele Fernandes-Osterhold]] — Jungian-oriented clinician, San Francisco; co-author of the 2023 psychedelics/Hungry Ghost paper (status: seed)
+- [[Reginald Ajuonuma]] — author of the 2023 alchemical-Oedipus amplification (London) (status: seed)
+- [[George Devereux]] — ethnopsychoanalyst; coined the "complementary Oedipus complex" (1953) (status: seed)
+- [[Karl Kerenyi]] — classicist/mythologist; recurring source on Oedipus/Laius myth material and Jung's mythology collaborator (status: seed)
+- [[Alexey Turchin]] — practitioner-researcher (Science for Life Extension Foundation); ran the 2004-2005 Active-Imagination-as-lucid-dreaming-substitute pilot (status: seed)
+- [[Stephen LaBerge]] — lucid dreaming researcher; comparison point for Turchin's Active Imagination protocol (status: seed)
 
 **Existential Psychology**
 - [[Viktor Frankl]] — Austrian psychiatrist (1905-1997); Holocaust survivor; founder of logotherapy ("Third Viennese School"); *Man's Search for Meaning* (status: developing)

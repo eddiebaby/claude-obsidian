@@ -1,4 +1,5 @@
 ---
+address: c-000082
 type: entity
 title: "Divine Charura"
 status: seed

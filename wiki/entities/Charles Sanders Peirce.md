@@ -1,4 +1,5 @@
 ---
+address: c-000093
 type: entity
 title: "Charles Sanders Peirce"
 entity_type: person

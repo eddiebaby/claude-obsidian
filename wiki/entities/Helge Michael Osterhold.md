@@ -1,4 +1,5 @@
 ---
+address: c-000098
 type: entity
 title: "Helge Michael Osterhold"
 status: seed
