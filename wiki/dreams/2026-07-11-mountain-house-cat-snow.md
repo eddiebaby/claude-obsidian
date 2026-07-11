@@ -30,7 +30,7 @@ related:
 
 ## The Dream
 
-I'm moving into a way-back-in-the-woods mountain house with my cat. I have some roommates I don't really know. I'm in the house and I turn on the heat *[capture garbled: "I can't have the heat" — reconstructed from the later thermostat line; confirm]*.
+I'm moving into a way-back-in-the-woods mountain house with my cat. I have some roommates I don't really know. I'm in the house and I turn on the heat *[capture garbled as "I can't have the heat"; confirmed 2026-07-11: self-set — he turned it on himself]*.
 
 My cat is in the snow for the first time and he's loving it — jumping around and exploring. Then I realize there's more traffic than I had originally realized. I try to get my cat to come back in with me, but he's having too much fun playing in the snow. I look up and there's a **bird perched on his head**.
 
