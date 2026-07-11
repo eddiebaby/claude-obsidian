@@ -8,7 +8,7 @@ profession: "Professor of Clinical Psychology; Jungian Analyst"
 address: c-000041
 first_mentioned: "[[jung-dream-app-design]]"
 created: 2026-06-25
-updated: 2026-07-08
+updated: 2026-07-10
 tags:
   - entity
   - jungian-psychology
@@ -25,6 +25,7 @@ sources:
   - "[[jung-dream-app-design]]"
   - "[[roesler2026-jung-dream-theory-empirical-research]]"
   - "[[roesler2025-process-of-transformation]]"
+  - "[[jones2023-dialectics-sign-symbol-archetype]]"
 ---
 
 # Christian Roesler
@@ -41,6 +42,7 @@ Contemporary Jungian analyst and clinical psychology researcher who developed **
 - Tested the method on the Freudian specimen case **[[Amalia-X|Amalia X]]** (95 dreams), "empirically confirming" the passive→active movement and finding data that "refute the hypothesis of wish fulfilment" with "no evidence of censorship."
 - Argues contemporary evidence supports Jung's **continuity** view (per Domhoff 2017) and his subjective-level method, but **qualifies strict compensation** — the 2026 paper suggests the dream's function is "not so much compensating... but more confronting consciousness with the actual reality of the psychological situation," refining the earlier "completion" (holistic-picture) reading. Also found **no evidence for fixed universal symbol meanings** — the same image (a snake) functioned oppositely for two different dreamers depending on their complex structure.
 - **Deconstructs archetype theory** ([[roesler2025-process-of-transformation]], book 2023): archetype theory is really *four* separable strands (biological, anthropological, transcendental, process); the biological and anthropological ones are refuted by contemporary evidence, and only the *process* theory of transformation survives — as a "clinically applied hermeneutics," not a biological universal. See [[Deconstructing Archetype Theory]]. This positions Roesler as a leading internal critic of AP's foundations, not merely an empirical dream researcher.
+- An **earlier (2012)** statement of the same anti-hereditary critique, quoted approvingly by [[Raya Jones]] in her independent semiotic critique of archetype theory ([[jones2023-dialectics-sign-symbol-archetype]]): "we Jungians cannot go on basing our theory of archetypes on scientific assumptions which have been falsified.… It is important that we stop arguing that archetypes are transmitted genetically if we want to be taken seriously" (Roesler, 2012, "Are archetypes transmitted more by culture than biology?", *JAP* 57:2, p. 234). Shows the critique predates the 2023/2025 book by over a decade and has been independently converged on via a different methodology (semiotics vs. genetics/anthropology).
 
 ## Connections
 
