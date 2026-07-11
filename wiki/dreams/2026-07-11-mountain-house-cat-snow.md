@@ -89,7 +89,7 @@ Three series-firsts: a **move-in** completed (Thread 1's structures are finally 
 
 ### Open Questions
 
-- Confirm the garbled heat line: did you turn the heat on early in the dream, or find it uncontrollable ("can't have the heat")? The analysis assumes self-set; if the thermostat was *unresponsive*, the furnace reading shifts from over-firing to a vessel that won't regulate at all.
+- ~~Confirm the garbled heat line: self-set or uncontrollable?~~ → **Confirmed same day: self-set — "I turned it on myself earlier."** The over-firing reading stands as written: the heat is the ego's own doing, not a vessel that won't regulate.
 - Who do the pajama woman and the suited husband resemble? Any real couple?
 - What kind of bird? Color, size — if it returns, its species will matter.
 - Watch: does the ego ever get *into* the snow/water himself, or stay indoors? The cat has shown the way; the stage-change marker (Thread 3) is now the ego joining the element the instinct already enjoys.
