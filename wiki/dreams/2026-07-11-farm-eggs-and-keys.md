@@ -87,6 +87,6 @@ Thread 8's failure-migration (body → attention → relatedness → grip) meets
 
 ### Open Questions
 
-- The farm's actual name and the woman's identity — fill in. Is there a real errand or conversation with her pending?
+- ~~The woman's identity~~ → **Filled same day: real woman at the farm down the street, staff not owner, very pleasant, always nice to see.** The farm's actual name still to confirm (logged as "Phnachicks"). Is there a real errand or conversation with her pending?
 - What are the dozen, concretely? If the eggs are current potentials, name them — and name the two or three ostrich-sized ones.
 - Watch: does a delivery *happen* in a future dream (the job performed, not just accepted)? That would be Thread 2's flow-through confirmation in vocational form.
