@@ -114,6 +114,9 @@ claude-canvas/
 # User-specific attachments
 _attachments/
 
+# Source documents — large copyrighted PDFs, not for the public repo (read locally, never committed)
+.raw/
+
 # DragonScale runtime lockfiles and local caches (flock + embedding cache; state files like counter.txt and thresholds.json ARE tracked)
 .vault-meta/.address.lock
 .vault-meta/.tiling.lock
