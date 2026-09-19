@@ -176,7 +176,7 @@ def test_unadjusted_keeps_the_jump():
     market, ds = two_contract_market()
     segs = rollmod.roll_schedule(market)
     raw = rollmod.continuous(segs, rollmod.UNADJUSTED)
-    assert_close("unadjusted: roll day shows the fictional +7 jump",
+    assert_close("unadjusted: roll day shows the +7 gap on top of the +1 move",
                  8.0, raw[ds[5]] - raw[ds[4]])
     assert_true("unadjusted levels are real prices", raw[ds[0]] == 100.0)
 
@@ -386,6 +386,150 @@ def test_blow_up_liquidates_and_stops():
     assert_true("a warning explains it", any("equity hit zero" in w for w in res.warnings))
 
 
+def test_invariant_holds_across_many_rolls():
+    """B1/H1 regression: the single-roll fixture above cannot catch a chain bug.
+
+    Monthly crude (36 rolls), the yield contract (absolute basis) and quarterly
+    MES, each held at one contract through every roll, must still satisfy
+    P&L == multiplier x adjusted move.
+    """
+    for sym in ("MCL", "10Y", "MES", "M6E"):
+        market = syn.synthetic_market(cx.get(sym), date(2016, 1, 4), date(2020, 12, 31),
+                                      seed=11)
+        spec = cx.ContractSpec(**{**cx.get(sym).__dict__, "commission": 0.0,
+                                  "slippage_ticks": 0.0})
+        market.spec = spec
+        cfg = engine.BacktestConfig(
+            initial_equity=10_000_000.0, rebalance=engine.DAILY, execution_lag=1,
+            min_history=1, buffer_frac=0.0, fixed_contracts={sym: 1},
+            rates=datamod.constant_rate(0.0, haircut=0.0))
+        res = engine.run({sym: market}, cfg, st.Constant(1.0))
+        segs = rollmod.roll_schedule(market)
+        adj = rollmod.continuous(segs)
+        entry = res.trades[0].date
+        last = res.records[-1].date
+        expected = spec.multiplier * (adj[last] - adj[entry])
+        rolls = len(rollmod.roll_dates(segs))
+        assert_true(f"{sym}: the chain actually rolls ({rolls} rolls)", rolls >= 4)
+        assert_close(f"{sym}: P&L over {rolls} rolls = multiplier x adjusted move",
+                     expected, res.final_equity - cfg.initial_equity, tol=1e-6)
+        assert_eq(f"{sym}: position still one contract at the end", 1,
+                  res.records[-1].positions[sym])
+
+
+def test_no_phantom_rolls_at_the_data_end():
+    """Every contract alive when the data ends reports a fake expiry at the
+    download date. Rolling off that cascades the whole deferred chain into the
+    last few days: one-day segments, phantom round turns."""
+    book = syn.synthetic_book(start=date(2014, 1, 2), end=date(2020, 12, 31))
+    for sym, md in book.items():
+        segs = rollmod.roll_schedule(md)
+        held = rollmod.held_contract(segs)
+        never = [g.code for g in segs if not any(held.get(d) is g for d in g.dates())]
+        assert_true(f"{sym}: every segment in the chain is actually held", not never,
+                    f"orphaned: {never}")
+        short = [g.code for g in segs[:-1] if len(g.dates()) < 5]
+        assert_true(f"{sym}: no one-day phantom segments", not short, f"{short}")
+        years = 7
+        cap = years * len(md.spec.roll_months) + 2
+        n = len(rollmod.roll_dates(segs))
+        assert_true(f"{sym}: {n} rolls is within the schedule ({cap} max)", n <= cap)
+        last = md.all_dates()[-1]
+        tail = [d for d in rollmod.roll_dates(segs) if (last - d).days <= 15]
+        assert_true(f"{sym}: at most one roll in the final fortnight", len(tail) <= 1,
+                    f"{tail}")
+
+
+def test_daily_ledger_reconciles_every_day():
+    """equity_t must equal equity_t-1 + gross P&L + interest - costs, on every
+    single day including the day of ruin."""
+    book = syn.synthetic_book(("MES", "MCL", "10Y"), date(2016, 1, 4), date(2020, 12, 31))
+    res = engine.run(book, engine.BacktestConfig(initial_equity=400_000), 
+                     st.TimeSeriesMomentum())
+    prev = res.config.initial_equity
+    worst = 0.0
+    for r in res.records:
+        worst = max(worst, abs(r.equity - (prev + r.gross_pnl + r.interest - r.costs)))
+        prev = r.equity
+    assert_true(f"ledger reconciles on all {len(res.records)} days (max {worst:.2e})",
+                worst < 1e-6)
+    assert_close("recorded costs sum to the reported total",
+                 res.total_costs(), sum(r.costs for r in res.records), tol=1e-6)
+
+
+def test_ruin_day_ledger_and_margin_stats():
+    spec = cx.ContractSpec("CRSH", "Crash Test", "equity", "TEST", "USD",
+                           multiplier=1.0, tick_size=0.01, commission=1.0,
+                           initial_margin=100.0, maintenance_margin=90.0,
+                           slippage_ticks=1.0, roll_months=cx.QUARTERLY,
+                           roll_offset_days=1)
+    ds = weekdays(date(2026, 1, 5), 6)
+    prices = {0: 1000.0, 1: 1000.0, 2: 1000.0, 3: 1000.0, 4: 100.0, 5: 100.0}
+    market = make_market(spec, [(2026, 3, prices)], ds)
+    cfg = flat_config(initial_equity=10_000.0, fixed_contracts={"CRSH": 25})
+    res = engine.run({"CRSH": market}, cfg, st.Constant(1.0))
+    prev, worst = cfg.initial_equity, 0.0
+    for r in res.records:
+        worst = max(worst, abs(r.equity - (prev + r.gross_pnl + r.interest - r.costs)))
+        prev = r.equity
+    assert_true(f"the ruin day reconciles too (max {worst:.2e})", worst < 1e-6)
+    assert_close("liquidation cost is in the day's costs, not just the equity",
+                 res.total_costs(), sum(r.costs for r in res.records), tol=1e-6)
+    assert_true("an infinite ruin-day ratio does not become the reported peak",
+                res.peak_margin_to_equity() < float("inf"))
+    assert_true("blown_up carries the ruin signal instead", res.blown_up)
+
+
+def test_gap_roll_books_both_legs():
+    """No overlapping quote between contracts: the exit AND the re-entry are
+    fills. Booking only the exit leaves the trade log describing a flat book
+    while the engine is long."""
+    ds = weekdays(date(2026, 1, 5), 9)
+    c1 = {i: 100.0 + i for i in range(4)}            # d0..d3
+    c2 = {i: 200.0 + i for i in range(5, 9)}         # d5..d8, no shared date
+    spec = cx.ContractSpec(**{**TEST_SPEC.__dict__, "commission": 1.0,
+                              "slippage_ticks": 0.0})
+    market = make_market(spec, [(2026, 3, c1), (2026, 6, c2)], ds)
+    res = engine.run({"TST": market}, flat_config(fixed_contracts={"TST": 1}),
+                     st.Constant(1.0))
+    legs = [t for t in res.trades if t.reason == "roll"]
+    assert_eq("both legs of the gap roll are booked", 2, len(legs))
+    assert_eq("the trade log nets to the position actually held", 1,
+              sum(t.contracts for t in res.trades))
+    assert_eq("position is still long one contract", 1, res.records[-1].positions["TST"])
+    assert_close("both legs are charged", 3.0, res.total_costs())
+    assert_true("the unpriced gap is reported, not hidden",
+                any("data gap" in w for w in res.warnings))
+    gross = spec.multiplier * ((c1[3] - c1[1]) + (c2[8] - c2[5]))
+    assert_close("P&L skips the gap and says so", gross - 3.0,
+                 res.final_equity - 100_000.0, tol=1e-6)
+
+
+def test_forced_roll_when_a_contract_stops_quoting_early():
+    """If the held contract dies before its scheduled roll, the engine must
+    still book a priced roll — never silently re-base and drop the mark."""
+    ds = weekdays(date(2026, 1, 5), 8)
+    c1 = {i: 100.0 + i for i in range(4)}           # dies after d3
+    c2 = {i: 300.0 + i for i in range(8)}           # quotes the whole window
+    spec = cx.ContractSpec(**{**TEST_SPEC.__dict__, "commission": 1.0,
+                              "slippage_ticks": 0.0, "roll_offset_days": 0})
+    market = make_market(spec, [(2026, 3, c1), (2026, 6, c2)], ds)
+    segs = rollmod.roll_schedule(market, offset_days=0)
+    res = engine.run({"TST": market}, flat_config(roll_offset_days=0,
+                                                 fixed_contracts={"TST": 1}),
+                     st.Constant(1.0))
+    assert_true("the chain covers the whole window", len(segs) >= 2)
+    assert_true("no day of P&L is dropped on a live position",
+                all(t.reason in ("signal", "roll") for t in res.trades))
+    assert_eq("the trade log nets to the held position",
+              res.records[-1].positions["TST"], sum(t.contracts for t in res.trades))
+    adj = rollmod.continuous(segs)
+    entry = res.trades[0].date
+    expected = spec.multiplier * (adj[res.records[-1].date] - adj[entry])
+    assert_close("P&L still equals the adjusted move net of costs",
+                 expected - res.total_costs(), res.final_equity - 100_000.0, tol=1e-6)
+
+
 def test_buffer_suppresses_churn():
     book = syn.synthetic_book(("MES", "MGC", "M6E"), date(2014, 1, 2), date(2019, 12, 31))
     cfg_a = engine.BacktestConfig(initial_equity=500_000, buffer_frac=0.0)
@@ -511,6 +655,9 @@ def test_min_equity_for_one_contract():
                                  idm=sz.idm_for(8))
     got = sz.position_scale(need, mes, 5900, 0.17, 1 / 8, 0.10, sz.idm_for(8))
     assert_close("at min equity the full position is exactly one contract", 1.0, got)
+    below = sz.position_scale(need * 0.4, mes, 5900, 0.17, 1 / 8, 0.10, sz.idm_for(8))
+    assert_eq("below it the market rounds out of the book entirely", 0,
+              sz.buffered_target(0, below, below, 0.10))
 
 
 # --- data layer -------------------------------------------------------------
@@ -683,6 +830,12 @@ def main():
     test_positions_are_always_whole_contracts()
     test_margin_ceiling_is_never_breached()
     test_blow_up_liquidates_and_stops()
+    test_invariant_holds_across_many_rolls()
+    test_no_phantom_rolls_at_the_data_end()
+    test_daily_ledger_reconciles_every_day()
+    test_ruin_day_ledger_and_margin_stats()
+    test_gap_roll_books_both_legs()
+    test_forced_roll_when_a_contract_stops_quoting_early()
     test_buffer_suppresses_churn()
     test_run_is_deterministic()
     test_vol_target_is_approximately_hit_when_capital_allows()

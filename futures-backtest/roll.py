@@ -60,10 +60,20 @@ class Segment:
 
 
 def _calendar_target(contract: ContractSeries, offset_days: int) -> date:
-    """The date `offset_days` trading days before the contract's last quote."""
+    """The date `offset_days` trading days before the contract's EXPIRY.
+
+    Expiry, not last quote. Every contract still alive when a vendor download
+    ends is truncated at the download date, so "last quote" reports a fake
+    expiry for all of them and the chain cascades through every deferred month
+    in the final days of the sample — ten one-day segments, ten phantom roll
+    costs. `roll_schedule` also refuses to roll out of a contract that is still
+    quoting at the data end, which closes the same hole from the other side.
+    """
     ds = contract.dates
-    idx = max(0, len(ds) - 1 - max(0, offset_days))
-    return ds[idx]
+    exp = contract.expiry_date()
+    usable = [d for d in ds if d <= exp] or ds
+    idx = max(0, len(usable) - 1 - max(0, offset_days))
+    return usable[idx]
 
 
 def _volume_target(old: ContractSeries, new: ContractSeries,
@@ -106,6 +116,10 @@ def roll_schedule(market: MarketData, offset_days: int | None = None,
         chain = [c for c in chain if c.first_date <= end]
     if not chain:
         raise ValueError(f"{market.symbol}: no contracts with data in range")
+    # The last date for which this market has any data at all. A contract still
+    # quoting there has not expired — the download stopped. It is the last
+    # contract that can be held, and the chain ends on it.
+    data_end = max(c.last_date for c in chain)
 
     segments: list[Segment] = []
     cursor = chain[0].first_date
@@ -120,7 +134,9 @@ def roll_schedule(market: MarketData, offset_days: int | None = None,
             i += 1
             continue
         nxt = chain[i + 1] if i + 1 < len(chain) else None
-        if nxt is None:
+        if nxt is None or cur.last_date >= data_end:
+            # Nothing left to roll into, or this contract is alive at the data
+            # end. Either way the position is carried, not rolled.
             segments.append(Segment(cur, held[0], held[-1], rolled=False))
             break
 

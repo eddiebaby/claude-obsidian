@@ -23,6 +23,7 @@ into this with a few lines of glue):
 """
 from __future__ import annotations
 
+import bisect
 import csv
 import re
 from dataclasses import dataclass, field
@@ -267,14 +268,25 @@ class RateSeries:
     rates: dict[date, float] = field(default_factory=dict)
     default: float = 0.0
     haircut: float = 0.005   # broker keeps a spread over the bill rate
+    _keys: list = field(default_factory=list, repr=False)
+
+    def _sorted_keys(self) -> list:
+        if len(self._keys) != len(self.rates):
+            self._keys = sorted(self.rates)
+        return self._keys
 
     def annual(self, d: date) -> float:
+        """Rate in force on `d`, carrying the last observation forward.
+
+        Bisect, not a scan: this is called once per market per day, and a linear
+        scan over a 20-year series turns the inner loop quadratic."""
         if not self.rates:
             return max(0.0, self.default - self.haircut)
         r = self.rates.get(d)
-        if r is None:                      # carry the last observation forward
-            prior = [k for k in self.rates if k <= d]
-            r = self.rates[max(prior)] if prior else self.default
+        if r is None:
+            keys = self._sorted_keys()
+            i = bisect.bisect_right(keys, d)
+            r = self.rates[keys[i - 1]] if i else self.default
         return max(0.0, r - self.haircut)
 
     def daily(self, d: date) -> float:

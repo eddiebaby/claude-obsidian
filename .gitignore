@@ -142,3 +142,4 @@ _attachments/
 
 # futures-backtest generated output (equity curves, trades, summaries)
 futures-backtest/results/*.csv
+futures-backtest/data*/

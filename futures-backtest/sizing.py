@@ -163,7 +163,11 @@ def margin_required(positions: dict[str, int], prices: dict[str, float],
                     specs: dict[str, cx.ContractSpec],
                     maintenance: bool = False) -> float:
     """Total margin for a book. Flat-rate per contract, no cross-margin credit —
-    conservative, which is the right direction to be wrong in."""
+    conservative, which is the right direction to be wrong in.
+
+    `prices` is unused by the flat-rate model and kept because every realistic
+    replacement (SPAN, a notional percentage, a vol-scaled requirement) needs
+    it; the roadmap item is to swap the body, not every call site."""
     total = 0.0
     for sym, q in positions.items():
         if not q:

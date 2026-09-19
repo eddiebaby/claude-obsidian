@@ -83,11 +83,25 @@ test suite asserts this rather than trusting it.
 
 That is the whole reason back-adjustment exists, and it is the first thing that
 breaks when roll handling is sloppy. `tests/test_futures_engine.py` checks it to
-the cent, along with: roll legs priced on both contracts, roll cost charged per
-leg, interest compounding on a flat book, integer-only positions, the margin cap
-holding on every single day, forced liquidation on ruin, determinism, and
-percent-vol computed against the tradable price rather than the fictional
-adjusted level.
+the cent — on a hand-built single-roll fixture *and* across full 59-roll chains
+(monthly crude, the yield contract, quarterly equity, FX) — along with: roll
+legs priced on both contracts, both legs of a gap roll charged, interest
+compounding on a flat book, integer-only positions, the margin cap holding on
+every single day, forced liquidation on ruin, a day-by-day ledger
+reconciliation (`equity_t == equity_t-1 + gross + interest - costs`, ruin day
+included), determinism, and percent-vol computed against the tradable price
+rather than the fictional adjusted level.
+
+**The trap that survived the first pass**, and the reason the multi-roll tests
+exist: `_calendar_target` originally rolled off each contract's *last quote*
+rather than its expiry. Every contract still alive when a vendor download ends
+is truncated at the download date, so all of them report a fake expiry there and
+the chain cascades through every deferred month in the final days — ten one-day
+segments, ten phantom round turns, 7% of all roll fills in the last fortnight,
+and a live position whose mark was silently dropped. It only shows up on a
+multi-roll chain with a truncated tail, which is to say on every real dataset.
+`roll_schedule` now rolls off `expiry_date()` and refuses to roll out of a
+contract that is still quoting at the data end.
 
 ```bash
 make test-futures        # from the repo root, ~5 seconds, no dependencies

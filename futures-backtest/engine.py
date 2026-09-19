@@ -117,6 +117,11 @@ class DailyRecord:
     positions: dict[str, int]
     markets_held: int
     effective_markets: float
+    """exp(entropy) of the risk distribution across markets.
+
+    Computed from per-contract risk as of the last rebalance, not today: the
+    estimator walks years of history, and positions only change on rebalances
+    and rolls anyway. It is a concentration diagnostic, not an input to sizing."""
 
 
 @dataclass
@@ -194,13 +199,23 @@ class BacktestResult:
         y = self.years()
         return sum(self.contracts_traded.values()) / y if y > 0 else 0.0
 
+    def _finite_margin_ratios(self) -> list[float]:
+        """Margin/equity on days where the ratio means anything.
+
+        On the day of ruin equity is <= 0 and the ratio is infinite; letting
+        that through makes `peak_margin_to_equity` inf for the whole run and
+        hides the utilisation that actually preceded the blow-up. `blown_up`
+        carries the ruin signal instead."""
+        return [r.margin_to_equity for r in self.records
+                if r.margin_to_equity == r.margin_to_equity      # not nan
+                and r.margin_to_equity != float("inf")]
+
     def avg_margin_to_equity(self) -> float:
-        if not self.records:
-            return 0.0
-        return sum(r.margin_to_equity for r in self.records) / len(self.records)
+        xs = self._finite_margin_ratios()
+        return sum(xs) / len(xs) if xs else 0.0
 
     def peak_margin_to_equity(self) -> float:
-        return max((r.margin_to_equity for r in self.records), default=0.0)
+        return max(self._finite_margin_ratios(), default=0.0)
 
 
 class Backtest:
@@ -233,13 +248,16 @@ class Backtest:
                                          start=config.start, end=config.end)
             self.segments[sym] = segs
             self.seg_of_day[sym] = rollmod.held_contract(segs)
-            self.seg_index[sym] = {id(s): i for i, s in enumerate(segs)}
+            self.seg_index[sym] = {(s.code, s.start): i for i, s in enumerate(segs)}
             adj = rollmod.continuous(segs, method=config.adjust)
             ds = sorted(adj)
             self.adj_dates[sym] = ds
             self.adj_vals[sym] = [adj[d] for d in ds]
-            self.raw_vals[sym] = [self.seg_of_day[sym][d].close(d) or adj[d]
-                                  for d in ds]
+            raw = []
+            for d in ds:
+                px = self.seg_of_day[sym][d].close(d)
+                raw.append(adj[d] if px is None else px)   # not `or`: 0.0 is a price
+            self.raw_vals[sym] = raw
             if any(v <= 0 for v in self.adj_vals[sym]):
                 self.warnings.append(
                     f"{sym}: back-adjusted series goes non-positive — level-based "
@@ -369,9 +387,22 @@ class Backtest:
                     cur_seg[s], last_px[s] = seg, seg.close(d)
                     continue
                 if seg.code != cur_seg[s].code:
-                    # the roll happens at step 4 of the roll date; arriving here
-                    # means the old contract stopped quoting first
-                    cur_seg[s], last_px[s] = seg, seg.close(d)
+                    # Arriving here means the held contract stopped quoting
+                    # before its scheduled roll date. With a sane roll schedule
+                    # this does not happen; when the data is ragged it must
+                    # still be a priced roll, never a silent re-basing that
+                    # drops a day of P&L on a live position.
+                    px_new = seg.close(d)
+                    if pos[s] and px_new is not None:
+                        if last_px[s] is not None:
+                            costs += self._trade(trades, d, s, cur_seg[s], -pos[s],
+                                                 last_px[s], "roll")
+                        costs += self._trade(trades, d, s, seg, pos[s], px_new, "roll")
+                        self.warnings.append(
+                            f"{s}: {cur_seg[s].code} stopped quoting before its roll "
+                            f"date; forced into {seg.code} on {d} at its last known "
+                            "price — check the contract chain for holes")
+                    cur_seg[s], last_px[s] = seg, px_new
                     continue
                 px = seg.close(d)
                 if px is None or last_px[s] is None:
@@ -413,23 +444,38 @@ class Backtest:
                 seg = cur_seg[s]
                 if seg is None or seg.end != d or not seg.rolled:
                     continue
-                idx = self.seg_index[s].get(id(seg))
+                idx = self.seg_index[s].get((seg.code, seg.start))
                 if idx is None or idx + 1 >= len(self.segments[s]):
                     continue
                 nxt = self.segments[s][idx + 1]
                 old_px = seg.close(d)
                 new_px = nxt.contract.close(d)
+                nxt_dates = nxt.dates()
+                # On a gap roll the new contract does not quote today; the
+                # re-entry happens at its first available close. That leg is
+                # still a fill and still costs money — booking only the exit
+                # leaves the trade log netting to a position the book does not
+                # hold.
+                entry_px = new_px
+                if entry_px is None and nxt_dates:
+                    entry_px = nxt.contract.close(nxt_dates[0])
                 if pos[s]:
                     if old_px is not None:
                         costs += self._trade(trades, d, s, seg, -pos[s], old_px, "roll")
-                    if new_px is not None:
-                        costs += self._trade(trades, d, s, nxt, pos[s], new_px, "roll")
-                    elif seg.gap_roll:
+                    if entry_px is not None:
+                        costs += self._trade(trades, d, s, nxt, pos[s], entry_px, "roll")
+                        if new_px is None:
+                            self.warnings.append(
+                                f"{s}: re-entered {nxt.code} across a data gap on {d} "
+                                f"at its first quote ({nxt_dates[0]}) — the move "
+                                "inside the gap is not captured")
+                    else:
                         self.warnings.append(
-                            f"{s}: re-entered {nxt.code} across a data gap on {d}")
+                            f"{s}: no quote to re-enter {nxt.code} after {d}; "
+                            "position closed instead of rolled")
+                        pos[s] = 0
                 cur_seg[s] = nxt
-                last_px[s] = new_px if new_px is not None else nxt.contract.close(
-                    nxt.dates()[0] if nxt.dates() else d)
+                last_px[s] = entry_px
 
             # 5. margin ceiling, then solvency
             equity = prev_equity + gross_pnl + interest - costs
@@ -438,6 +484,7 @@ class Backtest:
             if equity > 0 and init_margin > equity * cfg.max_margin_to_equity:
                 shrunk, _ = sz.scale_to_margin_cap(pos, prices, self.specs, equity,
                                                    cfg.max_margin_to_equity)
+                filled = 0
                 for s in syms:
                     delta = shrunk[s] - pos[s]
                     seg, px = cur_seg[s], self._close_on(s, d)
@@ -446,7 +493,13 @@ class Backtest:
                         costs += c
                         equity -= c
                         pos[s] = shrunk[s]
-                self.derisk_days += 1
+                        filled += 1
+                if filled:
+                    self.derisk_days += 1
+                else:
+                    self.warnings.append(
+                        f"margin cap breached on {d} but no market had a quote to "
+                        "trade against — the book stayed over the limit")
             maint = sz.margin_required(pos, prices, self.specs, maintenance=True)
             if equity > 0 and maint > equity:
                 self.margin_calls += 1
@@ -457,8 +510,9 @@ class Backtest:
                 for s in syms:
                     seg, px = cur_seg[s], self._close_on(s, d)
                     if pos[s] and seg is not None and px is not None:
-                        equity -= self._trade(trades, d, s, seg, -pos[s], px,
-                                              "liquidation")
+                        c = self._trade(trades, d, s, seg, -pos[s], px, "liquidation")
+                        costs += c          # keep the day's ledger reconcilable
+                        equity -= c
                         pos[s] = 0
                 blown_up = True
                 self.warnings.append(f"equity hit zero on {d} — run stopped")

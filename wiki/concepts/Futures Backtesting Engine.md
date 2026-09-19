@@ -107,6 +107,36 @@ Running the default 8-market micro book at $100,000:
   its roll assumption is incomplete; `run.py --compare` prints the sensitivity
   table on purpose.
 
+## Audit trail (2026-09-19)
+
+An independent verifier pass over the first commit found one blocker and five
+high findings, all now fixed with regression tests. Worth recording because
+each is a general futures-backtesting trap, not a quirk of this code:
+
+1. **Rolling off the last quote instead of the expiry.** Every contract still
+   alive when a data download ends is truncated at the download date, so it
+   reports a fake expiry there. The roll chain then cascades through every
+   deferred month in the final days: ten one-day segments, ten phantom round
+   turns, 7% of all roll fills inside the last fortnight. Invisible on a
+   single-roll test fixture; present in every real vendor dataset.
+2. **A silently dropped mark.** When the held contract stopped quoting before
+   its scheduled roll, the engine re-based its price and skipped that day's
+   mark-to-market on a live position — breaking the very invariant the README
+   claimed. Now a priced roll with a warning, or nothing.
+3. **Gap roll charged one leg.** With no overlapping quote the exit was booked
+   and the re-entry was not, so the trade log described a flat book while the
+   engine was long. Anything reconstructing positions from the trade log got
+   the wrong answer.
+4. **Liquidation cost bypassed the day's ledger** (subtracted from equity, not
+   added to recorded costs), so the ruin day did not reconcile.
+5. Plus: an infinite ruin-day margin ratio poisoning the peak-utilisation
+   statistic, a de-risk counter that incremented without a fill, and an O(n·m)
+   rate lookup.
+
+Lesson kept: **a test on a clean two-contract fixture proves almost nothing
+about a roll chain.** The invariant is now asserted across 59-roll chains and
+the ledger reconciles day by day, ruin day included.
+
 ## Honest limits
 
 Settlement prices only (no intraday fills or gap modelling inside the day);

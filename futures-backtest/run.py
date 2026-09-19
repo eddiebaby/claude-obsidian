@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import csv as csvmod
+import os
 import sys
 from datetime import date
 from pathlib import Path
@@ -273,10 +274,34 @@ def compare(book, cfg, args, rates):
     return rows
 
 
+class _atomic:
+    """Write to a sibling temp file and rename on success.
+
+    An interrupted run should leave the previous results intact rather than a
+    half-written equity curve that silently loads as a shorter backtest.
+    """
+
+    def __init__(self, path):
+        self.path = path
+        self.tmp = path.with_suffix(path.suffix + ".part")
+
+    def __enter__(self):
+        self.fh = self.tmp.open("w", newline="")
+        return self.fh
+
+    def __exit__(self, exc_type, exc, tb):
+        self.fh.close()
+        if exc_type is None:
+            os.replace(self.tmp, self.path)
+        else:
+            self.tmp.unlink(missing_ok=True)
+        return False
+
+
 def write_csv(res, s, tag: str):
     RESULTS.mkdir(exist_ok=True)
     eq = RESULTS / f"equity_{tag}.csv"
-    with eq.open("w", newline="") as fh:
+    with _atomic(eq) as fh:
         w = csvmod.writer(fh)
         w.writerow(["date", "equity", "ret", "gross_pnl", "interest", "costs",
                     "margin", "margin_to_equity", "gross_notional",
@@ -288,14 +313,14 @@ def write_csv(res, s, tag: str):
                         f"{r.gross_notional:.2f}", r.markets_held,
                         f"{r.effective_markets:.3f}"])
     tr = RESULTS / f"trades_{tag}.csv"
-    with tr.open("w", newline="") as fh:
+    with _atomic(tr) as fh:
         w = csvmod.writer(fh)
         w.writerow(["date", "symbol", "contract", "contracts", "price", "cost", "reason"])
         for t in res.trades:
             w.writerow([t.date, t.symbol, t.code, t.contracts, f"{t.price:.6f}",
                         f"{t.cost:.2f}", t.reason])
     sm = RESULTS / f"summary_{tag}.csv"
-    with sm.open("w", newline="") as fh:
+    with _atomic(sm) as fh:
         w = csvmod.writer(fh)
         keys = [k for k in s if not k.startswith("_")]
         w.writerow(keys)
