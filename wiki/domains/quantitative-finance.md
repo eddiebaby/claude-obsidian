@@ -3,7 +3,7 @@ type: domain
 title: "Quantitative Finance"
 status: developing
 created: 2026-06-24
-updated: 2026-07-05
+updated: 2026-09-19
 tags:
   - domain
   - quantitative-finance
@@ -90,6 +90,7 @@ The retail-scale strategy book, each with a full build guide: data, signal rules
 **Strategy classes**: [[Trend-Following]], [[Cross-Sectional-Momentum]], [[Sector-Rotation]]
 **Model design**: [[End-to-End-Portfolio-Optimization]], [[Learning-to-Rank]], [[Online-Ensemble-Learning]], [[Echo-State-Networks]], [[Turnover-Regularization]]
 **Deployment & validation**: [[Regime-Trust-Gating]], [[Deflated-Sharpe-Ratio]], [[Backtest-Overfitting]], [[Tick-Size-Microstructure]]
+**Backtest infrastructure**: [[Futures Backtesting Engine]] (`futures-backtest/`) — the futures-specific engine: rolls, integer contracts, margin, collateral interest; `sector-momentum/` covers the equity side
 **Agentic systems**: [[Loop-Engineering]] — the structural move from prompting agents to building systems that prompt agents; [[Maker-Checker-Pattern]] — the institutional verification pattern now automatable via agents
 
 ---

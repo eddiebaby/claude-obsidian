@@ -171,6 +171,9 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[Micro-Futures Trend Strategy]] — slow diversified trend on CME micros; crisis-alpha sleeve; slow-only per the Kurth tick-size result (status: seed)
 - [[LLM Filings Alpha Strategy]] — EDGAR → LLM extraction → maker-checker verify → score → trade small-cap filings drift; the moat build (status: seed)
 
+**Backtest Infrastructure**
+- [[Futures Backtesting Engine]] — contract specs, rolls as priced trades, integer-contract vol targeting, margin + collateral interest; the execution half of [[Micro-Futures Trend Strategy]] (status: built)
+
 **Strategy & Model Concepts**
 - [[Overnight-Drift]] — indices earn ~all return overnight; dealer-inventory + news mechanisms; the strongest documented effect available to the LucidFlex account class (status: developing)
 - [[Prop-Firm-Eval-Sizing]] — sizing for accounts that die at a fixed trailing drawdown; risk-constrained Kelly + the eval-as-sizing go/no-go math (status: developing)

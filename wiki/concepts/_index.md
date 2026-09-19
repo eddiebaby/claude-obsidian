@@ -187,6 +187,9 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 - [[Micro-Futures Trend Strategy]] — slow diversified trend on micros; crisis alpha (status: seed)
 - [[LLM Filings Alpha Strategy]] — EDGAR pipeline + LLM scoring of small-cap filings; the moat (status: seed)
 
+**Backtest Infrastructure**
+- [[Futures Backtesting Engine]] — contract specs, rolls as priced trades, integer-contract vol targeting, margin + collateral interest; the execution half of [[Micro-Futures Trend Strategy]] (status: built)
+
 **Strategy Classes**
 - [[Trend-Following]] — time-series momentum as a strategy class; the impact feedback-loop mechanism; why short-term variants died post-2009 on small-tick contracts (status: developing)
 - [[Cross-Sectional-Momentum]] — ranking assets against each other vs. own-history signals; decile/quintile construction; relation to sector rotation (status: developing)

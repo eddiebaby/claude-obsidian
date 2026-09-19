@@ -4,7 +4,7 @@ title: "Micro-Futures Trend Strategy"
 domain: quantitative-finance
 complexity: intermediate
 created: 2026-07-05
-updated: 2026-07-05
+updated: 2026-09-19
 tags:
   - strategy
   - quantitative-finance
@@ -15,6 +15,7 @@ aliases:
   - "Micro Futures Trend Following"
   - "Diversified Trend Build"
 related:
+  - "[[Futures Backtesting Engine]]"
   - "[[Retail Alpha Strategy Roadmap]]"
   - "[[Trend-Following]]"
   - "[[Tick-Size-Microstructure]]"
@@ -78,6 +79,14 @@ Backtest on back-adjusted continuous contracts with the roll method documented; 
 
 ## Backtest Plan
 
+Engine built 2026-09-19: [[Futures Backtesting Engine]] (`futures-backtest/`).
+It models contract specs, rolls as priced trades, integer-contract vol
+targeting, margin and collateral interest, and prints the roll-convention
+sensitivity alongside every result. First finding: at $100K this 8-market book
+cannot hold one MES or MNQ contract at a 10% vol target, so it runs at ~6%
+realised vol across 6 of 8 markets. Trade fewer markets at larger weights, as
+the sizing note below predicted.
+
 1. Sample: 2000-present minimum; longer if data allows (the strategy's value is in the rare years).
 2. Costs: 1-2 ticks per side per roll and per signal flip; micros have proportionally wider spreads than minis, which slow signals mostly neutralize.
 3. Benchmarks: SG Trend Index correlation (should be > 0.5 if the implementation is faithful), and the 60/40 portfolio with and without a 20% trend allocation (the honest use case).
@@ -110,8 +119,8 @@ Backtest on back-adjusted continuous contracts with the roll method documented; 
 
 ## Status
 
-- [ ] Hypothesis formed (documented here)
-- [ ] Backtested
+- [x] Hypothesis formed (documented here)
+- [ ] Backtested (engine built and tested; awaiting real contract bars)
 - [ ] Paper traded
 - [ ] Live (small size)
 - [ ] Scaled
