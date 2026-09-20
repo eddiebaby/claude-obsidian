@@ -43,6 +43,16 @@ class ContractSpec:
     roll_offset_days: int = 5       # trading days before expiry to roll
     vol_basis: str = "pct"          # "pct" = returns; "abs" = price diffs
     risk_weight: float = 1.0        # <1 to half-weight short-history markets
+    history_proxy: str = ""
+    """Long-history contract whose bars stand in for this one in a backtest.
+
+    The CME micros mostly launched in 2019 (MES/MNQ May 2019, M2K/M6E/M6B later,
+    Micro 10Y Yield 2021). Seven years is not a sample for a strategy whose
+    value shows up in rare years. The micro and its full-size parent track the
+    same underlying at a different multiplier, so the honest build is: backtest
+    on the parent's twenty-plus years, size and trade the micro. `data.load_market`
+    accepts the parent's files under this spec and says so."""
+
     notes: str = ""
 
     @property
@@ -130,15 +140,74 @@ _add(ContractSpec("CL", "WTI Crude Oil (1,000 bbl)", "energy", "NYMEX", "USD",
                   multiplier=1000.0, tick_size=0.01, commission=2.50,
                   initial_margin=8000.0, maintenance_margin=7300.0,
                   roll_months=ALL_MONTHS, roll_offset_days=8))
+_add(ContractSpec("RTY", "E-mini Russell 2000", "equity", "CME", "USD",
+                  multiplier=50.0, tick_size=0.10, commission=2.30,
+                  initial_margin=9000.0, maintenance_margin=8200.0))
+_add(ContractSpec("YM", "E-mini Dow", "equity", "CME", "USD",
+                  multiplier=5.0, tick_size=1.0, commission=2.30,
+                  initial_margin=11000.0, maintenance_margin=10000.0))
+_add(ContractSpec("SI", "Silver (5,000 oz)", "metal", "COMEX", "USD",
+                  multiplier=5000.0, tick_size=0.005, commission=2.50,
+                  initial_margin=16000.0, maintenance_margin=14500.0,
+                  roll_months=(3, 5, 7, 9, 12)))
+_add(ContractSpec("6E", "Euro FX (125,000 EUR)", "fx", "CME", "USD",
+                  multiplier=125000.0, tick_size=0.00005, commission=2.20,
+                  initial_margin=2800.0, maintenance_margin=2550.0))
+_add(ContractSpec("6B", "British Pound (62,500 GBP)", "fx", "CME", "USD",
+                  multiplier=62500.0, tick_size=0.0001, commission=2.20,
+                  initial_margin=2300.0, maintenance_margin=2100.0))
 _add(ContractSpec("ZN", "10-Year T-Note", "rates", "CBOT", "USD",
                   multiplier=1000.0, tick_size=0.015625, commission=2.10,
                   initial_margin=2100.0, maintenance_margin=1900.0,
                   vol_basis="abs",
                   notes="Priced in 32nds; tick is 1/64 of a point = $15.625."))
 
-# The default book: 8 micros across 6 asset classes. Diversification across
-# classes IS the strategy — equity-only trend is just slow beta timing.
+# Micros launched in 2019-2021; their full-size parents have decades. Backtest
+# on the parent, trade the micro — same underlying, different multiplier.
+for _micro, _parent in (("MES", "ES"), ("MNQ", "NQ"), ("M2K", "RTY"), ("MYM", "YM"),
+                        ("MGC", "GC"), ("SIL", "SI"), ("MCL", "CL"),
+                        ("M6E", "6E"), ("M6B", "6B")):
+    _SPECS[_micro] = replace(_SPECS[_micro], history_proxy=_parent)
+# 10Y (Micro 10-Year Yield) has no proxy: ZN is priced in dollars, 10Y in yield.
+# They are different instruments and must not be substituted for each other.
+
+# --- capacity tiers ---------------------------------------------------------
+# Diversification across asset classes IS the strategy — equity-only trend is
+# just slow beta timing. But a market you cannot hold one contract of is not
+# diversification, it is a line in a spreadsheet. These tiers are the honest
+# books at each account size; `sizing.universe_for(equity)` picks between them,
+# and `capacity.py` prints the arithmetic.
+
+# 8 markets, 6 asset classes. Needs ~$250K at a 10% vol target: MES wants
+# $203K of equity to justify one contract at 1/8 weight, MNQ $340K.
 MICRO_UNIVERSE = ("MES", "MNQ", "M2K", "MGC", "MCL", "M6E", "M6B", "10Y")
+
+# 6 markets. Drops the two index contracts that price retail out; works from
+# about $100K. M2K keeps equity exposure at a tenth of MES's notional.
+RETAIL_UNIVERSE = ("M2K", "MGC", "MCL", "M6E", "M6B", "10Y")
+
+# 5 markets, one per asset class, no redundancy. The $100K book.
+CORE_UNIVERSE = ("M2K", "MGC", "MCL", "M6E", "10Y")
+
+# 4 markets, the cheapest risk units available. Works from about $50K, and is
+# the floor: below four markets this is a directional bet, not a trend book.
+STARTER_UNIVERSE = ("MCL", "M6E", "M6B", "10Y")
+
+# Largest first — `universe_for` walks down until every market fits.
+CAPACITY_TIERS = (MICRO_UNIVERSE, RETAIL_UNIVERSE, CORE_UNIVERSE, STARTER_UNIVERSE)
+
+# Reference price and annualised volatility per market, for capacity planning
+# ONLY — never for P&L. Same status as the margin figures: plausible 2026
+# levels that go stale. Refresh them from a quote screen before sizing money;
+# nothing in the engine reads them.
+REFERENCE_MARKET: dict[str, tuple[float, float]] = {
+    "MES": (5900.0, 0.17), "MNQ": (21000.0, 0.20), "M2K": (2350.0, 0.21),
+    "MYM": (44000.0, 0.16), "ES": (5900.0, 0.17), "NQ": (21000.0, 0.20),
+    "MGC": (3350.0, 0.16), "GC": (3350.0, 0.16), "SIL": (38.0, 0.28),
+    "MCL": (71.0, 0.34), "CL": (71.0, 0.34),
+    "M6E": (1.085, 0.08), "M6B": (1.27, 0.09),
+    "MBT": (96000.0, 0.55), "10Y": (4.25, 0.60), "ZN": (111.5, 0.06),
+}
 
 
 def get(symbol: str) -> ContractSpec:

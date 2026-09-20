@@ -41,8 +41,9 @@ def parse_args(argv=None):
     src.add_argument("--rates", help="CSV of the collateral rate (e.g. ^IRX), percent")
     src.add_argument("--rate", type=float, default=None,
                      help="flat annual collateral rate if no --rates file")
-    src.add_argument("--markets", default=",".join(cx.MICRO_UNIVERSE),
-                     help="comma-separated symbols")
+    src.add_argument("--markets", default=None,
+                     help="comma-separated symbols; default is the largest capacity "
+                          "tier this equity can actually hold (see capacity.py)")
     src.add_argument("--start", default=None)
     src.add_argument("--end", default=None)
     src.add_argument("--seed", type=int, default=20260919, help="synthetic data seed")
@@ -96,21 +97,28 @@ def build_strategy(args):
 
 
 def load_markets(args):
-    syms = [s.strip().upper() for s in args.markets.split(",") if s.strip()]
+    if args.markets:
+        syms = [s.strip().upper() for s in args.markets.split(",") if s.strip()]
+        auto = None
+    else:
+        # Default to a book this account can hold. An 8-market list at $100K is
+        # a 5-market book with three permanently flat lines in it.
+        chosen, notes = sz.universe_for(args.equity, args.vol_target)
+        syms, auto = list(chosen), notes
     start = datamod.parse_date(args.start) if args.start else None
     end = datamod.parse_date(args.end) if args.end else None
     if args.data:
         book = datamod.load_book(args.data, syms)
         rates = (datamod.load_rates(args.rates) if args.rates
                  else datamod.constant_rate(args.rate if args.rate is not None else 0.04))
-        return book, rates, start, end, False
+        return book, rates, start, end, False, auto
     s = start or date(2010, 1, 4)
     e = end or date(2026, 6, 30)
     book = syn.synthetic_book(syms, start=s, end=e, seed=args.seed)
     rates = (datamod.load_rates(args.rates) if args.rates else
              (datamod.constant_rate(args.rate) if args.rate is not None
               else syn.synthetic_rates(s, e)))
-    return book, rates, s, e, True
+    return book, rates, s, e, True, auto
 
 
 def make_config(args, rates, start, end, markets=None) -> engine.BacktestConfig:
@@ -330,7 +338,7 @@ def write_csv(res, s, tag: str):
 
 def main(argv=None) -> int:
     args = parse_args(argv)
-    book, rates, start, end, is_synth = load_markets(args)
+    book, rates, start, end, is_synth, auto = load_markets(args)
     cfg = make_config(args, rates, start, end, markets=sorted(book))
     strategy = build_strategy(args)
 
@@ -338,7 +346,10 @@ def main(argv=None) -> int:
     print("FUTURES BACKTEST")
     print("=" * 78)
     print(f"  data        {'SYNTHETIC (seeded)' if is_synth else args.data}")
-    print(f"  markets     {', '.join(sorted(book))}")
+    print(f"  markets     {', '.join(sorted(book))}"
+          f"{'  (auto-selected for this equity)' if auto is not None else ''}")
+    for n in (auto or []):
+        print(f"              rejected {n}")
     print(f"  strategy    {getattr(strategy, 'label', args.strategy)}  "
           f"rebalance={cfg.rebalance} lag={cfg.execution_lag}bar")
     print(f"  mechanics   roll={cfg.roll_method} adjust={cfg.adjust} "

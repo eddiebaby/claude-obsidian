@@ -29,12 +29,19 @@ adjustment, not the market.
 ```bash
 cd futures-backtest
 
+python3 capacity.py --equity 100000              # start here: can the account hold it?
 python3 run.py                                   # synthetic demo, 12-month trend
+python3 walkforward.py                           # pick in-sample, read out-of-sample
 python3 run.py --equity 300000 --compare         # strategy + roll sensitivity table
 python3 run.py --markets MES,MGC --fixed 1       # long 1 contract benchmark
 python3 run.py --data ./data --rates ./data/irx.csv --start 2005-01-01
 python3 run.py --csv                             # writes results/
 ```
+
+`--markets` defaults to the largest capacity tier the given equity can actually
+hold, so a $100K run does not silently carry three permanently flat markets.
+`capacity.py` prints that arithmetic on its own, from contract specs, with no
+data at all — run it before buying any.
 
 With no `--data` the run uses **seeded synthetic bars**. Those paths trend by
 construction, so they prove the plumbing and nothing else. Every performance
@@ -109,6 +116,19 @@ make test-futures        # from the repo root, ~5 seconds, no dependencies
 
 ## Real data
 
+**Full checklist: [DATA.md](DATA.md).** Two things from it that change what you
+buy:
+
+- **Capacity first.** MES needs $203K of equity to justify one contract at 1/8
+  weight, MNQ $340K. Below ~$250K the 8-market book is a fiction; `capacity.py`
+  gives the book that fits.
+- **The micros launched in 2019**, so they cannot support a trend backtest whose
+  value lives in rare years. Backtest the full-size parent, trade the micro:
+  drop `ESH19.csv` into `data/MES/` and the loader uses it while keeping the
+  micro's multiplier, tick and margin (`ContractSpec.history_proxy`). The one
+  exception is Micro 10-Year Yield, quoted in yield where ZN is quoted in
+  dollars — different instruments, never substituted.
+
 Per-contract bars, one CSV per delivery month:
 
 ```
@@ -155,12 +175,12 @@ slippage or term structure. It is for reconnaissance, not for sizing money.
 
 ## Next
 
-- Real bars for the 8-market micro book; re-run `--compare` and keep the roll
-  sensitivity table with the result.
+- Real bars (see [DATA.md](DATA.md)); re-run `walkforward.py` and `--compare`,
+  and keep the roll-sensitivity table with the result.
 - Correlation-aware IDM (the current one assumes equicorrelation).
-- Walk-forward split, mirroring `sector-momentum/walkforward.py`.
 - Carry as a second signal on the same infrastructure — futures carry is the
   natural companion to trend, and the engine already holds the term structure.
+- Order generation for a paper account, once a walk-forward passes.
 
 ## Files
 
@@ -173,5 +193,8 @@ slippage or term structure. It is for reconnaissance, not for sizing money.
 - `engine.py` — the daily loop
 - `metrics.py` — performance and multiple-testing statistics
 - `run.py` — CLI
+- `capacity.py` — can this account hold this book? (no data required)
+- `walkforward.py` — in-sample pick, out-of-sample read, with a verdict
 - `make_sample_data.py` — writes a sample `--data` directory in the expected layout
+- `DATA.md` — the buy-reshape-run-check checklist for real bars
 - `../tests/test_futures_engine.py` — the invariants, hermetic

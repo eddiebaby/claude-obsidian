@@ -176,24 +176,47 @@ def load_contract_csv(path: str | Path, symbol: str | None = None,
 
 
 def load_market(directory: str | Path, spec: cx.ContractSpec | str,
-                expiries: dict[str, date] | None = None) -> MarketData:
-    """Load every <ROOT><CODE><YY>.csv in `directory` for one market."""
+                expiries: dict[str, date] | None = None,
+                use_proxy: bool = True) -> MarketData:
+    """Load every <ROOT><CODE><YY>.csv in `directory` for one market.
+
+    If no files match the spec's own root and it declares a `history_proxy`,
+    the parent contract's files are used instead: ES bars under the MES spec,
+    CL under MCL, and so on. That is how a twenty-year backtest of a 2019
+    contract is done honestly — the price series is the same underlying, and
+    the multiplier, tick and margin stay the micro's, which is what you trade.
+    Pass use_proxy=False to forbid the substitution.
+    """
     spec = cx.get(spec) if isinstance(spec, str) else spec
     directory = Path(directory)
     if not directory.is_dir():
         raise FileNotFoundError(f"{directory} is not a directory")
-    series = []
-    for path in sorted(directory.glob("*.csv")):
-        m = _FILENAME_RE.match(path.stem.upper())
-        if not m or m.group(1) != spec.symbol:
-            continue
-        exp = (expiries or {}).get(path.stem.upper())
-        series.append(load_contract_csv(path, expiry=exp))
-    if not series:
-        raise FileNotFoundError(
-            f"no {spec.symbol} contract files in {directory} "
-            f"(expected e.g. {spec.symbol}H26.csv)")
-    return MarketData(spec=spec, contracts=series)
+
+    roots = [spec.symbol]
+    if use_proxy and spec.history_proxy:
+        roots.append(spec.history_proxy)
+
+    for root in roots:
+        series = []
+        for path in sorted(directory.glob("*.csv")):
+            m = _FILENAME_RE.match(path.stem.upper())
+            if not m or m.group(1) != root:
+                continue
+            exp = (expiries or {}).get(path.stem.upper())
+            cs = load_contract_csv(path, expiry=exp)
+            if root != spec.symbol:
+                # Keep the traded contract's identity; only the bars are borrowed.
+                cs = ContractSeries(spec.symbol, cs.year, cs.month, cs.bars, cs.expiry)
+            series.append(cs)
+        if series:
+            if root != spec.symbol:
+                print(f"  {spec.symbol}: using {root} history "
+                      f"({len(series)} contracts) — micro multiplier, parent bars")
+            return MarketData(spec=spec, contracts=series)
+
+    want = " or ".join(f"{r}H26.csv" for r in roots)
+    raise FileNotFoundError(
+        f"no contract files for {spec.symbol} in {directory} (expected e.g. {want})")
 
 
 def load_book(root: str | Path, symbols=cx.MICRO_UNIVERSE) -> dict[str, MarketData]:

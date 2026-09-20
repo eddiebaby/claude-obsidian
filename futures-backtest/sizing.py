@@ -257,3 +257,36 @@ def min_equity_for_one(spec: cx.ContractSpec, price: float, ann_vol: float,
     if denom <= 0:
         return float("inf")
     return rpc / denom
+
+
+def universe_for(equity: float, vol_target: float = 0.10, avg_corr: float = 0.15,
+                 min_full_size: float = 0.5,
+                 tiers: tuple = cx.CAPACITY_TIERS) -> tuple[tuple, list[str]]:
+    """Largest capacity tier whose every market can actually be held.
+
+    Returns (symbols, rejected_tier_notes). `min_full_size` is in contracts at
+    full conviction: 0.5 means the target rounds to at least one contract, so
+    the market is genuinely in the book rather than permanently flat.
+
+    This is the function that answers "can my account run this strategy". It
+    reads `contracts.REFERENCE_MARKET`, so it needs no price data — run it
+    before buying any.
+    """
+    notes: list[str] = []
+    for tier in tiers:
+        idm = idm_for(len(tier), avg_corr)
+        weight = 1.0 / len(tier)
+        short = []
+        for sym in tier:
+            ref = cx.REFERENCE_MARKET.get(sym)
+            if ref is None:
+                continue
+            px, vol = ref
+            full = position_scale(equity, cx.get(sym), px, vol, weight, vol_target, idm)
+            if full < min_full_size:
+                need = min_equity_for_one(cx.get(sym), px, vol, weight, vol_target, idm)
+                short.append(f"{sym} (needs ${need:,.0f})")
+        if not short:
+            return tier, notes
+        notes.append(f"{len(tier)} markets: {', '.join(short)} too small")
+    return tiers[-1], notes

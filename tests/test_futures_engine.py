@@ -662,6 +662,66 @@ def test_min_equity_for_one_contract():
 
 # --- data layer -------------------------------------------------------------
 
+def test_capacity_tiers_ladder_down_with_equity():
+    small, _ = sz.universe_for(40_000)
+    mid, mid_notes = sz.universe_for(100_000)
+    big, _ = sz.universe_for(400_000)
+    assert_true("a small account gets the starter book",
+                set(small) == set(cx.STARTER_UNIVERSE), f"{small}")
+    assert_true("$100K gets a book it can hold, not the 8-market list",
+                len(mid) < len(cx.MICRO_UNIVERSE) and len(mid) >= 4, f"{mid}")
+    assert_true("the rejected tier is explained", any("MES" in n for n in mid_notes),
+                f"{mid_notes}")
+    assert_eq("a funded account gets the full universe", tuple(cx.MICRO_UNIVERSE), tuple(big))
+    assert_true("books never shrink as equity grows",
+                len(small) <= len(mid) <= len(big))
+    for equity in (30_000, 75_000, 150_000, 1_000_000):
+        syms, _ = sz.universe_for(equity)
+        idm, w = sz.idm_for(len(syms)), 1.0 / len(syms)
+        for sym in syms:
+            px, vol = cx.REFERENCE_MARKET[sym]
+            full = sz.position_scale(equity, cx.get(sym), px, vol, w, 0.10, idm)
+            assert_true(f"${equity:,}: {sym} holds at least half a contract",
+                        full >= 0.5, f"{full:.2f}")
+    print("OK   every market in a chosen tier is actually holdable")
+
+
+def test_history_proxy_keeps_the_micro_contract_arithmetic():
+    """Micros launched in 2019; a 20-year backtest must use the parent's bars
+    while keeping the micro's multiplier, tick and margin."""
+    assert_eq("MES borrows ES history", "ES", cx.get("MES").history_proxy)
+    assert_eq("the yield contract has no proxy — ZN is a different instrument",
+              "", cx.get("10Y").history_proxy)
+    with tempfile.TemporaryDirectory() as tmp:
+        d = Path(tmp) / "MES"
+        d.mkdir()
+        (d / "ESH26.csv").write_text("date,close\n2026-01-02,5900\n2026-01-05,5910\n")
+        (d / "ESM26.csv").write_text("date,close\n2026-01-02,5930\n2026-01-05,5940\n")
+        md = datamod.load_market(d, cx.get("MES"))
+        assert_eq("the spec stays the micro's", "MES", md.spec.symbol)
+        assert_close("so does the multiplier", 5.0, md.spec.multiplier)
+        assert_eq("parent files are found", 2, len(md.contracts))
+        assert_eq("contracts are relabelled to the traded symbol", "MESH26",
+                  md.contracts[0].code)
+        assert_raises("the substitution can be forbidden", FileNotFoundError,
+                      datamod.load_market, d, cx.get("MES"), None, False)
+
+
+def test_walkforward_windows_split_cleanly():
+    import walkforward as wf
+    book = syn.synthetic_book(("MES", "MGC"), date(2014, 1, 2), date(2020, 12, 31))
+    res = engine.run(book, engine.BacktestConfig(initial_equity=400_000),
+                     st.TimeSeriesMomentum())
+    split = date(2018, 1, 1)
+    i, o = wf.window(res, None, split), wf.window(res, split, None)
+    assert_true("both windows have data", bool(i) and bool(o))
+    assert_eq("the split partitions the sample exactly", len(res.records), i["n"] + o["n"])
+    assert_true("in-sample ends before the split",
+                all(r.date < split for r in res.records[:i["n"]]))
+    empty = wf.window(res, date(2030, 1, 1), None)
+    assert_eq("an empty window returns nothing rather than a fake metric", {}, empty)
+
+
 def test_contract_csv_round_trip():
     with tempfile.TemporaryDirectory() as tmp:
         p = Path(tmp) / "MESH26.csv"
@@ -847,6 +907,9 @@ def main():
     test_margin_scaling_keeps_book_shape()
     test_idm_and_effective_markets()
     test_min_equity_for_one_contract()
+    test_capacity_tiers_ladder_down_with_equity()
+    test_history_proxy_keeps_the_micro_contract_arithmetic()
+    test_walkforward_windows_split_cleanly()
     test_contract_csv_round_trip()
     test_load_market_requires_files()
     test_continuous_mode_wrapper_runs()

@@ -4,7 +4,7 @@ title: "Futures Backtesting Engine"
 domain: quantitative-finance
 complexity: advanced
 created: 2026-09-19
-updated: 2026-09-19
+updated: 2026-09-20
 tags:
   - infrastructure
   - quantitative-finance
@@ -25,7 +25,8 @@ related:
 
 # Futures Backtesting Engine
 
-Code: `futures-backtest/` in this repo. Built 2026-09-19. Pure stdlib Python,
+Code: `futures-backtest/` in this repo. Built 2026-09-19, capacity tiers and
+walk-forward added 2026-09-20. Pure stdlib Python,
 no vendor data required to run it, ~100 assertions in
 `tests/test_futures_engine.py` (`make test-futures`, ~5 seconds).
 
@@ -145,10 +146,40 @@ fixed-tick slippage. And the bundled synthetic data **trends by construction** �
 it validates the plumbing, never the edge. Every performance number is
 provisional until real contract bars are loaded.
 
+## Capacity: the account decides the book
+
+Arithmetic on contract specs at 2026 reference prices, 10% vol target
+(`capacity.py`, no data required):
+
+| Equity | Book that actually holds |
+|---|---|
+| $25–50K | MCL, M6E, M6B, 10Y |
+| $100–150K | M2K, MGC, MCL, M6E, M6B, 10Y |
+| $250K+ | all 8 micros |
+
+MES needs $203K of equity to justify one contract at 1/8 weight; MNQ $340K. The
+engine's CLI now defaults to the tier the equity can hold rather than accepting
+an 8-market list and quietly running five of them.
+
+## The history trap
+
+The micros launched 2019–2021 (MES/MNQ May 2019, Micro 10Y Yield 2021). Seven
+years is not a sample for a strategy whose value shows up in 2008, 2020 and
+2022. So **backtest the full-size parent, trade the micro** — same underlying,
+different multiplier. `ContractSpec.history_proxy` wires MES→ES, MNQ→NQ,
+MGC→GC, MCL→CL, M6E→6E and so on, and `data.load_market` accepts the parent's
+files while keeping the micro's contract arithmetic.
+
+The exception worth remembering: Micro 10-Year **Yield** is quoted in yield, ZN
+in dollars. Different instruments; substituting one for the other is not a
+proxy, it is a sign error waiting to happen.
+
 ## Next
 
-- [ ] Load real bars (Norgate / Databento) for the 8-market micro book
-- [ ] Re-run `--compare`, keep the roll-sensitivity table with the result
-- [ ] Walk-forward split, mirroring `sector-momentum/walkforward.py`
+- [ ] Buy the data and reshape it — checklist in `futures-backtest/DATA.md`
+- [ ] `walkforward.py` on real bars, then `--compare` for roll sensitivity
+- [ ] Expect net Sharpe 0.4–0.7; if it prints much more, find the bug first
 - [ ] Correlation-aware IDM (the current one assumes equicorrelation)
 - [ ] Carry as a second signal on the same infrastructure
+- [ ] Paper trade before funding — the failure mode is abandoning the sleeve in
+      year three of chop, not a bad backtest
