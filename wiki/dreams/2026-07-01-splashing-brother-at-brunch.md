@@ -12,6 +12,10 @@ mood:
 sleep:
 recurring: false
 lucid: false
+agency: 3
+response:
+figures: [bart]
+motifs: [water, food, family]
 archetypes: [shadow, the-brother]
 symbols: [water, brunch, stone-wall, table, bar-counter, jumping]
 related:

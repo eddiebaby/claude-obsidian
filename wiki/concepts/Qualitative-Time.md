@@ -13,6 +13,7 @@ tags:
   - astrology
 status: developing
 aliases:
+  - "Qualitative Time"
   - "qualities of time"
   - "the quality of the moment"
 related:

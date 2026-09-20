@@ -12,6 +12,10 @@ mood:
 sleep: two-part (woke between dreams, cat)
 recurring: false
 lucid: false
+agency: 1
+response:
+figures: [jason-dunn, jesse-adler]
+motifs: [house, construction, anima, travel, mountain, architecture, water, bar, family, workplace-photo]
 archetypes: [Shadow, Anima, Mother]
 symbols: [earth/prima-materia, house, vinyl-records, glass-building, train, water]
 related:

@@ -13,6 +13,10 @@ sleep:
 recurring: false
 lucid: false
 # filled in during analysis:
+agency: 3
+response:
+figures: [jung]
+motifs: [job, authority, plant-tree]
 archetypes: []
 symbols: []
 related: []

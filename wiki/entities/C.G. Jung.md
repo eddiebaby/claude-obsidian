@@ -125,3 +125,9 @@ To Margaret Ostrowski-Sachs:
 > "Before my illness [in 1944] I had often asked myself if I were permitted to publish or even speak of my secret knowledge. I later set it all down in *Aion*. I realized it was my duty to communicate these thoughts, yet I doubted whether I was allowed to give expression to them. During my illness I received confirmation and I now knew that everything had meaning and that everything was perfect."
 
 *Aion* is the book Jung felt he had to write — not wanted to, but compelled to, as an obligation to history.
+
+---
+
+## I Ching Engagement
+
+One of Jung's longest-running practical involvements with a non-Western method (see [[I Ching Divination]], and [[zeng2023-i-ching-jungian-application|Zeng 2023]] for the historical study). Jung dated his I Ching studies to **1919**, deepened them through his 1920 friendship with translator [[Richard-Wilhelm|Richard Wilhelm]], and reflected on them most fully in his **1950 foreword** to the Wilhelm/Baynes English edition. Zeng organizes Jung's own use into three dimensions: **physical** (previewing outer potentials — the 1925 Africa consultation, hexagram 53), **psychological** (revealing one's own state — K'an, "the abyss," turning up with patients "too much under the sway of the unconscious"), and **psychical** (the oracle as an "animated being" whose "spiritual agencies… form the living soul of the book" — where Jung ties the practice to the etymology of [[religio]]). The I Ching is also a key empirical touchstone behind [[Synchronicity]]: an acausal method whose meaningful "hits" Jung read as coincidence of psychic state and outer sign, not causal prediction. Contrast [[Hu-Shih]], whom Jung used as the emblem of Chinese modernity discarding its own oracle.

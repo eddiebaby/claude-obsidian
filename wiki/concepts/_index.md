@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Concepts Index"
-updated: 2026-07-08
+updated: 2026-07-11
 tags:
   - meta
   - index
@@ -105,6 +105,9 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 - [[Coniunctio]] — the alchemical union of opposites (Sol/Luna, Rex/Regina); Mercurius as mediator; Dorn's three degrees culminating in the unus mundus; the lapis as symbol of the Self (status: mature)
 - [[Mercurius]] — the central alchemical figure; *principium individuationis* in matter; compensatory counterpart to Christ; uroboros, trickster, psychopomp, prima materia and lapis in one (status: mature)
 - [[Nigredo]] — first stage of the opus; blackening, putrefaction, shadow encounter; lowest = symbol of highest (status: mature)
+- [[Privatio-Boni]] — evil as mere absence of good (Augustine); Descartes's blind spot; Jung's Aion critique (status: mature)
+- [[Scintillae]] — alchemical "sparks"; plural luminosities of the unconscious vs. single central light (status: stable)
+- [[Larvatus-Prodeo]] — Descartes's motto "masked do I go forward"; mask/ghost double meaning (status: stable)
 - [[Filius-Macrocosmi]] — son of the macrocosm; circular return-to-earth movement contrasted with Christ; *Tabula smaragdina* (status: mature)
 - [[Ialdabaoth]] — Gnostic lion-headed demiurge = Saturn = Mercurius = child of chaos (status: mature)
 
@@ -173,6 +176,23 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 - [[CW8 Dream Methodology]] — compensation + its 3 modes, "taking up the context", the four-phase dramatic structure, dream-series & "big" dreams (status: developing)
 - [[CW8 Integration Framework]] — how CW 8 grounds the CW 5 symbols + von Franz craft; thematic symbol bundles; second-half-of-life shift (status: developing)
 
+**The Transcendent Function (CW8 mini-ingest 2026-07-11)**
+- [[Transcendent Function]] — Jung's 1916/1957 essay: the psyche's function that produces a living "third" from the held tension of a conscious position and its unconscious counter-position; theoretical foundation of active imagination (status: developing)
+- [[tertium non datur]] — Latin: "a third is not given"; the law of excluded middle Jung says the transcendent function *violates* — the third is a "living birth," not a logical stillbirth (status: developing)
+- [[audiatur et altera pars]] — Latin: "let the other side also be heard"; the fair-hearing attitude toward the unconscious that is the precondition for the transcendent function (status: developing)
+
+**Dream Theory & the Dreaming Brain (Vedfelt 2020)**
+- [[Ten Core Qualities of Dreams]] — Vedfelt's ten cross-validated traits of dreams (important, symbolize, personify, trial runs, online to unconscious intelligence, pattern recognition, high-level communication, condensed, wholeness, energy landscapes) (status: developing)
+- [[Cybernetic Dream Theory]] — the psyche as a self-optimizing complex information network; the frame that reconciles the warring dream schools; dreamwork as "cybernetic reorganization" (status: developing)
+- [[Fourfold Brain]] — Vedfelt's didactic map of the dreaming brain: instinctual (brainstem) / emotional (limbic) / imaginative (paralimbic + midline frontal) / cognitive (DLPFC); vmPFC "absolutely necessary for dreaming" (status: developing)
+- [[Supramodal Space]] — Vedfelt's term for multi-modal dreamwork attending equally to image, body-sensation, movement, emotion, and thought (status: developing)
+
+**I Ching Divination (Zeng 2023)**
+- [[I Ching Divination]] — Jung's three-dimension taxonomy of his own I Ching practice (physical/psychological/psychical), the Yi-ology background, and the contemporary Jungian clinical lineage (status: developing)
+- [[Eight Heart Methods of the I Ching]] — Ba Bao's Yuan-dynasty six-stage interpretive system, psychologized by Heyong Shen, applied clinically by Mengchao Li (status: developing)
+- [[religio]] — Latin: Jung's etymological grounding of the "psychical" dimension in careful observation of the numinous (status: developing)
+- [[relegere]] — Latin: "to go over again / read carefully"; the root Jung cites for *religio* (against the rival *religare* derivation) (status: developing)
+
 ---
 
 ## Quantitative Finance
@@ -186,6 +206,7 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 - [[Volatility Risk Premium Strategy]] — defined-risk premium harvesting; sizing is the strategy (status: seed)
 - [[Micro-Futures Trend Strategy]] — slow diversified trend on micros; crisis alpha (status: seed)
 - [[LLM Filings Alpha Strategy]] — EDGAR pipeline + LLM scoring of small-cap filings; the moat (status: seed)
+- [[Gamma Closing Reversal Strategy]] — fade the day's move 15:30→16:00 on high-GEX days; lone survivor of the intraday-momentum round, pending pre-2023 NQ validation (status: seed)
 
 **Strategy Classes**
 - [[Trend-Following]] — time-series momentum as a strategy class; the impact feedback-loop mechanism; why short-term variants died post-2009 on small-tick contracts (status: developing)
@@ -204,6 +225,15 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 - [[Deflated-Sharpe-Ratio]] — Sharpe corrected for selection bias under N trials, track length, skew/kurtosis (status: developing)
 - [[Backtest-Overfitting]] — winner's curse of multiple testing; expected max Sharpe under zero skill grows with N; defenses (status: developing)
 - [[Tick-Size-Microstructure]] — volatility-normalised tick size; sparse vs. dense order books condition strategy profitability (status: developing)
+
+**Backtesting Infrastructure**
+- [[Event-Driven-Backtesting]] — six-component event loop (Data→Strategy→Portfolio→Execution over an event queue); backtest/live parity; structural anti-lookahead (status: developing)
+- [[Execution-Realism]] — fill-model hierarchy: next-bar-open → intrabar worst-case → tick replay → queue position; per-instrument/session slippage (status: developing)
+- [[Continuous-Contract-Construction]] — splice vs Panama vs proportional; dual-series discipline (unadjusted P&L, adjusted signals); roll rules (status: developing)
+- [[Futures-Contract-Mechanics]] — ES/MES/NQ/MNQ reference: specs, margins, Globex/RTH sessions, rollover Thursday, round-turn costs (status: developing)
+- [[Information-Driven-Bars]] — tick/volume/dollar/imbalance sampling; dollar bars ≈ ADV/50 → ~50 bars/day (status: developing)
+- [[Walk-Forward-Analysis]] — Pardo's rolling re-optimization; one honest path; floor of the validation stack (status: developing)
+- [[Combinatorial-Purged-Cross-Validation]] — de Prado 2018: purge + embargo + combinatorial paths (e.g., 10/8 → 36 paths); lower PBO than WFA/k-fold (status: developing)
 
 **Agentic Trading Systems**
 - [[Loop-Engineering]] — designing the system that prompts the agent; the highest-leverage move for a solo quant operator (status: mature)

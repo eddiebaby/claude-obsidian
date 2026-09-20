@@ -13,6 +13,10 @@ sleep:
 recurring: false
 lucid: false
 # filled in during analysis:
+agency: 4
+response:
+figures: [farm-woman]
+motifs: [job, food, animal]
 archetypes: [positive-feminine-authority, the-provider]
 symbols: [farm, local-hawaii, eggs, dozen-eggs, ostrich-egg, varied-sizes, delivery-job, job-offer, keys, key-ring, signing-up, hiring-woman]
 related:

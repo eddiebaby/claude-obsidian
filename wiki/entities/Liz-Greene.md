@@ -1,6 +1,7 @@
 ---
 type: entity
 title: "Liz Greene"
+aliases: ["Liz Greene"]
 created: 2026-07-09
 updated: 2026-07-09
 domain: depth-psychology

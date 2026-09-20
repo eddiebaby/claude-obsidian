@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Operation Log"
-updated: 2026-07-11
+updated: 2026-09-16
 tags:
   - meta
   - log
@@ -14,6 +14,87 @@ related:
 ---
 
 # Operation Log
+
+## 2026-09-18 | backtest round | intraday momentum + gamma conditioning
+- Code: `trading/propfirm/gao_momentum.py`, `gamma_momentum.py`, `pull_databento.py`; results appended to `trading/scalppulse/README.md`
+- Killed: Gao-Han-Li-Zhou early-return → last-30-min momentum (SPY 3 yrs −1.4 bps/trade); Baltussen low-gamma momentum (SPY −3.1, QQQ −3.3 bps)
+- Survivor (weak): [[Gamma Closing Reversal Strategy]], QQQ +1.8 bps, positive every year 2023-26, t 1.65; gated on pre-2023 NQ from Databento
+- Income-domain work (quantitative-finance)
+
+## 2026-09-18 | dream log + analysis | Snow Film / Blue Paint
+- Logged + analyzed: [[2026-09-18-snow-film-blue-paint]] (status: analyzed; associations for Chris Bata, Kalei, the coworkers' job, Niky's client pending)
+- Read as the paired answer to [[2026-09-17-auditorium-assistant-job-declined]]: costume-exit among work figures → stripped, painted, uncontained entry among work figures; "I wasn't able to" → "in disobedience I run"
+- Threads: 3 (snow → ocean, thaw by descent after 09-16's frozen slab), 2 (libido returns as the organ, not the gun), 6/8 (first direct transgression), 4 (Niky first in commerce and in the water)
+- Row added to [[dream-threads]] second-arc table
+
+## 2026-09-16 | ingest completion | von Franz *Dreams* — full read completed (Descartes chapter + Glossary)
+- Source: `.raw/Dreams (Marie-Luise von Franz) (z-library.sk, 1lib.sk, z-lib.sk).pdf` — completing a 2026-06-24 partial ingest
+- Summary: [[vonfranz-dreams-1998]] (status updated: partial extraction → full extraction, 220/220 pages read)
+- Read pp. 121-197: rest of "The Dream of Descartes" chapter (dream-by-dream symbolic analysis of all three 1619 dreams), chapter endnotes, and the full Glossary appendix
+- Pages created: [[Privatio-Boni]], [[Scintillae]], [[Larvatus-Prodeo]]
+- Pages updated: [[Rene-Descartes]] (major expansion — full three-dream analysis: melon/mandala/I-Ching, Mr. N. as shadow, scintillae, trickster + portraits, privatio boni, Freud's rival reading), [[Lumen-Naturae]] (cross-ref to Descartes's rationalist narrowing of the term)
+- Key insight: Descartes's *lumen naturale* (single, rational, tame) is the conscious domestication of what appeared in his own dreams as plural, autonomous scintillae — the rationalist project's founding dream literally shows the thing it will go on to deny (multiplicity, feeling, the shadow-figure Mr. N.) before it denies it.
+
+## 2026-09-16 | dream analysis | Both 09-16 dreams analyzed — the Edinger anchor found and cited
+- Analyzed: [[2026-09-16-met-basement-frozen-slab]] + [[2026-09-16-tshirt-stall-mosquito-larvae]] (status → analyzed; frontmatter archetypes/symbols/related filled)
+- **Scott's waking association confirmed and pinned**: the slab scene is a structural twin of *Ego and Archetype* Ch. 8, **Dream 2** of the dying patient's thirteen (pp. 202–204) — the woman half-fused to living rock, freed when the fires are *contained*; patient's association = Michelangelo's "Awakening Giant" (Picture 40); Edinger amplifies via Mithra/petra genetrix, Sophia-from-Physis, Zosimos' extractio animae. Searched the actual PDF in `.raw/` to verify (temp copy via PDF toolkit dir, removed after)
+- The chiasmus is the reading: Edinger's dreamer had fire in excess (quench to free the soul); this series has fire deferred ([[longitudinal-study]]'s calcinatio finding) — the frozen figure needs warmth and the director substitutes chisel-notches at the slab's **end**: accession marks, capture-without-fire, the wiki drawn from life. Gift shop = the claim/ownership ceiling in shopping-bag form (goods held in his name at the exit, incl. the literal errand)
+- Second dream read as the night's corrective panel: seventh water state (stagnant-and-breeding), and the **couple-moves-together marker met** (series first — joint decisive act with Niky, cost-free, correct exit)
+- Updated: [[dream-threads]] (two at-a-glance rows, 09-16 developments block, watch list: fourth face of the converging question = the frozen figure warmed; new Aleksandra + gift-shop-claim items), this log, [[hot]]
+- Spelling per Scott mid-session: **Aleksandra** (Russian), corrected across capture entry and pages
+
+## 2026-09-16 | dream capture | Two dreams logged — Met basement / frozen slab; t-shirt stall / mosquito larvae
+- Created: [[2026-09-16-met-basement-frozen-slab]] + [[2026-09-16-tshirt-stall-mosquito-larvae]] (wiki/dreams/, status: unanalyzed — raw capture, analysis pending)
+- Notables at capture: first appearance of ex-girlfriend **Aleksandra** (Russian) in the series; Scott's own on-waking association for the slab scene ("very similar to a dream and ego and archetype" — Edinger reference to pin down at analysis); the lube is a real pending errand (day residue recorded); Niky co-acts in the second dream (joint decisive action: knock over the larvae water, leave)
+- First wiki-native dream capture since 09-12 (4-night gap — capture-cadence watch item from [[longitudinal-study]])
+- Updated: this log, [[hot]]
+
+## 2026-09-15 | synthesis | Longitudinal Study I filed — the 44-dream series as one process
+- Created: [[longitudinal-study]] (wiki/dreams/, type: synthesis) — 2026-06-25 → 09-12 read longitudinally: corpus/cadence stats, **five phases** (Blocked Inventory → Breakthrough Week → Commissioning → Administrative Self / Maintenance Crisis → Reckoning and the Door), per-dream **SDA agency scoring 1–5** (phase means 2.1 → 3.0 → 3.3 → 2.7 → 3.0; single 5 at 07-14), seven developmental lines (gun→language→calcinatio; anima→partnership→split pair; authority→instinct; vessel→graded aggregate; the Self gone administrative; the rising ancestral line; the substance-gate walked back through), 7 findings, 6 consolidated assignments
+- Headline findings: the agency ceiling is now **claim/ownership** (competence-without-claim plateau); the two slow axes are father-appeasement and acquisition; the central unresolved operation is **calcinatio** (intake accelerating, fire deferred — active imagination is the missing fire, pending since 06-27); the split feminine at the glass door is the closing tension the series is set up to resolve by *admission*
+- Also serves as the individuation-app **timeline feature prototype**: the scoring rubric + frontmatter-derived stats are the feature spec; extend the study per ~10 new dreams
+- Updated: [[dream-threads]] (header pointer), dreams [[dreams-index|_index]], this log, [[hot]]
+- Flag: [[2026-07-04-jung-institute-logistics]] exists in wiki/dreams but was never integrated into the threads table — classify or prune at next dream session
+
+## 2026-09-15 | reinterpretation | All 27 backlog dreams re-analyzed with the vault engine method
+- Trigger: Scott asked for reinterpretation "with this engine." The dream-app pipeline itself is blocked (Anthropic API key at $0 credit — `dreamapp interpret` fails at the extract stage), so the analyses were re-derived in-session following the engine's own method: per-dream BM25 retrieval over the vault corpus (`scripts/retrieve.py`), engine writeback schema (dramatic structure / amplification / archetypal figures / compensation + objective & subjective levels / movement / open questions / **sources**), full 44-dream series context
+- Every page now carries: the fresh **Jungian Analysis** (canonical, corpus-cited) + the app's original reading demoted to a **First Reading — Claude App Dreams Project (ported)** section below it. Verified 27/27
+- Retrieval surfaced corpus anchors the app never had: [[Hesperides]] (the guarded-garden dream is its myth verbatim), [[Leviathan]] (raw fish as the eschatological meal), [[Lumen-Naturae]] (the ceiling stars as scintillae), [[Mercurius]] (roots of the oak, cut in the studio), [[Flood]], [[Mountain]], [[Dog]]/[[Cerberus]], [[Bacchus]], [[Mandala Symbolism]], [[King]], plus the `wiki/jung/symbols/` lexicon throughout
+- Series-level re-readings the fresh pass adds over the app's: the three-dream maintenance-energy argument (roots cut 08-16 → aperture found 08-17 → circle scraped 08-21); the acquisition/storage twin-error night (07-28); the crystal-skull → xanax-bar two-act substance examination (08-27 → 09-08) with the graded-aggregate doctrine as the arc's thesis; 08-23's in-dream objection as the first caught appeasement (vs. 07-22's uncaught one); 09-12 as the arc's converging final image (ego inside, holding the door, instinct herding the split feminine home — with the real Plott hound as outer counterpart)
+- Ops: `scripts/retrieve.py` crashes on cp1252 consoles (UnicodeEncodeError printing snippets) — worked around with PYTHONIOENCODING=utf-8, fix task spawned. Engine re-run note: `dreamapp interpret --force` on these pages would REPLACE everything from the `## Jungian Analysis` heading to EOF, wiping both readings — top up API credits and use a fresh capture file instead, or re-prep pages first
+
+## 2026-09-15 | dream backlog | 27 dreams from the Claude app Dreams project (2026-07-14 → 09-12)
+- Source: claude.ai data export (conversations-000.zip + projects-000.zip via the export manifest; downloaded through the browser after curl hit the Cloudflare check). The gap: dream logging moved to the Claude **app**'s Dreams project (a chat project with a Depth-Analyst prompt + 13 Jung/von Franz/Neumann reference docs) after 07-13, so the wiki series went stale for two months
+- **Pages created (27, wiki/dreams/, address-less per series convention):** [[2026-07-14-hotel-third-man-expelled]], [[2026-07-15-bullet-holes-in-the-mountain-house]], [[2026-07-17-bachelor-party-jewelry]], [[2026-07-18-banyan-tree-and-mulch]], [[2026-07-19-brooklyn-exes-decline]], [[2026-07-20-stars-meetup-monkey-toes]], [[2026-07-21-nyc-blue-mosaic-building]], [[2026-07-22-classroom-whiteboard-president]], [[2026-07-23-flood-boat-steam-trains]], [[2026-07-26-photo-shots-withheld]], [[2026-07-28-brother-in-india-olives-rocks]], [[2026-07-28-wyoming-storage-two-women]], [[2026-07-29-storm-monique-coffee]], [[2026-07-30-guarded-garden-cuttings]], [[2026-07-31-summit-anima-descent]], [[2026-08-03-burning-man-tag-12]], [[2026-08-16-tree-roots-in-the-studio]], [[2026-08-17-canyon-road-below]], [[2026-08-21-damaged-circle-road-crew]], [[2026-08-23-phantom-ranch-clock-tower]], [[2026-08-24-long-wall-helpers-eye]], [[2026-08-27-crystal-skull-drugs]], [[2026-08-29-portugal-broken-wall-dome]], [[2026-08-31-number-1884]], [[2026-09-08-mall-bar-xanax-aggregate]], [[2026-09-09-raw-fish-two-tables]], [[2026-09-12-dog-creature-glass-door]]
+- Dedupes: the app's 07-14 "farm eggs / mountain house" chat is a retelling of the two dreams already filed 07-11 (skipped); the hotel dream was logged twice in the app (07-14 + 07-15) — merged into one page with both readings
+- Updated: [[dream-threads]] (new **Second Arc** section: at-a-glance table, thread developments, second-arc watch list), dreams [[dreams-index|_index]], this log, [[hot]]
+- Analyses are **ported** from the app's Depth-Analyst sessions (condensed, not re-derived); dream dates converted UTC→HST, so entries logged in the evening date to the HST day (e.g. the tree-roots dream files as 08-16, not 08-17)
+- Thread-level headlines: the gun completes its arc into *language* (07-31); Thread 7's constant breaks at 09-08 (substance consumed in-dream for the first time — Xanax, the actual addiction history — answered by the graded-aggregate foundation image); the anima climbs under her own power (07-31); authority shifts from citation to claim check (08-03); the ego's arc-characteristic stance is *competence without claim* (helper/guide/schematic-holder who leaves the site)
+- Capture-cadence finding: nightly logging through July thinned to every 2–4 nights from mid-August — Stage 0 (capture) of the individuation-app design is the weak link in the loop
+- Process note: raw conversation dumps parked in scratchpad. **Pending:** paste the proposed output-block instruction into the app's Dreams project so future dreams land in `.raw/dreams-inbox/` for normal ingest instead of requiring another data export
+
+## 2026-07-13 | ingest | Compass artifact: Backtesting Engine Architectural Blueprint
+- Source: `.raw/compass_artifact_wf-0d470ad4-cc82-5088-8816-95ca1e65ede3_text_markdown.md`
+- Summary: [[compass2026-backtesting-engine-blueprint]] (c-000137)
+- **Pages created (14, addresses c-000137–c-000150):**
+  - Concepts (7): [[Event-Driven-Backtesting]] (c-000144), [[Continuous-Contract-Construction]] (c-000145), [[Walk-Forward-Analysis]] (c-000146), [[Combinatorial-Purged-Cross-Validation]] (c-000147), [[Information-Driven-Bars]] (c-000148), [[Execution-Realism]] (c-000149), [[Futures-Contract-Mechanics]] (c-000150)
+  - Entities (6): [[NautilusTrader]] (c-000138), [[Databento]] (c-000139), [[QuantStart]] (c-000140), [[LEAN-QuantConnect]] (c-000141), [[vectorbt]] (c-000142), [[HftBacktest]] (c-000143)
+- Pages updated: [[Marcos Lopez de Prado]] (AFML ch.2 info-driven bars + CPCV attribution), concepts/entities/sources sub-indexes, index.md (481→495 pages, 66→67 sources), hot, this log
+- Key insight: the blueprint formalizes what the 2026-07-12 scalppulse empirical sessions and [[mesfin2026-mnq-intraday-falsification]] both found — costs and honest fills matter more than any indicator; it is the graduation path for `trading/scalppulse/` (Schwab 5m rig) toward a real event-driven engine. No Latin phrases in source.
+- Ops note: `flock` unavailable in Git Bash → address allocator run manually (counter 137→151 via bash, single-writer session); wiki-lock.sh worked normally throughout.
+
+## 2026-07-11 | ingest | Three papers: Vedfelt 2020 (dream theory) + Zeng 2023 (I Ching) + CW8 Transcendent Function mini-ingest
+- Sources: `.raw/vedfelt2020-integration-vs-conflict-dream-theory.pdf` (JOAP 65/1, open access), `.raw/JOAP-68-5-Zeng-I-Ching-Jungian-Application.pdf` (the paper deferred from session 34's batch), CW8 §"The Transcendent Function" ¶131-193 from `.raw/vol-8-the-structure-and-dynamics-of-the-psyche.pdf`
+- Summaries: [[vedfelt2020-integration-vs-conflict-dream-theory]] (c-000123), [[zeng2023-i-ching-jungian-application]] (c-000118); the Transcendent Function had no new source page (belongs to the existing [[jung-cw8-structure-dynamics-psyche]])
+- **Pages created (19, addresses c-000118–c-000136):**
+  - **Vedfelt (6):** source (c-000123); entity [[Ole Vedfelt]] (c-000124); concepts [[Ten Core Qualities of Dreams]] (c-000125), [[Cybernetic Dream Theory]] (c-000126), [[Fourfold Brain]] (c-000127), [[Supramodal Space]] (c-000128)
+  - **Transcendent Function (3):** [[Transcendent Function]] (c-000129), Latin [[tertium non datur]] (c-000130), Latin [[audiatur et altera pars]] (c-000131) — closes the 16+-page dangling-link gap flagged in session 34
+  - **Zeng I Ching (10):** source (c-000118); concepts [[I Ching Divination]] (c-000119), [[Eight Heart Methods of the I Ching]] (c-000120); Latin [[religio]] (c-000121), [[relegere]] (c-000122); entities [[Richard-Wilhelm]] (c-000132), [[Hu-Shih]] (c-000133), [[Jean-Kirsch]] (c-000134), [[Mengchao-Li]] (c-000135), [[Dennis-Merritt]] (c-000136)
+- Pages updated: [[Synchronicity]] (I Ching as Synchronicity-II practice), [[C.G. Jung]] (new I Ching Engagement section), [[Jingchao Zeng]] (2023 solo paper added — same author as the 2026 Fraikin co-authorship), [[Active Imagination]] (transcendent-function backlink), plus the three sub-indexes, index.md (462→481 pages, 64→66 sources), and this log/hot
+- **Latin-phrase rule honoured:** [[religio]], [[relegere]] (Zeng), [[tertium non datur]], [[audiatur et altera pars]] (CW8) all got full concept pages, not stubs. Vedfelt's paper contained no Latin phrases (its technical vocabulary is cybernetics/neuroscience — autopoiesis, equifinality, bisociation — none rule-triggering)
+- **Orchestration note — two agents stalled mid-task; orchestrator completed and reconciled.** Ran the Zeng and Transcendent-Function ingests as two parallel `wiki-ingest` agents, partitioned so only the Zeng agent could touch shared files (indexes/log/hot/counter/manifest) to avoid session 34's multi-writer race. Both agents hit their turn budget before finishing: the Zeng agent stopped at "Now the entity pages" (had written source + 2 concepts + 2 Latin with addresses c-000118–122 but **never created any of its 5 entity pages, never advanced the counter past 118, and never did index/log/hot/manifest** — though its source page already *claimed* [[Jingchao Zeng]]/[[C.G. Jung]] were updated); the TF agent stopped at "Now the two Latin phrase pages" (had written the concept page + [[tertium non datur]] but not [[audiatur et altera pars]], and left its pages address-less per instruction). Orchestrator wrote the 5 missing Zeng entities + the missing Latin page, backfilled all 8 address-less pages, actually performed the two entity updates the Zeng source page had pre-claimed, and did the full serialized bookkeeping pass. The partition worked as designed — no index clobbering this time; the failure mode was truncation, not races. Vedfelt was ingested by the orchestrator in the foreground (content pages created while agents ran; bookkeeping deferred to this single pass)
+- Addresses: counter was stuck at 118 (Zeng agent allocated 118-122 in page frontmatter but never wrote back the counter); orchestrator allocated 123-136 for the 14 remaining pages and set counter to **137**. Verified 118-136 all unique, no gaps
+- **Cross-source connection**: [[Cybernetic Dream Theory|Vedfelt]] and [[Structural Dream Analysis|Roesler]] are now the vault's two empirical/integrative dream-research programs — Vedfelt integrates the schools under a cybernetic-network model, Roesler tests Jungian dream claims via dream-ego agency; both sit against the [[li2026-llm-psychology-measurement-survey|LLM-psychometrics validity map]] for the individuation app's dream features
 
 ## 2026-07-11 | dream | Same-night triple: Anima in the Ex's House / Farm, Eggs, and Keys / Mountain House, Cat in Snow
 - Created: [[2026-07-11-anima-in-exes-house]], [[2026-07-11-farm-eggs-and-keys]], [[2026-07-11-mountain-house-cat-snow]] (wiki/dreams/; no addresses — dream pages are address-less per series convention). First same-night **triple** in the series (16 dreams total); read as one statement: union in the old house → employment signed at the farm → move-in to the new house

@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Sources Index"
-updated: 2026-07-08
+updated: 2026-07-11
 tags:
   - meta
   - index
@@ -40,6 +40,8 @@ All source pages — summaries of ingested documents, transcripts, articles, and
 - [[roesler2026-jung-dream-theory-empirical-research]] — 2026-07-08 | Christian Roesler; Journal of Analytical Psychology | Full 6-pattern Structural Dream Analysis typology + H1-H3 empirically confirmed across 150 case reports; updates [[Structural Dream Analysis]] and [[Christian-Roesler]] | 1 source + 1 entity, 2 pages updated
 - [[qwarnstrom2026-onesidedness-coriolanus-timon]] — 2026-07-08 | Sofie Qwarnström; Journal of Analytical Psychology | Coriolanus and Timon of Athens as mirror-image case studies in typological one-sidedness; enantiodromia as tragic mechanism | 1 source + 2 concepts + 1 entity, 3 pages updated
 - [[yago2026-hour-that-never-comes-time-that-remains]] — 2026-07-08 | Daniel Françoli Yago; Journal of Analytical Psychology (Wiley) | The Hour That Never Comes (suspended desire, trauma without an event) and The Time That Remains (post-collapse survival time); Orphic Listening as clinical stance | 1 source + 3 concepts + 5 entities
+- [[vedfelt2020-integration-vs-conflict-dream-theory]] — 2020 (ingested 2026-07-11) | Ole Vedfelt; Journal of Analytical Psychology 65/1 (open access) | Integrates the warring dream schools + neuroscience under a cybernetic model of the psyche; ten cross-validated core qualities of dreams mapped onto a "fourfold brain" (instinctual/emotional/imaginative/cognitive) | 1 source + 1 entity + 4 concepts
+- [[zeng2023-i-ching-jungian-application]] — 2023 (ingested 2026-07-11) | Jingchao Zeng; Journal of Analytical Psychology 68/5 | Historical/critical study of Jung's decades of I Ching practice in three dimensions (physical/psychological/psychical) + assessment of three contemporary Jungian clinicians and their cross-cultural conflations | 1 source + 2 concepts + 2 Latin + 5 entities, updates [[Synchronicity]]/[[C.G. Jung]]/[[Jingchao Zeng]]
 
 ---
 
@@ -52,6 +54,7 @@ All source pages — summaries of ingested documents, transcripts, articles, and
 
 ## Papers
 
+- [[compass2026-backtesting-engine-blueprint]] — 2026-07-13 | Claude deep-research (compass artifact) | Architectural blueprint for a pro-grade Python backtesting engine (stocks + CME futures): one event-driven core, dual-series futures discipline, Databento/Parquet/DuckDB data layer, WFA+CPCV+DSR validation | 1 source + 7 concepts + 6 entities
 - [[kurth2026-trend-following-demise]] — 2026-07-02 | Kurth, Eisler, Rej, Bouchaud (CFM); arXiv 2607.01550 | Post-2009 death of fast trend on small-tick futures; volatility-normalised tick size as the separating variable; HFT liquidity-withdrawal mechanism | 1 source + 2 concepts + 2 entities
 - [[pollok2026-end-to-end-portfolio-policies]] — 2026-07-02 | Pollok & Robik; arXiv 2607.00475 | End-to-end AI policies vs simple rules on 16 CME futures; transformer's low turnover wins net; ties equal-weight statistically | 1 source + 1 concept
 - [[miao-polak-online-ensemble-sector-rotation]] — 2026-07-02 | Miao & Polak; arXiv 2304.09947 | Gradient-free online 16-model ensemble for 50-sector rotation; top-5 Sharpe 0.657, survives 5-15bps; COVID-robust | 1 source + 2 concepts

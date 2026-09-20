@@ -12,6 +12,10 @@ mood:
 sleep: multi-part (three dreams across the night, last one early morning)
 recurring: false
 lucid: false
+agency: 2
+response:
+figures: [ian, dtg, niky, angela]
+motifs: [mountain, snow-ice, substances, water, ex, job]
 archetypes: []
 symbols: []
 related:

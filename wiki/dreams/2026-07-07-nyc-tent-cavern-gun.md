@@ -13,6 +13,10 @@ sleep:
 recurring: false
 lucid: false
 # filled in during analysis:
+agency: 2
+response:
+figures: [unknown-woman]
+motifs: [new-york, anima, workplace-photo, gun, sex, underground, architecture]
 archetypes: [anima, senex, persona, shadow-libido]
 symbols: [tent, elevated-head, collected-works, cavern, milk, gun, clipboards, workstations, night, real-estate, online-meeting]
 related:

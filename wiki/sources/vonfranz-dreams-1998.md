@@ -9,7 +9,7 @@ original_year: 1985
 pages: 220
 status: complete
 created: 2026-06-24
-updated: 2026-06-24
+updated: 2026-09-16
 tags:
   - dream-analysis
   - jungian-psychology
@@ -44,7 +44,7 @@ Published in German 1985, English translation 1998 by Shambhala Publications. Fi
 - The Dream of Descartes (pp. 107-192): Three dreams from 1619 Ulm experience, mathematical enlightenment, alchemical imagery
 
 **Appendix**
-- Glossary (pp. 193+): Jungian terminology explained for non-specialists
+- Glossary (pp. 193-197): Jungian terminology explained for non-specialists (alchemy, anima/animus, archetypes, individuation, mandala, privatio boni, scintillae-adjacent terms, self, shadow, synchronicity, etc.)
 
 ## Key Arguments
 
@@ -83,6 +83,12 @@ Published in German 1985, English translation 1998 by Shambhala Publications. Fi
 
 **Mandala symbolism**: Circular symbols indicating wholeness, psychic integration, the Self
 
+**[[Privatio-Boni]]**: The doctrine (Augustine, via Descartes) that evil has no substance of its own, merely an absence of good — von Franz's central critique of Cartesian rationalism's blind spot toward the reality of evil
+
+**[[Scintillae]]**: The alchemical "sparks" or *oculi piscium* — plural, pre-unified luminosities of the unconscious, distinct from the single central light ([[Lumen-Naturae]]); the key to Descartes's second dream
+
+**[[Larvatus-Prodeo]]**: Descartes's own motto, "masked do I go forward" — von Franz's key to his lifelong self-concealment
+
 ## Historical Figures Analyzed
 
 - **Socrates** (470-399 BCE): Dream of white woman as anima, compensating for over-rationality
@@ -111,9 +117,10 @@ Published in German 1985, English translation 1998 by Shambhala Publications. Fi
 
 ## Research Notes
 
-- Directly read pp. 3-134 (general principles, Socrates chapter, Saints Bernard/Dominic chapter, Descartes introduction)
+- Directly read pp. 3-134 (2026-06-24: general principles, Socrates chapter, Saints Bernard/Dominic chapter, Descartes introduction) and pp. 121-197 (2026-09-16: completing the Descartes chapter's dream-by-dream analysis of all three 1619 dreams, the endnotes, and the full Glossary appendix)
 - Established source identity, TOC, foreword context
-- Full 220-page PDF scanned and available
-- Complete text exists; no gaps in coverage
+- Full 220-page PDF read cover to cover across two sessions; pp. 198-220 are Jung Foundation back-matter and blank pages, no further content
+- [[Rene-Descartes]] entity page expanded with full three-dream symbolic analysis (melon, mandala, Mr. N. as shadow-figure, scintillae/sparks, trickster, multiplication of the personality, privatio boni, Freud's rival interpretation)
+- New concept pages filed: [[Privatio-Boni]], [[Scintillae]], [[Larvatus-Prodeo]]
 
-Status: Complete source, partial extraction (substantive chapters sampled, not exhaustive coverage)
+Status: Complete source, full extraction (entire book read; every chapter and the glossary directly processed)

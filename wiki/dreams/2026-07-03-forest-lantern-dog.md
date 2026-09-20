@@ -1,17 +1,18 @@
 ---
 name: 2026-07-03-forest-lantern-dog
-type: dream
+type: dream-test
 title: "2026-07-03 — Forest Lantern Dog"
 date: 2026-07-03
 created: 2026-07-03
 updated: 2026-07-03
 tags:
   - dream
-status: analyzed
+status: test-data
 mood:
 sleep:
 recurring: false
 lucid: false
+response:
 archetypes: [mother, shadow]
 symbols: [flickering-lantern, large-black-dog, decision-moment, dark-forest, grandmother-s-voice, old-stone-well, water-filling-well]
 related:

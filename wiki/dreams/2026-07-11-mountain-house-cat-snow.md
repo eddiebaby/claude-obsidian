@@ -13,6 +13,10 @@ sleep:
 recurring: false
 lucid: false
 # filled in during analysis:
+agency: 2
+response:
+figures: [cat]
+motifs: [mountain, house, snow-ice, animal]
 archetypes: [animal-soul, spirit, syzygy]
 symbols: [mountain-house, deep-woods, moving-in, cat, snow, first-snow, bird, bird-on-cats-head, thermostat, overheating, roommates, pajamas, business-suit, traffic, undressing]
 related:

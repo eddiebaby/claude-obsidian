@@ -12,6 +12,10 @@ mood: bewilderment
 sleep:
 recurring: false
 lucid: false
+agency: 2
+response:
+figures: [marissa]
+motifs: [classroom, snow-ice, mountain, plant-tree, police-law, car, substances]
 archetypes: [shadow, trickster, corrupt-senex, child]
 symbols: [classroom, graduation, snow, mountain-landscape, giant-trees, fallen-tree, exposed-roots, ice, frozen-pond, sliding, trespassing, magazines, stickers, zip-code, storyteller, cop-criminal, cigarettes]
 related:

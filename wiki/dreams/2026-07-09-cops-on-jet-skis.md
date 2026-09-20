@@ -13,6 +13,10 @@ sleep:
 recurring: false
 lucid: false
 # filled in during analysis:
+agency: 3
+response:
+figures: [niky, cat]
+motifs: [police-law, water, chase, leaving]
 archetypes: [anima, negative-authority]
 symbols: [beach, seascape, dunes, cops, jet-skis, girlfriend, babe-call, flight, cat-snoring]
 related:

@@ -2,7 +2,7 @@
 type: concept
 title: "Equity Upside Book — 2026 H2 (SPX + R2000 + Nasdaq)"
 created: 2026-07-08
-updated: 2026-07-08
+updated: 2026-07-29
 domain: quantitative-finance
 address: c-000029
 complexity: intermediate
@@ -36,8 +36,8 @@ Broad candidate layer (20 tickers per universe, tiered A/B/C): [[Upside-Screen-2
 - R2000 +21% YTD — best start since 1991. Small-cap FY26 EPS growth consensus rose 23% → 38%. Bank M&A at 7-year high ($15.1B H1); biotech M&A $106B by June (strongest since 2019).
 - Key R2000 risk: interest expense = 31% of EBITDA (6-yr high). Favor low-leverage names; the floating-rate trap is real if cuts stall.
 
-> [!contradiction] Fed pivot vs the small-cap tailwind (added same day)
-> Later same-day research (Nasdaq sweep): on **2026-06-17 the Fed held at 3.50-3.75% but signalled a likely 2026 HIKE** — the earlier "cuts fading" framing understates it. This directly weakens the R2000 rate-tailwind leg: at 31% interest/EBITDA, a hike is a book-level threat to the small-cap sleeve. Response: R2000 picks must be M&A/idiosyncratic-catalyst driven (SPRY formulary, SFNC takeout, OMCL bookings), never rate-beta. Watch July FOMC.
+> [!contradiction] Fed pivot vs the small-cap tailwind (updated 2026-07-29)
+> Original callout: on **2026-06-17 the Fed held at 3.50-3.75% but signalled a likely 2026 HIKE** (first meeting under new Chair Kevin Warsh — dot plot flipped, 9 of 18 participants projecting a 2026 hike, easing bias stripped from the statement). **July 29 FOMC: held again at 3.50-3.75% (5th straight hold), but 3 of 12 voters (Hammack, Kashkari, Logan) dissented FOR a 25bp hike** — statement language essentially unchanged, no new SEP/dot plot at this meeting, Warsh's tone read as "hawkish-hold" but not an escalation beyond June's signal. **Verdict: signal held steady, did not escalate further** — the 2026-hike threat from June is confirmed live (3 hawkish dissents is unusually high) but not intensified today. Book-level threat to the R2000 sleeve stands unchanged: at 31% interest/EBITDA, BofA estimates every 25bp hike costs ~2% R2000 operating earnings. Market reaction was not read-through-negative for small caps: Dow -1,100pts (-2.2%), SPX -1.5%, Nasdaq -1.7% on the broad hawkish reaction, but **IWM/R2000 was flat/slightly green (+0.08%)** — relative resilience vs large caps, not confirmation the rate threat is defused. Standing response unchanged: R2000 picks must stay M&A/idiosyncratic-catalyst driven (SFNC takeout, OMCL bookings, biotech basket), never rate-beta. **Flag all four R2000 names (OMCL, SFNC, XENE, FRPT) for re-review at the next weekly sweep** given the elevated dissent count.
 
 ## Core insight
 

@@ -13,6 +13,10 @@ sleep:
 recurring: false
 lucid: false
 # filled in during analysis:
+agency: 4
+response:
+figures: [sharon, lynn]
+motifs: [job, authority, police-law, food]
 archetypes: [persona, negative-authority]
 symbols: [fast-food-restaurant, old-boss, food-bag, locker-contents, inverter-charger, promotion-to-customer, appeal, tape-measure, cops, rake, parking-lot, evening-sky]
 related:

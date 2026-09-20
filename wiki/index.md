@@ -24,7 +24,7 @@ related:
 
 # Wiki Index
 
-Last updated: 2026-07-11 | Total pages: 462 | Sources ingested: 64 | Dream Symbols: 86 (CW5: 22, CW12: 64)
+Last updated: 2026-07-13 | Total pages: 495 | Sources ingested: 67 | Dream Symbols: 86 (CW5: 22, CW12: 64)
 
 Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[getting-started]]
 
@@ -117,6 +117,9 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[Sophia-Achamoth]] — Gnostic myth of Sophia's fall and suffering; anima-loss in masculine-identified consciousness (status: mature)
 - [[Rose Symbolism]] — rose-coloured blood, Mechthild of Magdeburg, rose as mandala, *per crucem ad rosam* (status: mature)
 - [[Nigredo]] — first stage of the opus; blackness, putrefaction, black crow; lowest = symbol of highest; psychological Shadow encounter; "O that the Three would make the One!" (status: stable)
+- [[Privatio-Boni]] — Augustinian doctrine that evil has no substance, only absence of good; Descartes's blind spot; Jung's Aion critique: the Shadow is real, not privative (status: mature)
+- [[Scintillae]] — alchemical "sparks"/*oculi piscium*; plural, pre-unified luminosities of the unconscious vs. the single central light of [[Lumen-Naturae]]; Descartes's second dream (status: stable)
+- [[Larvatus-Prodeo]] — Descartes's motto "masked do I go forward"; *larva* = mask/ghost; von Franz's key to his lifelong self-concealment (status: stable)
 - [[Ialdabaoth]] — Gnostic lion-headed demiurge = Saturn = child of chaos = Mercurius; holds Anthropos imprisoned in matter; psychological: dark Self before differentiation (status: stable)
 - [[Filius-Macrocosmi]] — son of the macrocosm; Mercurius's circular return-to-earth vs. Christ's one-way descent; *circulus simplex*; power complete when he returns to earth (status: stable)
 - [[Melusina]] — the water fairy = anima + aqua permanens; Dorn: *apparentem in mente visionem* (vision in the mind); the kingly substance calling from the unconscious sea (status: developing)
@@ -187,6 +190,15 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[Regime-Trust-Gating]] — trade/abstain gates; uncertainty as tail guard, not sizing input (status: developing)
 - [[Deflated-Sharpe-Ratio]] / [[Backtest-Overfitting]] — evaluation discipline before believing any backtest (status: developing)
 - [[Tick-Size-Microstructure]] — order-book density as a strategy-viability screen (status: developing)
+
+**Backtesting Infrastructure (compass 2026 blueprint)**
+- [[Event-Driven-Backtesting]] — six-component event loop; backtest/live parity; structural anti-lookahead (status: developing)
+- [[Execution-Realism]] — fill-model hierarchy from next-bar-open to queue position; per-session slippage; "where backtests most often lie" (status: developing)
+- [[Continuous-Contract-Construction]] — Panama/proportional roll adjustment; dual-series discipline: unadjusted for P&L, adjusted for signals (status: developing)
+- [[Futures-Contract-Mechanics]] — ES/MES/NQ/MNQ specs, margins, Globex sessions, quarterly rolls, per-contract costs (status: developing)
+- [[Information-Driven-Bars]] — tick/volume/dollar/imbalance bars; sampling by activity, not clock (de Prado ch. 2) (status: developing)
+- [[Walk-Forward-Analysis]] — rolling re-optimize/test; the validation floor, not ceiling (status: developing)
+- [[Combinatorial-Purged-Cross-Validation]] — purged/embargoed combinatorial splits → many backtest paths; beats WFA/k-fold on PBO (status: developing)
 
 **Idea Books & Screens**
 - [[Equity-Upside-Book-2026H2]] — 12-24mo upside book (2026-07-08): AI-roadkill derating (INTU/ADBE) + small-cap M&A gravity (SPRY/SFNC/OMCL); pre-committed falsifiers; hypothesis stage (status: seed)
@@ -272,7 +284,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 **Case Studies & Historical Figures**
 - [[Miss Miller]] — American woman (early 20th century); case subject of *Symbols of Transformation* (CW 5); fantasies as evidence of the collective unconscious (status: developing)
 - [[Socrates]] — classical Athenian philosopher (470-399 BCE); anima dream from Plato; split consciousness (status: developing)
-- [[René Descartes]] — French philosopher/mathematician (1596-1650); three enlightenment dreams 1619; Cartesian mind-body split (status: developing)
+- [[René Descartes]] — French philosopher/mathematician (1596-1650); three enlightenment dreams 1619 fully analyzed (melon/mandala, scintillae, trickster/portraits); Cartesian mind-body split; privatio boni blind spot (status: developing)
 - [[Themistocles]] — classical Athenian general (524-460 BCE); naval strategy, dreams guiding military decisions (status: developing)
 - [[Hannibal]] — Carthaginian general (247-183 BCE); warrior archetype; dreams and fate (status: developing)
 - [[Monica]] — North African Christian matron (331-387 CE); mother of Saint Augustine; dreams of spiritual reassurance (status: developing)
@@ -283,6 +295,12 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[Jean-Philippe Bouchaud]] — French physicist-quant; econophysics pioneer; CFM chairman (status: developing)
 - [[Marcos Lopez de Prado]] — quant researcher; Deflated Sharpe Ratio; *Advances in Financial Machine Learning* (status: developing)
 - [[Capital Fund Management]] — Paris systematic hedge fund; econophysics research culture (status: developing)
+- [[NautilusTrader]] — Rust-core/Python event-driven trading platform; the backtest/live-parity reference architecture (status: developing)
+- [[Databento]] — CME tick/MBO data vendor (GLBX.MDP3); nanosecond timestamps, identical historical/live APIs (status: developing)
+- [[QuantStart]] — quant-education site; canonical six-component event-driven backtester skeleton (status: developing)
+- [[LEAN-QuantConnect]] — open-source engine; pluggable fill/slippage/fee/margin reality models (status: developing)
+- [[vectorbt]] — NumPy+Numba parameter-sweep triage; explicitly not for execution realism (status: developing)
+- [[HftBacktest]] — queue-position + latency fill-modeling reference implementation (status: developing)
 
 **Other**
 - [[Andrej Karpathy]] — AI researcher, creator of the LLM Wiki pattern, former Tesla AI director (status: developing)
@@ -299,6 +317,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 ## Sources
 
+- [[compass2026-backtesting-engine-blueprint]] — 2026-07-13 | Claude deep-research artifact | Blueprint for a professional-grade Python backtesting engine: one event-driven core, futures dual-series discipline, Databento data layer, WFA+CPCV+DSR validation; 14 new pages
 - [[li2026-llm-psychology-measurement-survey]] — 2026-07-10 | Li et al.; arXiv 2606.20603, IEEE TCDS | Survey: LLMs measuring human psychology; 3 paradigms, validity gaps; 4 new pages
 - [[ClaudeDevs-Getting-Started-with-Loops]] — 2026-07-08 | Delba de Oliveira via @ClaudeDevs (Anthropic) | Official four-type loop taxonomy (turn/goal/time/proactive); /goal evaluator model; token discipline; 3 new pages, 1 updated
 - [[kurth2026-trend-following-demise]] — 2026-07-02 | Kurth, Eisler, Rej, Bouchaud (CFM); arXiv 2607.01550 | Demise of short-term trend-following; tick-size microstructure; 5 new pages
@@ -332,7 +351,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[frankl-mans-search-for-meaning]] — 2026-06-28 | Viktor Frankl | Logotherapy; will to meaning; Auschwitz memoir
 - [[nietzsche-beyond-good-evil]] — 2026-06-28 | Friedrich Nietzsche | Will to Power, master-slave morality, Übermensch; Jung's engagement
 - [[training-model-you-return-iterate-averaging]] — 2026-06-28 | Au & Block; arXiv 2606.25086 | PACE optimizer; iterate averaging; LLM training optimization
-- [[vonfranz-dreams-1998]] — 2026-06-24 | Marie-Louise von Franz; Shambhala 1998 | Dreams of historical figures, Jungian dream interpretation
+- [[vonfranz-dreams-1998]] — 2026-06-24, completed 2026-09-16 | Marie-Louise von Franz; Shambhala 1998 | Dreams of historical figures, Jungian dream interpretation; full Descartes dream analysis + glossary
 - [[jung-dream-analysis-1928-1930]] — 2026-06-24 | C.G. Jung (ed. McGuire); Bollingen XCIX | Dream Analysis seminar 1928-1930; partial (Lecture I read)
 - [[das2026-chronos-multivariate-forecasting]] — 2026-06-24 | Das, Goyal, Yadav; arXiv 2605.21504 | Chronos-2 MV vs. UV forecasting, Mag-7 + Treasury rates
 - [[zhang2026-benchmarking-deep-ts-equity]] — 2026-06-24 | Zhang, Cheng, Leung; arXiv 2606.09420 | 2 new pages (source + domain)

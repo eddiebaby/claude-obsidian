@@ -12,6 +12,10 @@ mood:
 sleep: multi-part
 recurring: false
 lucid: false
+agency: 2
+response:
+figures: [james-monaghan, drew, kenny]
+motifs: [new-york, car, substances, bar, chase, police-law, authority]
 archetypes: []
 symbols: []
 related:

@@ -12,6 +12,10 @@ mood:
 sleep:
 recurring: false
 lucid: false
+agency: 2
+response:
+figures: [angela, mother]
+motifs: [police-law, burning-man, ex, house, food, family]
 archetypes: [mother, shadow, persona]
 symbols: [court, milk, childhood-home, hotel, foyer, guests, half-drunk-gallon, ex, burning-man]
 related:

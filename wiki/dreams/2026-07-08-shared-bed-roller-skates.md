@@ -13,6 +13,10 @@ sleep:
 recurring: false
 lucid: false
 # filled in during analysis:
+agency: 3
+response:
+figures: [niky, niky-brother]
+motifs: [family, water]
 archetypes: [shadow-tentative]
 symbols: [shared-bed, brother, punching-mattress, doctors-office, roller-skates, boardwalk, pier, beach-town]
 related:

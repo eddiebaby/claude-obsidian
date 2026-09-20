@@ -156,6 +156,12 @@ The right response to the *lumen naturae* is not analysis but empathy — not co
 
 ---
 
+## Descartes's Rationalist Version
+
+[[Rene-Descartes]] retained the term but narrowed it drastically. Where Paracelsus's *lumen naturae* is intuitive, plural, and rooted in the body and the stars, Descartes's *lumen naturale* becomes purely rational: the sum of *semina scientiae* ("seeds of science"), *naturae simplices* ("simple natures"), and *veritates innatae* ("inborn truths") — reduced, in practice, to just space, number, time, and a handful of other elements, all guaranteed by a God who is *intelligentia pura* and cannot deceive. Von Franz ([[vonfranz-dreams-1998]]) reads Descartes's three 1619 dreams as the raw psychic material behind this doctrine: the plural, autonomous [[Scintillae|sparks]] of Dream Two are the unintegrated, pre-rational form of the very light Descartes would go on to systematize as a single, tame, thoroughly conscious faculty. See [[Rene-Descartes]] for the full dream analysis.
+
+---
+
 ## See Also
 
 - [[Paracelsus]] — the physician-philosopher who named and systematized this concept
@@ -165,4 +171,6 @@ The right response to the *lumen naturae* is not analysis but empathy — not co
 - [[Collective Unconscious]] — Jung's psychological correlate of the *lumen naturae*
 - [[Shadow]] — the *nigredo* as the dwelling-place of the *lumen naturae*; the light hidden in darkness
 - [[Coniunctio]] — the hierosgamos of Sol and Luna = the union of the two lights; the "true May"
+- [[Scintillae]] — the plural, pre-unified counterpart: many sparks vs. one central light
+- [[Rene-Descartes]] — the rationalist narrowing of the *lumen naturae* into pure reason
 - [[jung-cw13-alchemical-studies]] — Essay III §1 (pars. 148–163); §3A (pars. 197–199)

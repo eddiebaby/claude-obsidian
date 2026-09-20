@@ -13,6 +13,10 @@ sleep:
 recurring: false
 lucid: false
 # filled in during analysis:
+agency: 3
+response:
+figures: [angela, unknown-woman]
+motifs: [anima, ex, sex, house, car, leaving, food]
 archetypes: [anima, shadow]
 symbols: [anima, exes-house, foreign-house, stuck, oral-sex, union-in-wrong-vessel, eating-in-car, ex, new-boyfriend, refusal-to-talk, stalled-car, reconnaissance, surveillance]
 related:

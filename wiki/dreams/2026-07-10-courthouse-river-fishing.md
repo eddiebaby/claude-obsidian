@@ -13,6 +13,10 @@ sleep:
 recurring: false
 lucid: false
 # filled in during analysis:
+agency: 3
+response:
+figures: [grandfather, father]
+motifs: [police-law, underground, water, architecture, family, animal]
 archetypes: [father, the-depths]
 symbols: [chicago, parking, street-cleaning, immigrant-family, bodega, robbery, father, courthouse, basement, marble-hall, museum, muddy-river, fishing, grandfathers-popper-lure, fish-swarm, no-bite]
 related:

@@ -7,7 +7,7 @@ domain: quantitative-finance
 role: "Quantitative researcher and practitioner; author, Advances in Financial Machine Learning"
 first_mentioned: "[[bailey-lopez-de-prado-2014-deflated-sharpe]]"
 created: 2026-07-02
-updated: 2026-07-02
+updated: 2026-07-13
 tags:
   - entity
   - person
@@ -18,8 +18,11 @@ related:
   - "[[Deflated-Sharpe-Ratio]]"
   - "[[Backtest-Overfitting]]"
   - "[[das2026-chronos-multivariate-forecasting]]"
+  - "[[Combinatorial-Purged-Cross-Validation]]"
+  - "[[Information-Driven-Bars]]"
 sources:
   - "[[bailey-lopez-de-prado-2014-deflated-sharpe]]"
+  - "[[compass2026-backtesting-engine-blueprint]]"
 ---
 
 # Marcos Lopez de Prado
@@ -37,6 +40,7 @@ Marcos Lopez de Prado is a quantitative finance researcher and practitioner work
 - Co-developer of the **Probability of Backtest Overfitting (PBO)** framework (Bailey et al., 2013), a non-parametric cross-validation diagnostic for [[Backtest-Overfitting]].
 - Author of *Advances in Financial Machine Learning* (Wiley, 2018) — a standard reference text on applying ML rigorously to finance, cited in [[das2026-chronos-multivariate-forecasting]] as prior literature.
 - Research focus: statistically sound strategy validation, guarding against false discoveries in systematic/quant finance, meta-labeling, and financial ML methodology generally.
+- *Advances in Financial ML* contributions now paged in the vault (via [[compass2026-backtesting-engine-blueprint]]): [[Information-Driven-Bars]] (ch. 2 — tick/volume/dollar/imbalance sampling) and [[Combinatorial-Purged-Cross-Validation]] (purge/embargo, many-path validation). His meta-labeling approach was implemented empirically in the scalppulse ML meta-filter (2026-07-12, `trading/scalppulse/ml_meta.py`).
 
 ## Connections
 

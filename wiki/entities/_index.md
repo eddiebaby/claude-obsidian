@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Entities Index"
-updated: 2026-07-08
+updated: 2026-07-11
 tags:
   - meta
   - index
@@ -46,7 +46,7 @@ All entity pages — people, organizations, products, and tools.
 - [[Wilfred Bion]] — British psychoanalyst (1897-1979); O and K; faith in O; "without memory or desire" (status: seed)
 - [[Liz Greene]] — British Jungian analyst; psychological astrology; revived Jung's abandoned qualitative-time model of synchronicity (status: seed)
 - [[Richard Tarnas]] — cultural historian; archetypal astrology (*Cosmos and Psyche*); synchronicity as cosmological axiom (status: seed)
-- [[Jingchao Zeng]] — synchronicity/astrology researcher (Essex); co-author, post-Jungian astrology critique (2026) (status: seed)
+- [[Jingchao Zeng]] — Jungian scholar of divination & synchronicity (Essex); I Ching history/practice study (2023, solo) + post-Jungian astrology critique (2026, w/ Fraikin) (status: developing)
 - [[Nathan Fraikin]] — post-Jungian studies; co-author, post-Jungian astrology critique (2026) (status: seed)
 - [[Amalia-X]] — pseudonymous specimen case (Ulm Textbank, 500+ sessions, 95 dreams); core evidence for Structural Dream Analysis (status: seed)
 - [[Sofie Qwarnström]] — author, "One-Sidedness and the Inferior Function in Coriolanus and Timon of Athens" (2026) (status: seed)
@@ -77,6 +77,12 @@ All entity pages — people, organizations, products, and tools.
 - [[Karl Kerenyi]] — classicist/mythologist; recurring source on Oedipus/Laius myth material and Jung's mythology collaborator (status: seed)
 - [[Alexey Turchin]] — practitioner-researcher (Science for Life Extension Foundation); ran the 2004-2005 Active-Imagination-as-lucid-dreaming-substitute pilot (status: seed)
 - [[Stephen LaBerge]] — lucid dreaming researcher; comparison point for Turchin's Active Imagination protocol (status: seed)
+- [[Ole Vedfelt]] — Danish Jungian analyst; integrative/cybernetic dream theory; the Ten Core Qualities of Dreams and the Fourfold Brain (2020) (status: developing)
+- [[Richard-Wilhelm]] — German sinologist (1873-1930); translator of the I Ching (1924) and Jung's close collaborator; Jung's practical route into the oracle (status: developing)
+- [[Hu-Shih]] — modernizing Chinese philosopher (1891-1962); Dewey student; his dismissal of the I Ching became Jung's emblem of modernity discarding traditional wisdom (status: stub)
+- [[Jean-Kirsch]] — contemporary Jungian analyst; I Ching countertransference case (hexagram 14) spanning all three of Jung's dimensions (status: stub)
+- [[Mengchao-Li]] — Chinese Jungian/Kleinian psychiatrist; clinical application of the Eight Heart Methods of the I Ching (status: stub)
+- [[Dennis-Merritt]] — Jungian analyst; two I Ching consultation formats; links Chinese holism to unus mundus and Bohm's implicate order (status: stub)
 
 **Existential Psychology**
 - [[Viktor Frankl]] — Austrian psychiatrist (1905-1997); Holocaust survivor; founder of logotherapy ("Third Viennese School"); *Man's Search for Meaning* (status: developing)
@@ -96,12 +102,17 @@ All entity pages — people, organizations, products, and tools.
 ## Organizations
 
 - [[Capital Fund Management]] — Paris-based systematic hedge fund; econophysics research culture; affiliation of the Kurth/Eisler/Rej/Bouchaud trend-following paper (status: developing)
+- [[Databento]] — CME market-data vendor (GLBX.MDP3); licensed distributor from the Aurora colo; the compass blueprint's data-layer pick (status: developing)
+- [[QuantStart]] — quant-education site; origin of the canonical six-component event-driven backtester series (status: developing)
 
 ---
 
 ## Products & Tools
 
-<!-- Add tool and product pages here -->
+- [[NautilusTrader]] — Rust-core/Python event-driven trading platform; backtest/live-parity reference architecture (status: developing)
+- [[LEAN-QuantConnect]] — QuantConnect's open-source engine; pluggable fill/slippage/fee/margin models (status: developing)
+- [[vectorbt]] — NumPy+Numba vectorized parameter-sweep engine; triage only, no order management (status: developing)
+- [[HftBacktest]] — Python/Numba+Rust backtester; queue-position and latency modeling reference (status: developing)
 
 ---
 
