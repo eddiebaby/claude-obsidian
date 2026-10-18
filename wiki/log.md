@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Operation Log"
-updated: 2026-09-16
+updated: 2026-10-17
 tags:
   - meta
   - log
@@ -14,6 +14,30 @@ related:
 ---
 
 # Operation Log
+
+## 2026-10-13 | session 41 | parallel burn: equity sweep + consulting GTM + trading code review + futures ML scaffold + cost fix
+- **Equity sweep** (3 sleeve agents): [[Equity-Book-Sweep-2026-10-13]] (c-000159) + Loop log entry in [[Equity-Upside-Book-2026H2]].
+  - Changes: 6 TRIM (MSFT, PLTR, S at target; ADBE, CMCSA, SFNC falsifiers closer); TERN KILLED (acquired 5/5, stale from day one); FRPT reclassified to the R1000.
+  - Weekly sweep loop missed 9/28, 10/5, 10/12.
+- **Consulting GTM**: [[Big-Island-AI-Prospect-List]] (c-000160), [[Hilo-AI-Consulting-Offer]] (c-000161), [[Hilo-AI-Consulting-Outreach-Playbook]] (c-000162). [[business]] hub updated.
+- **Code review**: `trading/REVIEW-2026-10-13.md`. 0 BLOCKER / 2 HIGH / 3 MED / 10 LOW.
+  - H1: SRB stop/target used the entry bar's ATR (lookahead). Fixed in `propfirm_srb.py`.
+  - H2: `compliance.py` checks end-of-day only, so eval pass rates are overstated.
+  - The ScalpPulse kills stand.
+- **Futures ML**: `trading/futuresml/` (leak-tested pipeline, 41 tests). /MES late-reversal meta-label experiment is null (DSR 0.011), as expected on 182 events. Next step: Databento 2018+ history.
+- **Cost model**: `futures_costs.py` is venue-aware (default lucid $0.50/side; schwab $2.62). `walkforward_fade.py` March roll corrected to 2026-03-15. Report: `trading/propfirm/results/COST-RERUN-2026-10-13.md`. Verdict: no strategy ALIVE. SRB breakout DEAD; SRB fade MARGINAL in-sample, noise in walk-forward; Gao MARGINAL; gamma high-GEX reversal MARGINAL but best-supported. Hold off on the LucidFlex eval.
+- Income-domain work (quantitative-finance + business). Counter 159→163.
+
+## 2026-09-21 | loop | Upside Book weekly sweep
+- INTU KILLED (FY27 guide, TurboTax +2-3%, share loss to AI rivals; -11%). Fed HIKED 9/16 (R2000 -1.3%). OMCL/SFNC/META weakened; XENE mixed (NDA filed, psych enrollment pause); MSFT/PLTR/INTC/FRPT strengthened. See [[Equity-Upside-Book-2026H2]] Loop log.
+
+## 2026-09-19 | ingest | Compass PRD brief — unified futures + equities backtester
+- Source: `.raw/articles/compass2026-unified-backtester-prd-brief-2026-09-19.md`
+- Summary: [[compass2026-unified-backtester-prd-brief]]
+- Pages created: [[Schwab-Trader-API]], [[Norgate-Data]], [[EODHD]], [[DuckDB]], [[Zipline-Reloaded]], [[Point-in-Time-Universe]], [[Instrument-Master]] (c-000151–c-000158)
+- Pages updated: [[Databento]], [[Continuous-Contract-Construction]], [[Futures-Contract-Mechanics]], [[compass2026-backtesting-engine-blueprint]], indexes
+- Contradictions flagged: (1) the brief says Schwab has no futures history, but the vault pulled ~7 mo /MES 5m; (2) `futures_costs.py` uses $0.66/side vs Schwab's $2.25/side; (3) margin drift ES $12,320→$13,200
+- Key insight: the architecture matches July's blueprint. The new value is the data map: Schwab = daily + forward archive, Databento = futures (raw, adjust it ourselves), Norgate = survivorship layer only when a single-stock strategy is being built.
 
 ## 2026-09-18 | backtest round | intraday momentum + gamma conditioning
 - Code: `trading/propfirm/gao_momentum.py`, `gamma_momentum.py`, `pull_databento.py`; results appended to `trading/scalppulse/README.md`

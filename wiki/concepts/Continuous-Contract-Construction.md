@@ -5,7 +5,7 @@ status: developing
 domain: quantitative-finance
 address: c-000145
 created: 2026-07-13
-updated: 2026-07-13
+updated: 2026-09-19
 tags:
   - concept
   - futures
@@ -19,6 +19,7 @@ related:
   - "[[Trend-Following]]"
 sources:
   - "[[compass2026-backtesting-engine-blueprint]]"
+  - "[[compass2026-unified-backtester-prd-brief]]"
 ---
 
 # Continuous Contract Construction
@@ -36,6 +37,10 @@ How to stitch individual futures contracts (ESH6, ESM6, …) into one analyzable
 ## The dual-series discipline (the rule that matters)
 
 **Unadjusted per-contract series for fills, margin, and P&L. Back-adjusted (or proportional) continuous series for indicators and signals only. Never compute P&L off the adjusted series.** The two series coexist, keyed to the same timeline: Portfolio marks to unadjusted front-month settlement; Strategy reads the adjusted series from the DataHandler. This is what separates a professional futures engine from a retail one, and it is nearly impossible to retrofit — adopt from day one.
+
+## Vendor reality: Databento doesn't adjust
+
+[[Databento]]'s continuous symbols (`ES.v.0` and similar) splice **raw** contract prices with no back- or ratio-adjustment. The adjusted signal series has to be built on our side: **difference (back-adjusted)** for absolute-P&L/level work, **ratio** for return-based work. Keep the raw per-contract prices for fills and slippage across the roll ([[compass2026-unified-backtester-prd-brief]]).
 
 ## Roll rules
 

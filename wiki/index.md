@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Wiki Index"
-updated: 2026-07-11
+updated: 2026-10-17
 tags:
   - meta
   - index
@@ -24,7 +24,7 @@ related:
 
 # Wiki Index
 
-Last updated: 2026-07-13 | Total pages: 495 | Sources ingested: 67 | Dream Symbols: 86 (CW5: 22, CW12: 64)
+Last updated: 2026-10-17 | Total pages: 545 | Sources ingested: 68 | Dream Symbols: 86 (CW5: 22, CW12: 64)
 
 Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[getting-started]]
 
@@ -193,15 +193,18 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 **Backtesting Infrastructure (compass 2026 blueprint)**
 - [[Event-Driven-Backtesting]] — six-component event loop; backtest/live parity; structural anti-lookahead (status: developing)
+- [[Instrument-Master]] — one table keyed by internal ID: multiplier, tick, session calendar, roll rule, PIT listing dates, margin vs cash; unifies futures + equities (status: developing)
 - [[Execution-Realism]] — fill-model hierarchy from next-bar-open to queue position; per-session slippage; "where backtests most often lie" (status: developing)
 - [[Continuous-Contract-Construction]] — Panama/proportional roll adjustment; dual-series discipline: unadjusted for P&L, adjusted for signals (status: developing)
 - [[Futures-Contract-Mechanics]] — ES/MES/NQ/MNQ specs, margins, Globex sessions, quarterly rolls, per-contract costs (status: developing)
 - [[Information-Driven-Bars]] — tick/volume/dollar/imbalance bars; sampling by activity, not clock (de Prado ch. 2) (status: developing)
 - [[Walk-Forward-Analysis]] — rolling re-optimize/test; the validation floor, not ceiling (status: developing)
 - [[Combinatorial-Purged-Cross-Validation]] — purged/embargoed combinatorial splits → many backtest paths; beats WFA/k-fold on PBO (status: developing)
+- [[Point-in-Time-Universe]] — survivorship-free equity universe: historical membership + delisted names + corporate actions; mandatory once a strategy picks single stocks (status: developing)
 
 **Idea Books & Screens**
-- [[Equity-Upside-Book-2026H2]] — 12-24mo upside book (2026-07-08): AI-roadkill derating (INTU/ADBE) + small-cap M&A gravity (SPRY/SFNC/OMCL); pre-committed falsifiers; hypothesis stage (status: seed)
+- [[Equity-Upside-Book-2026H2]] — 12-24mo upside book (2026-07-08): AI-roadkill derating (INTU/ADBE) + small-cap M&A gravity (SPRY/SFNC/OMCL); pre-committed falsifiers; hypothesis stage; last swept 2026-10-13 (6 TRIM, TERN killed, FRPT reclassified R1000) (status: seed)
+- [[Equity-Book-Sweep-2026-10-13]] — pre-Q3-earnings sweep, full evidence: 19 names, falsifier status, proposed kill lines, earnings/catalyst calendar, 9/21 corrections, sources (status: seed)
 
 **Agentic Trading Systems**
 - [[Loop-Engineering]] — replacing yourself as the agent-prompter; designing the system that prompts the agent; the highest-leverage move for a solo quant operator (status: mature)
@@ -227,6 +230,15 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[LLM Psychological Assessment Paradigms]] — active conversational / passive natural-language / multimodal fusion; the taxonomy for any LLM-reads-a-psyche feature (status: developing)
 - [[Machine Theory of Mind]] — ToM evidence in LLMs vs the broken-benchmark critique; literal vs functional ToM (status: developing)
 - [[Psychometric Validity for LLMs]] — validity scorecard: convergent demonstrated, test-retest/discriminant/criterion/cross-cultural untested; epistemic guardrail for the individuation app (status: developing)
+
+---
+
+## Business & AI Consulting
+
+**Hilo Go-to-Market (2026-10-13)**
+- [[Hilo-AI-Consulting-Offer]] — 3 productized packages: $495 Quick Wins Audit → $2,500/workflow Sprint → $450/mo Care Retainer (+GET); local/mainland price benchmarks; funding (SBDC, ETF Micro 50% training subsidy); Hawaii admin checklist (status: seed)
+- [[Big-Island-AI-Prospect-List]] — 58 Big Island businesses (26 Hilo) with per-business AI use case + fit score; ranked first 10 (Day-Lum Rentals, KapohoKine, Botanical World) (status: seed)
+- [[Hilo-AI-Consulting-Outreach-Playbook]] — channels ranked for a relationship market, pitch/email/demo scripts, Oct-Dec events, 30-day plan to first paid client; rule: no new research until 15 walk-ins logged (status: seed)
 
 ---
 
@@ -301,6 +313,11 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[LEAN-QuantConnect]] — open-source engine; pluggable fill/slippage/fee/margin reality models (status: developing)
 - [[vectorbt]] — NumPy+Numba parameter-sweep triage; explicitly not for execution realism (status: developing)
 - [[HftBacktest]] — queue-position + latency fill-modeling reference implementation (status: developing)
+- [[Schwab-Trader-API]] — Scott's broker API (schwab-py): free daily + shallow intraday, 7-day refresh wall, split- not dividend-adjusted, $2.25/side futures (status: developing)
+- [[Norgate-Data]] — EOD vendor; Platinum USD 630/yr = PIT S&P/NDX/Russell constituents + delisted since 1990; buy when a cross-sectional equity build starts (status: developing)
+- [[EODHD]] — cheaper PIT-constituents alternative; reliable only from 2012, S&P 500 only (status: developing)
+- [[DuckDB]] — in-process SQL over partitioned Parquet; ASOF JOIN for time alignment; the solo-quant store (status: developing)
+- [[Zipline-Reloaded]] — reference for Pipeline API, portfolio accounting, trading calendars (status: developing)
 
 **Other**
 - [[Andrej Karpathy]] — AI researcher, creator of the LLM Wiki pattern, former Tesla AI director (status: developing)
@@ -318,6 +335,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 ## Sources
 
 - [[compass2026-backtesting-engine-blueprint]] — 2026-07-13 | Claude deep-research artifact | Blueprint for a professional-grade Python backtesting engine: one event-driven core, futures dual-series discipline, Databento data layer, WFA+CPCV+DSR validation; 14 new pages
+- [[compass2026-unified-backtester-prd-brief]] — 2026-09-19 | Claude deep-research (compass artifact) | PRD brief for a unified futures+equities backtester: Schwab API limits, Norgate/EODHD/Databento gap-fill vendor map, instrument master, phased plan | 1 source + 2 concepts + 5 entities
 - [[li2026-llm-psychology-measurement-survey]] — 2026-07-10 | Li et al.; arXiv 2606.20603, IEEE TCDS | Survey: LLMs measuring human psychology; 3 paradigms, validity gaps; 4 new pages
 - [[ClaudeDevs-Getting-Started-with-Loops]] — 2026-07-08 | Delba de Oliveira via @ClaudeDevs (Anthropic) | Official four-type loop taxonomy (turn/goal/time/proactive); /goal evaluator model; token discipline; 3 new pages, 1 updated
 - [[kurth2026-trend-following-demise]] — 2026-07-02 | Kurth, Eisler, Rej, Bouchaud (CFM); arXiv 2607.01550 | Demise of short-term trend-following; tick-size microstructure; 5 new pages

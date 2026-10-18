@@ -2,7 +2,7 @@
 type: source
 title: "Building a Professional-Grade Backtesting Engine for Stocks and Futures in Python: An Architectural Blueprint"
 created: 2026-07-13
-updated: 2026-07-13
+updated: 2026-09-19
 domain: quantitative-finance
 address: c-000137
 tags:
@@ -40,6 +40,7 @@ related:
   - "[[Marcos Lopez de Prado]]"
   - "[[Micro-Futures Trend Strategy]]"
   - "[[LucidFlex Automated Scalping PRD]]"
+  - "[[compass2026-unified-backtester-prd-brief]]"
 ---
 
 # Compass 2026 — Backtesting Engine Architectural Blueprint
@@ -78,3 +79,5 @@ M0 instrument+data foundations → M1 vectorized daily MVP → M2 event-driven c
 ## Caveats (from the report itself)
 
 Margins/fees are time-sensitive (Nov 2025 snapshots); Databento per-GB rates partly derived, not rate-card; CPCV/DSR superiority rests on synthetic-environment studies; all backtest Sharpes are upper bounds.
+
+**Follow-up (2026-09-19):** [[compass2026-unified-backtester-prd-brief]] covers the data-sourcing side this blueprint skipped: Schwab limits, [[Point-in-Time-Universe|survivorship-free equity universe]], [[Instrument-Master]] for futures + equities.

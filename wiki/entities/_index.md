@@ -113,6 +113,11 @@ All entity pages — people, organizations, products, and tools.
 - [[LEAN-QuantConnect]] — QuantConnect's open-source engine; pluggable fill/slippage/fee/margin models (status: developing)
 - [[vectorbt]] — NumPy+Numba vectorized parameter-sweep engine; triage only, no order management (status: developing)
 - [[HftBacktest]] — Python/Numba+Rust backtester; queue-position and latency modeling reference (status: developing)
+- [[Schwab-Trader-API]] — Scott's broker API (schwab-py): free daily + shallow intraday, 7-day refresh wall, split- not dividend-adjusted, $2.25/side futures (status: developing)
+- [[Norgate-Data]] — EOD vendor; Platinum USD 630/yr = PIT S&P/NDX/Russell constituents + delisted since 1990; buy when a cross-sectional equity build starts (status: developing)
+- [[EODHD]] — cheaper PIT-constituents alternative; reliable only from 2012, S&P 500 only (status: developing)
+- [[DuckDB]] — in-process SQL over partitioned Parquet; ASOF JOIN for time alignment; the solo-quant store (status: developing)
+- [[Zipline-Reloaded]] — reference for Pipeline API, portfolio accounting, trading calendars (status: developing)
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Concepts Index"
-updated: 2026-07-11
+updated: 2026-10-17
 tags:
   - meta
   - index
@@ -228,12 +228,18 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 
 **Backtesting Infrastructure**
 - [[Event-Driven-Backtesting]] — six-component event loop (Data→Strategy→Portfolio→Execution over an event queue); backtest/live parity; structural anti-lookahead (status: developing)
+- [[Instrument-Master]] — one table keyed by internal ID: multiplier, tick, session calendar, roll rule, PIT listing dates, margin vs cash; unifies futures + equities (status: developing)
 - [[Execution-Realism]] — fill-model hierarchy: next-bar-open → intrabar worst-case → tick replay → queue position; per-instrument/session slippage (status: developing)
 - [[Continuous-Contract-Construction]] — splice vs Panama vs proportional; dual-series discipline (unadjusted P&L, adjusted signals); roll rules (status: developing)
 - [[Futures-Contract-Mechanics]] — ES/MES/NQ/MNQ reference: specs, margins, Globex/RTH sessions, rollover Thursday, round-turn costs (status: developing)
 - [[Information-Driven-Bars]] — tick/volume/dollar/imbalance sampling; dollar bars ≈ ADV/50 → ~50 bars/day (status: developing)
 - [[Walk-Forward-Analysis]] — Pardo's rolling re-optimization; one honest path; floor of the validation stack (status: developing)
 - [[Combinatorial-Purged-Cross-Validation]] — de Prado 2018: purge + embargo + combinatorial paths (e.g., 10/8 → 36 paths); lower PBO than WFA/k-fold (status: developing)
+- [[Point-in-Time-Universe]] — survivorship-free equity universe: historical membership + delisted names + corporate actions; mandatory once a strategy picks single stocks (status: developing)
+
+**Idea Books & Screens**
+- [[Equity-Upside-Book-2026H2]] — 12-24mo upside book (SPX/R2000/Nasdaq) with pre-committed falsifiers; last swept 2026-10-13 (status: seed)
+- [[Equity-Book-Sweep-2026-10-13]] — pre-Q3-earnings sweep: verdicts, proposed kill lines, catalyst calendar, sources (status: seed)
 
 **Agentic Trading Systems**
 - [[Loop-Engineering]] — designing the system that prompts the agent; the highest-leverage move for a solo quant operator (status: mature)
@@ -260,6 +266,14 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 - [[Looped Transformers]] — architectures that apply the same transformer block iteratively; parameter-efficient for long-horizon tasks (status: mature)
 - [[Adaptive Depth]] — dynamic allocation of computational steps based on input complexity (status: developing)
 - [[Deferred Decoding]] — refine latent representations before decoding to observations; improves reasoning quality (status: developing)
+
+---
+
+## Business & AI Consulting
+
+- [[Hilo-AI-Consulting-Offer]] — packages ($495 audit / $2,500 sprint / $450/mo retainer), benchmarks, funding, Hawaii admin checklist (status: seed)
+- [[Big-Island-AI-Prospect-List]] — 58 Big Island businesses with AI use case + fit score; first 10 ranked (status: seed)
+- [[Hilo-AI-Consulting-Outreach-Playbook]] — channels, scripts, Oct-Dec events, 30-day plan to first paid client (status: seed)
 
 ---
 

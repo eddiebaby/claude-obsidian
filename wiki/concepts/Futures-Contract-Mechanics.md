@@ -5,7 +5,7 @@ status: developing
 domain: quantitative-finance
 address: c-000150
 created: 2026-07-13
-updated: 2026-07-13
+updated: 2026-09-19
 tags:
   - concept
   - futures
@@ -20,6 +20,7 @@ related:
   - "[[Overnight-Drift]]"
 sources:
   - "[[compass2026-backtesting-engine-blueprint]]"
+  - "[[compass2026-unified-backtester-prd-brief]]"
 ---
 
 # Futures Contract Mechanics (ES/MES/NQ/MNQ)
@@ -41,6 +42,9 @@ Micros are exactly 1/10th of the E-minis and carried ~45% of equity-index ADV (N
 
 ES $12,320/$11,200 (init/maint) · MES $1,232/$1,120 · NQ $18,480/$16,800 · MNQ $1,848/$1,680. Intraday broker margins far lower (MES ~$50). Initial ≈ 110% of maintenance.
 
+> [!contradiction] Newer snapshot in [[compass2026-unified-backtester-prd-brief]] (Sep 2026)
+> ES ≈ $13,200 / $12,000, MES ≈ $1,320 / $1,200. Up ~7% from the Nov-2025 figures above. This is ordinary margin drift, which is exactly why margins belong in dated config.
+
 ## Sessions & settlement
 
 Globex: Sunday 5 PM CT → Friday 4 PM CT, maintenance break 4–5 PM CT. **RTH 8:30 AM–3:15 PM CT carries ~70% of volume**; the trading-day boundary is the 5 PM reopen, not midnight. Daily settlement is a window around the cash close, and mark-to-market drives margin — the engine's session calendar must distinguish RTH/ETH and handle DST (store UTC internally, convert to America/Chicago for session logic only).
@@ -52,3 +56,6 @@ Quarterly (Mar/Jun/Sep/Dec, H/M/U/Z), third Friday expiry; volume migrates on ro
 ## Costs
 
 ~$2.50–3.50 exchange+NFA fees per round turn plus commission (NFA $0.02/side). At MES's $5/point this is proportionally ~10x the drag of ES per notional — measured directly in the 2026-07-12 scalppulse /MES runs (~1.5 points round-trip all-in ≈ 20% of an average winner).
+
+> [!contradiction] Broker commission: Schwab futures = $2.25/contract/side ([[compass2026-unified-backtester-prd-brief]])
+> `trading/propfirm/futures_costs.py` models /MES and /MNQ at $0.66/side and labels it "Schwab/TOS retail". If Schwab is the executing broker, that's ~3.4x too low on micros. For prop-firm accounts, use that platform's own schedule. **Resolved 2026-10-13:** `futures_costs.py` is now venue-aware: lucid $0.50/side (default), schwab $2.62 all-in, legacy $0.66 (see [[log]] 2026-10-13).

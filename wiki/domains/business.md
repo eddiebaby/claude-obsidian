@@ -4,7 +4,7 @@ title: "Business & AI Consulting"
 domain: business
 status: seed
 created: 2026-06-27
-updated: 2026-06-27
+updated: 2026-10-17
 tags:
   - domain
   - business
@@ -14,7 +14,7 @@ related:
   - "[[quantitative-finance]]"
   - "[[depth-psychology]]"
 subdomain_of: ""
-page_count: 0
+page_count: 3
 ---
 
 # Business & AI Consulting
@@ -28,6 +28,13 @@ Navigation: [[index]] | [[domains/_index]]
 ## Scope in This Vault
 
 Greenfield as of 2026-06-27. No clients or projects yet. This domain page scaffolds the work.
+
+**2026-10-13: go-to-market pack filed.** Still no clients, but the offer, prospect list and outreach plan now exist:
+- [[Hilo-AI-Consulting-Offer]]: $495 Quick Wins Audit → $2,500/workflow Implementation Sprint → $450/mo Care Retainer (+GET)
+- [[Big-Island-AI-Prospect-List]]: 58 businesses, ranked first 10
+- [[Hilo-AI-Consulting-Outreach-Playbook]]: scripts, events, 30-day plan
+
+No Big Island-based AI consultant was found, so being local and in person is the edge.
 
 ---
 
@@ -67,6 +74,8 @@ Greenfield as of 2026-06-27. No clients or projects yet. This domain page scaffo
 
 ## Next Actions
 
-- Identify 3 local Hilo businesses with obvious AI automation problems
-- Draft a one-page offer (what you do, what it costs, what they get)
-- Build one demo — something tangible to show, not pitch
+- ~~Identify 3 local Hilo businesses with obvious AI automation problems~~: done, 58 in [[Big-Island-AI-Prospect-List]] (top 3: Day-Lum Rentals, KapohoKine Adventures, Botanical World Adventures)
+- ~~Draft a one-page offer~~: done, [[Hilo-AI-Consulting-Offer]]
+- **Log 15 walk-ins** per [[Hilo-AI-Consulting-Outreach-Playbook]]. No new research until then.
+- Build one demo, something tangible to show, not pitch: review-reply + Japanese-language page for a tour operator is the cheapest proof
+- Kona-Kohala Chamber AfterHours 10/21 (5-7pm, $20 first-timers); call the Hawaiʻi Island Chamber for Hilo dates

@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-09-16T00:00:00
+updated: 2026-10-17T00:00:00
 tags:
   - meta
   - hot-cache
@@ -17,6 +17,38 @@ related:
 # Recent Context
 
 ## Last Updated
+
+2026-10-13 (session 41): **Parallel burn session: four money workstreams landed.**
+1. **[[Equity-Book-Sweep-2026-10-13]]**
+   - TRIM: MSFT, PLTR, S (at target); ADBE, CMCSA, SFNC (falsifiers closer).
+   - KILL: TERN (acquired 5/5).
+   - FRPT is R1000, not R2000. The R2000 sleeve is thin and needs 1-2 adds.
+   - NEM trades as real-rate beta, not a hedge.
+   - 10y 5.21%; Dec hike ~75% priced.
+   - Kill-line dates: META **10/21**, CMCSA 10/22 (losses >167k = KILL), FOMC 10/27-28, MSFT 10/28, OMCL/INTC 10/29.
+2. **Hilo consulting GTM**
+   - [[Hilo-AI-Consulting-Offer]] ($495 audit / $2,500 sprint / $450/mo).
+   - [[Big-Island-AI-Prospect-List]] (58 businesses; top: Day-Lum Rentals, KapohoKine, Botanical World).
+   - [[Hilo-AI-Consulting-Outreach-Playbook]]: next action is **15 walk-ins, no more research until logged**.
+3. **Trading code review** (`trading/REVIEW-2026-10-13.md`)
+   - SRB fade had ATR lookahead (fixed); every prior SRB verdict was untested.
+   - Prop-firm compliance sim checks end-of-day only, so pass rates are optimistic.
+   - Gamma Closing Reversal is clean.
+4. **`trading/futuresml/`**: leak-tested ML pipeline, null on the 182-event /MES sample (DSR 0.011).
+   - Next money item is unchanged: **Scott sets `DATABENTO_API_KEY`**, then `pull_databento.py NQ --quote` for 2018+ history.
+   - Costs: `futures_costs.py` is now venue-aware (lucid $0.50/side default, schwab $2.62).
+5. **Cost rerun verdict: no propfirm strategy is ALIVE; don't buy a LucidFlex eval yet.**
+   - SRB breakout: DEAD.
+   - SRB fade: MARGINAL in-sample, noise in walk-forward.
+   - Gao: MARGINAL.
+   - Gamma high-GEX reversal: best-supported (survives Schwab costs). It is gated on Databento 2018+ at t > 2.
+   - With zero edge the eval rules pass ~25% of the time (~$520 in fees per pass).
+   - Report: `trading/propfirm/results/COST-RERUN-2026-10-13.md`.
+
+
+2026-09-21 (weekly sweep): **[[Equity-Upside-Book-2026H2]] — INTU killed** (FY27 guide: TurboTax +2-3%, AI tax rivals, -11%). **Fed hiked 9/16**; R2000 sleeve rate risk live. OMCL, SFNC, META weakened; XENE NDA filed but psych trials paused; MSFT/PLTR/INTC strengthened.
+
+2026-09-19 (session 40): **Ingested the second compass backtesting brief → [[compass2026-unified-backtester-prd-brief]]** (c-000151–158: [[Schwab-Trader-API]], [[Norgate-Data]], [[EODHD]], [[DuckDB]], [[Zipline-Reloaded]], [[Point-in-Time-Universe]], [[Instrument-Master]]). The architecture repeats July's blueprint; the new material is the data-vendor map. Three contradictions flagged against the code: Schwab *does* serve shallow futures history (vault has ~7 mo /MES 5m); `trading/propfirm/futures_costs.py` models micros at $0.66/side but Schwab charges $2.25/side; margin drift. Open money item still stands: run `pull_databento.py NQ --quote` for the pre-2023 [[Gamma Closing Reversal Strategy]] validation. Income-domain work.
 
 2026-09-16 (session 39, cont.): **Completed the von Franz *Dreams* ingest** (started 2026-06-24, was a partial extraction stopping at p.134). Read the rest of "The Dream of Descartes" chapter (pp. 121-197: full symbolic analysis of all three 1619 dreams, endnotes, and the Glossary appendix) — the whole 220-page book is now fully processed. [[Rene-Descartes]] entity page substantially expanded: the melon as Manichaean light-germ/mandala/I-Ching symbol, "Mr. N." as the overlooked shadow-figure, the second dream's fiery sparks read via the alchemical **scintillae** (plural, pre-unified luminosities vs. the single central [[Lumen-Naturae|lumen naturale]]), the third dream's trickster-and-portraits sequence as the multiplication of the personality, and Descartes's **privatio boni** blind spot as the doctrinal wall his own dreams pressed against. Three new concept pages: [[Privatio-Boni]], [[Scintillae]], [[Larvatus-Prodeo]] (his own motto, "masked do I go forward"). Note for [[dashboard]]: this was a study-domain (depth-psychology) task, not income-generating — flagged per the domain-balance standing instruction.
 
