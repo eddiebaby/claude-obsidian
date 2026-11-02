@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-10-17T00:00:00
+updated: 2026-11-01T00:00:00
 tags:
   - meta
   - hot-cache
@@ -17,6 +17,11 @@ related:
 # Recent Context
 
 ## Last Updated
+
+2026-11-01: **Dream backlog imported and analyzed.** The claude.ai Dreams project was read through the signed-in browser pane, adding 24 new entries from 09-28 to 11-01. All 28 unanalyzed dreams since 09-19 were analyzed without associations (lower confidence).
+- [[dream-threads]] Third Arc adds three threads: 9 The Father's House (stepmom/Martin/father), 10 Fists (aggression back in the body), 11 The Chain.
+- Substance density is the highest in the series. Agency mean 2.84.
+- Pending: [[backlog-associations]] Part D, and the overdue phase write-up in [[longitudinal-study]].
 
 2026-10-13 (session 41): **Parallel burn session: four money workstreams landed.**
 1. **[[Equity-Book-Sweep-2026-10-13]]**

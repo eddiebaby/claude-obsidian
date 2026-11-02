@@ -4,7 +4,7 @@ type: synthesis
 title: "Dream Series — Longitudinal Study I (2026-06-25 → 09-12)"
 domain: depth-psychology
 created: 2026-09-15
-updated: 2026-09-15
+updated: 2026-11-01
 tags:
   - dream
   - synthesis
@@ -117,10 +117,38 @@ The two right-hand gradients are the series' direction of travel: **ancestral ma
 | 46 | 09-16b | T-Shirt Stall / Larvae | 4 |
 | 47 | 09-17 | Auditorium Job Declined | 2 |
 | 48 | 09-18 | Snow Film / Blue Paint | 3.5 *(prov.)* |
+| 49 | 09-19 | Dad, Catahoula, Gas Bucket | 3 |
+| 50 | 09-22a | Beach War | 2 |
+| 51 | 09-22b | Arnie's Wound | 2 |
+| 52 | 09-24 | Fight, Van, Overdose | 2 |
+| 53 | 09-28 | Desert Dog / Oxygen | 3 |
+| 54 | 09-29 | UTV / Ski | 4 |
+| 55 | 10-01a | Fridge / Cows / Australia | 3 |
+| 56 | 10-01b | Walkout | 4 |
+| 57 | 10-04 | Music Venue | 3 |
+| 58 | 10-07 | Chain Breaks | — |
+| 59 | 10-09 | Cathedral / Riviera | 3 |
+| 60 | 10-11a | Beating the Stepmom | 2 |
+| 61 | 10-11b | Uber to Milk | 2 |
+| 62 | 10-12 | Timing Chain | 2 |
+| 63 | 10-13 | Angela's Photo | 2 |
+| 64 | 10-14 | Apocalyptic Street | 2 |
+| 65 | 10-21 | Chicago / Suitcases | 4 |
+| 66 | 10-22 | Six-Way Intersection | — |
+| 67 | 10-23a | Bed-Stuy Bus | 4 |
+| 68 | 10-23b | Grandparents' Town | 3 |
+| 69 | 10-24a | Giant Cats | 3 |
+| 70 | 10-24b | Pancakes | 3 |
+| 71 | 10-25 | Father in Black | 4 |
+| 72 | 10-26 | Tacks / Refinery / Roof | 3 |
+| 73 | 10-28 | Ice Race | 3 |
+| 74 | 10-29 | Movie in Increments | — |
+| 75 | 10-31 | Trap Street | 3 |
+| 76 | 11-01 | Niky's Messages | 2 |
 
 *07-04 Jung Institute scored 3 in frontmatter (claims his talent to Jung, but pulls thorns barehanded in a subordinate role); kept out of the table pending classification.*
 
-*Rows 45–48 (09-16 → 09-18) are appended but **not yet integrated**: the phase write-ups, means and findings below still describe dreams 1–44 (06-25 → 09-12). Next phase-turn write-up is due at ~10 new rows.*
+*Rows 45–76 (09-16 → 11-01) are appended but **not yet integrated**: the phase write-ups, means and findings below still describe dreams 1–44 (06-25 → 09-12). Rows 49–76 were scored 2026-11-01 **without associations** (provisional), with a mean of 2.84 across 25 scored. **A phase-turn write-up is overdue: 32 rows since the last one, against a threshold of ~10.** Third-arc thread notes are in [[dream-threads#Third Arc — 2026-09-19 → 11-01]].*
 
 **Phase means:** I ≈ 2.1 → II ≈ 3.0 → III ≈ 3.3 → IV ≈ 2.7 → V = 3.0.
 

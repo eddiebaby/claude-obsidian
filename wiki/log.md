@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Operation Log"
-updated: 2026-10-17
+updated: 2026-11-01
 tags:
   - meta
   - log
@@ -14,6 +14,17 @@ related:
 ---
 
 # Operation Log
+
+## 2026-11-01 | dream import | 24 dreams from the Claude.ai Dreams project (09-28 → 11-01)
+- Source: claude.ai Dreams project chats, read through the signed-in browser pane. The 09-15 export (`Downloads/conversations-000.zip`) confirmed that everything through 09-24 was already in the vault.
+- 24 new entries in `wiki/dreams/` (`2026-09-28-desert-dog-oxygen-machine` … `2026-11-01-niky-finds-messages`), all `status: unanalyzed`. Text is verbatim with light cleanup, and `[?]` marks uncertain words.
+- Skipped: the 09-20 repost of [[2026-08-03-burning-man-tag-12]], the 10-07 repost of the 10-04 dream, and the 10-17 hypnagogic imagery (not a dream).
+- Association gate: [[backlog-associations]] Part D (D1–D10 recurring figures, B5 conscious situation, per-dream gaps). It also covers 09-19, 09-22 and 09-24, which had never gone through the gate.
+- **Analyzed same day** at Scott's "skip, just analyze": 28 entries (the 24 imported plus 09-19, 09-22 ×2, 09-24), each flagged `Analyzed without associations — lower confidence`. Cited from CW 8 / CW 9i chunks and vault symbol pages.
+  - Agency mean 2.84 across 25 scored; 3 fragments unscored.
+  - [[dream-threads]] gains a Third Arc section plus new Threads 9 (The Father's House), 10 (Fists) and 11 (The Chain).
+  - [[longitudinal-study]] gains rows 49–76. A phase write-up is overdue (32 unintegrated rows).
+  - [[motifs]] gains `fight`, `wound-illness`, `jewelry`, `celebrity`.
 
 ## 2026-10-13 | session 41 | parallel burn: equity sweep + consulting GTM + trading code review + futures ML scaffold + cost fix
 - **Equity sweep** (3 sleeve agents): [[Equity-Book-Sweep-2026-10-13]] (c-000159) + Loop log entry in [[Equity-Upside-Book-2026H2]].

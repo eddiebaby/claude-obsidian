@@ -4,7 +4,7 @@ type: worksheet
 title: "Dream Backlog — Association Questionnaire"
 domain: depth-psychology
 created: 2026-09-18
-updated: 2026-09-18
+updated: 2026-11-01
 tags:
   - dream
   - worksheet
@@ -248,3 +248,130 @@ Only the gaps that change the reading. Anything Part A already covers is left ou
   A:
 - Does Niky actually have a client meeting coming up?
   A:
+
+---
+
+## Part D — Sep 19 → Nov 1 (added 2026-11-01)
+
+This part covers the 24 dreams imported from the Claude.ai Dreams project on 2026-11-01, plus three late-September entries (09-19, 09-22, 09-24) that never went through the gate. Same rules as above. **Answer D1–D10 first**, since each answer covers several dreams.
+
+Skipped as duplicates: the 09-20 chat, a repost of [[2026-08-03-burning-man-tag-12]], and the 10-07 repost of the 10-04 music-venue dream. The 10-17 hypnagogic imagery (images while falling back asleep after the early trading wake) wasn't logged as a dream.
+
+### Recurring figures
+
+**D1. Stepmom.** She appears in four dreams in under a month, and it escalates. On 09-19 she keeps cutting into your time with your dad. On 10-01 there's a ball-kicking competition, and then you tell your dad "I don't like her" and walk out. On 10-11 you're "unfairly" beating her. What's live with her right now? Is she still sick?
+A:
+
+**D2. Martin (stepbrother).** On 10-01 you'd be "happier" never talking to him again. On 10-26 he throws tacks in your path. Is he the lawyer stepbrother from 06-25? What happened between you?
+A:
+
+**D3. Your dad.** On 10-01 you walk out on him over her. On 10-25 he's dressed sharp in black, "very unlike him," and you give him your chain. Where does the relationship stand?
+A:
+
+**D4. The dog.** On 09-28 he attacks the cops, so you hide him. On 10-09 the Riviera woman loves him. Is this the Plott hound from August or the Catahoula from 09-19? And Arnie (09-22, 10-23): when and how did he die?
+A:
+
+**D5. Kara.** She's in 09-28 (the desert) and possibly 10-23 (the Bed-Stuy bus). Who is she?
+A:
+
+**D6. The silver chain.** It's a figaro chain in 08-03. On 10-07 the solder breaks, and on 10-25 you give it to your father. Did it actually break? Where did it come from, and what does wearing it mean to you?
+A:
+
+**D7. Angela, again.** She photographs your plate (10-13), has the Chicago apartment from the old boyfriend (10-21), and may be the woman on the Bed-Stuy bus (10-23). Any recent contact or news?
+A:
+
+**D8. Substances.** Cocaine and vodka (10-14), drug dealing (10-21, 10-31), getting stoned (10-26, 10-28). Same question as A10: is anything live now?
+A:
+
+**D9. Brother.** Is the brother in the ice race (10-28) Bart? Any history of getting stoned together?
+A:
+
+**D10. Niky.** She's mad at you (10-24) and finds the messages (11-01). Is anything live between you: trust, other women, jealousy? (A11 asks the same.)
+A:
+
+### Conscious situation
+
+**B5. Late September through October.** One or two lines: money, trading, consulting walk-ins, Niky, the Forester repairs, what you were pushing on or avoiding.
+A:
+
+### Per dream
+
+**09-19 [[2026-09-19-dad-catahoula-gas-bucket|Dad, Catahoula, Gas Bucket]]**
+- The unknown woman who hands you the money for gas, and the two-gallon paper bucket: does either bring anything up?
+  A:
+
+**09-22 [[2026-09-22-beach-war-separation|Beach War]] / [[2026-09-22-arnie-wound-house-cleanout|Arnie]]**
+- "Some giddy-up in my step," walking alone through the war at night: was that relief or excitement? Whose house are you cleaning out?
+  A:
+
+**09-24 [[2026-09-24-fight-van-pipe-overdose|Fight, Van, Overdose]]**
+- Who were you fighting, and whose van was it? Did the overdose feel like your fault?
+  A:
+
+**09-28 [[2026-09-28-desert-dog-oxygen-machine|Desert Dog]]**
+- The older woman on the oxygen machine: anyone you know? What were you scamming? Is the dragon-fruit cliff property a real place?
+  A:
+
+**09-29 [[2026-09-29-utv-up-ski-down|UTV / Ski]]**
+- Which John?
+  A:
+
+**10-01 [[2026-10-01-fridge-kick-zuckerberg-cows|Fridge / Cows / Australia]]**
+- Zuckerberg runs off with another woman and leaves you with his cows: does that bring anything up? Have you been to Australia?
+  A:
+
+**10-04 [[2026-10-04-music-venue-alexandra|Music Venue]]**
+- Is Alexandra the Aleksandra from 09-16? Who are Joe Perkins and Rico? The protection plan you had to fill out before the timer ran out: anything real?
+  A:
+
+**10-09 [[2026-10-09-dive-bar-cathedral-riviera|Cathedral / Riviera]]**
+- Is the big obnoxious green house up the road real? Do you do DoorDash?
+  A:
+
+**10-11 [[2026-10-11-uber-to-milk-wrong-address|Uber to Milk]]**
+- Is Milk the Milk Studios? The younger, attractive male friend: anyone?
+  A:
+
+**10-12 [[2026-10-12-timing-chain-snooty-shop|Timing Chain]]**
+- Was this the Forester? Is there a repair you can't do yourself?
+  A:
+
+**10-14 [[2026-10-14-apocalyptic-street-bodysuit|Apocalyptic Street]]**
+- What was the feeling in the gay escapade: shame, ease, excitement? The woman in the bodysuit: anyone?
+  A:
+
+**10-21 [[2026-10-21-chicago-angela-suitcases|Chicago / Suitcases]]**
+- Which festival? Is the Chicago apartment real?
+  A:
+
+**10-22 [[2026-10-22-texas-six-way-quesadilla|Texas]]**
+- Any Texas connection?
+  A:
+
+**10-23 [[2026-10-23-grandparents-town-glass-cliff|Grandparents' Town]]**
+- Which town? The mustached twin brothers: anyone?
+  A:
+
+**10-24 [[2026-10-24-five-giant-cats|Giant Cats]] / [[2026-10-24-pancakes-called-richard|Pancakes]]**
+- Sydney Sweeney, then Malcolm Butler: what does each one bring up?
+  A:
+- Has anyone ever called you Richard? Who is Ying? Did Niky's pancake dream happen the same night?
+  A:
+
+**10-26 [[2026-10-26-tacks-refinery-rooftop-key|Tacks / Refinery / Roof]]**
+- The old religious guy the woman stays with: anyone? Where did you see the bull with the nail?
+  A:
+
+**10-28 [[2026-10-28-ice-race-brother-start|Ice Race]]**
+- Tom Brady, his girlfriend's gun, "the hedge": does any of it bring something up?
+  A:
+
+**10-29 [[2026-10-29-movie-in-increments|Movie]]**
+- What movie, if you know?
+  A:
+
+**10-31 [[2026-10-31-trap-street-up-the-hill|Trap Street]]**
+- The friend who's selling: someone real?
+  A:
+
+**11-01 [[2026-11-01-niky-finds-messages|Niky's Messages]]**: covered by D10.

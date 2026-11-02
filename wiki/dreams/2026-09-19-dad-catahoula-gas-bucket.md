@@ -4,21 +4,28 @@ type: dream
 title: "2026-09-19 — Dad's Catahoula, the Snapped Bass, Gas in a Popcorn Bucket"
 date: 2026-09-19
 created: 2026-09-19
-updated: 2026-09-19
+updated: 2026-11-01
 tags:
   - dream
-status: unanalyzed
+status: analyzed
 mood:
 sleep:
 recurring: false
 lucid: false
 # filled in during analysis:
-agency:
-figures: []
-motifs: []
-archetypes: []
-symbols: []
-related: []
+agency: 3
+figures: [father, stepmom, dog, andre, unknown-woman]
+motifs: [family, animal, workplace-photo, car, travel, money-wealth, leaving]
+archetypes: [father, mother, anima, persona]
+symbols: [catahoula, matching-dogs, stepmom-interrupting, guys-in-trouble, sleeping-spots, stand-up-bass, snapped-handle, gelled-hair, minivan, no-services, gas-indoors, cash-only, popcorn-bucket, two-gallons, whole-bill]
+related:
+  - "[[dream-threads]]"
+  - "[[longitudinal-study]]"
+  - "[[2026-09-12-dog-creature-glass-door]]"
+  - "[[2026-10-01-dad-stepmom-walkout]]"
+  - "[[Mother Archetype]]"
+  - "[[Persona]]"
+  - "[[Libido_Transformation]]"
 # filled in by you after reading the analysis:
 response:
 action_done:
@@ -59,29 +66,64 @@ action_done:
 
 ## Jungian Analysis
 
-> Filled in by `analyze my dream`. Left empty during raw capture.
+> Analyzed without associations — lower confidence.
+
+**What it's doing:** It opens a new thread, the father's house, and closes on the claim ceiling in plain numbers. A woman pays for the fuel and tells him to use the whole bill. He pumps exactly two gallons.
 
 ### Series Context
 
+- **Stepmom, first appearance as a figure.** Before this she was only day residue ("stepmother is sick," [[2026-06-25-montana-inheritance|06-25]]). This is the first of five stepfamily dreams in five weeks. See [[dream-threads#Thread 9 — The Father's House|Thread 9]].
+- **Dog thread.** The 09-12 dog-creature resolved into the real dog. Tonight the dog is doubled: the father has the same breed, smaller and younger.
+- **Thread 5 (photo world).** Andre's comically inflated hair. The industry shows up as a styling problem.
+- **Thread 8 (claim).** The helper who takes exactly what's needed and no more.
+
 ### Symbols & Amplification
+
+- **Matching Catahoulas** — Scott confirms the stepmom-interrupts-dad pattern is real. The dream adds that father and son carry the same instinct, and the son's is further along. That bond is exactly what the stepmother keeps breaking into. A stepmother is one of the first carriers of the mother archetype Jung lists, along with mother, grandmother and mother-in-law (CW 9i ¶155).
+- **The men in trouble with their women, then everyone asleep** — collective masculine defeat, slept off instead of worked through. Someone rates the sleeping spots: where to rest gets graded, and the fight doesn't.
+- **Stand-up basses, praised, handle snaps** — a showpiece of craftsmanship that fails at the grip the moment it's flipped. Andre's hair is the same thing in persona form: style ten times too big ([[Persona]], [[Inflation-Jungian]]).
+- **Gas only inside, from a desk contraption, cash only, poured into a paper popcorn bucket** — fuel gets obtained by going indoors and paying real value, into an absurd vessel that holds anyway. Energy needs an apparatus to be usable: "just as a power-station imitates a waterfall" (CW 8 ¶83; [[Libido_Transformation]]).
+- **Two gallons against "use the whole bill"** — the dream's punchline. The anima funds the trip and tells him to take all of it. He measures out the minimum.
 
 ### Archetypal Figures
 
+- **Father** — personal, positive, the bond actively sought.
+- **Stepmother** — carrier of the mother archetype in its interrupting form (CW 9i ¶155). Given the mother's death when Scott was five, she sits in the place of the mother who isn't his.
+- **Unknown woman** — anima as financier, same function as the 07-23 repair-woman: she supplies the means.
+- **Andre** — persona inflation from the photo years.
+
 ### Compensation / What the Unconscious Is Saying
+
+Without a conscious situation, the clearest compensation is the gas scene. Against a habit of taking the least (Thread 8: guide, helper, schematic-holder), the psyche puts the full amount on the table and has a woman say it out loud: use the whole bill.
 
 ### Competing Reading
 
+Objective level: scene 1 is simply true. Scott confirms the stepmom pattern, and Jung says to read a vital relationship objectively (CW 8 ¶515). The gas scene could be plain travel anxiety (no services ahead). I favor objective for the family scene and subjective for the fuel, because the two-gallon detail is too precise to be logistics.
+
 ### Movement Toward Individuation
+
+The trip out of the party is fueled by the feminine side's money. The movement is accepting the full amount.
 
 ### Agency
 
+**3**: gets the fuel and leaves, but under-takes: exactly two gallons against the instruction to use it all.
+
 ### Open Questions
 
+- Did he end up using the whole bill?
+- Who is the unknown woman? What does the paper bucket bring up?
+- What's the real state between Scott, his dad and the stepmom right now? (Backlog D1, D3.)
+
 ### Sources
+
+- CW 8 ¶83 (canalization; the power-station analogy), CW 8 ¶515 (objective level for vital relationships), CW 9i ¶155 (stepmother as mother-archetype carrier)
+- [[Persona]], [[Inflation-Jungian]], [[Libido_Transformation]]
 
 ---
 
 ## Waking Action
+
+Next time you quote a consulting price, write two numbers first: the "two gallons" you'd normally say, and the "whole bill" (the $2,500 sprint, not a discount). Quote the second.
 
 ---
 

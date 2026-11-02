@@ -4,7 +4,7 @@ type: reference
 title: "Dream Motifs & Figures — Controlled Vocabulary"
 domain: depth-psychology
 created: 2026-09-18
-updated: 2026-09-18
+updated: 2026-11-01
 tags:
   - dream
   - reference
@@ -55,6 +55,10 @@ related:
 | `burning-man` | Burning Man |
 | `new-york` | NYC as setting |
 | `hometown` | Ramsey, NJ, and the childhood home |
+| `fight` | physical fights, war, beatings, altercations (added 2026-11-01) |
+| `wound-illness` | injuries, illness, life support, overdose, the dead returning wounded (added 2026-11-01) |
+| `jewelry` | chains, necklaces, jewelry stores (added 2026-11-01) |
+| `celebrity` | famous people as dream figures: Zuckerberg, Brady, actors, athletes (added 2026-11-01) |
 
 ## Figures
 
