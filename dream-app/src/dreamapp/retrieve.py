@@ -50,6 +50,20 @@ def _read_page_text(absolute_path: str) -> str:
     return text.strip()[: config.MAX_CHARS_PER_PAGE]
 
 
+def _score(candidate: dict) -> float:
+    # Without the embedding model the reranker is a no-op that scores every hit 0.0;
+    # the BM25 score is then the only signal that ranks hits across symbols.
+    if str(candidate.get("rerank_source", "")).startswith("cosine"):
+        return candidate["rerank_score"]
+    return candidate.get("bm25_score", candidate.get("rerank_score", 0.0))
+
+
+def _is_dream_entry(page_path: str) -> bool:
+    # The dreamer's own journal is the series, not corpus: citing it as amplification
+    # would pass his own past dreams off as Jung.
+    return page_path.replace("\\", "/").startswith("wiki/dreams/")
+
+
 def retrieve_passages(symbols: list) -> list:
     """symbols: list[Symbol]. Returns list[Passage], deduped by page_path, top MAX_UNIQUE_PAGES by score."""
     best_by_page = {}
@@ -58,12 +72,13 @@ def retrieve_passages(symbols: list) -> list:
             continue
         for candidate in _run_query(symbol.query, config.TOP_K_PER_SYMBOL):
             page_path = candidate["page_path"]
-            score = candidate["rerank_score"]
+            if _is_dream_entry(page_path):
+                continue
             existing = best_by_page.get(page_path)
-            if existing is None or score > existing["rerank_score"]:
+            if existing is None or _score(candidate) > _score(existing):
                 best_by_page[page_path] = candidate
 
-    ranked = sorted(best_by_page.values(), key=lambda c: c["rerank_score"], reverse=True)
+    ranked = sorted(best_by_page.values(), key=_score, reverse=True)
     ranked = ranked[: config.MAX_UNIQUE_PAGES]
 
     passages = []
@@ -76,7 +91,7 @@ def retrieve_passages(symbols: list) -> list:
                 page_path=c["page_path"],
                 absolute_path=c["absolute_path"],
                 snippet=c["snippet"],
-                score=c["rerank_score"],
+                score=_score(c),
                 page_text=page_text,
             )
         )

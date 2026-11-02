@@ -20,14 +20,26 @@ def _is_retryable(e: Exception) -> bool:
     return status == 429 or (isinstance(status, int) and status >= 500)
 
 
-def _build_user_message(dream_text: str, symbols: list, passages: list) -> str:
+def _capture_blocks(symbols: list, capture) -> str:
+    if capture is None:
+        return ("<conscious_situation>\n(not collected)\n</conscious_situation>\n\n"
+                "<associations>\n(none collected; the dreamer was not asked)\n</associations>\n\n")
+    lines = [f"- {s.image}: {capture.associations.get(s.image) or '(no association given)'}" for s in symbols]
+    return (f"<conscious_situation>\n{capture.conscious_situation or '(not given)'}\n</conscious_situation>\n\n"
+            f"<affect>\n{capture.affect or '(not given)'}\n</affect>\n\n"
+            "<associations>\n" + "\n".join(lines) + "\n</associations>\n\n")
+
+
+def _build_user_message(dream_text: str, symbols: list, passages: list, capture=None, cw_passages=()) -> str:
     symbols_json = json.dumps([s.to_dict() for s in symbols], ensure_ascii=False, indent=2)
     corpus_blocks = "\n".join(
-        f'<page path="{p.page_path}">\n{p.page_text}\n</page>' for p in passages
+        [f'<cw header="{c.header}">\n{c.text}\n</cw>' for c in cw_passages]
+        + [f'<page path="{p.page_path}">\n{p.page_text}\n</page>' for p in passages]
     )
     return (
         f"<dream>\n{dream_text}\n</dream>\n\n"
-        f"<symbols>\n{symbols_json}\n</symbols>\n\n"
+        + _capture_blocks(symbols, capture)
+        + f"<symbols>\n{symbols_json}\n</symbols>\n\n"
         f"<corpus>\n{corpus_blocks}\n</corpus>"
     )
 
@@ -67,9 +79,20 @@ def _call(client, user_message: str, extra_instruction: str = None) -> str:
     raise SynthesizeError(f"synthesize: model API call failed after retries: {last_err}")
 
 
-def synthesize_interpretation(dream_text: str, symbols: list, passages: list) -> Interpretation:
+def _filter_sources(cited: list, passages: list, cw_passages=()) -> list:
+    """Anti-confabulation: keep only citations of pages and CW chunks actually supplied.
+
+    Separators are normalized because retrieve.py emits OS-native page_path (backslashes on
+    Windows) while the model tends to echo forward slashes.
+    """
+    supplied = {p.page_path.replace("\\", "/") for p in passages} | {c.header for c in cw_passages}
+    return [s for s in cited if s.replace("\\", "/") in supplied]
+
+
+def synthesize_interpretation(dream_text: str, symbols: list, passages: list, capture=None,
+                              cw_passages=()) -> Interpretation:
     client = anthropic.Anthropic(api_key=config.get_api_key())
-    user_message = _build_user_message(dream_text, symbols, passages)
+    user_message = _build_user_message(dream_text, symbols, passages, capture=capture, cw_passages=cw_passages)
 
     text = _call(client, user_message)
     try:
@@ -87,12 +110,5 @@ def synthesize_interpretation(dream_text: str, symbols: list, passages: list) ->
 
     interpretation = Interpretation.from_dict(data)
 
-    # Anti-confabulation: sources may only cite pages we actually supplied.
-    # Normalize separators: retrieve.py emits OS-native page_path (backslashes on
-    # Windows), but the model tends to echo back forward slashes regardless.
-    supplied_paths = {p.page_path.replace("\\", "/") for p in passages}
-    interpretation.sources = [
-        s for s in interpretation.sources if s.replace("\\", "/") in supplied_paths
-    ]
-
+    interpretation.sources = _filter_sources(interpretation.sources, passages, cw_passages)
     return interpretation

@@ -18,6 +18,7 @@ VAULT_ROOT = _find_vault_root()
 RETRIEVE_SCRIPT = VAULT_ROOT / "scripts" / "retrieve.py"
 LOCK_SCRIPT = VAULT_ROOT / "scripts" / "wiki-lock.sh"
 DREAMS_DIR = VAULT_ROOT / "wiki" / "dreams"
+CW_DATA_DIR = VAULT_ROOT / "individuation-app" / "data"
 
 MODEL_EXTRACT = os.environ.get("DREAMAPP_MODEL_EXTRACT", "claude-haiku-4-5-20251001")
 MODEL_SYNTH = os.environ.get("DREAMAPP_MODEL_SYNTH", "claude-sonnet-5")
@@ -26,6 +27,7 @@ TOP_K_PER_SYMBOL = 3
 MAX_SYMBOLS = 10
 MIN_SALIENCE_FOR_RETRIEVAL = 3
 MAX_UNIQUE_PAGES = 8
+MAX_CW_CHUNKS = 8
 MAX_CHARS_PER_PAGE = 6000
 MAX_DREAM_CHARS = 8000
 

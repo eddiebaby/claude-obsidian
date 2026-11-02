@@ -75,6 +75,7 @@ class Interpretation:
     dramatic_structure: str
     compensation: str
     amplifications: list = field(default_factory=list)  # list[Amplification]
+    counter_reading: str = ""
     objective_level: str = ""
     subjective_level: str = ""
     movement: str = ""
@@ -88,13 +89,14 @@ class Interpretation:
 
     @classmethod
     def from_dict(cls, d: dict) -> "Interpretation":
-        _warn_missing_keys(d, ("dramatic_structure", "compensation", "amplifications",
+        _warn_missing_keys(d, ("dramatic_structure", "compensation", "amplifications", "counter_reading",
                                "objective_level", "subjective_level", "movement", "question", "sources"),
                            "interpretation")
         return cls(
             dramatic_structure=str(d.get("dramatic_structure", "")),
             compensation=str(d.get("compensation", "")),
             amplifications=[Amplification.from_dict(a) for a in d.get("amplifications", []) if isinstance(a, dict)],
+            counter_reading=str(d.get("counter_reading", "")),
             objective_level=d.get("objective_level", ""),
             subjective_level=d.get("subjective_level", ""),
             movement=d.get("movement", ""),

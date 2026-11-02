@@ -89,27 +89,128 @@ def _render_analysis_section(interpretation) -> str:
     lines += ["", "### Compensation / What the Unconscious Is Saying", interpretation.compensation, ""]
     lines += [f"**Objective level:** {interpretation.objective_level}", "",
               f"**Subjective level:** {interpretation.subjective_level}", ""]
+    lines += ["### Competing Reading", interpretation.counter_reading, ""]
     lines += ["### Movement Toward Individuation", interpretation.movement, ""]
     lines += ["### Open Questions", interpretation.question, ""]
     lines += ["### Sources", ""]
     for src in interpretation.sources:
-        lines.append(f"- [[{Path(src).stem}]]")
+        lines.append(f"- {src}" if _is_cw(src) else f"- [[{Path(src).stem}]]")
     return "\n".join(lines).rstrip() + "\n"
 
 
-def _render_new_note_body(dream_text, analysis, date_str, dayname) -> str:
-    parts = [f"# {date_str} {dayname}", "", "## The Dream", "", dream_text.strip(), "",
-             "## Waking Associations", "", "## Feeling-Tone", "", "## Day Residue", "",
-             "---", "", analysis]
+def _is_cw(source: str) -> bool:
+    # A Collected Works citation ("CW 8 — On the Nature of Dreams — paras. 560-564"), not a vault page.
+    return source.startswith("CW ")
+
+
+_RESPONSE_RE = re.compile(r"(^## Dreamer Response\n)(.*?)(?=^## |\Z)", re.S | re.M)
+
+
+def _render_response_section(note: str = "") -> str:
+    return "\n---\n\n## Dreamer Response\n\n" + (f"{note}\n" if note else "")
+
+
+def _with_response_note(body: str, note: str) -> str:
+    """Put the dreamer's line under ## Dreamer Response: it replaces the placeholder, and goes after real text."""
+    m = _RESPONSE_RE.search(body)
+    if m is None:
+        return body.rstrip("\n") + "\n" + _render_response_section(note)
+    if not note:
+        return body
+    existing = m.group(2)
+    new = f"\n{note}\n" if _is_placeholder(existing) else existing.rstrip("\n") + f"\n\n{note}\n"
+    return body[:m.start(2)] + new + body[m.end(2):]
+
+
+def _response_patches(verdict: str) -> dict:
+    return {"response": f"response: {verdict}\n", "status": "status: responded\n"}
+
+
+def _patch_or_append(fm_text: str, patches: dict) -> str:
+    present = {m.group(1) for m in re.finditer(r"^([A-Za-z_][A-Za-z0-9_]*):", fm_text, re.M)}
+    out = _patch_frontmatter_keys(fm_text, patches)
+    missing = "".join(v for k, v in patches.items() if k not in present)
+    return out if not missing else out.rstrip("\n") + "\n" + missing
+
+
+def _lock_path(path: Path):
+    """Vault-relative path for wiki-lock, or None for a file outside the vault."""
+    try:
+        return str(path.resolve().relative_to(config.VAULT_ROOT.resolve())).replace("\\", "/")
+    except ValueError:
+        return None
+
+
+def record_response(path, verdict: str, note: str = "") -> Path:
+    """Write the dreamer's verdict into an existing dream note. Never erases what is already under Dreamer Response."""
+    path = Path(path)
+    vault_rel = _lock_path(path)
+    if vault_rel:
+        _acquire_lock(vault_rel)
+    try:
+        fm_text, body = _split_frontmatter(path.read_text(encoding="utf-8"))
+        if not re.search(r"^type:\s*dream\s*$", fm_text, re.M):
+            raise WritebackError(f"{path} is not a dream note (no 'type: dream')")
+        new_fm = _patch_or_append(fm_text, _response_patches(verdict))
+        path.write_text("---\n" + new_fm + "---\n" + _with_response_note(body, note), encoding="utf-8")
+    finally:
+        if vault_rel:
+            _release_lock(vault_rel)
+    return path
+
+
+def _capture_sections(capture) -> dict:
+    """The dreamer's Stage 0/2 answers, keyed by the note heading each one fills."""
+    if capture is None:
+        return {"Conscious Situation": "", "Waking Associations": "", "Feeling-Tone": ""}
+    bullets = "\n".join(f"- **{image}** — {text}" for image, text in capture.associations.items())
+    return {"Conscious Situation": capture.conscious_situation,
+            "Waking Associations": bullets,
+            "Feeling-Tone": capture.affect}
+
+
+def _is_placeholder(section_body: str) -> bool:
+    # Template prompts are "> [..." lines; any other blockquote is the dreamer's own text.
+    return all(not s or s == "-" or s.startswith("> [") for s in (ln.strip() for ln in section_body.splitlines()))
+
+
+def _fill_capture_sections(preamble: str, capture) -> str:
+    """Fill each capture section that is empty or a placeholder; append new associations to a filled one."""
+    for heading, content in _capture_sections(capture).items():
+        if not content:
+            continue
+        pat = re.compile(rf"(^## {re.escape(heading)}\n)(.*?)(?=^## |^---\s*$|\Z)", re.S | re.M)
+        m = pat.search(preamble)
+        if m is None:
+            continue
+        existing = m.group(2)
+        if _is_placeholder(existing):
+            new = f"\n{content}\n\n"
+        elif heading == "Waking Associations":
+            new = existing.rstrip("\n") + f"\n{content}\n\n"
+        else:
+            continue
+        preamble = preamble[:m.start(2)] + new + preamble[m.end(2):]
+    return preamble
+
+
+def _render_new_note_body(dream_text, analysis, date_str, dayname, capture=None) -> str:
+    sections = _capture_sections(capture)
+    parts = [f"# {date_str} {dayname}", "", "## The Dream", "", dream_text.strip(), ""]
+    for heading in ("Conscious Situation", "Waking Associations", "Feeling-Tone"):
+        parts += [f"## {heading}", ""] + ([sections[heading], ""] if sections[heading] else [])
+    parts += ["## Day Residue", "", "---", "", analysis]
     return "\n".join(parts)
 
 
-def _render_frontmatter(name, title, date_str, symbols, archetypes, related) -> str:
+def _render_frontmatter(name, title, date_str, symbols, archetypes, related, provenance=None) -> str:
     lines = ["---", f"name: {name}", "type: dream", f'title: "{title}"',
               f"date: {date_str}", f"created: {date_str}", f"updated: {date_str}",
               "tags:", "  - dream", "status: analyzed", "mood:", "sleep:",
-              "recurring: false", "lucid: false",
-              f"archetypes: [{', '.join(archetypes)}]", f"symbols: [{', '.join(symbols)}]"]
+              "recurring: false", "lucid: false"]
+    if provenance:
+        lines.append(f"provenance: {provenance}")
+    lines += [f"archetypes: [{', '.join(archetypes)}]", f"symbols: [{', '.join(symbols)}]"]
     lines.append("related:" if related else "related: []")
     for r in related:
         lines.append(f'  - "{r}"')
@@ -157,9 +258,48 @@ def _patch_frontmatter_keys(fm_text: str, patches: dict) -> str:
 def _analysis_nonempty(section_text: str) -> bool:
     for line in section_text.splitlines()[1:]:
         s = line.strip()
-        if s and not s.startswith(("#", ">", "[!")):
+        if s and s != "---" and not s.startswith(("#", ">", "[!")):
             return True
     return False
+
+
+def _split_analysis(path: Path, body: str):
+    """(preamble, analysis, tail): the analysis runs from ## Jungian Analysis to the next ## heading.
+
+    The tail (Waking Action, Dreamer Response) is the dreamer's and is never rewritten.
+    """
+    idx = body.find("## Jungian Analysis")
+    if idx == -1:
+        raise WritebackError(f"{path} has no '## Jungian Analysis' heading")
+    nxt = re.compile(r"^## ", re.M).search(body, idx + 3)
+    end = nxt.start() if nxt else len(body)
+    return body[:idx], body[idx:end], body[end:]
+
+
+def _case_a_path(source_path):
+    """The existing dream note a run rewrites in place, or None when it makes a new note."""
+    if source_path is None:
+        return None
+    p = Path(source_path).resolve()
+    if not p.is_file():
+        return None
+    try:
+        in_dreams_dir = p.is_relative_to(config.DREAMS_DIR.resolve())
+    except AttributeError:
+        in_dreams_dir = str(p).startswith(str(config.DREAMS_DIR.resolve()))
+    if in_dreams_dir and re.search(r"^type:\s*dream\s*$", p.read_text(encoding="utf-8"), re.MULTILINE):
+        return p
+    return None
+
+
+def check_writable(source_path, force: bool = False):
+    """Raise the refusal write_note would raise, before any question is asked or any model call is paid for."""
+    p = _case_a_path(source_path)
+    if p is None or force:
+        return
+    _, body = _split_frontmatter(p.read_text(encoding="utf-8"))
+    if _analysis_nonempty(_split_analysis(p, body)[1]):
+        raise WritebackError(f"{p} already has analysis content; pass --force to overwrite")
 
 
 def _acquire_lock(vault_rel_path: str):
@@ -190,7 +330,7 @@ def _release_lock(vault_rel_path: str):
                     cwd=config.VAULT_ROOT, capture_output=True, text=True)
 
 
-def _write_case_b(dream_text, interpretation, symbols, *, dry, title, date) -> Path:
+def _write_case_b(dream_text, interpretation, symbols, *, dry, title, date, capture=None) -> Path:
     date_str = date or datetime.date.today().isoformat()
     try:
         d = datetime.date.fromisoformat(date_str)
@@ -201,12 +341,13 @@ def _write_case_b(dream_text, interpretation, symbols, *, dry, title, date) -> P
     path = _new_note_path(date_str, slug)
     symbol_tags = _dedupe_preserve([_kebab(s.image) for s in symbols])
     archetypes = _derive_archetypes(interpretation)
-    related = _dedupe_preserve([f"[[{Path(s).stem}]]" for s in interpretation.sources])
+    related = _dedupe_preserve([f"[[{Path(s).stem}]]" for s in interpretation.sources if not _is_cw(s)])
     display_title = title or " ".join(w.capitalize() for w in slug.split("-"))
     fm = _render_frontmatter(path.stem, f"{date_str} — {display_title}", date_str,
-                              symbol_tags, archetypes, related)
-    analysis = _render_analysis_section(interpretation)
-    note = fm + "\n" + _render_new_note_body(dream_text, analysis, date_str, d.strftime("%A"))
+                              symbol_tags, archetypes, related,
+                              provenance=capture.provenance if capture else None)
+    analysis = _render_analysis_section(interpretation) + _render_response_section()
+    note = fm + "\n" + _render_new_note_body(dream_text, analysis, date_str, d.strftime("%A"), capture)
 
     if dry:
         print(note)
@@ -222,15 +363,12 @@ def _write_case_b(dream_text, interpretation, symbols, *, dry, title, date) -> P
     return path
 
 
-def _write_case_a(path: Path, interpretation, symbols, *, dry, force) -> Path:
+def _write_case_a(path: Path, interpretation, symbols, *, dry, force, capture=None) -> Path:
     raw = path.read_text(encoding="utf-8")
     fm_text, body = _split_frontmatter(raw)
     existing = yaml.safe_load(fm_text) or {}
 
-    idx = body.find("## Jungian Analysis")
-    if idx == -1:
-        raise WritebackError(f"{path} has no '## Jungian Analysis' heading")
-    preamble, existing_section = body[:idx], body[idx:]
+    preamble, existing_section, tail = _split_analysis(path, body)
 
     if not force and _analysis_nonempty(existing_section):
         raise WritebackError(f"{path} already has analysis content; pass --force to overwrite")
@@ -239,16 +377,23 @@ def _write_case_a(path: Path, interpretation, symbols, *, dry, force) -> Path:
     symbol_tags = _dedupe_preserve(list(existing.get("symbols") or []) + [_kebab(s.image) for s in symbols])
     archetypes = _dedupe_preserve(list(existing.get("archetypes") or []) + _derive_archetypes(interpretation))
     related = _dedupe_preserve(list(existing.get("related") or []) +
-                                [f"[[{Path(s).stem}]]" for s in interpretation.sources])
+                                [f"[[{Path(s).stem}]]" for s in interpretation.sources if not _is_cw(s)])
     patches = {
-        "status": "status: analyzed\n",
         "updated": f"updated: {today}\n",
         "symbols": f"symbols: [{', '.join(symbol_tags)}]\n",
         "archetypes": f"archetypes: [{', '.join(archetypes)}]\n",
         "related": _render_related_block(related),
     }
-    new_fm = _patch_frontmatter_keys(fm_text, patches)
-    note = "---\n" + new_fm + "---\n" + preamble + _render_analysis_section(interpretation)
+    if not existing.get("response"):
+        # A recorded verdict stays recorded through a --force re-analysis.
+        patches["status"] = "status: analyzed\n"
+    if capture is not None:
+        patches["provenance"] = f"provenance: {capture.provenance}\n"
+        preamble = _fill_capture_sections(preamble, capture)
+    new_fm = _patch_or_append(fm_text, patches)
+    analysis = _render_analysis_section(interpretation)
+    rest = _with_response_note("\n---\n\n" + tail, "") if tail else _render_response_section()
+    note = "---\n" + new_fm + "---\n" + preamble + analysis + rest
 
     if dry:
         print(note)
@@ -264,16 +409,8 @@ def _write_case_a(path: Path, interpretation, symbols, *, dry, force) -> Path:
 
 
 def write_note(dream_text, interpretation, symbols, *, source_path=None,
-                dry=False, force=False, title=None, date=None) -> Path:
-    if source_path is not None:
-        p = Path(source_path).resolve()
-        if p.is_file():
-            try:
-                in_dreams_dir = p.is_relative_to(config.DREAMS_DIR.resolve())
-            except AttributeError:
-                in_dreams_dir = str(p).startswith(str(config.DREAMS_DIR.resolve()))
-            if in_dreams_dir:
-                raw = p.read_text(encoding="utf-8")
-                if re.search(r"^type:\s*dream\s*$", raw, re.MULTILINE):
-                    return _write_case_a(p, interpretation, symbols, dry=dry, force=force)
-    return _write_case_b(dream_text, interpretation, symbols, dry=dry, title=title, date=date)
+                dry=False, force=False, title=None, date=None, capture=None) -> Path:
+    p = _case_a_path(source_path)
+    if p is not None:
+        return _write_case_a(p, interpretation, symbols, dry=dry, force=force, capture=capture)
+    return _write_case_b(dream_text, interpretation, symbols, dry=dry, title=title, date=date, capture=capture)

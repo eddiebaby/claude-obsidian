@@ -284,15 +284,34 @@ sufficient cover there.
 ## MVP cut (v0.1 priority order)
 
 1. ~~Corpus extraction CW 8 + 9i~~ ✅
-2. **Interactive Stage 0 + Stage 2** — retrofit the dream-app CLI to pause
+2. ✅ *(2026-11-02: `dreamapp log` asks conscious situation, waking affect,
+   provenance, then one association per image, most salient first, before
+   retrieval; associations join the retrieval queries and the synthesize prompt.
+   Still open: the Stage 1 step where the user confirms/edits the symbol list.)*
+   **Interactive Stage 0 + Stage 2** — retrofit the dream-app CLI to pause
    and collect conscious situation and per-symbol associations before any
    retrieval. Highest-leverage change in the whole plan; ~a day of work.
-3. **Dreamer-response field** after Stage 4 (yes / partly / no + one line).
+3. ✅ *(2026-11-02: after the analysis `dreamapp log` shows the compensation,
+   the counter-reading and the question, then asks clicks / partial / miss
+   (yes / partly / no accepted; `later` defers) + one line; `dreamapp respond`
+   records it afterwards. `counter_reading` is now a required field of the
+   synthesize JSON and is rendered as "Competing Reading". Provenance shipped
+   with step 2.)*
+   **Dreamer-response field** after Stage 4 (yes / partly / no + one line).
    Cheap, compounds forever. Bundle two more near-free capture fields here:
    the **provenance enum** (Stage 0) and the **counter-hypothesis** slot
    (Stage 4) — both are one column each and both are expensive to retrofit
    once a series has accumulated.
-4. **The merge (§0)** — port the dream-app pipeline onto this corpus; index
+4. 🟡 *(2026-11-02, v0: `dreamapp/cw.py` searches the CW 8 + 9i chunks with
+   in-process BM25, header indexed as the contextual prefix; one query per
+   salient symbol (its association appended) plus one whole-dream query; the
+   synthesize prompt treats `<cw>` blocks as evidence and `<page>` blocks as
+   orientation, and sources keep only supplied headers. Vault dream entries no
+   longer retrieved as corpus; vault ranking falls back to BM25 when the
+   reranker is a no-op (nomic-embed-text not pulled). Still open: embedding
+   rerank over CW chunks, the concept-graph neighborhood boost, the bake-in of
+   the no-profile-grounding rule beyond the prompt.)*
+   **The merge (§0)** — port the dream-app pipeline onto this corpus; index
    chunks (bm25 + rerank from vault scripts); wiki concept graph as router,
    CW chunks as citations. Bake the two v0.2 rules into the synthesize
    prompt during the port, not after: no profile grounding, and emit the
