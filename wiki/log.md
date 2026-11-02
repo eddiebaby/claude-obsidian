@@ -15,6 +15,12 @@ related:
 
 # Operation Log
 
+## 2026-11-01 | feature | periodic dream reviews (month / quarter / year)
+- Brainstormed with Scott: 39 features chosen on the visual board, plus the design.md tripwire. Design: `docs/superpowers/specs/2026-11-01-dream-periodic-reviews-design.md`.
+- **Counted half:** `dreamapp review` (`dream-app/src/dreamapp/review.py`, 25 new tests; suite 42 passed / 1 skipped).
+- **Read half:** `/dream` skill Phase 5 and `_templates/dream-review.md`.
+- First run: [[2026-10-month]] ("October was about the father's house"), [[2026-Q3-quarter]], and [[2026-year]] (year to date). Linked from [[dreams-index]].
+
 ## 2026-11-01 | dream import | 24 dreams from the Claude.ai Dreams project (09-28 → 11-01)
 - Source: claude.ai Dreams project chats, read through the signed-in browser pane. The 09-15 export (`Downloads/conversations-000.zip`) confirmed that everything through 09-24 was already in the vault.
 - 24 new entries in `wiki/dreams/` (`2026-09-28-desert-dog-oxygen-machine` … `2026-11-01-niky-finds-messages`), all `status: unanalyzed`. Text is verbatim with light cleanup, and `[?]` marks uncertain words.

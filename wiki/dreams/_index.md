@@ -26,6 +26,15 @@ Personal dream record + Jungian analysis, drawing on the [[Dream-Analysis-and-In
 
 **Backlog worksheet:** [[backlog-associations]] — retroactive association questions for all past dreams. Answer, then say `re-analyze the backlog`.
 
+**Periodic reviews:** in `reviews/`: [[2026-10-month|October 2026]] · [[2026-Q3-quarter|Q3 2026]] · [[2026-year|2026 (year to date)]]. Say `monthly review`, `quarterly review` or `year review`. The numbers come from `dreamapp review`; the reading is written by the `/dream` skill (Phase 5).
+
+```dataview
+TABLE WITHOUT ID file.link AS review, period, dreams, agency_mean AS agency
+FROM "wiki/dreams/reviews"
+WHERE type = "dream-review"
+SORT start DESC
+```
+
 ## How to log a dream
 
 Workflow is enforced by the project skill `.claude/skills/dream/SKILL.md`.

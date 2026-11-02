@@ -1,6 +1,6 @@
 ---
 name: dream
-description: Log, analyze, and record the response to a dream in wiki/dreams/. Use when Scott says "log this dream", "log dream", "analyze my dream", "analyze wiki/dreams/<file>", pastes a dream, or gives a clicks/partial/miss verdict on a dream analysis.
+description: Log, analyze, and record the response to a dream in wiki/dreams/, and write the monthly / quarterly / yearly dream reviews. Use when Scott says "log this dream", "log dream", "analyze my dream", "analyze wiki/dreams/<file>", pastes a dream, gives a clicks/partial/miss verdict on a dream analysis, or asks for a "monthly review", "quarterly review", "year review" or "dream review".
 ---
 
 # Dream workflow
@@ -60,6 +60,24 @@ When Scott says clicks / partial / miss (or reacts in prose):
 - Write his reaction into *Dreamer Response* — his words, lightly cleaned. Set `response:` and `status: responded`.
 - On **miss** or **partial**: ask what's off in one question, then revise the analysis section that missed, keeping the original under a `> Revised YYYY-MM-DD — original reading: ...` note. Don't defend the original.
 - Jung's rule: the interpretation that doesn't click for the dreamer is wrong, however elegant.
+
+## Phase 5 — PERIODIC REVIEW (`monthly review [YYYY-MM]` / `quarterly review [YYYY-Qn]` / `year review [YYYY]`)
+
+Design: `docs/superpowers/specs/2026-11-01-dream-periodic-reviews-design.md`. With no period given, use the last complete one.
+
+1. **Counted half.** Run `dreamapp review --month YYYY-MM` (or `--quarter` / `--year`) with `--today <today> --json <scratchpad>/stats.json`. Every number on the page comes from this output. Never count by hand.
+2. **Read** the period's dream pages, [[dream-threads]], [[longitudinal-study]], [[dreamer-context]], and the previous review in `wiki/dreams/reviews/` if there is one (its watch list gets graded).
+3. **Write** `wiki/dreams/reviews/<label>-<kind>.md` (e.g. `2026-10-month.md`) from `_templates/dream-review.md`, in its section order. The top tier goes first: confidence line, verdict, numbers, firsts. Then the rest.
+   - Month: M1–M23. Quarter: the month sections across the quarter, plus Q1–Q8. Year: all of that, plus Y1–Y9.
+   - **Confidence line first.** If association debt is above half the dreams, say so above the verdict. Unrated hit rate means "the analysis is grading itself."
+   - **Verdict** = one sentence, then one paragraph. It names what the period was *about*, not what happened in it.
+   - **Tripwire (M23).** Read the period's Compensation sections side by side. If they keep collapsing onto one waking complaint (money, claim, focus), say "the reading may be stuck" and name the complaint.
+   - **Predictions graded (M20).** Score each item on the previous review's watch list as hit / miss / not yet, with the dream that decides it.
+   - Inside the dreams only. Waking life enters only as Scott wrote it into entries.
+   - Cite threads and dreams by wikilink. Amplification claims follow the Phase 2 citation rules.
+4. Paste the script's markdown under `## Data (counted by dreamapp review)`, with its headings demoted one level.
+5. Frontmatter: `type: dream-review`, `period`, `label`, `start`, `end`, `dreams`, `agency_mean`, `partial`, `domain: depth-psychology`, `related` (dream-threads, longitudinal-study, the previous review). Link the new review from the previous one's `related`.
+6. End the reply with the verdict sentence and: **"Does that name the period?"**
 
 ## Backlog re-analysis (`re-analyze the backlog`)
 
