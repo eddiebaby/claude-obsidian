@@ -1,4 +1,5 @@
-"""Stage 0 (CAPTURE) and Stage 2 (ASSOCIATE) of the method in individuation-app/docs/design.md.
+"""Stage 0 (CAPTURE), the dreamer's check on Stage 1 (DECOMPOSE), and Stage 2 (ASSOCIATE)
+of the method in individuation-app/docs/design.md.
 
 The pipeline pauses here so the dreamer's own context reaches the model before
 anything is retrieved or interpreted: without it the model invents the personal
@@ -6,6 +7,9 @@ reading and infers the conscious situation from the dream itself.
 """
 from dataclasses import dataclass, field, replace
 
+from .models import Symbol
+
+ADDED_SALIENCE = 4  # an image the dreamer adds was important enough to name; the model missed it
 PROVENANCES = ("dream", "fragment", "imagination", "test", "imported")
 MAX_ASSOCIATION_QUESTIONS = 7
 STOP_WORDS = {"q", "quit", "done"}
@@ -33,6 +37,39 @@ def ask_capture(ask=input) -> Capture:
         if provenance in PROVENANCES:
             break
     return Capture(conscious_situation=situation, affect=affect, provenance=provenance)
+
+
+def confirm_symbols(symbols, ask=input, show=print) -> list:
+    """Stage 1's check: the dreamer keeps, drops ('d 2 4') or adds ('+ silver chain') images.
+
+    The model's list decides what gets asked about and retrieved; an image it missed or misread
+    would otherwise shape the whole reading without the dreamer seeing it.
+    """
+    symbols = list(symbols)
+    while True:
+        show("\nImages in this dream:")
+        for n, s in enumerate(symbols, 1):
+            show(f"  {n}. {s.image} (salience {s.salience})")
+        reply = ask("Enter to keep, 'd 2 4' to drop, '+ image' to add: ").strip()
+        if not reply:
+            if symbols or ask("No images left; go on without any? [y/N] ").strip().lower() in ("y", "yes"):
+                return symbols
+            continue
+        if reply.startswith("+") and reply[1:].strip():
+            image = reply[1:].strip()
+            if any(s.image.casefold() == image.casefold() for s in symbols):
+                show(f"'{image}' is already on the list.")
+            else:
+                symbols.append(Symbol(image=image, kind="ambiguous", salience=ADDED_SALIENCE, query=image))
+            continue
+        parts = reply.split()
+        numbers = parts[1:]
+        if parts[0].lower() == "d" and numbers and all(p.isascii() and p.isdigit() for p in numbers):
+            drop = {int(p) for p in numbers}
+            if all(1 <= n <= len(symbols) for n in drop):
+                symbols = [s for n, s in enumerate(symbols, 1) if n not in drop]
+                continue
+        show(f"Didn't understand '{reply}'. Numbers are 1-{len(symbols)}: 'd 2 4' drops, '+ snake' adds.")
 
 
 def ask_associations(symbols, ask=input, limit=MAX_ASSOCIATION_QUESTIONS) -> dict:

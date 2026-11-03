@@ -40,6 +40,12 @@ def _kebab(s: str) -> str:
     return s.strip("-")
 
 
+def _symbol_tags(existing, symbols) -> list:
+    """Existing tags plus one per image. An image with no ASCII letters or digits (an emoji, a word in
+    another script) has no kebab form and gets no tag: an empty one breaks the frontmatter list."""
+    return _dedupe_preserve([t for t in list(existing) + [_kebab(s.image) for s in symbols] if t])
+
+
 def _slug(title, dream_text) -> str:
     source = title if title else dream_text
     words = re.findall(r"[A-Za-z0-9']+", source.lower())
@@ -175,22 +181,40 @@ def _is_placeholder(section_body: str) -> bool:
     return all(not s or s == "-" or s.startswith("> [") for s in (ln.strip() for ln in section_body.splitlines()))
 
 
+def _new_associations(existing: str, capture) -> str:
+    """Bullets the section doesn't already hold word for word: a re-run adds nothing, and a changed
+    answer for the same image is kept beside the first rather than lost."""
+    have = {ln.strip() for ln in existing.splitlines()}
+    bullets = (f"- **{image}** — {text}" for image, text in capture.associations.items())
+    return "\n".join(b for b in bullets if b not in have)
+
+
 def _fill_capture_sections(preamble: str, capture) -> str:
-    """Fill each capture section that is empty or a placeholder; append new associations to a filled one."""
+    """Put every Stage 0/2 answer in the note: fill an empty or placeholder section, add under a filled
+    one, and create a section the note lacks (pre-template notes). Nothing the dreamer said is dropped."""
     for heading, content in _capture_sections(capture).items():
         if not content:
             continue
         pat = re.compile(rf"(^## {re.escape(heading)}\n)(.*?)(?=^## |^---\s*$|\Z)", re.S | re.M)
         m = pat.search(preamble)
         if m is None:
+            # before the closing '---' of the preamble, so it stays above the analysis
+            close = re.search(r"^---\s*\Z", preamble.rstrip("\n") + "\n", re.M)
+            at = close.start() if close else len(preamble)
+            preamble = preamble[:at].rstrip("\n") + f"\n\n## {heading}\n\n{content}\n\n" + preamble[at:]
             continue
         existing = m.group(2)
         if _is_placeholder(existing):
             new = f"\n{content}\n\n"
         elif heading == "Waking Associations":
-            new = existing.rstrip("\n") + f"\n{content}\n\n"
+            content = _new_associations(existing, capture)
+            if not content:
+                continue
+            new = existing.rstrip("\n") + f"\n{content}\n\n"  # one list, no blank line between
+        elif content.strip() in existing:
+            continue  # the same answer from an earlier run
         else:
-            continue
+            new = existing.rstrip("\n") + f"\n\n{content}\n\n"
         preamble = preamble[:m.start(2)] + new + preamble[m.end(2):]
     return preamble
 
@@ -340,7 +364,7 @@ def _write_case_b(dream_text, interpretation, symbols, *, dry, title, date, capt
 
     slug = _slug(title, dream_text)
     path = _new_note_path(date_str, slug)
-    symbol_tags = _dedupe_preserve([_kebab(s.image) for s in symbols])
+    symbol_tags = _symbol_tags([], symbols)
     archetypes = _derive_archetypes(interpretation)
     related = _dedupe_preserve([f"[[{Path(s).stem}]]" for s in interpretation.sources if not _is_citation(s)])
     display_title = title or " ".join(w.capitalize() for w in slug.split("-"))
@@ -375,7 +399,7 @@ def _write_case_a(path: Path, interpretation, symbols, *, dry, force, capture=No
         raise WritebackError(f"{path} already has analysis content; pass --force to overwrite")
 
     today = datetime.date.today().isoformat()
-    symbol_tags = _dedupe_preserve(list(existing.get("symbols") or []) + [_kebab(s.image) for s in symbols])
+    symbol_tags = _symbol_tags(existing.get("symbols") or [], symbols)
     archetypes = _dedupe_preserve(list(existing.get("archetypes") or []) + _derive_archetypes(interpretation))
     related = _dedupe_preserve(list(existing.get("related") or []) +
                                 [f"[[{Path(s).stem}]]" for s in interpretation.sources if not _is_citation(s)])
@@ -389,7 +413,9 @@ def _write_case_a(path: Path, interpretation, symbols, *, dry, force, capture=No
         # A recorded verdict stays recorded through a --force re-analysis.
         patches["status"] = "status: analyzed\n"
     if capture is not None:
-        patches["provenance"] = f"provenance: {capture.provenance}\n"
+        # "dream" is the prompt's default (Enter); it must not overwrite a note already marked otherwise
+        if capture.provenance != "dream" or not existing.get("provenance"):
+            patches["provenance"] = f"provenance: {capture.provenance}\n"
         preamble = _fill_capture_sections(preamble, capture)
     new_fm = _patch_or_append(fm_text, patches)
     analysis = _render_analysis_section(interpretation)

@@ -1,4 +1,5 @@
 import json
+import re
 import sys
 import time
 from pathlib import Path
@@ -70,11 +71,15 @@ def _call(client, user_message: str, extra_instruction: str = None) -> str:
             # reasoning, truncating or emptying the JSON response.
             resp = client.messages.create(
                 model=config.MODEL_SYNTH,
-                max_tokens=4000,
+                max_tokens=config.MAX_TOKENS_SYNTH,
                 thinking={"type": "disabled"},
                 system=system,
                 messages=[{"role": "user", "content": user_message}],
             )
+            if getattr(resp, "stop_reason", None) == "max_tokens":
+                # a cut-off JSON object won't parse, and a reprompt would be cut off the same way
+                raise SynthesizeError(f"synthesize: the answer hit MAX_TOKENS_SYNTH ({config.MAX_TOKENS_SYNTH}) "
+                                      "before it finished; raise it in config.py")
             return "".join(block.text for block in resp.content if block.type == "text")
         except anthropic.APIStatusError as e:
             last_err = e
@@ -88,14 +93,78 @@ def _call(client, user_message: str, extra_instruction: str = None) -> str:
     raise SynthesizeError(f"synthesize: model API call failed after retries: {last_err}")
 
 
-def _filter_sources(cited: list, passages: list, cw_passages=()) -> list:
-    """Anti-confabulation: keep only citations of pages and CW chunks actually supplied.
+_DASHES = re.compile(r"[‐-―−-]")
+_QUOTES = str.maketrans({"“": '"', "”": '"', "‘": "'", "’": "'"})
+_RANGE = r"\d+(?:\s*[‐-―-]\s*\d+)?"
+# "CW 8 ¶509", "CW 8 ¶¶ 509–512", "CW 8 ¶¶509, ¶515", "CW 8 ¶509–10"; \s also matches a non-breaking space
+_INLINE_CW = re.compile(rf"CW\s+(\d+i{{0,2}})\s*¶¶?\s*({_RANGE}(?:\s*,\s*¶?\s*{_RANGE})*)")
+_PARA_MARK = re.compile(r"\[(\d+)\]")
 
-    Separators are normalized because retrieve.py emits OS-native page_path (backslashes on
-    Windows) while the model tends to echo forward slashes.
-    """
-    supplied = {p.page_path.replace("\\", "/") for p in passages} | {c.header for c in cw_passages}
-    return [s for s in cited if s.replace("\\", "/") in supplied]
+
+def _citation_key(s: str) -> str:
+    """Compare citations past the slips a model makes echoing them: dash style, quotes, spacing, case,
+    and path separators (retrieve.py emits OS-native page_path; the model echoes forward slashes)."""
+    s = _DASHES.sub("-", s.replace("\\", "/").translate(_QUOTES))
+    return re.sub(r"\s+", " ", s).strip().casefold()
+
+
+def _filter_sources(cited: list, passages: list, cw_passages=()) -> list:
+    """Anti-confabulation: keep only citations of pages and CW chunks actually supplied, each in its
+    supplied form and once; report the rest."""
+    supplied = {}
+    for s in [p.page_path.replace("\\", "/") for p in passages] + [c.header for c in cw_passages]:
+        supplied.setdefault(_citation_key(s), s)
+    kept, dropped = [], []
+    for s in cited:
+        canonical = supplied.get(_citation_key(s))
+        if canonical is None:
+            dropped.append(s)
+        elif canonical not in kept:
+            kept.append(canonical)
+    if dropped:
+        print(f"synthesize: dropped {len(dropped)} source(s) not in the supplied corpus: {'; '.join(dropped)}",
+              file=sys.stderr)
+    return kept
+
+
+def _shown_paragraphs(c) -> tuple:
+    """(first, last) paragraph the model actually saw: a chunk cut at MAX_CHARS_PER_CW_CHUNK shows fewer."""
+    if len(c.text) <= config.MAX_CHARS_PER_CW_CHUNK:
+        return c.para_start, c.para_end
+    marks = [int(n) for n in _PARA_MARK.findall(c.text[:config.MAX_CHARS_PER_CW_CHUNK])]
+    return c.para_start, max(marks) if marks else c.para_start
+
+
+def _expand(item: str) -> tuple:
+    """'509' -> (509, 509); '509–512' -> (509, 512); abbreviated '509–10' -> (509, 510)."""
+    nums = re.findall(r"\d+", item)
+    lo = int(nums[0])
+    if len(nums) == 1:
+        return lo, lo
+    hi_text = nums[1]
+    hi = int(hi_text) if int(hi_text) >= lo else int(nums[0][: len(nums[0]) - len(hi_text)] + hi_text)
+    return lo, hi
+
+
+def unsupported_inline_citations(interpretation, cw_passages) -> list:
+    """'CW 8 ¶999' in the prose whose paragraph the model was not shown. Advisory: never raises on odd fields."""
+    fields = [interpretation.dramatic_structure, interpretation.compensation, interpretation.counter_reading,
+              interpretation.objective_level, interpretation.subjective_level, interpretation.movement,
+              interpretation.question]
+    for a in interpretation.amplifications:
+        fields += [a.corpus_says, a.personal_reading, a.archetypal_reading]
+    prose = " ".join(str(f) for f in fields if f)  # the model can return a list where text belongs
+    shown = [(c.volume, *_shown_paragraphs(c)) for c in cw_passages if c.para_start is not None]
+    found = []
+    for vol, numbers in _INLINE_CW.findall(prose):
+        for item in re.split(r"\s*,\s*¶?\s*", numbers):
+            lo, hi = _expand(item)
+            held = all(any(v == f"CW {vol}" and a <= p <= b for v, a, b in shown)
+                       for p in range(lo, min(hi, lo + 30) + 1))
+            cite = f"CW {vol} ¶{lo}" + (f"–{hi}" if hi != lo else "")
+            if not held and cite not in found:
+                found.append(cite)
+    return found
 
 
 def synthesize_interpretation(dream_text: str, symbols: list, passages: list, capture=None,
@@ -120,4 +189,12 @@ def synthesize_interpretation(dream_text: str, symbols: list, passages: list, ca
     interpretation = Interpretation.from_dict(data)
 
     interpretation.sources = _filter_sources(interpretation.sources, passages, cw_passages)
+    try:
+        unsupported = unsupported_inline_citations(interpretation, cw_passages)
+    except Exception as e:  # advisory only: a paid answer is never lost to this check
+        print(f"synthesize: inline-citation check skipped ({e})", file=sys.stderr)
+        unsupported = []
+    if unsupported:
+        print(f"synthesize: cited in the text but not supplied (check these): {', '.join(unsupported)}",
+              file=sys.stderr)
     return interpretation

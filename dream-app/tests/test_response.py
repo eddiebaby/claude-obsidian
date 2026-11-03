@@ -99,7 +99,7 @@ def test_interactive_run_shows_compensation_and_competing_reading_before_the_ver
     monkeypatch.setattr(pipeline, "write_note", lambda *a, **k: tmp_path / "n.md")
     monkeypatch.setattr(pipeline, "record_response", lambda *a: None)
     buf = io.StringIO()
-    replies = iter(["sit", "calm", "", ""])
+    replies = iter(["sit", "calm", "", "", ""])
 
     def ask(prompt):
         if prompt.startswith("Does this click"):

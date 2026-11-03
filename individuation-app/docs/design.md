@@ -299,7 +299,7 @@ sufficient cover there.
 2. ✅ *(2026-11-02: `dreamapp log` asks conscious situation, waking affect,
    provenance, then one association per image, most salient first, before
    retrieval; associations join the retrieval queries and the synthesize prompt.
-   Still open: the Stage 1 step where the user confirms/edits the symbol list.)*
+   Stage 1 confirmation added 2026-11-03: `log` shows the image list for keep / drop / add before the association questions.)*
    **Interactive Stage 0 + Stage 2** — retrofit the dream-app CLI to pause
    and collect conscious situation and per-symbol associations before any
    retrieval. Highest-leverage change in the whole plan; ~a day of work.

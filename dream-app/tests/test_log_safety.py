@@ -1,5 +1,6 @@
 """What `log` and `respond` must never lose: the dreamer's own writing, and answers already given."""
 import contextlib
+import re
 import io
 import shutil
 import sys
@@ -218,7 +219,7 @@ def test_log_writes_the_note_before_asking_for_the_verdict(monkeypatch, tmp_path
     note = tmp_path / "n.md"
     monkeypatch.setattr(pipeline, "write_note", lambda *a, **k: calls.append("write") or note)
     monkeypatch.setattr(pipeline, "record_response", lambda *a: calls.append(("record",) + a))
-    replies = iter(["sit", "calm", "", "", "clicks", "yes"])
+    replies = iter(["sit", "calm", "", "", "", "clicks", "yes"])  # 3 capture, confirm, assoc
 
     def ask(prompt):
         if prompt.startswith("Does this click"):
@@ -235,7 +236,7 @@ def test_log_keeps_the_note_when_the_verdict_prompt_is_cancelled(monkeypatch, tm
     _stub_stages(monkeypatch, calls)
     monkeypatch.setattr(pipeline, "write_note", lambda *a, **k: calls.append("write") or tmp_path / "n.md")
     monkeypatch.setattr(pipeline, "record_response", lambda *a: calls.append("record"))
-    replies = iter(["sit", "calm", "", ""])
+    replies = iter(["sit", "calm", "", "", ""])
 
     def ask(prompt):
         if prompt.startswith("Does this click"):
@@ -252,7 +253,7 @@ def test_log_prints_the_answers_when_a_later_stage_fails(monkeypatch, capsys):
         raise SynthesizeError("credit balance is too low")
 
     _stub_stages(monkeypatch, [], synth=boom)
-    replies = iter(["Fired last week.", "dread", "", "my grandmother"])
+    replies = iter(["Fired last week.", "dread", "", "", "my grandmother"])
     with pytest.raises(SynthesizeError):
         pipeline.run("Milk.", interactive=True, ask=lambda prompt: next(replies))
     err = capsys.readouterr().err
@@ -310,3 +311,76 @@ def test_cli_log_cancelled_during_the_interview_exits_cleanly(monkeypatch, tmp_p
     monkeypatch.setattr(sys, "argv", ["dreamapp", "log", str(dream)])
     assert cli.main() == 130
     assert "cancelled" in capsys.readouterr().err
+
+
+# --- capture answers always land somewhere ---
+
+def _cap(**kw):
+    from dreamapp.capture import Capture
+    base = dict(conscious_situation="New job offer.", affect="dread, 4", provenance="dream",
+                associations={"milk": "my grandmother's kitchen"})
+    base.update(kw)
+    return Capture(**base)
+
+
+def _case_a(dreams, text, capture):
+    path = _note(dreams, text)
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        write_note("", _interp(), [_sym()], source_path=str(path), dry=True, force=True, capture=capture)
+    return buf.getvalue()
+
+
+def test_an_answer_for_a_section_the_note_lacks_gets_a_new_section(dreams):
+    out = _case_a(dreams, TEMPLATE_NOTE.replace("## Conscious Situation\n\n> [What's live right now: what you're "
+                                                "pushing on, worried about, avoiding.]\n\n\n", ""), _cap())
+    assert "## Conscious Situation\n\nNew job offer." in out
+    assert out.index("## Conscious Situation") < out.index("## Jungian Analysis")
+
+
+def test_an_answer_for_a_filled_section_goes_under_what_is_there(dreams):
+    filled = TEMPLATE_NOTE.replace("> [What's live right now: what you're pushing on, worried about, avoiding.]",
+                                   "Quit the old job in October.")
+    out = _case_a(dreams, filled, _cap())
+    assert "Quit the old job in October." in out and "New job offer." in out
+    assert out.index("Quit the old job") < out.index("New job offer.")
+
+
+def test_a_rerun_does_not_repeat_an_association_already_written(dreams):
+    once = TEMPLATE_NOTE.replace("> [What each image/figure brings up FOR YOU.]\n\n-",
+                                 "- **milk** — my grandmother's kitchen")
+    out = _case_a(dreams, once, _cap())
+    associations = out[out.index("## Waking Associations"):out.index("## Feeling-Tone")]
+    assert associations.count("**milk**") == 1
+
+
+def test_the_default_provenance_does_not_overwrite_an_imported_note(dreams):
+    imported = TEMPLATE_NOTE.replace("status: unanalyzed", "status: unanalyzed\nprovenance: imported")
+    assert frontmatter.loads(_case_a(dreams, imported, _cap())).metadata["provenance"] == "imported"
+    assert frontmatter.loads(_case_a(dreams, imported, _cap(provenance="fragment"))).metadata["provenance"] == "fragment"
+
+
+def test_a_rerun_with_the_same_answers_adds_nothing_and_a_changed_one_is_kept(dreams):
+    first = _case_a(dreams, TEMPLATE_NOTE, _cap())
+    _note(dreams, first)
+    again = _case_a(dreams, first, _cap())
+    assert again.count("New job offer.") == 1 and again.count("dread, 4") == 1
+    changed = _case_a(dreams, first, _cap(associations={"milk": "the farm, actually"}))
+    associations = changed[changed.index("## Waking Associations"):changed.index("## Feeling-Tone")]
+    assert "my grandmother's kitchen" in associations and "the farm, actually" in associations
+
+
+def test_all_three_sections_missing_are_all_created_above_the_analysis(dreams):
+    bare = re.sub(r"## (Conscious Situation|Waking Associations|Feeling-Tone)\n.*?(?=^## )", "", TEMPLATE_NOTE,
+                  flags=re.S | re.M)
+    assert "## Conscious Situation" not in bare
+    out = _case_a(dreams, bare, _cap())
+    for heading in ("## Conscious Situation", "## Waking Associations", "## Feeling-Tone"):
+        assert out.index(heading) < out.index("## Jungian Analysis")
+
+
+def test_an_image_with_no_ascii_name_never_writes_an_empty_symbol_tag(dreams):
+    from dreamapp.models import Symbol
+    path = write_note("A snake.", _interp(), [Symbol("🐍", "ambiguous", 4, "snake"), _sym()], dry=False,
+                      title="Snake", date="2026-11-03")
+    assert frontmatter.loads(path.read_text(encoding="utf-8")).metadata["symbols"] == ["milk"]

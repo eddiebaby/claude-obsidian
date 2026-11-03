@@ -93,6 +93,27 @@ def test_sources_keep_supplied_cw_headers_and_drop_invented_ones():
     assert _filter_sources(cited, pages, cwp) == [H2, "wiki/concepts/Mother Archetype.md"]
 
 
+def test_sources_survive_dash_quote_and_spacing_slips_and_keep_the_supplied_form():
+    cwp = [CWPassage(header=H2, volume="CW 9i", para_start=155, para_end=158, text="t", score=1)]
+    slipped = "CW 9i - The Psychological Aspects of the Mother  Archetype – paras. 155-158"
+    assert _filter_sources([slipped], [], cwp) == [H2]
+    assert _filter_sources([slipped, H2], [], cwp) == [H2]  # once, in the supplied form
+
+
+def test_sources_report_what_they_drop(capsys):
+    cwp = [CWPassage(header=H2, volume="CW 9i", para_start=155, para_end=158, text="t", score=1)]
+    _filter_sources([H2, "CW 8 — Invented Essay — paras. 1-2"], [], cwp)
+    assert "Invented Essay" in capsys.readouterr().err
+
+
+def test_inline_citations_outside_the_supplied_paragraphs_are_found():
+    from dreamapp.synthesize import unsupported_inline_citations
+    cwp = [CWPassage(header=H2, volume="CW 9i", para_start=155, para_end=158, text="t", score=1)]
+    interp = Interpretation(dramatic_structure="As CW 9i ¶156 has it", compensation="see CW 8 ¶999",
+                            amplifications=[Amplification("cow", "CW 9i ¶¶155–157", "p", "a", False)])
+    assert unsupported_inline_citations(interp, cwp) == ["CW 8 ¶999"]
+
+
 def test_sources_render_cw_as_citation_and_pages_as_links():
     interp = Interpretation(dramatic_structure="a", compensation="b", amplifications=[],
                             sources=[H2, "wiki/concepts/Mother Archetype.md"])
@@ -225,7 +246,40 @@ def test_run_searches_cw_with_association_queries_and_the_dream(monkeypatch):
 
     monkeypatch.setattr(pipeline, "synthesize_interpretation", synth)
     monkeypatch.setattr(pipeline, "write_note", lambda *a, **k: None)
-    replies = iter(["", "", "", "took my mother's place", "", "later"])
+    replies = iter(["", "", "", "", "took my mother's place", "", "later"])  # 3 capture, confirm, 2 assoc
     with contextlib.redirect_stdout(io.StringIO()):
         pipeline.run("The stepmom at the mall.", dry=True, interactive=True, ask=lambda p: next(replies))
     assert seen["queries"] == ["stepmom took my mother's place", "The stepmom at the mall."]
+
+
+def test_inline_citation_shapes():
+    from dreamapp.synthesize import unsupported_inline_citations
+    cwp = [CWPassage(header="CW 8 — A — paras. 505-510", volume="CW 8", text="t", score=1, para_start=505, para_end=510),
+           CWPassage(header="CW 8 — A — paras. 511-515", volume="CW 8", text="t", score=1, para_start=511, para_end=515)]
+
+    def check(prose):
+        return unsupported_inline_citations(Interpretation(dramatic_structure=prose, compensation="", amplifications=[]), cwp)
+
+    assert check("CW 8 ¶¶ 509–512") == []          # a range spanning two supplied chunks
+    assert check("CW 8 ¶509–10") == []             # abbreviated range end
+    assert check("CW 8 ¶509") == []            # non-breaking space
+    assert check("CW 8 ¶¶509, 520") == ["CW 8 ¶520"]  # every number in a list is checked
+    assert check("CW 9ii ¶12 and CW 8 ¶516") == ["CW 9ii ¶12", "CW 8 ¶516"]
+
+
+def test_inline_citations_never_raise_on_non_text_fields():
+    from dreamapp.synthesize import unsupported_inline_citations
+    interp = Interpretation(dramatic_structure="a", compensation="b", amplifications=[])
+    interp.question = ["a list", "the model returned"]
+    interp.movement = {"odd": "shape"}
+    assert unsupported_inline_citations(interp, []) == []
+
+
+def test_a_cite_into_the_cut_off_tail_of_a_truncated_chunk_is_flagged(monkeypatch):
+    from dreamapp import config
+    from dreamapp.synthesize import unsupported_inline_citations
+    monkeypatch.setattr(config, "MAX_CHARS_PER_CW_CHUNK", 30)
+    cwp = [CWPassage(header=H1, volume="CW 8", text="[560] short. [561] " + "x" * 200 + " [562] tail",
+                     score=1, para_start=560, para_end=564)]
+    interp = Interpretation(dramatic_structure="CW 8 ¶561 and CW 8 ¶563", compensation="", amplifications=[])
+    assert unsupported_inline_citations(interp, cwp) == ["CW 8 ¶563"]

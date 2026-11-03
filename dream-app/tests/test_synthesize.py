@@ -52,3 +52,25 @@ def test_no_supplied_pages_means_no_sources_survive():
         interpretation = synthesize_interpretation("a dream", symbols, [])
 
     assert interpretation.sources == []
+
+
+def test_synthesis_gets_the_configured_output_budget():
+    client = _fake_client(json.dumps(VALID_RESPONSE))
+    with patch("dreamapp.synthesize.anthropic.Anthropic", return_value=client), \
+         patch("dreamapp.synthesize.config.get_api_key", return_value="k"):
+        synthesize_interpretation("A dream.", [Symbol("milk", "archetypal", 5, "milk")], [])
+    from dreamapp import config
+    assert client.messages.create.call_args.kwargs["max_tokens"] == config.MAX_TOKENS_SYNTH
+
+
+def test_a_truncated_answer_fails_once_instead_of_paying_for_a_reprompt():
+    import pytest
+
+    from dreamapp.synthesize import SynthesizeError
+    client = _fake_client('{"dramatic_structure": "cut off mid-')
+    client.messages.create.return_value.stop_reason = "max_tokens"
+    with patch("dreamapp.synthesize.anthropic.Anthropic", return_value=client), \
+         patch("dreamapp.synthesize.config.get_api_key", return_value="k"), \
+         pytest.raises(SynthesizeError, match="MAX_TOKENS_SYNTH"):
+        synthesize_interpretation("A dream.", [Symbol("milk", "archetypal", 5, "milk")], [])
+    assert client.messages.create.call_count == 1

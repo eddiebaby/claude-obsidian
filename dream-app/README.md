@@ -24,9 +24,10 @@ Flags (both commands): `--dry`, `--show-sources`, `--force`, `--title`, `--date 
 1. your conscious situation
 2. your strongest feeling on waking
 3. what the entry is (`dream`, `fragment`, `imagination`, `test` or `imported`)
-4. after symbol extraction, one association per image, most salient first (up to 7; blank skips one, `q` stops)
+4. after symbol extraction, a check of the image list: Enter keeps it, `d 2 4` drops images, `+ silver chain` adds one the model missed
+5. one association per image, most salient first (up to 7; blank skips one, `q` stops)
 
-Your associations are added to each image's retrieval query. The interpretation prompt is told to build each personal reading from your association, and to say so when none was given. The answers are written into the note's Conscious Situation, Waking Associations and Feeling-Tone sections, and `provenance` goes into its frontmatter. `log` reads the dream from a file, because stdin carries your answers.
+Your associations are added to each image's retrieval query. The interpretation prompt is told to build each personal reading from your association, and to say so when none was given. The answers are written into the note's Conscious Situation, Waking Associations and Feeling-Tone sections: a template prompt is replaced, an answer goes under text already there, a missing section is created, and an image already in Waking Associations isn't repeated. `provenance` goes into the frontmatter; the default `dream` never overwrites a note already marked otherwise (e.g. `imported`). `log` reads the dream from a file, because stdin carries your answers.
 
 Once the note is written, `log` shows the compensation, a mandatory competing reading and the question, then asks for your verdict: `clicks`, `partial` or `miss` (`yes` / `partly` / `no` also work, `later` defers), plus one line. The verdict goes into `response:` and sets `status: responded`. The line goes into `## Dreamer Response`, replacing the template prompt or added after what you already wrote there. Nothing you wrote under Dreamer Response or Waking Action is overwritten, including by `--force`. If a run fails after the questions, your answers are printed to stderr. To rate a note later:
 

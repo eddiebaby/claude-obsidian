@@ -3,7 +3,7 @@ import re
 import sys
 
 from . import config
-from .capture import ask_associations, ask_capture, ask_response, with_associations
+from .capture import ask_associations, ask_capture, ask_response, confirm_symbols, with_associations
 from .cw import method_canon, with_method_canon
 from .cw import search as search_cw
 from .extract import extract_symbols
@@ -53,9 +53,11 @@ def run(dream_text, source_path=None, dry=False, show_sources=False, force=False
         symbols = extract_symbols(dream_text)
         print(f"extract: {len(symbols)} symbols", file=sys.stderr)
 
-        # Stage 2: associations gate retrieval, and become part of each query.
+        # Stage 1: the dreamer checks the model's image list. Stage 2: associations gate retrieval,
+        # and become part of each query.
         query_symbols = symbols
         if capture is not None:
+            symbols = confirm_symbols(symbols, ask)
             capture.associations = ask_associations(symbols, ask)
             query_symbols = with_associations(symbols, capture.associations)
 

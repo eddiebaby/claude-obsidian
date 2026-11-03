@@ -7,7 +7,7 @@ import frontmatter
 import pytest
 
 from dreamapp import cli, config, pipeline
-from dreamapp.capture import Capture, ask_associations, ask_capture, with_associations
+from dreamapp.capture import Capture, ask_associations, ask_capture, confirm_symbols, with_associations
 from dreamapp.models import Amplification, Interpretation, Symbol
 from dreamapp.synthesize import _build_user_message
 from dreamapp.writeback import write_note
@@ -70,6 +70,28 @@ def test_ask_associations_caps_the_number_of_questions():
 def test_ask_associations_stops_on_q():
     symbols = [_sym("a", 5), _sym("b", 4), _sym("c", 3)]
     assert ask_associations(symbols, _answers("first", "q")) == {"a": "first"}
+
+
+def test_confirm_symbols_keeps_the_list_on_enter():
+    symbols = [_sym("stepmom", 5), _sym("bus", 2)]
+    assert confirm_symbols(symbols, _answers(""), show=lambda *a: None) == symbols
+
+
+def test_confirm_symbols_drops_and_adds_images():
+    symbols = [_sym("stepmom", 5), _sym("mall", 1), _sym("bus", 2)]
+    shown = []
+    out = confirm_symbols(symbols, _answers("d 2", "+ silver chain", ""), show=shown.append)
+    assert [s.image for s in out] == ["stepmom", "bus", "silver chain"]
+    added = out[-1]
+    assert (added.kind, added.salience, added.query) == ("ambiguous", 4, "silver chain")
+    assert any("1. stepmom" in line for line in shown)
+
+
+def test_confirm_symbols_reasks_on_input_it_does_not_understand():
+    ask = _answers("drop the bus", "d 9", "d 1", "")
+    assert [s.image for s in confirm_symbols([_sym("stepmom", 5), _sym("bus", 2)], ask, show=lambda *a: None)] \
+        == ["bus"]
+    assert len(ask.prompts) == 4
 
 
 def test_with_associations_appends_association_to_query_without_mutating():
@@ -141,13 +163,13 @@ def test_interactive_run_asks_before_extract_and_before_retrieve(monkeypatch):
     monkeypatch.setattr(pipeline, "write_note", lambda *a, **k: calls.append(("write", k["capture"].provenance)))
 
     def ask(prompt):
-        calls.append("ask")
-        return {0: "situation", 1: "dread", 2: "", 3: "grandmother"}[calls.count("ask") - 1]
+        calls.append("confirm" if prompt.startswith("Enter to keep") else "ask")
+        return {0: "situation", 1: "dread", 2: "", 3: "", 4: "grandmother"}[len([c for c in calls if c in ("ask", "confirm")]) - 1]
 
     with contextlib.redirect_stdout(io.StringIO()):
         pipeline.run("Milk everywhere.", dry=True, interactive=True, ask=ask)
-    # dry run: nothing written, so no verdict is asked
-    assert calls == ["ask", "ask", "ask", "extract", "ask", ("retrieve", "milk grandmother"),
+    # Stage 1 check between extract and the association questions; dry run, so no verdict is asked
+    assert calls == ["ask", "ask", "ask", "extract", "confirm", "ask", ("retrieve", "milk grandmother"),
                      ("synth", "dread"), ("write", "dream")]
 
 
@@ -155,3 +177,23 @@ def test_cli_log_refuses_stdin(monkeypatch, capsys):
     monkeypatch.setattr(sys, "argv", ["dreamapp", "log", "-"])
     assert cli.main() == 2
     assert "needs the dream in a file" in capsys.readouterr().err
+
+
+def test_confirm_symbols_does_not_add_an_image_twice():
+    shown = []
+    out = confirm_symbols([_sym("Snake", 5)], _answers("+ snake", "+ chain", "+ Chain", ""), show=shown.append)
+    assert [s.image for s in out] == ["Snake", "chain"]
+    assert any("already" in line for line in shown)
+
+
+def test_confirm_symbols_asks_before_going_on_with_no_images():
+    ask = _answers("d 1", "", "n", "+ chain", "")
+    assert [s.image for s in confirm_symbols([_sym("bus", 2)], ask, show=lambda *a: None)] == ["chain"]
+    ask = _answers("d 1", "", "y")
+    assert confirm_symbols([_sym("bus", 2)], ask, show=lambda *a: None) == []
+
+
+def test_confirm_symbols_says_why_it_reasks():
+    shown = []
+    confirm_symbols([_sym("bus", 2)], _answers("d 7", "+", "d²", ""), show=shown.append)
+    assert sum("Didn't understand" in line for line in shown) == 3

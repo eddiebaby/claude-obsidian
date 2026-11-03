@@ -29,11 +29,15 @@ def _call(client, dream_text: str, extra_instruction: str = None) -> str:
         try:
             resp = client.messages.create(
                 model=config.MODEL_EXTRACT,
-                max_tokens=1500,
+                max_tokens=config.MAX_TOKENS_EXTRACT,
                 temperature=0,
                 system=system,
                 messages=[{"role": "user", "content": dream_text}],
             )
+            if getattr(resp, "stop_reason", None) == "max_tokens":
+                # a cut-off JSON array won't parse, and a reprompt would be cut off the same way
+                raise ExtractError(f"extract: the answer hit MAX_TOKENS_EXTRACT ({config.MAX_TOKENS_EXTRACT}) "
+                                   "before it finished; raise it in config.py")
             return "".join(block.text for block in resp.content if block.type == "text")
         except anthropic.APIStatusError as e:
             last_err = e

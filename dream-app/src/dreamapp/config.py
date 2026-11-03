@@ -29,6 +29,9 @@ MAX_SYMBOLS = 10
 MIN_SALIENCE_FOR_RETRIEVAL = 3
 MAX_UNIQUE_PAGES = 8
 MAX_CW_CHUNKS = 8
+# the answer carries a counter-reading, method citations and up to ten amplifications
+MAX_TOKENS_SYNTH = 8000
+MAX_TOKENS_EXTRACT = 1500  # up to ten symbols of four short fields
 # a few chunks (essay-final paragraphs with appended footnotes) run past 30,000 chars
 MAX_CHARS_PER_CW_CHUNK = 6000
 # Method paragraphs supplied on every run (cw.method_canon): which level to read a figure on
