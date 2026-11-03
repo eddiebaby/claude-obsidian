@@ -21,10 +21,10 @@ Known noise accepted in v0:
 Usage:
   python extract_cw.py <pdf> --volume "CW 8" [--out-dir ../data/cw8]
                              [--target-tokens 700] [--max-tokens 1100]
+                             [--paras 44-331]   # keep one part of a volume
 """
 
 import argparse
-import json
 import re
 import sys
 import unicodedata
@@ -161,6 +161,17 @@ def extract_paragraphs(doc, volume):
     return records
 
 
+def filter_paras(records, para_range):
+    """Keep paragraphs inside an inclusive "START-END" range (e.g. CW 12 Part II = "44-331"); None keeps all."""
+    if not para_range:
+        return records
+    m = re.fullmatch(r"(\d+)-(\d+)", para_range.strip())
+    if not m:
+        raise ValueError(f"--paras wants START-END, got {para_range!r}")
+    lo, hi = int(m.group(1)), int(m.group(2))
+    return [r for r in records if lo <= r["para"] <= hi]
+
+
 def validate(records):
     """Print extraction diagnostics; return list of warning strings."""
     warnings = []
@@ -241,6 +252,7 @@ def main():
     ap.add_argument("--out-dir", default=None)
     ap.add_argument("--target-tokens", type=int, default=700)
     ap.add_argument("--max-tokens", type=int, default=1100)
+    ap.add_argument("--paras", default=None, help='inclusive paragraph range to keep, e.g. "44-331"')
     args = ap.parse_args()
 
     pdf = Path(args.pdf)
@@ -248,20 +260,17 @@ def main():
     out_dir.mkdir(parents=True, exist_ok=True)
 
     doc = fitz.open(pdf)
-    records = extract_paragraphs(doc, args.volume)
+    records = filter_paras(extract_paragraphs(doc, args.volume), args.paras)
     warnings = validate(records)
 
     chunks = chunk(records, args.volume, args.target_tokens, args.max_tokens)
     print(f"\nchunks: {len(chunks)}  (target {args.target_tokens} tok, max {args.max_tokens} tok)")
 
-    with open(out_dir / "paragraphs.jsonl", "w", encoding="utf-8") as f:
-        for r in records:
-            f.write(json.dumps(r, ensure_ascii=False) + "\n")
-    with open(out_dir / "chunks.jsonl", "w", encoding="utf-8") as f:
-        for c in chunks:
-            f.write(json.dumps(c, ensure_ascii=False) + "\n")
-    print(f"\nwrote {out_dir / 'paragraphs.jsonl'}")
-    print(f"wrote {out_dir / 'chunks.jsonl'}")
+    from extract_common import write_jsonl  # extract_common imports this module, so import late
+
+    print()
+    write_jsonl(out_dir / "paragraphs.jsonl", records)
+    write_jsonl(out_dir / "chunks.jsonl", chunks)
 
     if warnings:
         print("\nWARNINGS:")

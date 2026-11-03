@@ -1,8 +1,9 @@
-"""Search over the paragraph-anchored Collected Works chunks (individuation-app/data/<vol>/chunks.jsonl).
+"""Search over the primary-text chunks in individuation-app/data/<source>/chunks.jsonl.
 
 These are the citable evidence of design.md §1: every passage carries its `header`
-("CW 8 — On the Nature of Dreams — paras. 560-564"), which the synthesize prompt
-must cite. The header is also indexed as the chunk's contextual prefix. The data is
+("CW 8 — On the Nature of Dreams — paras. 560-564", or page-anchored for the seminar and
+von Franz: "Dream Analysis — Lecture II, 14 November 1928 — pp. 16-17"), which the
+synthesize prompt must cite. The header is also indexed as the chunk's contextual prefix. The data is
 derived from copyrighted PDFs and gitignored, so a checkout without it degrades to
 no CW passages rather than failing.
 """
@@ -13,6 +14,7 @@ import sys
 from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Optional
 
 from . import config
 
@@ -25,12 +27,15 @@ K1, B = 1.5, 0.75
 
 @dataclass
 class CWPassage:
+    """A chunk of Jung's own text. CW volumes anchor by paragraph; the seminars, which have none, by page."""
     header: str
     volume: str
-    para_start: int
-    para_end: int
     text: str
     score: float
+    para_start: Optional[int] = None
+    para_end: Optional[int] = None
+    page_start: Optional[int] = None
+    page_end: Optional[int] = None
 
 
 def _tokens(text: str) -> list:
@@ -38,11 +43,24 @@ def _tokens(text: str) -> list:
 
 
 def load_chunks(data_dir) -> list:
+    """Every chunk from every source; a corrupt line (an interrupted re-extraction) is skipped, not fatal."""
     chunks = []
     for path in sorted(Path(data_dir).glob("*/chunks.jsonl")):
+        bad = 0
         for line in path.read_text(encoding="utf-8").splitlines():
-            if line.strip():
-                chunks.append(json.loads(line))
+            if not line.strip():
+                continue
+            try:
+                chunk = json.loads(line)
+            except json.JSONDecodeError:
+                bad += 1
+                continue
+            if "header" in chunk and "text" in chunk:
+                chunks.append(chunk)
+            else:
+                bad += 1
+        if bad:
+            print(f"cw: skipped {bad} unreadable line{'s' if bad > 1 else ''} in {path}", file=sys.stderr)
     return chunks
 
 
@@ -84,7 +102,7 @@ def search(queries, top_k: int = None, data_dir=None) -> list:
     top_k = top_k or config.MAX_CW_CHUNKS
     if not any(data_dir.glob("*/chunks.jsonl")):
         print(f"cw: CW corpus not found at {data_dir}; continuing without CW passages "
-              "(run individuation-app/extraction/extract_cw.py)", file=sys.stderr)
+              "(run individuation-app/extraction/extract_cw.py or extract_seminar.py)", file=sys.stderr)
         return []
     idx = _index(data_dir)
     best = {}
@@ -93,6 +111,10 @@ def search(queries, top_k: int = None, data_dir=None) -> list:
             if s > best.get(i, 0.0):
                 best[i] = s
     ranked = sorted(best.items(), key=lambda kv: kv[1], reverse=True)[:top_k]
-    return [CWPassage(header=idx.chunks[i]["header"], volume=idx.chunks[i]["volume"],
-                      para_start=idx.chunks[i]["para_start"], para_end=idx.chunks[i]["para_end"],
-                      text=idx.chunks[i]["text"], score=round(s, 3)) for i, s in ranked]
+    out = []
+    for i, s in ranked:
+        c = idx.chunks[i]
+        out.append(CWPassage(header=c["header"], volume=c.get("volume", ""), text=c["text"], score=round(s, 3),
+                             para_start=c.get("para_start"), para_end=c.get("para_end"),
+                             page_start=c.get("page_start"), page_end=c.get("page_end")))
+    return out

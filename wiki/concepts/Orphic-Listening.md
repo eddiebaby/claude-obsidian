@@ -43,7 +43,7 @@ The pressure of what Yago calls affective capitalism — a regime where "not onl
 
 This is not a new discovery inside the vault's Jung corpus so much as a contemporary clinical *name* for a discipline the vault already half-encodes:
 
-- **[[Dream Compensation]]** already holds that interpretation is a hypothesis, never a verdict, valid only if it "wins the assent of the dreamer" (CW 16 ¶320) — Orphic listening is the analyst-side posture that makes that rule non-arbitrary. Rushing to a confirming verdict is exactly the failure this stance is defined against.
+- **[[Dream Compensation]]** already holds that interpretation is a hypothesis, never a verdict, valid only if it "wins the assent of the patient" (CW 16 ¶316) — Orphic listening is the analyst-side posture that makes that rule non-arbitrary. Rushing to a confirming verdict is exactly the failure this stance is defined against.
 - **[[James Hillman]]**'s anti-reduction stance ("the moment you've defined the snake, you've lost the snake") is the same refusal applied to a single image rather than to time itself; Orphic listening generalizes it to the whole temporal shape of a case.
 
 ## Application: the individuation-app

@@ -34,7 +34,7 @@ Once the note is written, `log` shows the compensation, a mandatory competing re
 dreamapp respond wiki/dreams/2026-10-01-dad-stepmom-walkout.md --verdict clicks --note "the doorway part is it"
 ```
 
-**Evidence.** Each run searches the paragraph-anchored Collected Works chunks in `individuation-app/data/` (CW 8 and CW 9i, built by `extract_cw.py`; gitignored). It runs one query per salient image, with your association appended, plus one query for the whole dream. Those passages are the citable evidence, listed in Sources by header (`CW 9i — 1. On The Concept of the Archetype — para. 155`). Vault pages are orientation only, and your own `wiki/dreams/` entries are never retrieved as corpus. Without the data folder, runs continue with no CW passages and say so on stderr.
+**Evidence.** Each run searches the primary-text chunks in `individuation-app/data/` (gitignored): CW 8, 9i and 12 Part II by paragraph (`extract_cw.py`), CW 16 by paragraph from its scan (`extract_cw_scan.py`), and two page-anchored sources: the Dream Analysis seminar (`extract_seminar.py`, cited as `Dream Analysis — Lecture II, 14 November 1928 — pp. 16-17`) and von Franz's *Dreams* (`extract_vonfranz.py`). It runs one query per salient image, with your association appended, plus one query for the whole dream. Those passages are the citable evidence, listed in Sources by header (`CW 9i — 1. On The Concept of the Archetype — para. 155`). Vault pages are orientation only, and your own `wiki/dreams/` entries are never retrieved as corpus. Without the data folder, runs continue with no CW passages and say so on stderr.
 
 Vault-page ranking uses the reranker's cosine score when the `nomic-embed-text` model is available through Ollama, and the BM25 score otherwise.
 

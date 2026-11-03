@@ -83,6 +83,57 @@ def test_sources_render_cw_as_citation_and_pages_as_links():
     assert "- [[Mother Archetype]]" in md
 
 
+DA = "Dream Analysis — Lecture II, 14 November 1928 — pp. 16-17"
+
+
+def _seminar(tmp_path):
+    (tmp_path / "dream-analysis").mkdir()
+    chunk = {"volume": "Dream Analysis", "essay": "Lecture II, 14 November 1928", "page_start": 16, "page_end": 17,
+             "header": DA, "text": "[p. 16] A Swiss lieutenant came limping, pains in the heel."}
+    (tmp_path / "dream-analysis" / "chunks.jsonl").write_text(json.dumps(chunk), encoding="utf-8")
+    return tmp_path
+
+
+def test_load_chunks_skips_a_corrupt_line_and_says_so(tmp_path, capsys):
+    (tmp_path / "cw8").mkdir()
+    good = json.dumps({"volume": "CW 8", "header": H1, "text": "[560] The dream series."})
+    (tmp_path / "cw8" / "chunks.jsonl").write_text(good + '\n{"volume": "CW 8", "head', encoding="utf-8")
+    assert [c["header"] for c in load_chunks(tmp_path)] == [H1]
+    assert "skipped 1 unreadable line" in capsys.readouterr().err
+
+
+def test_search_reads_page_anchored_seminar_chunks(tmp_path):
+    hit = search(["lieutenant heel"], data_dir=_seminar(_corpus(tmp_path)))[0]
+    assert hit.header == DA
+    assert (hit.page_start, hit.page_end) == (16, 17)
+    assert hit.para_start is None
+
+
+def test_seminar_citations_render_as_citations_not_links():
+    interp = Interpretation(dramatic_structure="a", compensation="b", amplifications=[],
+                            sources=[DA, "wiki/concepts/Mother Archetype.md"])
+    md = _render_analysis_section(interp)
+    assert f"- {DA}" in md
+    assert "[[Dream Analysis" not in md
+
+
+def test_seminar_citations_stay_out_of_related(tmp_path, monkeypatch):
+    import shutil
+
+    import frontmatter
+
+    from dreamapp import config
+    from dreamapp.writeback import write_note
+
+    monkeypatch.setattr(config, "VAULT_ROOT", tmp_path)
+    monkeypatch.setattr(config, "DREAMS_DIR", tmp_path / "wiki" / "dreams")
+    monkeypatch.setattr(shutil, "which", lambda name: None)
+    interp = Interpretation(dramatic_structure="a", compensation="b", amplifications=[],
+                            sources=[DA, "wiki/concepts/Mother Archetype.md"])
+    path = write_note("Heel pain.", interp, [_sym("heel")], title="Heel", date="2026-11-02")
+    assert frontmatter.loads(path.read_text(encoding="utf-8")).metadata["related"] == ["[[Mother Archetype]]"]
+
+
 def test_run_searches_cw_with_association_queries_and_the_dream(monkeypatch):
     seen = {}
     monkeypatch.setattr(pipeline, "extract_symbols", lambda t: [_sym("stepmom"), _sym("mall", salience=1)])

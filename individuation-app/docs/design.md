@@ -81,10 +81,22 @@ Extraction status:
 |--------|-----------|----------|--------------|
 | CW 8   | 997 / 997 | 100%     | inline footnote numerals in text |
 | CW 9i  | 715 / 718 | 99.6%    | ¶119, ¶141, ¶156 missing (markers lost near illustration pages); flat TOC → `essay` sometimes holds a section heading |
+| CW 12 Part II | 288 / 288 (¶¶44–331) | 100% | digital edition, `extract_cw.py --paras 44-331`; flat TOC as in 9i |
+| CW 16  | 530 / 558 (¶¶3–558) | 95%      | scanned edition, `extract_cw_scan.py`: margin ¶ numbers OCR'd; a lost marker merges its paragraph into the one before. Each record has `numbering`: 498 clean, 5 read from OCR, 27 guessed — a guessed number can be off by one (e.g. text labelled ¶320 is really ¶321, true ¶320 merged into ¶319); ¶1–2 lost |
+| Dream Analysis seminar | 687 pp. (3–706), 51 / 51 lectures | all lecture pages | page-anchored, no ¶ numbers; OCR misreads inside words ("1 asked"); participants' questions inline with Jung's answers (the synthesize prompt says only "Dr. Jung:" is Jung); a few editor's notes set at body size remain |
+| von Franz, *Dreams* | 154 pp. (1–161), 7 / 7 chapters | chapter text only | page-anchored; Foreword (another hand), each chapter's endnotes (from "Notes 1.") and the Glossary excluded; ragged OCR rebuilt into lines by y-clustering |
 
-Next corpus targets (in order of app value): Dream Analysis seminar (1928–30),
-von Franz *Dreams*, CW 12 Part II (dream series case study — 400 dreams of
-Wolfgang Pauli), CW 16 ("The Practical Use of Dream-Analysis").
+Page-anchored sources (`extract_seminar.py`, `extract_vonfranz.py`, 2026-11-02)
+cite section + printed page — `Dream Analysis — Lecture II, 14 November 1928 —
+pp. 16-17`, `von Franz, Dreams — The Dream of Socrates — pp. 37-38` — with
+`[p. N]` markers in chunk text. Footnotes, running heads and page numbers are
+separated from body text by font size and position (shared page pipeline in
+`extraction/extract_common.py`; all outputs are written atomically). Totals:
+1,539 chunks (CW 8 347, CW 9i 250, CW 12 77, CW 16 195, seminar 559, von Franz
+111); `dreamapp/cw.py` loads every `data/*/chunks.jsonl`, skipping any corrupt
+line with a warning; index build ~0.7 s.
+
+The planned corpus is complete (see Corpus discipline below).
 
 Indexing: port the vault's pipeline (`scripts/bm25-index.py` + `rerank.py` +
 `contextual-prefix.py`). The chunk `header` **is** the contextual prefix —
@@ -161,8 +173,8 @@ be balancing?** (CW 8 ¶¶483–492). Requires the Stage-0 conscious situation.
 Output rules:
 - Framed as hypothesis + a question back to the dreamer, never "this dream
   means X." The only validation criterion Jung accepted is the dreamer's own
-  response — does it click, does it change something (CW 16 ¶320: the
-  interpretation is valid if it "wins the assent of the dreamer").
+  response — does it click, does it change something (CW 16 ¶316: the
+  interpretation is valid only once it "wins the assent of the patient").
 - Prospective function ≠ prophecy (CW 8 ¶¶491–493). No fortune-telling; the
   dream sketches a possible line of development, nothing more.
 - If the material is thin (no associations given, fragment dream), say so
@@ -199,7 +211,7 @@ Interpretive judgment rules (decisions, not parallel sections):
      with the dreamer's existing self-story, emit a second hypothesis that
      contradicts it (or reads off that axis entirely), marked as such. The
      dreamer-response field (below) adjudicates between the two — that is
-     the correct Jungian arbiter (CW 16 ¶320), not the model's confidence.
+     the correct Jungian arbiter (CW 16 ¶316), not the model's confidence.
   Series-level tripwire: if N consecutive sessions produce compensation
   hypotheses that all reduce to the same conscious complaint, that is a
   signal the *interpreter* is stuck, not the dreamer. Flag it in the series
@@ -211,7 +223,7 @@ surface series echoes ("this is the 4th water dream since March").
 
 **Dreamer response is mandatory capture, not an optional field.** Jung's
 only validation criterion is whether the interpretation wins the dreamer's
-assent and changes something (CW 16 ¶320). After Stage 4, ask: did this
+assent and changes something (CW 16 ¶316). After Stage 4, ask: did this
 click — yes / partly / no — plus one free-text line. This single field is
 three things at once: the method's validation step, the labeled data the
 Phase-0 quality gate needs (rubric scoring alone with n=5 is not an eval
@@ -322,9 +334,10 @@ sufficient cover there.
 6. Only then: app shell (mobile/web), auth, billing.
 
 Corpus discipline: no ingestion beyond the planned targets (Dream Analysis
-seminar, CW 12 Part II for series mechanics, CW 16). CW 8 + 9i plus the
-wiki already cover most retrieval queries; the thin-coverage flag says
-what's actually missing. Reading past that is study drift.
+seminar, CW 12 Part II for series mechanics, CW 16, von Franz *Dreams* — all
+extracted 2026-11-02). CW 8 + 9i plus the wiki already cover most retrieval
+queries; the thin-coverage flag says what's actually missing. Reading past
+that is study drift.
 
 The app shell is commodity work; stages 0–5 over a cited corpus with series
 memory is the product. Build it as a pipeline first, wrap it later.

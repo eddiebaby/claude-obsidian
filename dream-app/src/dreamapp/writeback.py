@@ -94,13 +94,14 @@ def _render_analysis_section(interpretation) -> str:
     lines += ["### Open Questions", interpretation.question, ""]
     lines += ["### Sources", ""]
     for src in interpretation.sources:
-        lines.append(f"- {src}" if _is_cw(src) else f"- [[{Path(src).stem}]]")
+        lines.append(f"- {src}" if _is_citation(src) else f"- [[{Path(src).stem}]]")
     return "\n".join(lines).rstrip() + "\n"
 
 
-def _is_cw(source: str) -> bool:
-    # A Collected Works citation ("CW 8 — On the Nature of Dreams — paras. 560-564"), not a vault page.
-    return source.startswith("CW ")
+def _is_citation(source: str) -> bool:
+    # A header citing Jung's text ("CW 8 — ... — paras. 560-564", "Dream Analysis — ... — p. 17"), not a vault
+    # page. Sources reaching here are already filtered to supplied headers and supplied .md page paths.
+    return not source.endswith(".md")
 
 
 _RESPONSE_RE = re.compile(r"(^## Dreamer Response\n)(.*?)(?=^## |\Z)", re.S | re.M)
@@ -341,7 +342,7 @@ def _write_case_b(dream_text, interpretation, symbols, *, dry, title, date, capt
     path = _new_note_path(date_str, slug)
     symbol_tags = _dedupe_preserve([_kebab(s.image) for s in symbols])
     archetypes = _derive_archetypes(interpretation)
-    related = _dedupe_preserve([f"[[{Path(s).stem}]]" for s in interpretation.sources if not _is_cw(s)])
+    related = _dedupe_preserve([f"[[{Path(s).stem}]]" for s in interpretation.sources if not _is_citation(s)])
     display_title = title or " ".join(w.capitalize() for w in slug.split("-"))
     fm = _render_frontmatter(path.stem, f"{date_str} — {display_title}", date_str,
                               symbol_tags, archetypes, related,
@@ -377,7 +378,7 @@ def _write_case_a(path: Path, interpretation, symbols, *, dry, force, capture=No
     symbol_tags = _dedupe_preserve(list(existing.get("symbols") or []) + [_kebab(s.image) for s in symbols])
     archetypes = _dedupe_preserve(list(existing.get("archetypes") or []) + _derive_archetypes(interpretation))
     related = _dedupe_preserve(list(existing.get("related") or []) +
-                                [f"[[{Path(s).stem}]]" for s in interpretation.sources if not _is_cw(s)])
+                                [f"[[{Path(s).stem}]]" for s in interpretation.sources if not _is_citation(s)])
     patches = {
         "updated": f"updated: {today}\n",
         "symbols": f"symbols: [{', '.join(symbol_tags)}]\n",

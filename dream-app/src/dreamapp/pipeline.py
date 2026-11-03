@@ -64,7 +64,7 @@ def run(dream_text, source_path=None, dry=False, show_sources=False, force=False
         raise
     print(f"writeback: {'dry run, not written' if dry else path}", file=sys.stderr)
 
-    # Stage 5: the dreamer's verdict is the method's only validation (design.md, CW 16 ¶320).
+    # Stage 5: the dreamer's verdict is the method's only validation (design.md, CW 16 ¶316).
     # Asked after the write, so cancelling here loses nothing.
     if capture is not None and not dry:
         print(f"\nCompensation: {interpretation.compensation}\n\n"
