@@ -320,9 +320,18 @@ sufficient cover there.
    synthesize prompt treats `<cw>` blocks as evidence and `<page>` blocks as
    orientation, and sources keep only supplied headers. Vault dream entries no
    longer retrieved as corpus; vault ranking falls back to BM25 when the
-   reranker is a no-op (nomic-embed-text not pulled). Still open: embedding
-   rerank over CW chunks, the concept-graph neighborhood boost, the bake-in of
-   the no-profile-grounding rule beyond the prompt.)*
+   reranker is a no-op (nomic-embed-text not pulled). v0.1 (same day): all six
+   corpus sources; passages taken round-robin across queries; a method canon
+   (CW 8 ¶¶509, 515, 545, 550; CW 16 ¶¶316, 322) supplied on every run, since
+   the dream benchmark showed past analyses cite these most and no image query
+   retrieves them; `dream-app/scripts/bench_retrieval.py` measures it: cited
+   paragraphs reaching synthesis 1/36 → 19/36 with extract-style queries
+   (hand-written in session to the extract prompt, pending an API run). 15 of
+   the 19 are the canon, which was chosen from that same gold set, so they are
+   in-sample; retrieval proper went 1 → 4 of 21. Still open: embedding rerank
+   over CW chunks (the benchmark is the test for it), the concept-graph
+   neighborhood boost, the bake-in of the no-profile-grounding rule beyond the
+   prompt.)*
    **The merge (§0)** — port the dream-app pipeline onto this corpus; index
    chunks (bm25 + rerank from vault scripts); wiki concept graph as router,
    CW chunks as citations. Bake the two v0.2 rules into the synthesize

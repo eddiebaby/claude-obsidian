@@ -76,21 +76,24 @@ def test_exit_10_raises_not_provisioned():
 def test_max_unique_pages_cap(tmp_path, monkeypatch):
     page_file = tmp_path / "page.md"
     page_file.write_text("body", encoding="utf-8")
-    candidates = [
-        {
-            "chunk_id": f"c{i}", "page_address": f"a{i}", "page_path": f"wiki/concepts/P{i}.md",
-            "absolute_path": str(page_file), "chunk_index": 0, "bm25_score": 1.0,
-            "rerank_score": float(i), "rerank_source": "cosine", "snippet": "s",
-            "path": f"wiki/concepts/P{i}.md",
-        }
-        for i in range(20)
-    ]
-    stdout = json.dumps({"query": "q", "strategy": "s", "top_k": 20, "candidates": candidates})
-    monkeypatch.setattr(config, "MAX_UNIQUE_PAGES", 8)
 
-    with patch("dreamapp.retrieve.subprocess.run", return_value=_FakeResult(0, stdout=stdout)):
-        symbols = [Symbol(image="x", kind="ambiguous", salience=5, query="q")]
+    def result_for_query(n):
+        # the retrieval script returns its hits best-first; each symbol's query finds different pages
+        candidates = [
+            {
+                "chunk_id": f"c{n}-{i}", "page_address": f"a{n}-{i}", "page_path": f"wiki/concepts/P{n}-{i}.md",
+                "absolute_path": str(page_file), "chunk_index": 0, "bm25_score": 1.0,
+                "rerank_score": float(10 * n + i), "rerank_source": "cosine", "snippet": "s",
+                "path": f"wiki/concepts/P{n}-{i}.md",
+            }
+            for i in reversed(range(5))
+        ]
+        return _FakeResult(0, stdout=json.dumps({"query": "q", "strategy": "s", "top_k": 5, "candidates": candidates}))
+
+    monkeypatch.setattr(config, "MAX_UNIQUE_PAGES", 8)
+    with patch("dreamapp.retrieve.subprocess.run", side_effect=[result_for_query(n) for n in range(4)]):
+        symbols = [Symbol(image=f"x{n}", kind="ambiguous", salience=5, query=f"q{n}") for n in range(4)]
         passages = retrieve_passages(symbols)
 
-    assert len(passages) == 8
-    assert passages[0].score == 19.0  # highest score kept first
+    assert len(passages) == 8  # 4 symbols x TOP_K_PER_SYMBOL (3) = 12, capped at 8
+    assert passages[0].score == 34.0  # highest score kept first

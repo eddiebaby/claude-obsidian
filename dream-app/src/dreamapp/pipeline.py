@@ -1,8 +1,10 @@
 import datetime
+import re
 import sys
 
 from . import config
 from .capture import ask_associations, ask_capture, ask_response, with_associations
+from .cw import method_canon, with_method_canon
 from .cw import search as search_cw
 from .extract import extract_symbols
 from .retrieve import retrieve_passages
@@ -14,8 +16,25 @@ class InputError(Exception):
     pass
 
 
+def dream_section(text: str) -> str:
+    """The dream itself: a note's '## The Dream' section without template prompts, or plain text as given.
+
+    A note also holds frontmatter, the dreamer's answers and any earlier analysis; none of that may
+    reach symbol extraction, the whole-dream query, or the model as part of "the dream".
+    """
+    m = re.search(r"^## The Dream\s*\n(.*?)(?=^## |\Z)", text, re.S | re.M)
+    if not m:
+        return text
+    lines = [ln for ln in m.group(1).splitlines() if not ln.strip().startswith("> [")]
+    return "\n".join(lines).strip()
+
+
 def run(dream_text, source_path=None, dry=False, show_sources=False, force=False, title=None, date=None,
         interactive=False, ask=input):
+    # Only the dream itself is measured and sent: an analyzed note runs far past MAX_DREAM_CHARS.
+    dream_text = dream_section(dream_text)
+    if not dream_text:
+        raise InputError("no dream text: the note's '## The Dream' section is empty")
     if len(dream_text) > config.MAX_DREAM_CHARS:
         raise InputError(f"dream text exceeds MAX_DREAM_CHARS ({config.MAX_DREAM_CHARS})")
     if date is not None:
@@ -41,10 +60,13 @@ def run(dream_text, source_path=None, dry=False, show_sources=False, force=False
             query_symbols = with_associations(symbols, capture.associations)
 
         # Stage 3: vault pages route; Collected Works paragraphs are the citable evidence.
-        # One query per salient symbol (carrying its association) plus one for the whole dream.
+        # One query per salient symbol (carrying its association) plus one for the whole dream,
+        # and the method canon on every run, since no image query retrieves it.
         passages = retrieve_passages(query_symbols)
-        cw_passages = search_cw([s.query for s in query_symbols if s.salience >= config.MIN_SALIENCE_FOR_RETRIEVAL]
-                                + [dream_text.strip()])
+        cw_passages = with_method_canon(
+            search_cw([s.query for s in query_symbols if s.salience >= config.MIN_SALIENCE_FOR_RETRIEVAL]
+                      + [dream_text.strip()]),
+            method_canon())
         print(f"retrieve: {len(passages)} pages, {len(cw_passages)} CW passages", file=sys.stderr)
         if show_sources:
             for c in cw_passages:

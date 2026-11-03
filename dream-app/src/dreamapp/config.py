@@ -24,10 +24,17 @@ MODEL_EXTRACT = os.environ.get("DREAMAPP_MODEL_EXTRACT", "claude-haiku-4-5-20251
 MODEL_SYNTH = os.environ.get("DREAMAPP_MODEL_SYNTH", "claude-sonnet-5")
 
 TOP_K_PER_SYMBOL = 3
+DREAM_PAGE_OVERFETCH = 10  # extra hits per query, so dropped wiki/dreams pages leave others behind
 MAX_SYMBOLS = 10
 MIN_SALIENCE_FOR_RETRIEVAL = 3
 MAX_UNIQUE_PAGES = 8
 MAX_CW_CHUNKS = 8
+# a few chunks (essay-final paragraphs with appended footnotes) run past 30,000 chars
+MAX_CHARS_PER_CW_CHUNK = 6000
+# Method paragraphs supplied on every run (cw.method_canon): which level to read a figure on
+# (CW 8 ¶¶509, 515), compensation (¶545), the series (¶550), the patient's assent (CW 16 ¶316),
+# every interpretation a hypothesis (CW 16 ¶322).
+METHOD_CANON = (("CW 8", 509), ("CW 8", 515), ("CW 8", 545), ("CW 8", 550), ("CW 16", 316), ("CW 16", 322))
 MAX_CHARS_PER_PAGE = 6000
 MAX_DREAM_CHARS = 8000
 

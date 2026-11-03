@@ -148,6 +148,25 @@ def test_retrieve_ranks_by_bm25_when_rerank_did_not_run(monkeypatch):
     assert passages[0].score == 9.0
 
 
+def test_retrieve_overfetches_so_dream_pages_do_not_use_up_the_slots(monkeypatch):
+    dreams = [_candidate(f"wiki/dreams/2026-10-0{i}-x.md", 9.0 - i, 0.0, "noop") for i in range(3)]
+    concept = _candidate("wiki/concepts/Mother Archetype.md", 4.0, 0.0, "noop")
+    monkeypatch.setattr(retrieve, "_run_query", lambda q, top: (dreams + [concept])[:top])
+    monkeypatch.setattr(retrieve, "_read_page_text", lambda p: "text")
+    passages = retrieve.retrieve_passages([Symbol("stepmom", "personal", 5, "stepmother")])
+    assert [p.page_path for p in passages] == ["wiki/concepts/Mother Archetype.md"]
+
+
+def test_retrieve_ranks_on_one_basis_when_a_few_hits_missed_the_rerank(monkeypatch):
+    # an embed-error hit keeps rerank 0.0 and a large BM25 score; it must not jump the cosine-ranked hits
+    hits = [_candidate("wiki/concepts/Good.md", 2.0, 0.8, "cosine:nomic-embed-text"),
+            _candidate("wiki/concepts/Unranked.md", 9.0, 0.0, "embed-error")]
+    monkeypatch.setattr(retrieve, "_run_query", lambda q, top: hits)
+    monkeypatch.setattr(retrieve, "_read_page_text", lambda p: "text")
+    passages = retrieve.retrieve_passages([Symbol("a", "personal", 5, "a")])
+    assert [p.page_path for p in passages][0] == "wiki/concepts/Good.md"
+
+
 def test_retrieve_never_returns_the_dreamers_own_dream_pages(monkeypatch):
     hits = [_candidate("wiki\\dreams\\2026-06-30-milk.md", 9.0, 0.9, "cosine:nomic-embed-text"),
             _candidate("wiki/jung/symbols/Breast.md", 5.0, 0.5, "cosine:nomic-embed-text")]

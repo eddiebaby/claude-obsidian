@@ -7,9 +7,9 @@ from dreamapp.pipeline import run
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
-pytestmark = pytest.mark.skipif(
+pytestmark = [pytest.mark.live, pytest.mark.skipif(
     not os.environ.get("ANTHROPIC_API_KEY"), reason="requires ANTHROPIC_API_KEY for live model calls"
-)
+)]
 
 
 def test_end_to_end_dry_run():

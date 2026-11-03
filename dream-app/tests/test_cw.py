@@ -57,6 +57,24 @@ def test_search_keeps_each_chunk_once_across_queries(tmp_path):
     assert {h.header for h in hits} == {H2, H3}
 
 
+def test_search_gives_every_query_a_slot_before_any_query_gets_a_second(tmp_path):
+    # the long whole-dream query outscores a two-word image query on every chunk it touches
+    dream = "power-station waterfall energy dream series development personality " * 5
+    hits = search(["stepmother cow", dream], top_k=2, data_dir=_corpus(tmp_path))
+    assert H2 in [h.header for h in hits]
+
+
+def test_search_round_robin_moves_past_a_chunk_another_query_already_took(tmp_path):
+    # the first two queries both rank H2 first; the second one's turn goes to its next-best chunk (H3)
+    # instead of passing to the third query
+    queries = ["stepmother cow", "stepmother cow grandmother waterfall", "dream series personality"]
+    assert [h.header for h in search(queries, top_k=2, data_dir=_corpus(tmp_path))] == [H2, H3]
+
+
+def test_search_never_returns_more_than_top_k(tmp_path):
+    assert len(search(["dream", "energy", "stepmother", "waterfall"], top_k=2, data_dir=_corpus(tmp_path))) == 2
+
+
 def test_search_without_the_corpus_returns_nothing(tmp_path, capsys):
     assert search(["anything"], data_dir=tmp_path / "missing") == []
     assert "CW corpus not found" in capsys.readouterr().err
@@ -92,6 +110,66 @@ def _seminar(tmp_path):
              "header": DA, "text": "[p. 16] A Swiss lieutenant came limping, pains in the heel."}
     (tmp_path / "dream-analysis" / "chunks.jsonl").write_text(json.dumps(chunk), encoding="utf-8")
     return tmp_path
+
+
+def _paragraphs(tmp_path, vol_dir, volume, essay, paras):
+    (tmp_path / vol_dir).mkdir(exist_ok=True)
+    rows = [json.dumps({"volume": volume, "para": n, "essay": essay, "text": t}) for n, t in paras]
+    (tmp_path / vol_dir / "paragraphs.jsonl").write_text("\n".join(rows), encoding="utf-8")
+
+
+def test_method_canon_returns_the_listed_paragraphs_as_single_paragraph_passages(tmp_path):
+    _paragraphs(tmp_path, "cw16", "CW 16", "The Practical Use of Dream-Analysis",
+                [(316, "Every interpretation invalid until it wins the assent of the patient."), (317, "x")])
+    canon = cw.method_canon(canon=(("CW 16", 316),), data_dir=tmp_path)
+    assert [(p.header, p.para_start, p.role) for p in canon] == [
+        ("CW 16 — The Practical Use of Dream-Analysis — para. 316", 316, "method")]
+    assert canon[0].text.startswith("[316] Every interpretation")
+
+
+def test_method_canon_skips_paragraphs_it_cannot_find(tmp_path):
+    assert cw.method_canon(canon=(("CW 16", 316),), data_dir=tmp_path) == []
+
+
+def test_with_method_canon_drops_a_canon_paragraph_already_in_a_retrieved_chunk():
+    canon = [CWPassage(header="CW 9i — x — para. 155", volume="CW 9i", text="[155] t", score=0.0,
+                       para_start=155, para_end=155, role="method")]
+    hits = [CWPassage(header=H2, volume="CW 9i", text="[155] ...", score=3.0, para_start=155, para_end=158)]
+    assert [p.header for p in cw.with_method_canon(hits, canon)] == [H2]
+    assert [p.header for p in cw.with_method_canon([], canon)] == ["CW 9i — x — para. 155"]
+
+
+def test_user_message_marks_method_passages():
+    cwp = [CWPassage(header="CW 16 — P — para. 316", volume="CW 16", text="[316] t", score=0.0,
+                     para_start=316, para_end=316, role="method")]
+    msg = _build_user_message("A dream.", [_sym("bus")], [], capture=Capture(), cw_passages=cwp)
+    assert '<cw header="CW 16 — P — para. 316" role="method">' in msg
+
+
+def test_user_message_caps_an_oversized_chunk(monkeypatch):
+    from dreamapp import config
+    monkeypatch.setattr(config, "MAX_CHARS_PER_CW_CHUNK", 50)
+    cwp = [CWPassage(header=H1, volume="CW 8", text="[560] " + "x" * 500, score=1.0, para_start=560, para_end=564)]
+    msg = _build_user_message("A dream.", [_sym("bus")], [], capture=Capture(), cw_passages=cwp)
+    assert "x" * 44 + " [truncated: later paragraphs of this range not shown]\n</cw>" in msg
+    assert "x" * 45 not in msg
+
+
+def test_run_supplies_the_method_canon_alongside_retrieved_passages(monkeypatch):
+    seen = {}
+    canon = [CWPassage(header="CW 16 — P — para. 316", volume="CW 16", text="[316] t", score=0.0,
+                       para_start=316, para_end=316, role="method")]
+    monkeypatch.setattr(pipeline, "extract_symbols", lambda t: [_sym("bus")])
+    monkeypatch.setattr(pipeline, "retrieve_passages", lambda s: [])
+    monkeypatch.setattr(pipeline, "search_cw", lambda queries: [])
+    monkeypatch.setattr(pipeline, "method_canon", lambda: canon)
+    monkeypatch.setattr(pipeline, "synthesize_interpretation",
+                        lambda *a, cw_passages=(), **kw: seen.setdefault("cw", cw_passages) and None
+                        or Interpretation(dramatic_structure="a", compensation="b", amplifications=[]))
+    monkeypatch.setattr(pipeline, "write_note", lambda *a, **k: None)
+    with contextlib.redirect_stdout(io.StringIO()):
+        pipeline.run("A bus.", dry=True)
+    assert [c.header for c in seen["cw"]] == ["CW 16 — P — para. 316"]
 
 
 def test_load_chunks_skips_a_corrupt_line_and_says_so(tmp_path, capsys):

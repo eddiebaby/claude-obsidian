@@ -50,11 +50,16 @@ def _read_page_text(absolute_path: str) -> str:
     return text.strip()[: config.MAX_CHARS_PER_PAGE]
 
 
-def _score(candidate: dict) -> float:
+def _reranked(candidate: dict) -> bool:
+    return str(candidate.get("rerank_source", "")).startswith("cosine")
+
+
+def _score(candidate: dict, use_rerank: bool) -> float:
     # Without the embedding model the reranker is a no-op that scores every hit 0.0;
-    # the BM25 score is then the only signal that ranks hits across symbols.
-    if str(candidate.get("rerank_source", "")).startswith("cosine"):
-        return candidate["rerank_score"]
+    # the BM25 score is then the only signal that ranks hits across symbols. One basis per run:
+    # a hit that missed the rerank (embed-error) keeps BM25 ~5-10, which would jump cosine hits (<1).
+    if use_rerank:
+        return candidate.get("rerank_score", 0.0) if _reranked(candidate) else 0.0
     return candidate.get("bm25_score", candidate.get("rerank_score", 0.0))
 
 
@@ -66,19 +71,24 @@ def _is_dream_entry(page_path: str) -> bool:
 
 def retrieve_passages(symbols: list) -> list:
     """symbols: list[Symbol]. Returns list[Passage], deduped by page_path, top MAX_UNIQUE_PAGES by score."""
-    best_by_page = {}
+    per_query = []
     for symbol in symbols:
         if symbol.salience < config.MIN_SALIENCE_FOR_RETRIEVAL:
             continue
-        for candidate in _run_query(symbol.query, config.TOP_K_PER_SYMBOL):
-            page_path = candidate["page_path"]
-            if _is_dream_entry(page_path):
-                continue
-            existing = best_by_page.get(page_path)
-            if existing is None or _score(candidate) > _score(existing):
-                best_by_page[page_path] = candidate
+        # over-fetch: the dreamer's own entries are the vault's densest text on his imagery and would
+        # fill the top slots, then be dropped below with nothing behind them
+        candidates = _run_query(symbol.query, config.TOP_K_PER_SYMBOL + config.DREAM_PAGE_OVERFETCH)
+        per_query.append([c for c in candidates if not _is_dream_entry(c["page_path"])][: config.TOP_K_PER_SYMBOL])
 
-    ranked = sorted(best_by_page.values(), key=_score, reverse=True)
+    use_rerank = any(_reranked(c) for cands in per_query for c in cands)
+    best_by_page = {}
+    for cands in per_query:
+        for candidate in cands:
+            existing = best_by_page.get(candidate["page_path"])
+            if existing is None or _score(candidate, use_rerank) > _score(existing, use_rerank):
+                best_by_page[candidate["page_path"]] = candidate
+
+    ranked = sorted(best_by_page.values(), key=lambda c: _score(c, use_rerank), reverse=True)
     ranked = ranked[: config.MAX_UNIQUE_PAGES]
 
     passages = []
@@ -91,7 +101,7 @@ def retrieve_passages(symbols: list) -> list:
                 page_path=c["page_path"],
                 absolute_path=c["absolute_path"],
                 snippet=c["snippet"],
-                score=_score(c),
+                score=_score(c, use_rerank),
                 page_text=page_text,
             )
         )

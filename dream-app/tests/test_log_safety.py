@@ -259,6 +259,46 @@ def test_log_prints_the_answers_when_a_later_stage_fails(monkeypatch, capsys):
     assert "Fired last week." in err and "my grandmother" in err
 
 
+def test_a_note_is_read_for_its_dream_section_only(monkeypatch):
+    seen = {}
+    _stub_stages(monkeypatch, [])
+    monkeypatch.setattr(pipeline, "extract_symbols", lambda text: seen.setdefault("extract", text) and [_sym()])
+    monkeypatch.setattr(pipeline, "search_cw", lambda queries: seen.setdefault("queries", queries) and [])
+    monkeypatch.setattr(pipeline, "write_note", lambda *a, **k: None)
+    with contextlib.redirect_stdout(io.StringIO()):
+        pipeline.run(_analyzed(), dry=True, force=True)
+    assert seen["extract"] == "Milk everywhere."
+    assert seen["queries"][-1] == "Milk everywhere."
+
+
+def test_plain_dream_text_is_used_as_is():
+    assert pipeline.dream_section("I was on a bus.\nThen a train.") == "I was on a bus.\nThen a train."
+
+
+def test_dream_section_drops_the_template_prompt_and_keeps_the_dreamers_text():
+    note = "## The Dream\n\n> [Present tense, first person.]\n\nI was on a bus.\n\n## Conscious Situation\n\nx"
+    assert pipeline.dream_section(note) == "I was on a bus."
+
+
+def test_a_long_analyzed_note_with_a_short_dream_is_accepted(monkeypatch):
+    # past analyses run well beyond MAX_DREAM_CHARS; only the dream section counts
+    _stub_stages(monkeypatch, [])
+    monkeypatch.setattr(pipeline, "write_note", lambda *a, **k: None)
+    long_note = _analyzed().replace("Fourth water dream.", "Fourth water dream. " * 1000)
+    assert len(long_note) > pipeline.config.MAX_DREAM_CHARS
+    with contextlib.redirect_stdout(io.StringIO()):
+        pipeline.run(long_note, dry=True, force=True)
+
+
+def test_a_note_with_no_dream_text_is_refused_before_the_interview(monkeypatch):
+    asked = []
+    _stub_stages(monkeypatch, [])  # never reach a live model, whatever the code under test does
+    with pytest.raises(pipeline.InputError, match="no dream text"):
+        pipeline.run(TEMPLATE_NOTE.replace("Milk everywhere.", ""), interactive=True,
+                     ask=lambda prompt: asked.append(prompt) or "")
+    assert asked == []
+
+
 def test_cli_log_cancelled_during_the_interview_exits_cleanly(monkeypatch, tmp_path, capsys):
     dream = tmp_path / "dream.txt"
     dream.write_text("Milk.", encoding="utf-8")

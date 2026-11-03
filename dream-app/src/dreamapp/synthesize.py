@@ -30,10 +30,19 @@ def _capture_blocks(symbols: list, capture) -> str:
             "<associations>\n" + "\n".join(lines) + "\n</associations>\n\n")
 
 
+def _cw_block(c) -> str:
+    role = ' role="method"' if c.role == "method" else ""
+    text = c.text
+    if len(text) > config.MAX_CHARS_PER_CW_CHUNK:
+        # the header still names the full range; say so, so nothing past the cut gets cited
+        text = text[:config.MAX_CHARS_PER_CW_CHUNK] + " [truncated: later paragraphs of this range not shown]"
+    return f'<cw header="{c.header}"{role}>\n{text}\n</cw>'
+
+
 def _build_user_message(dream_text: str, symbols: list, passages: list, capture=None, cw_passages=()) -> str:
     symbols_json = json.dumps([s.to_dict() for s in symbols], ensure_ascii=False, indent=2)
     corpus_blocks = "\n".join(
-        [f'<cw header="{c.header}">\n{c.text}\n</cw>' for c in cw_passages]
+        [_cw_block(c) for c in cw_passages]
         + [f'<page path="{p.page_path}">\n{p.page_text}\n</page>' for p in passages]
     )
     return (
