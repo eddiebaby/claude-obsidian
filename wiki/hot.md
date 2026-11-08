@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-11-01T00:00:00
+updated: 2026-11-08T00:00:00
 tags:
   - meta
   - hot-cache
@@ -17,6 +17,13 @@ related:
 # Recent Context
 
 ## Last Updated
+
+2026-11-08: **Ingested the Schwab systematic-trading PRD → [[schwab-systematic-trading-prd-2026-11]]** (Claude Doc rev 21, dated 11-07). It is now the execution plan for Schwab capital: **E1 ETF trend + E5 ETF mean reversion in an IRA; E8 intraday SPY/QQQ (small) + O1 XSP put spreads in taxable margin.** Targets: net Sharpe 0.5–0.8, −15% hard stop, ≈ $1–2.5k/yr, first one-unit trades about 4–5 months out.
+- New: [[Pattern-Day-Trader-Rule]] (Schwab stopped counting day trades 06-08), [[Section-1256-Contracts]], [[Wash-Sale-Rule]] (partition by index; 475(f) goes to the CPA).
+- **Contradiction that matters:** E8 is the unconditional Gao momentum the vault killed on 09-18 (SPY −1.4 bps). Put [[Gamma Closing Reversal Strategy]] in QQQ in that slot: $0 commission, no PDT limit.
+- Also flagged: Schwab futures history (again); PEAD benched vs the July roadmap's build #2; "Databento already in use" while the key is still unset.
+- Gap: the companion CME micro-futures PRD (S1–S6) is in another claude.ai chat and not in the vault.
+- **Next money actions:** (1) apply for the Schwab "Trader API – Individual" app today, since approval takes days and gates Phase 0; (2) set `DATABENTO_API_KEY`, which unblocks both the gamma validation and Phase 1 research.
 
 2026-11-01: **Dream backlog imported and analyzed.** The claude.ai Dreams project was read through the signed-in browser pane, adding 24 new entries from 09-28 to 11-01. All 28 unanalyzed dreams since 09-19 were analyzed without associations (lower confidence).
 - [[dream-threads]] Third Arc adds three threads: 9 The Father's House (stepmom/Martin/father), 10 Fists (aggression back in the body), 11 The Chain.

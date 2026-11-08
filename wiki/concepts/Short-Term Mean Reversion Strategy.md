@@ -4,7 +4,7 @@ title: "Short-Term Mean Reversion Strategy"
 domain: quantitative-finance
 complexity: intermediate
 created: 2026-07-05
-updated: 2026-07-05
+updated: 2026-11-08
 tags:
   - strategy
   - quantitative-finance
@@ -20,7 +20,10 @@ related:
   - "[[Turnover-Regularization]]"
   - "[[Deflated-Sharpe-Ratio]]"
   - "[[Tick-Size-Microstructure]]"
-sources: []
+  - "[[Wash-Sale-Rule]]"
+  - "[[schwab-systematic-trading-prd-2026-11]]"
+sources:
+  - "[[schwab-systematic-trading-prd-2026-11]]"
 ---
 
 # Short-Term Mean Reversion Strategy
@@ -85,6 +88,16 @@ Do not build this on free Yahoo-style data: no delistings means the backtest is 
 - Cross-sectional z-score ranking instead of fixed RSI thresholds (turns it into a rankable signal, consistent with the rank-don't-forecast rule).
 - Intraday entry timing (last-hour entries) once daily version is live.
 - Pair with [[Post-Earnings Announcement Drift Strategy]]: same data layer, opposite holding-period profile.
+
+## Schwab PRD spec: E5 (2026-11)
+
+[[schwab-systematic-trading-prd-2026-11]] narrows this guide to an **index/sector-ETF** version as MVP sleeve 2 (IRA, 20% of program risk). It is grade C evidence (Connors-style practitioner backtests, bull-market tilt), but cheap and daily:
+
+- Universe: IWM, DIA, 11 sector SPDRs. SPY/QQQ are excluded by the [[Wash-Sale-Rule]] partition.
+- Filter close > 200-day SMA. Entry RSI(2) < 10 **or** IBS = (C−L)/(H−L) < 0.2.
+- **Signal at 15:40 ET on live prices, fill at the official close (MOC).** Using the close for both is look-ahead (FR-VAL-13).
+- Exit: close > 5-day SMA, RSI(2) > 70, or 5 sessions. Broker GTC stop at 3× ATR(10). Risk 0.5% of equity at the stop, ≤ 4 positions, sector positions share an equity-beta cap.
+- Role: pays on the reversal days that hurt trend (E1) and intraday momentum. The single-stock version in this guide stays the capacity-constrained alpha play; the ETF version is the cheap first build.
 
 ## Status
 

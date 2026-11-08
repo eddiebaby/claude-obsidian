@@ -4,7 +4,7 @@ title: "Gamma Closing Reversal Strategy"
 domain: quantitative-finance
 complexity: intermediate
 created: 2026-09-18
-updated: 2026-09-18
+updated: 2026-11-08
 tags:
   - strategy
   - quantitative-finance
@@ -22,6 +22,8 @@ related:
   - "[[Walk-Forward-Analysis]]"
   - "[[Execution-Realism]]"
   - "[[Micro-Futures Trend Strategy]]"
+  - "[[Pattern-Day-Trader-Rule]]"
+  - "[[schwab-systematic-trading-prd-2026-11]]"
 sources:
   - "[[baltussen2021-hedging-demand-intraday-momentum]]"
   - "[[mesfin2026-mnq-intraday-falsification]]"
@@ -67,6 +69,9 @@ Net of 2 ticks plus TOS commission per round trip, charged in bps.
 - About $9.50 per MNQ contract per trade and about 110 trades a year, so roughly $1K a year per contract. Not significant after about 40 tests in the round.
 - Killed in the same round: unconditional Gao-Han-Li-Zhou momentum (SPY 3 yrs −1.4 bps, PF 0.82), and low-gamma momentum (SPY −3.1, QQQ −3.3 bps).
 - Consistent with [[mesfin2026-mnq-intraday-falsification]]: signals built only from price are dead; the gamma state is the only information here that isn't OHLCV.
+
+> [!contradiction] Conflict with [[schwab-systematic-trading-prd-2026-11]]
+> The Schwab PRD makes **E8 (unconditional last-30-minute momentum in SPY/QQQ)** its third MVP sleeve. This page's round already killed that signal (SPY −1.4 bps, PF 0.82) and found the surviving effect runs the other way: fade the move on high-GEX days. Resolution: the E8 slot (taxable margin account, quarter risk) should test this strategy in **QQQ at Schwab**. That means $0 commission, a one-cent spread, and no PDT limit since 2026-06-08 ([[Pattern-Day-Trader-Rule]]). Re-run the evidence table at ETF costs before G1, and keep the pre-2023 validation requirement.
 
 ## Risks & Failure Modes
 

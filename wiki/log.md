@@ -15,6 +15,20 @@ related:
 
 # Operation Log
 
+## 2026-11-08 | ingest | PRD: Systematic Trading Program on Charles Schwab
+- Source: `.raw/articles/schwab-systematic-trading-prd-2026-11-07.md` (Claude Doc `30b6cb1f-2510-4cd2-be4f-32ce716755de`, rev 21, [link](https://claude.ai/artifact/71ts2uKTPXF9Wp1t9YiQRT))
+- Summary: [[schwab-systematic-trading-prd-2026-11]] (c-000163)
+- Pages created: [[Pattern-Day-Trader-Rule]] (c-000164), [[Section-1256-Contracts]] (c-000165), [[Wash-Sale-Rule]] (c-000166)
+- Pages updated: [[Schwab-Trader-API]], [[Gamma Closing Reversal Strategy]], [[Volatility Risk Premium Strategy]], [[Short-Term Mean Reversion Strategy]], [[Trend-Following]], [[Micro-Futures Trend Strategy]], [[Post-Earnings Announcement Drift Strategy]], [[Retail Alpha Strategy Roadmap]], [[Cross-Sectional-Momentum]], [[Databento]], [[Norgate-Data]], indexes, [[quantitative-finance]]
+- Contradictions flagged:
+  1. E8 (unconditional last-30-min momentum) was killed in the vault's 09-18 round. The gamma-conditioned reversal is the survivor.
+  2. The claim that Schwab history covers equities only (vault pulled /MES).
+  3. PEAD benched (Martineau 2022) vs the roadmap's build #2.
+  4. "Databento already in use" while the key is unset.
+  5. Internal: PDT date given as June 4 vs June 8.
+- Key insight: the Schwab API can't automate futures, and Schwab stopped counting day trades in June 2026. Small-account intraday index work now belongs in ETFs at Schwab, not micros. That is also the cheaper venue for the gamma reversal in QQQ.
+- Income-domain work (quantitative-finance). Counter 163→167.
+
 ## 2026-11-01 | feature | periodic dream reviews (month / quarter / year)
 - Brainstormed with Scott: 39 features chosen on the visual board, plus the design.md tripwire. Design: `docs/superpowers/specs/2026-11-01-dream-periodic-reviews-design.md`.
 - **Counted half:** `dreamapp review` (`dream-app/src/dreamapp/review.py`, 25 new tests; suite 42 passed / 1 skipped).

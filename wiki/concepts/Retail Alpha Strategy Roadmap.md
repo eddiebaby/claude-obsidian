@@ -3,7 +3,7 @@ type: overview
 title: "Retail Alpha Strategy Roadmap"
 domain: quantitative-finance
 created: 2026-07-05
-updated: 2026-07-05
+updated: 2026-11-08
 tags:
   - quantitative-finance
   - strategy
@@ -24,12 +24,16 @@ related:
   - "[[Regime-Trust-Gating]]"
   - "[[Loop-Engineering]]"
   - "[[quantitative-finance]]"
+  - "[[schwab-systematic-trading-prd-2026-11]]"
 sources: []
 ---
 
 # Retail Alpha Strategy Roadmap
 
 The master page for the seven retail-scale alpha strategy build guides. Each strategy has its own page with full build instructions; this page holds the ranking logic, the shared infrastructure, and the build order.
+
+> [!contradiction] Build order superseded for Schwab capital by [[schwab-systematic-trading-prd-2026-11]] (2026-11)
+> This page (2026-07) builds Sector-ETF momentum first, then PEAD / LLM filings. The Schwab PRD funds, in order: **ETF trend → ETF mean reversion → intraday SPY/QQQ (small) → XSP put spreads**. It benches PEAD and treats TAA/dual-momentum rotation as grade-C variants of trend. The capacity thesis here still holds for the small-cap alpha builds. But those need a fundamentals and point-in-time data layer the ETF sleeves don't, so the PRD's order gets capital live sooner. Keep this page as the long-run strategy map and the PRD as the execution plan.
 
 ## The Core Thesis
 

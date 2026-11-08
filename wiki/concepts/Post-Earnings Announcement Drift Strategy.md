@@ -4,7 +4,7 @@ title: "Post-Earnings Announcement Drift Strategy"
 domain: quantitative-finance
 complexity: advanced
 created: 2026-07-05
-updated: 2026-07-05
+updated: 2026-11-08
 tags:
   - strategy
   - quantitative-finance
@@ -21,6 +21,7 @@ related:
   - "[[Short-Term Mean Reversion Strategy]]"
   - "[[Cross-Sectional-Momentum]]"
   - "[[Deflated-Sharpe-Ratio]]"
+  - "[[schwab-systematic-trading-prd-2026-11]]"
 sources: []
 ---
 
@@ -31,6 +32,9 @@ Build guide. Buying positive earnings surprises in under-covered small caps and 
 ## Thesis
 
 Prices underreact to earnings news when too few people are paying attention. In large caps PEAD was arbitraged away in the 2000s; in small caps with thin or zero analyst coverage, information diffuses over weeks, not minutes. The constraint that keeps the edge alive is capacity: a fund cannot put $50M into a $300M market-cap name without becoming the price. Retail size fits exactly.
+
+> [!contradiction] Conflict with [[schwab-systematic-trading-prd-2026-11]]
+> The Schwab PRD benches PEAD (E7, paper-log only), citing Martineau (2022, *Critical Finance Review*): the drift disappeared from non-microcap stocks after 2001 and was about zero for large caps by 2006. It calls revival claims disputed (UCLA Anderson Review). This page's thesis is narrower (thin-coverage small caps), so the two are not strictly incompatible. But Martineau's result puts the burden on this guide to show the edge outside microcaps, where spreads and borrow costs eat it. The PRD also excludes microcaps as a non-goal. Resolve with a cost-realistic backtest on a [[Point-in-Time-Universe]] before ranking this above the ETF sleeves.
 
 ## Universe
 

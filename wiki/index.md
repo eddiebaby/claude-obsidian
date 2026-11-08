@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Wiki Index"
-updated: 2026-10-17
+updated: 2026-11-08
 tags:
   - meta
   - index
@@ -24,7 +24,7 @@ related:
 
 # Wiki Index
 
-Last updated: 2026-10-17 | Total pages: 545 | Sources ingested: 68 | Dream Symbols: 86 (CW5: 22, CW12: 64)
+Last updated: 2026-11-08 | Total pages: 549 | Sources ingested: 69 | Dream Symbols: 86 (CW5: 22, CW12: 64)
 
 Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[getting-started]]
 
@@ -163,6 +163,9 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[sanderink2026-when-alpha-breaks]] — regime-trust gate + epistemic tail cap for safe ranker deployment; the gate, not the model, drives value (status: ingested 2026-07-03)
 - [[bailey-lopez-de-prado-2014-deflated-sharpe]] — the Deflated Sharpe Ratio; selection-bias correction under multiple trials; winner's-curse arithmetic (status: ingested 2026-07-03)
 
+**Execution Plan (Schwab, 2026-11)**
+- [[schwab-systematic-trading-prd-2026-11]] — the current plan for Schwab capital: E1 ETF trend → E5 ETF mean reversion → E8 intraday (small; replace with [[Gamma Closing Reversal Strategy]] per the vault's backtests) → O1 XSP put spreads; net Sharpe 0.5–0.8 target, −15% hard stop (status: ingested)
+
 **Strategy Build Guides (retail-scale)**
 - [[LucidFlex Automated Scalping PRD]] — Track B: short-hold intraday bot on a Lucid prop account; edge is the eval-fee/payout asymmetry, not HFT alpha; phased gates, $1K cap, 16-week timebox (status: seed)
 - [[Retail Alpha Strategy Roadmap]] — master page: capacity-constraint thesis, ranking table, build order, shared infrastructure, portfolio logic (status: developing)
@@ -190,6 +193,11 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[Regime-Trust-Gating]] — trade/abstain gates; uncertainty as tail guard, not sizing input (status: developing)
 - [[Deflated-Sharpe-Ratio]] / [[Backtest-Overfitting]] — evaluation discipline before believing any backtest (status: developing)
 - [[Tick-Size-Microstructure]] — order-book density as a strategy-viability screen (status: developing)
+
+**Accounts, Regulation & Tax**
+- [[Pattern-Day-Trader-Rule]] — Schwab stopped counting day trades 2026-06-08; real-time intraday buying power from 2026-07-13; FINRA phase-in to 2027-10-20; makes intraday ETF trading viable in a small account (status: developing)
+- [[Section-1256-Contracts]] — 60/40 tax, year-end mark-to-market, no wash sales; XSP/SPX/NDX/RUT options and regulated futures, not SPY/QQQ options (status: developing)
+- [[Wash-Sale-Rule]] — 30-day rule; IRA repurchase loses the loss permanently; ticker partition by index + wash-sale ledger; 475(f) as the CPA-owned escape hatch (status: developing)
 
 **Backtesting Infrastructure (compass 2026 blueprint)**
 - [[Event-Driven-Backtesting]] — six-component event loop; backtest/live parity; structural anti-lookahead (status: developing)
@@ -334,6 +342,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 ## Sources
 
+- [[schwab-systematic-trading-prd-2026-11]] — 2026-11-07 | Claude Doc (deep research, Scott's) | Schwab systematic-trading PRD: 4 MVP sleeves (E1 ETF trend, E5 ETF mean reversion in IRA; E8 intraday SPY/QQQ, O1 XSP put spreads in taxable), API automation boundary, PDT repeal, tax-placement design, G1–G4 gates, phased roadmap | 1 source + 3 concepts, 11 pages updated; flags E8 vs the vault's killed Gao result
 - [[compass2026-backtesting-engine-blueprint]] — 2026-07-13 | Claude deep-research artifact | Blueprint for a professional-grade Python backtesting engine: one event-driven core, futures dual-series discipline, Databento data layer, WFA+CPCV+DSR validation; 14 new pages
 - [[compass2026-unified-backtester-prd-brief]] — 2026-09-19 | Claude deep-research (compass artifact) | PRD brief for a unified futures+equities backtester: Schwab API limits, Norgate/EODHD/Databento gap-fill vendor map, instrument master, phased plan | 1 source + 2 concepts + 5 entities
 - [[li2026-llm-psychology-measurement-survey]] — 2026-07-10 | Li et al.; arXiv 2606.20603, IEEE TCDS | Survey: LLMs measuring human psychology; 3 paradigms, validity gaps; 4 new pages

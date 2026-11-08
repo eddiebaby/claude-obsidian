@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Sources Index"
-updated: 2026-07-11
+updated: 2026-11-08
 tags:
   - meta
   - index
@@ -56,6 +56,7 @@ All source pages — summaries of ingested documents, transcripts, articles, and
 
 - [[compass2026-backtesting-engine-blueprint]] — 2026-07-13 | Claude deep-research (compass artifact) | Architectural blueprint for a pro-grade Python backtesting engine (stocks + CME futures): one event-driven core, dual-series futures discipline, Databento/Parquet/DuckDB data layer, WFA+CPCV+DSR validation | 1 source + 7 concepts + 6 entities
 - [[compass2026-unified-backtester-prd-brief]] — 2026-09-19 | Claude deep-research (compass artifact) | PRD brief for a unified futures+equities backtester: Schwab API limits, Norgate/EODHD/Databento gap-fill vendor map, instrument master, phased plan | 1 source + 2 concepts + 5 entities
+- [[schwab-systematic-trading-prd-2026-11]] — 2026-11-07 | Claude Doc (deep research, Scott's) | Schwab systematic-trading PRD: 4 MVP sleeves (E1 ETF trend, E5 ETF mean reversion in IRA; E8 intraday SPY/QQQ, O1 XSP put spreads in taxable), API automation boundary, PDT repeal, tax-placement design, G1–G4 gates, phased roadmap | 1 source + 3 concepts, 11 pages updated; flags E8 vs the vault's killed Gao result
 - [[kurth2026-trend-following-demise]] — 2026-07-02 | Kurth, Eisler, Rej, Bouchaud (CFM); arXiv 2607.01550 | Post-2009 death of fast trend on small-tick futures; volatility-normalised tick size as the separating variable; HFT liquidity-withdrawal mechanism | 1 source + 2 concepts + 2 entities
 - [[pollok2026-end-to-end-portfolio-policies]] — 2026-07-02 | Pollok & Robik; arXiv 2607.00475 | End-to-end AI policies vs simple rules on 16 CME futures; transformer's low turnover wins net; ties equal-weight statistically | 1 source + 1 concept
 - [[miao-polak-online-ensemble-sector-rotation]] — 2026-07-02 | Miao & Polak; arXiv 2304.09947 | Gradient-free online 16-model ensemble for 50-sector rotation; top-5 Sharpe 0.657, survives 5-15bps; COVID-robust | 1 source + 2 concepts

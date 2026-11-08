@@ -3,7 +3,7 @@ type: domain
 title: "Quantitative Finance"
 status: developing
 created: 2026-06-24
-updated: 2026-07-05
+updated: 2026-11-08
 tags:
   - domain
   - quantitative-finance
@@ -69,6 +69,21 @@ From [[zhang2026-benchmarking-deep-ts-equity]] (Zhang, Cheng, Leung 2026): no de
 
 ---
 
+## Execution Plan: Schwab PRD (2026-11)
+
+[[schwab-systematic-trading-prd-2026-11]] is the current plan for Schwab capital. It supersedes the 2026-07 build order, though the long-run strategy map still stands.
+
+| Sleeve | Account | Risk share | Build guide |
+|---|---|---|---|
+| E1 cross-asset ETF trend, long/flat | IRA | 40% | [[Trend-Following]] |
+| E5 ETF short-horizon mean reversion | IRA | 20% | [[Short-Term Mean Reversion Strategy]] |
+| E8 intraday SPY/QQQ (small) | Taxable margin | 10% → 20% | Contradicted; test [[Gamma Closing Reversal Strategy]] in QQQ instead |
+| O1 XSP put spreads | Taxable (§1256) | 20% | [[Volatility Risk Premium Strategy]] |
+
+Accounts and tax: [[Pattern-Day-Trader-Rule]], [[Section-1256-Contracts]], [[Wash-Sale-Rule]].
+
+---
+
 ## Strategy Build Guides (2026-07-05)
 
 The retail-scale strategy book, each with a full build guide: data, signal rules, backtest plan, kill criteria, expansion hooks. Master page: [[Retail Alpha Strategy Roadmap]] (capacity-constraint thesis, build order, shared harness).
@@ -96,6 +111,7 @@ The retail-scale strategy book, each with a full build guide: data, signal rules
 
 ## Sources
 
+- [[schwab-systematic-trading-prd-2026-11]] — Claude Doc 2026-11-07 | Scott | Schwab systematic-trading PRD: four sleeves, API boundary, PDT repeal, tax placement, gates, roadmap
 - [[loop-engineering-hedge-funds-2026]] — v260615 practitioner essay | Anonymous 2026 | Five-stage autonomous trading loop, six primitives, maker-checker, SKILL.md, verification debt
 - [[zhang2026-benchmarking-deep-ts-equity]] — arXiv 2606.09420 | Zhang, Cheng, Leung 2026 | CRSP benchmark, 15 architectures, SMAA, constrained QP
 - [[das2026-chronos-multivariate-forecasting]] — arXiv 2605.21504 | Das, Goyal, Yadav 2026 | Chronos-2 foundation model, MV vs. UV forecasting, Mag-7 equities + Treasury rates 2000-2025

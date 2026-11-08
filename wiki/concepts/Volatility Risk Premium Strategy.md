@@ -4,7 +4,7 @@ title: "Volatility Risk Premium Strategy"
 domain: quantitative-finance
 complexity: intermediate
 created: 2026-07-05
-updated: 2026-07-05
+updated: 2026-11-08
 tags:
   - strategy
   - quantitative-finance
@@ -19,7 +19,10 @@ related:
   - "[[Retail Alpha Strategy Roadmap]]"
   - "[[Micro-Futures Trend Strategy]]"
   - "[[Regime-Trust-Gating]]"
-sources: []
+  - "[[Section-1256-Contracts]]"
+  - "[[schwab-systematic-trading-prd-2026-11]]"
+sources:
+  - "[[schwab-systematic-trading-prd-2026-11]]"
 ---
 
 # Volatility Risk Premium Strategy
@@ -86,6 +89,24 @@ Index implied volatility exceeds subsequently realized volatility most of the ti
 - Term-structure carry (VX calendar spreads) once comfortable with futures via [[Micro-Futures Trend Strategy]].
 - Dispersion-lite: short index vol vs long single-name vol in small size (advanced; only after years of Module 1).
 - Systematic wheel on quality small caps as a stock-acquisition mechanism (blends into the equity book).
+
+## Schwab PRD spec: O1 (2026-11)
+
+[[schwab-systematic-trading-prd-2026-11]] makes Module 1 its fourth MVP sleeve (O1), live last, after 3 months of E1/E5:
+
+| Parameter | O1 rule |
+|---|---|
+| Underlying | XSP (1/10 SPX, European, cash-settled, [[Section-1256-Contracts]]) |
+| Structure | Weekly 30–45 DTE put spread; short leg ≈ 20–25Δ, long leg 1–5% lower; ladder across 4–6 expiries |
+| Width | Max loss per spread ≤ 1% of equity (≈ 5 XSP pts at $50k, 25 pts at $250k) |
+| Entry filter | VIX/VIX3M < 1.0 |
+| Exits | 50% of max profit, 21 DTE, or spread mark = 2× credit |
+| Book limits | Summed max loss ≤ 6% of equity; −20% gap with VIX ×3 ≤ 8% of program equity |
+| Kill switch | Stops new spreads; does **not** force-close open ones (crossing crisis spreads costs more than the defined loss saves) |
+| Cost | $0.65/leg/side → $2.60 per spread round trip + passed-through index fee |
+| Fill model | Databento OPRA quotes: mid minus a calibrated fraction of the half-spread; early thin XSP history → SPX quotes ÷ 10 with XSP-sized spreads |
+
+Evidence figures quoted (Bondarenko for Cboe, gross): PUT 1986–2015 compounded 10.13% vs 9.85% for the S&P 500, Sharpe 0.67 vs 0.47. Over 2006–2015 the edge thinned: Sharpe 0.52 vs 0.46, max drawdown −33% vs −51%. Skew is about −2.1. Israelov & Nielsen (2015) find much of the return is plain equity beta. OptionMetrics finds about ⅔ of short-dated put-write profit came from weekend-spanning Monday expiries. Test that filter as one more trial, not a free parameter.
 
 ## Status
 

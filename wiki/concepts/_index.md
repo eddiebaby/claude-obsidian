@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Concepts Index"
-updated: 2026-10-17
+updated: 2026-11-08
 tags:
   - meta
   - index
@@ -225,6 +225,11 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 - [[Deflated-Sharpe-Ratio]] — Sharpe corrected for selection bias under N trials, track length, skew/kurtosis (status: developing)
 - [[Backtest-Overfitting]] — winner's curse of multiple testing; expected max Sharpe under zero skill grows with N; defenses (status: developing)
 - [[Tick-Size-Microstructure]] — volatility-normalised tick size; sparse vs. dense order books condition strategy profitability (status: developing)
+
+**Accounts, Regulation & Tax**
+- [[Pattern-Day-Trader-Rule]] — Schwab stopped counting day trades 2026-06-08; real-time intraday buying power from 2026-07-13; FINRA phase-in to 2027-10-20; makes intraday ETF trading viable in a small account (status: developing)
+- [[Section-1256-Contracts]] — 60/40 tax, year-end mark-to-market, no wash sales; XSP/SPX/NDX/RUT options and regulated futures, not SPY/QQQ options (status: developing)
+- [[Wash-Sale-Rule]] — 30-day rule; IRA repurchase loses the loss permanently; ticker partition by index + wash-sale ledger; 475(f) as the CPA-owned escape hatch (status: developing)
 
 **Backtesting Infrastructure**
 - [[Event-Driven-Backtesting]] — six-component event loop (Data→Strategy→Portfolio→Execution over an event queue); backtest/live parity; structural anti-lookahead (status: developing)

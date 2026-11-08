@@ -6,7 +6,7 @@ domain: quantitative-finance
 complexity: intermediate
 status: developing
 created: 2026-07-02
-updated: 2026-07-02
+updated: 2026-11-08
 tags:
   - quantitative-finance
   - concept
@@ -20,8 +20,11 @@ related:
   - "[[Trend-Following]]"
   - "[[poh2020-learning-to-rank-cross-sectional]]"
   - "[[karatas2021-two-stage-sector-rotation]]"
+  - "[[Norgate-Data]]"
+  - "[[schwab-systematic-trading-prd-2026-11]]"
 sources:
   - "[[poh2020-learning-to-rank-cross-sectional]]"
+  - "[[schwab-systematic-trading-prd-2026-11]]"
 ---
 
 # Cross-Sectional Momentum
@@ -78,6 +81,10 @@ CSM strategies typically rebalance monthly (rather than daily) specifically to c
 ## Why Learning to Rank Matters Here
 
 CSM strategies are unusually well-suited to demonstrate the value of [[Learning-to-Rank]] because the ranking step is not incidental — it *is* the strategy. The portfolio literally consists of "top decile long, bottom decile short," so the accuracy of the cross-sectional ranking directly determines return, and a scoring model that is accurate in aggregate (low MSE) but sloppy about the ordering of the assets that end up at the extremes will underperform a model explicitly trained to get that ordering right. [[poh2020-learning-to-rank-cross-sectional]] shows this empirically: switching only the scoring step from heuristics/regress-then-rank to LTR algorithms (same feature inputs, same monthly CSM construction) roughly triples the strategy's Sharpe ratio (best classical benchmark 0.696 vs. best LTR model 2.156).
+
+## Schwab PRD status: E3 deferred (2026-11)
+
+[[schwab-systematic-trading-prd-2026-11]] defers a stock-level momentum sleeve to Phase 4. That waits on a survivorship-free data purchase ([[Norgate-Data]], [[Point-in-Time-Universe]]) and equity > $250k. The spec is 12-1 residual momentum on point-in-time S&P 500/R1000, top 30–50 names, inverse-vol, monthly, scaled to 12–15% vol, long-only. Crash-risk reason for waiting: US momentum ran +30–40% in H1 2026, dropped sharply in early June and late July, and J.P. Morgan flags elevated crash risk (Daniel & Moskowitz 2016 regime). Build only if it beats MTUM after costs and taxes.
 
 ## See Also
 

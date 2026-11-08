@@ -2,7 +2,7 @@
 type: entity
 title: "Norgate Data"
 created: 2026-09-19
-updated: 2026-09-19
+updated: 2026-11-08
 domain: quantitative-finance
 address: c-000153
 tags:
@@ -16,8 +16,10 @@ related:
   - "[[EODHD]]"
   - "[[compass2026-unified-backtester-prd-brief]]"
   - "[[Post-Earnings Announcement Drift Strategy]]"
+  - "[[schwab-systematic-trading-prd-2026-11]]"
 sources:
   - "[[compass2026-unified-backtester-prd-brief]]"
+  - "[[schwab-systematic-trading-prd-2026-11]]"
 ---
 
 # Norgate Data
@@ -30,3 +32,5 @@ EOD equity-data vendor. The brief ranks it the **best turnkey fix for survivorsh
 - **EOD only**, with no intraday data.
 
 **When to buy:** only when a cross-sectional equity strategy is actually being built ([[Post-Earnings Announcement Drift Strategy]], [[Index Rebalance and Event-Driven Strategy]], small-cap mean reversion). The [[Retail Alpha Strategy Roadmap]] already named Norgate/Sharadar as the shared small-cap data layer. Buying it earlier is paying for data that sits unused.
+
+**Update 2026-11-08 ([[schwab-systematic-trading-prd-2026-11]]):** the Schwab PRD agrees with "buy only when needed". It schedules Platinum for **Phase 4**, gating E3 cross-sectional momentum (equity > $250k) and E6 pairs/stat-arb research. The updater is Windows-only, so the plan is a small Windows VM exporting Parquet nightly into the same store as the Databento data (FR-DATA-S1).

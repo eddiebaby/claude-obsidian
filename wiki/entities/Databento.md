@@ -2,7 +2,7 @@
 type: entity
 title: "Databento"
 created: 2026-07-13
-updated: 2026-09-19
+updated: 2026-11-08
 domain: quantitative-finance
 address: c-000139
 tags:
@@ -15,9 +15,11 @@ related:
   - "[[compass2026-backtesting-engine-blueprint]]"
   - "[[Futures-Contract-Mechanics]]"
   - "[[Information-Driven-Bars]]"
+  - "[[schwab-systematic-trading-prd-2026-11]]"
 sources:
   - "[[compass2026-backtesting-engine-blueprint]]"
   - "[[compass2026-unified-backtester-prd-brief]]"
+  - "[[schwab-systematic-trading-prd-2026-11]]"
 ---
 
 # Databento
@@ -46,3 +48,9 @@ Market-data vendor; the compass blueprint's pick for CME futures tick/MBO data i
 The upgrade path beyond the Schwab API (equities/futures 5m bars, ~7-8.5 months depth) when tick-level fills or MBO queue modeling become necessary — i.e., at compass Milestone 4, not before. Budget: tens of dollars for targeted trade-data pulls.
 
 **Update 2026-09-18:** `trading/propfirm/pull_databento.py` now exists. It pulls `ES/NQ.v.0` ohlcv-1m, resamples to 5m in the Schwab CSV format, has a `--quote` cost check, and refuses above `--max-usd` (default $60). It's waiting on an API key to run the pre-2023 NQ validation for [[Gamma Closing Reversal Strategy]].
+
+**Update 2026-11-08 ([[schwab-systematic-trading-prd-2026-11]]):** the Schwab PRD makes Databento the research data source for every sleeve:
+- **US Equities** (usage-based) for ETF minute/daily bars and closing-auction prints (E1, E5, E8).
+- **OPRA** (consolidated BBO, trades, statistics) for XSP fill calibration and IV surfaces (O1, O4).
+- **CME Standard $199/mo** only if ES/NQ features stay in E8. Adding it roughly doubles the MVP's ≈ $1–2.5k/yr cost base, which excludes it.
+- The PRD calls CME data "already in use". The vault's key was still unset as of 2026-10-13.

@@ -4,7 +4,7 @@ title: "Micro-Futures Trend Strategy"
 domain: quantitative-finance
 complexity: intermediate
 created: 2026-07-05
-updated: 2026-07-05
+updated: 2026-11-08
 tags:
   - strategy
   - quantitative-finance
@@ -20,9 +20,11 @@ related:
   - "[[Tick-Size-Microstructure]]"
   - "[[Turnover-Regularization]]"
   - "[[Volatility Risk Premium Strategy]]"
+  - "[[schwab-systematic-trading-prd-2026-11]]"
 sources:
   - "[[kurth2026-trend-following-demise]]"
   - "[[pollok2026-end-to-end-portfolio-policies]]"
+  - "[[schwab-systematic-trading-prd-2026-11]]"
 ---
 
 # Micro-Futures Trend Strategy
@@ -107,6 +109,14 @@ Backtest on back-adjusted continuous contracts with the roll method documented; 
 - Multi-speed ensemble (blend 3, 6, 12-month lookbacks) once single-speed is live.
 - Carry signal as a second sleeve on the same infrastructure (futures carry is the natural companion to trend).
 - [[pollok2026-end-to-end-portfolio-policies]] end-to-end weights as a research comparison, not a replacement: the paper's own result is that simple rules tie it.
+
+## Venue: Schwab vs IBKR (2026-11)
+
+From [[schwab-systematic-trading-prd-2026-11]] §5:
+
+- **Schwab can hold but not automate this strategy.** The API rejects futures orders. The manual fallback (FR-F1): the engine emits a signed weekly trade list at 09:00 ET, the trade gets keyed into thinkorswim, and fills are reconciled the same day.
+- Cost per MES round trip with the same exchange and NFA fees: ≈ $5.24 at Schwab ($2.25/side) vs ≈ $1.24 at IBKR ($0.25/side). Weekly slow trend tolerates the gap; intraday micro sleeves do not.
+- The PRD's split: the ETF long/flat version ([[Trend-Following]] E1) runs at Schwab now. This full leveraged long/short futures version goes to IBKR once equity is > $250k or crisis alpha is the priority. CME micro bitcoin futures (24/7 since 2026-05-29) would also run there.
 
 ## Status
 
