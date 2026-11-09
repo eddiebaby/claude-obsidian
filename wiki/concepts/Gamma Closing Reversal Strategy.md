@@ -16,6 +16,7 @@ aliases:
   - "Market Intraday Momentum (tested)"
 related:
   - "[[Research - Intraday Futures Strategies Under Prop-Firm Constraints]]"
+  - "[[Prop-Firm Intraday Momentum Strategy]]"
   - "[[LucidFlex Automated Scalping PRD]]"
   - "[[baltussen2021-hedging-demand-intraday-momentum]]"
   - "[[mesfin2026-mnq-intraday-falsification]]"

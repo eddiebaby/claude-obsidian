@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Operation Log"
-updated: 2026-11-01
+updated: 2026-11-09
 tags:
   - meta
   - log
@@ -14,6 +14,26 @@ related:
 ---
 
 # Operation Log
+
+## 2026-11-09 | save + build | prop-firm strategy note + prop-eval-sim
+- Source: futures-program PRD (CME equity-index core, micros), pasted 2026-11-08 with the question "can I use this for a prop-firm day-trading strategy". Not yet ingested to `.raw/`.
+- **Note:** [[Prop-Firm Intraday Momentum Strategy]] (new). It maps the PRD onto a prop account:
+  - Keep S2/S3 and the validation stack.
+  - Drop S1, S5 and S6 (they hold overnight).
+  - Tax is 1099 income, not §1256.
+  - Tradovate's API excludes prop accounts.
+  - Backlinks added from [[Prop-Firm-Eval-Sizing]] and [[Gamma Closing Reversal Strategy]].
+- **Code:** `prop-eval-sim/` (numpy only, 15 tests). It runs the evaluation and funded account with bar-level breach checks and reports EV by size.
+  - The fast engine matches a brute-force bar-by-bar reference (P&L and status) on more than 10,000 random days across 600+ independent rule combinations. Mutation-tested.
+  - Gambler's-ruin check passes (D/(D+T)).
+  - Closes the 2026-10-13 HIGH finding (the compliance check was EOD-only).
+- **Results** (synthetic, LucidFlex as modeled):
+  - Zero edge passes 19–26% per attempt, matching the 10-13 figure of ~25%.
+  - EV is positive even at −$3 to $0 edge (+$77 to +$324 a year): payoff structure, not skill.
+  - EV peaks at ~8 MNQ; P(net>0) peaks at ~4 MNQ.
+  - EOD-only checking overstates EV by ~90%.
+  - A monthly fee cuts size-4 EV from $519 to $66 (+$4.75 edge).
+- **Next money action:** verify four Lucid rules in writing (fee period, payout cap, floor lock level, sim payouts). Then run `propsim` on the real gamma-reversal out-of-sample bar paths.
 
 ## 2026-11-01 | feature | periodic dream reviews (month / quarter / year)
 - Brainstormed with Scott: 39 features chosen on the visual board, plus the design.md tripwire. Design: `docs/superpowers/specs/2026-11-01-dream-periodic-reviews-design.md`.

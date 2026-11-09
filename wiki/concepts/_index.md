@@ -207,6 +207,7 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 - [[Micro-Futures Trend Strategy]] — slow diversified trend on micros; crisis alpha (status: seed)
 - [[LLM Filings Alpha Strategy]] — EDGAR pipeline + LLM scoring of small-cap filings; the moat (status: seed)
 - [[Gamma Closing Reversal Strategy]] — fade the day's move 15:30→16:00 on high-GEX days; lone survivor of the intraday-momentum round, pending pre-2023 NQ validation (status: seed)
+- [[Prop-Firm Intraday Momentum Strategy]] — futures-program intraday sleeves on a prop account; propsim EV-by-size results; verify Lucid rules before buying (status: seed)
 
 **Strategy Classes**
 - [[Trend-Following]] — time-series momentum as a strategy class; the impact feedback-loop mechanism; why short-term variants died post-2009 on small-tick contracts (status: developing)

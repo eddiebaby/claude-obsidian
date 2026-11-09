@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Wiki Index"
-updated: 2026-10-17
+updated: 2026-11-09
 tags:
   - meta
   - index
@@ -24,7 +24,7 @@ related:
 
 # Wiki Index
 
-Last updated: 2026-10-17 | Total pages: 545 | Sources ingested: 68 | Dream Symbols: 86 (CW5: 22, CW12: 64)
+Last updated: 2026-11-09 | Total pages: 546 | Sources ingested: 68 | Dream Symbols: 86 (CW5: 22, CW12: 64)
 
 Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[getting-started]]
 
@@ -164,6 +164,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[bailey-lopez-de-prado-2014-deflated-sharpe]] — the Deflated Sharpe Ratio; selection-bias correction under multiple trials; winner's-curse arithmetic (status: ingested 2026-07-03)
 
 **Strategy Build Guides (retail-scale)**
+- [[Prop-Firm Intraday Momentum Strategy]] — maps the Nov 2026 futures-program PRD onto a prop account (keep S2/S3 + validation, drop overnight sleeves); propsim Monte Carlo: zero edge passes ~23%, EV is mostly payoff structure, rule details swing EV more than edge; next action = verify 4 Lucid rules (status: seed)
 - [[LucidFlex Automated Scalping PRD]] — Track B: short-hold intraday bot on a Lucid prop account; edge is the eval-fee/payout asymmetry, not HFT alpha; phased gates, $1K cap, 16-week timebox (status: seed)
 - [[Retail Alpha Strategy Roadmap]] — master page: capacity-constraint thesis, ranking table, build order, shared infrastructure, portfolio logic (status: developing)
 - [[Sector-ETF Momentum Strategy]] — 12-1 momentum + absolute-momentum overlay on 11 SPDR sectors; the infrastructure carrier; build first (status: seed)

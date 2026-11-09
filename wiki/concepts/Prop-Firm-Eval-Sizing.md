@@ -4,7 +4,7 @@ title: "Prop-Firm-Eval-Sizing"
 domain: quantitative-finance
 complexity: intermediate
 created: 2026-07-07
-updated: 2026-07-07
+updated: 2026-11-09
 tags:
   - quantitative-finance
   - position-sizing
@@ -16,6 +16,7 @@ aliases:
   - "Drawdown-Constrained Sizing"
 related:
   - "[[LucidFlex Automated Scalping PRD]]"
+  - "[[Prop-Firm Intraday Momentum Strategy]]"
   - "[[Overnight-Drift]]"
 sources:
   - "[[busseti-ryu-boyd-2016-risk-constrained-kelly]]"
@@ -40,4 +41,4 @@ Position sizing for accounts that die at a fixed trailing drawdown (the prop-eva
 1. Size from the per-trade P&L distribution and the MLL via risk-constrained Kelly, not from round-number percentages.
 2. In eval, the objective function includes the consistency cap: daily profit cap changes optimal size vs a pure race to target.
 3. After funding, resize DOWN until the MLL locks at breakeven+$100 (the lock removes ruin risk entirely; growth optimization only starts after the lock).
-4. Monte Carlo the whole eval as a system (target, MLL, consistency cap, daily stop) — pass probability per attempt × $130 gives expected eval spend before funding; if expected spend exceeds ~2 payouts, the strategy is not worth running even if profitable.
+4. Monte Carlo the whole eval as a system (target, MLL, consistency cap, daily stop) — pass probability per attempt × $130 gives expected eval spend before funding; if expected spend exceeds ~2 payouts, the strategy is not worth running even if profitable. Implemented as `prop-eval-sim/` (bar-level intraday breach checks, funded payout phase, EV by size); results in [[Prop-Firm Intraday Momentum Strategy]].

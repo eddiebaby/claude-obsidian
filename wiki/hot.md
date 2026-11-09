@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-11-01T00:00:00
+updated: 2026-11-09T00:00:00
 tags:
   - meta
   - hot-cache
@@ -17,6 +17,16 @@ related:
 # Recent Context
 
 ## Last Updated
+
+2026-11-09: **Prop-firm strategy note + `prop-eval-sim/` built.** Scott asked whether the futures-program PRD (CME micros) can drive a prop-firm day-trading strategy.
+- [[Prop-Firm Intraday Momentum Strategy]]: keep the S2/S3 intraday sleeves and the validation stack. Drop the overnight sleeves (S1, S5, S6). Payouts are 1099 income, not §1256.
+- `prop-eval-sim/` (`python3 -m propsim`) simulates the evaluation and funded account, checks every bar, and reports EV by size. 15 tests.
+- Findings (LucidFlex as modeled, synthetic MNQ paths):
+  - Zero edge passes ~23% per attempt.
+  - EV is +$324/yr at zero edge and size 8: the structure pays, not skill.
+  - EOD-only checks overstate EV by ~90%.
+  - A monthly fee nearly wipes out EV.
+- **Next money action:** get four Lucid rules in writing (fee one-off vs monthly, funded payout cap, floor lock level, sim-funded payouts). Then feed the gamma-reversal out-of-sample bar paths to `propsim`. The Databento 2018+ pull is still the gate on the edge itself.
 
 2026-11-01: **Dream backlog imported and analyzed.** The claude.ai Dreams project was read through the signed-in browser pane, adding 24 new entries from 09-28 to 11-01. All 28 unanalyzed dreams since 09-19 were analyzed without associations (lower confidence).
 - [[dream-threads]] Third Arc adds three threads: 9 The Father's House (stepmom/Martin/father), 10 Fists (aggression back in the body), 11 The Chain.
