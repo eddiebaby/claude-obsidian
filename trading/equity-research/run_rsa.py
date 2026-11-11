@@ -12,7 +12,7 @@ from pathlib import Path
 import yfinance as yf
 
 from eqr.rsa import (ANNOUNCE_FORMS, ANNOUNCE_QUERIES, PROXY_FORMS, PROXY_QUERIES, fts_url, hit_meta, merge_events,
-                     parse_doc, round_up_clause)
+                     named_ticker, parse_doc, round_up_clause)
 from eqr.rsa_alert import alerts, load_sent, ntfy, push_text, save_sent, session_day
 from eqr.wires import Names, wire_docs
 from run_filings import text_of
@@ -80,7 +80,7 @@ def read(sec, hits):
         if i % 50 == 0:
             print(f"  read {i}/{len(metas)}")
         text = text_of(sec.get_text(m["url"], max_age_hours=float("inf")) or "")
-        docs.append({**m, **parse_doc(text, m["filed"])})
+        docs.append({**m, "ticker": named_ticker(m["tickers"], text), **parse_doc(text, m["filed"])})
     return docs
 
 
@@ -212,21 +212,20 @@ def alert(events, today, remember=True):
     when configured, and remembers what was sent so each alert fires once. A failed push isn't remembered, so the
     next run retries it. remember=False (an --as-of run) leaves the sent-alerts file alone."""
     sent = load_sent(SENT)
-    act, _, check, _ = sections(events)
-    lines, keys = alerts(act + [e for e in check if e["rounding"] == "UP_EARLIER"], events, sent, today)
+    entries, keys = alerts(*sections(events), events, sent, today)
     Path("data/rsa").mkdir(parents=True, exist_ok=True)
-    Path("data/rsa/alert.txt").write_text("\n".join(lines) + ("\n" if lines else ""), encoding="utf-8")
+    Path("data/rsa/alert.txt").write_text("\n\n".join(entries) + ("\n" if entries else ""), encoding="utf-8")
     pushed, failed = False, False
     try:
-        pushed = ntfy(lines)
+        pushed = ntfy(entries)
     except Exception as e:  # the alert stays in the output and alert.txt, and is retried next run
         print(f"ntfy push failed: {e}")
         failed = True
     if remember and not failed:
         save_sent(SENT, sent | keys)
-    for line in lines:
-        print(f"ALERT {line}")
-    print(f"ALERT-PUSH {push_text(lines)}" if lines else "ALERT none")
+    for entry in entries:
+        print("\n".join(f"ALERT {line}" for line in entry.split("\n")))
+    print(f"ALERT-PUSH {push_text(entries)}" if entries else "ALERT none")
     if pushed:
         print("pushed via ntfy")
 

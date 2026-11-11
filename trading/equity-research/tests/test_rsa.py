@@ -245,6 +245,52 @@ def test_hit_meta():
     assert hit_meta(hit)["ticker"] is None
 
 
+VIXM_8K = ("FORM 8-K ProShares Trust II Securities registered pursuant to Section 12(b) of the Act. Title of each "
+           "class Trading Symbol(s) Name of each exchange on which registered ProShares VIX Mid-Term Futures ETF "
+           "VIXM Cboe BZX Check the appropriate box below Emerging growth company Item 8.01. Other Events On "
+           "November 3, 2026, ProShare Capital Management LLC, on behalf of ProShares Trust II, issued a press "
+           "release announcing a reverse share split on ProShares VIX Mid-Term Futures ETF (Cboe BZX Exchange ticker "
+           "symbol \"VIXM\"). Post-Reverse Split fractional shares will be redeemed for cash and sent to the "
+           "shareholder's broker of record.")
+TRUST = ["AGQ", "UVXY", "SVXY", "VIXM", "VIXY", "UCO"]
+
+
+def test_named_ticker_fund_trust():
+    from eqr.rsa import named_ticker
+    assert named_ticker(TRUST, VIXM_8K) == "VIXM"
+    assert classify_rounding(n(VIXM_8K))[0] == "CASH"
+    cover_all = VIXM_8K.replace("ProShares VIX Mid-Term Futures ETF VIXM Cboe BZX",
+                                "Ultra Silver AGQ NYSE Arca Ultra VIX UVXY Cboe BZX VIX Mid-Term VIXM Cboe BZX")
+    assert named_ticker(TRUST, cover_all) == "VIXM"             # the body decides, not the cover's list
+    two = VIXM_8K.replace('symbol \"VIXM\")', 'symbols \"VIXM\" and \"UVXY\")')
+    assert named_ticker(TRUST, two) is None                     # combined 8-K: don't pick one
+    assert named_ticker(TRUST, "Item 8.01 a reverse split of one of our funds") is None    # never guess AGQ
+
+
+def test_named_ticker_ordinary_company():
+    from eqr.rsa import named_ticker
+    spac = ("Title of each class Trading Symbol(s) Units ABCU Class A common stock ABC Warrants ABCW "
+            "Item 5.03 The Company effected a 1-for-10 reverse split of its Class A common stock (Nasdaq: ABC).")
+    assert named_ticker(["ABC", "ABCW", "ABCU"], spac) == "ABC"
+    reit = ("Trading Symbol(s) Series A Preferred XYZ-PA Series B Preferred XYZ-PB Common Stock XYZ "
+            "Item 8.01 The board approved a 1-for-5 reverse split; the preferred stock (XYZ-PA, XYZ-PB) is unaffected "
+            "and the common stock XYZ will trade split-adjusted.")
+    assert named_ticker(["XYZ", "XYZ-PA", "XYZ-PB"], reit) == "XYZ"       # several named: keep the common
+    assert named_ticker(["ABC", "ABCW"], "no symbol named") == "ABC"
+    assert named_ticker(["A", "AB"], "Item 8.01 A reverse split of AB shares") == "A"   # both named: keep the first
+    assert named_ticker(["ABC", "ABCW"], "Item 8.01 its warrants (ABCW) are adjusted") == "ABCW"   # the one named
+    assert named_ticker([], "x") is None
+
+
+def test_fund_trust_events_split_by_fund():
+    today = date(2026, 11, 5)
+    a = {**_doc(1415311, "8-K", "2026-11-04", "CASH", 2, date(2026, 11, 19)), "ticker": "VIXM", "tickers": ["A"] * 6}
+    b = {**_doc(1415311, "8-K", "2026-11-04", "UP", 4, date(2026, 11, 20)), "ticker": "UVXY", "tickers": ["A"] * 6,
+         "url": "u/other"}
+    ev = {e["ticker"]: e for e in merge_events([a, b], today)}
+    assert (ev["VIXM"]["rounding"], ev["UVXY"]["rounding"], ev["UVXY"]["ratio"]) == ("CASH", "UP", 4)
+
+
 def _doc(cik, form, filed, rounding, ratio=None, split_day=None, flags=(), rng=None):
     return {"cik": cik, "ticker": "ABC", "name": "Abc Inc", "form": form, "filed": filed, "url": f"u/{form}/{filed}",
             "ratio": ratio, "ratio_range": rng, "split_day": split_day, "date_kind": None, "rounding": rounding,

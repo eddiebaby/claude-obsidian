@@ -59,9 +59,36 @@ def hit_meta(hit):
         name = m.group(1)
     else:
         name, tickers = re.sub(r"\s*\(CIK \d+\)", "", shown).strip(), []
-    return {"cik": cik, "name": name, "ticker": tickers[0] if tickers else None, "form": s["form"],
-            "file_type": s.get("file_type"), "filed": s["file_date"],
+    return {"cik": cik, "name": name, "ticker": tickers[0] if tickers else None, "tickers": tickers,
+            "form": s["form"], "file_type": s.get("file_type"), "filed": s["file_date"],
             "url": f"https://www.sec.gov/Archives/edgar/data/{cik}/{adsh.replace('-', '')}/{fname}"}
+
+
+MULTI_FUND = 4      # a filer with this many tickers is a fund trust (ProShares Trust II), not one company
+
+
+_ITEM = re.compile(r"\bItem\s+\d\.\d\d\b")     # where an 8-K's body starts, after the cover's securities table
+
+
+def _named(tickers, text):
+    return [t for t in tickers if re.search(rf"(?<![A-Za-z0-9.\-/]){re.escape(t)}(?![A-Za-z0-9\-/])", text)]
+
+
+def named_ticker(tickers, text):
+    """The filer's ticker the document is about. The body (after the 8-K cover, whose table can list every security)
+    decides when it names exactly one of the filer's tickers. Otherwise an ordinary company keeps its first ticker,
+    the common stock as SEC lists it; a fund trust (ProShares Trust II: VIXM's split, not AGQ's) needs exactly one
+    fund named in the body or, failing that, the cover, or gets no ticker rather than a guess."""
+    if len(tickers) <= 1:
+        return tickers[0] if tickers else None
+    m = _ITEM.search(text)
+    named = _named(tickers, text[m.start():] if m else text)
+    if len(named) == 1:
+        return named[0]
+    if len(tickers) < MULTI_FUND:
+        return tickers[0]
+    cover = _named(tickers, text[:m.start()]) if m and not named else []
+    return cover[0] if len(cover) == 1 else None
 
 
 def normalize(text):
@@ -219,7 +246,8 @@ _UP = re.compile(r"round(?:ed|ing|s)?\s+up|(?:receive|issue|issued|hold|entitled
                  r"(?:one|1|a|an)\s+(?:\(1\)\s+)?(?:full|whole|additional)\s+(?:[\w'-]+\s+){0,6}?share", re.I)
 _NOT = re.compile(r"\b(?:no|not|nor|without)\b", re.I)
 _CASH = re.compile(r"\bcash\s+(?:payment|payments|in lieu|equal|amount|value)|\bamount in cash|"
-                   r"\b(?:receive|pay|paid)\s+(?:\w+\s+){0,4}?cash\b", re.I)
+                   r"\b(?:receive|pay|paid)\s+(?:\w+\s+){0,4}?cash\b|"
+                   r"\bredeemed (?:for|in) cash", re.I)   # VIXM: 'fractional shares will be redeemed for cash'
 _BOILERPLATE = re.compile(r"U\.S\. Holder|tax basis|capital (?:gain|loss)|federal income tax|backup withholding|"
                           r"information reporting|information returns|\bIRS\b|specific assets|in specie|"
                           r"Section 262|appraisal rights|\bDGCL\b|fractional depositary receipts",
@@ -444,12 +472,16 @@ def window_status(split_day, today):
 def merge_events(docs, today):
     """docs: hit_meta + parse_doc dicts. One event per company: announcement filings (8-K/6-K) within CLUSTER_DAYS
     of the newest one; proxies only fill in the rounding when no announcement states it. Documents that barely
-    mention a split are dropped."""
+    mention a split are dropped. A fund trust whose documents name different funds gets one event per fund."""
     by_cik = defaultdict(list)
     for d in filter(is_relevant, docs):
         by_cik[d["cik"]].append(d)
-    events = []
+    groups = []
     for cik, ds in by_cik.items():
+        funds = {d["ticker"] for d in ds if d["ticker"] and len(d.get("tickers") or ()) >= MULTI_FUND}
+        groups += [(cik, [d for d in ds if d["ticker"] == f]) for f in sorted(funds)] if len(funds) > 1 else [(cik, ds)]
+    events = []
+    for cik, ds in groups:
         ds.sort(key=lambda d: d["filed"], reverse=True)
         ann = [d for d in ds if not is_notice(d)]
         proxies = [d for d in ds if is_notice(d)]
