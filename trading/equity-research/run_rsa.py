@@ -2,7 +2,7 @@
 Pulls 8-K/6-K reverse-split announcements (last --days) and round-up proxies (last --proxy-days) from EDGAR full-text
 search, reads each filing's fractional-share treatment, and ranks per-holder round-ups by gain per account:
 1 share bought at price p becomes 1 post-split share worth about ratio x p.
-Usage: python run_rsa.py [--days 30] [--proxy-days 90] [--as-of YYYY-MM-DD] [--alert]
+Usage: python run_rsa.py [--days 30] [--proxy-days 90] [--as-of YYYY-MM-DD] [--alert | --alert-all]
 Writes reports/rsa-YYYY-MM-DD.md and data/rsa/YYYY-MM-DD.csv."""
 import argparse
 import csv
@@ -13,7 +13,7 @@ import yfinance as yf
 
 from eqr.rsa import (ANNOUNCE_FORMS, ANNOUNCE_QUERIES, PROXY_FORMS, PROXY_QUERIES, fts_url, hit_meta, merge_events,
                      named_ticker, parse_doc, round_up_clause)
-from eqr.rsa_alert import alerts, load_sent, ntfy, push_text, save_sent, session_day
+from eqr.rsa_alert import alerts, load_sent, message, ntfy, push_text, save_sent, session_day, title
 from eqr.wires import Names, wire_docs
 from run_filings import text_of
 from run_screen import client
@@ -207,25 +207,28 @@ def report(events, today):
     ]) + "\n"
 
 
-def alert(events, today, remember=True):
-    """Prints 'ALERT ...' lines (a scheduled run greps for them), saves them to data/rsa/alert.txt, pushes via ntfy
-    when configured, and remembers what was sent so each alert fires once. A failed push isn't remembered, so the
-    next run retries it. remember=False (an --as-of run) leaves the sent-alerts file alone."""
-    sent = load_sent(SENT)
-    entries, keys = alerts(*sections(events), events, sent, today)
+def alert(events, today, remember=True, everything=False):
+    """Prints 'ALERT ...' lines (a scheduled run greps for them), saves the push text to data/rsa/alert.txt, pushes
+    via ntfy when configured, and remembers what was sent so each alert fires once. A failed push isn't remembered,
+    so the next run retries it. remember=False (an --as-of run) leaves the sent-alerts file alone; everything=True
+    sends the whole current picture as if nothing had been sent, and also leaves the file alone."""
+    sent = set() if everything else load_sent(SENT)
+    groups, keys = alerts(*sections(events), events, sent, today)
+    text = message(groups)
     Path("data/rsa").mkdir(parents=True, exist_ok=True)
-    Path("data/rsa/alert.txt").write_text("\n\n".join(entries) + ("\n" if entries else ""), encoding="utf-8")
+    Path("data/rsa/alert.txt").write_text(text + ("\n" if text else ""), encoding="utf-8")
     pushed, failed = False, False
     try:
-        pushed = ntfy(entries)
+        pushed = ntfy(groups)
     except Exception as e:  # the alert stays in the output and alert.txt, and is retried next run
         print(f"ntfy push failed: {e}")
         failed = True
-    if remember and not failed:
+    if remember and not everything and not failed:
         save_sent(SENT, sent | keys)
-    for entry in entries:
-        print("\n".join(f"ALERT {line}" for line in entry.split("\n")))
-    print(f"ALERT-PUSH {push_text(entries)}" if entries else "ALERT none")
+    if text:
+        print(f"ALERT-TITLE {title(groups)}")
+        print("\n".join(f"ALERT {line}" for line in text.split("\n")))
+    print(f"ALERT-PUSH {push_text(groups)}" if text else "ALERT none")
     if pushed:
         print("pushed via ntfy")
 
@@ -238,13 +241,15 @@ def main():
                     help="judge buy windows as of this day (default: today, or the next session after the close)")
     ap.add_argument("--alert", action="store_true",
                     help="print new buys / last days / dropped buys once each; push via ntfy if NTFY_TOPIC is set")
+    ap.add_argument("--alert-all", action="store_true",
+                    help="push the whole current BUY / CHECK / WATCH picture, ignoring (and not updating) what was sent")
     a = ap.parse_args()
     sec, today = client(), a.as_of or session_day()
     events = scan(sec, today, a.days, a.proxy_days)
     enrich(sec, events)
     md = report(events, today)
-    if a.alert:
-        alert(events, today, remember=a.as_of is None)
+    if a.alert or a.alert_all:
+        alert(events, today, remember=a.as_of is None, everything=a.alert_all)
     Path("reports").mkdir(exist_ok=True)
     Path(f"reports/rsa-{today}.md").write_text(md, encoding="utf-8")
     Path("data/rsa").mkdir(parents=True, exist_ok=True)

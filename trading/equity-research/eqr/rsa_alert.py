@@ -44,33 +44,45 @@ def deadline(buy_by):
     return f"{_day(buy_by)} close ({h % 12 or 12}{'am' if h < 12 else 'pm'} HST)"
 
 
-def _head(kind, e):
-    return f"{kind} {e['ticker']} · 1:{e['ratio'] or '?'} · {_money(e['price'])} → +{_money(e['gain_per_acct'])}/share"
+def _head(e, last=False):
+    return (f"{'LAST DAY: ' if last else ''}{e['ticker']} · 1:{e['ratio'] or '?'} · {_money(e['price'])} → "
+            f"+{_money(e['gain_per_acct'])}/share")
 
 
-def _entry(kind, e, *lines):
+def _entry(e, *lines, last=False):
     """A header line, the given lines, then the filing's round-up wording."""
-    out = [_head(kind, e), *lines]
+    out = [_head(e, last), *lines]
     if e.get("excerpt"):
         out.append(f"\"{round_up_clause(e['excerpt'], back=70, ahead=110).replace('**', '')}\"")
     return "\n".join(out)
 
 
+def _watch_line(e):
+    if e.get("vote"):
+        v = e["vote"]
+        when = "vote date not found" if v == date.max else f"vote {_day(v)}"
+        note = f"{when}, then buy by {_day(e['buy_by'])}" if e["buy_by"] else f"{when}, no split date yet"
+    else:
+        note = "no split date yet"
+    return f"• {e['ticker']} 1:{e['ratio'] or '?'} · {_money(e['price'])} → +{_money(e['gain_per_acct'])} · {note}"
+
+
 def alerts(act, vote, check, watch, events, sent, today):
-    """The report's four sections, every event, and the keys already sent -> (entries, keys to add to sent).
-    An entry is a few lines: what to do, by when, and the filing's own wording. A name's last-day reminder fires
-    once whether it sits in BUY or CHECK. Names without a ticker are skipped: they can't be bought or keyed."""
-    entries, keys = {"last": [], "buy": [], "check": [], "dropped": [], "watch": []}, set()
+    """The report's four sections, every event, and the keys already sent -> ({buy, check, watch}, keys to add).
+    BUY and CHECK entries are a few lines each: what to do, by when, why (CHECK), and the filing's own wording,
+    last-day names first. WATCH is a one-line-per-name list. A name's last-day reminder fires once whether it sits
+    in BUY or CHECK. Names without a ticker are skipped: they can't be bought or keyed."""
+    buy, buy_last, check_new, check_last, dropped, watching, keys = [], [], [], [], [], [], set()
     named = lambda rows: [e for e in rows if e["ticker"]]
     key = lambda e: f"{e['ticker']}:{e['split_day']}"
     for e in named(act):
         k, last = key(e), e["buy_by"] == today
         todo = f"Buy 1 share by {deadline(e['buy_by'])}"
         if k not in sent:
-            entries["last" if last else "buy"].append(_entry("LAST DAY" if last else "BUY", e, todo))
+            (buy_last if last else buy).append(_entry(e, todo, last=last))
             keys |= {k} | ({f"{k}:last"} if last else set())
         elif last and f"{k}:last" not in sent:
-            entries["last"].append(_entry("LAST DAY", e, todo))
+            buy_last.append(_entry(e, todo, last=True))
             keys.add(f"{k}:last")
     checking = {key(e): e for e in named(check)}
     buying = {key(e) for e in act}
@@ -84,32 +96,34 @@ def alerts(act, vote, check, watch, events, sent, today):
                 why = "a shareholder vote is pending again"
             else:
                 why = f"now {e['rounding']}"
-            entries["dropped"].append(f"DROPPED {e['ticker']}: {why}. Recheck before buying.")
+            dropped.append(f"DROPPED {e['ticker']}: {why}. Recheck before buying.")
             keys.add(f"{k}:dropped")
     for e in named(check):
         k, last = key(e), e["buy_by"] == today
         lines = [f"Why: {REASON.get(e['rounding'], e['rounding'])}",
                  f"If it checks out, buy 1 share by {deadline(e['buy_by'])}"]
         if f"check:{k}" not in sent | keys:
-            entries["last" if last else "check"].append(_entry("LAST DAY (CHECK)" if last else "CHECK", e, *lines))
+            (check_last if last else check_new).append(_entry(e, *lines, last=last))
             keys |= {f"check:{k}"} | ({f"{k}:last"} if last else set())
         elif last and f"{k}:last" not in sent:
-            entries["last"].append(_entry("LAST DAY (CHECK)", e, *lines))
+            check_last.append(_entry(e, *lines, last=True))
             keys.add(f"{k}:last")
     for e in named(vote) + named(watch):
         k = f"watch:{e['ticker']}:{str(e['filed'])[:7]}"     # once a month per name: a later split alerts again
-        if k in sent:
-            continue
-        if e.get("vote"):
-            v = e["vote"]
-            when = "vote date not found" if v == date.max else f"shareholder vote {_day(v)}"
-            note = f"{when}; " + (f"if it passes, buy by {deadline(e['buy_by'])}" if e["buy_by"] else
-                                  "no split date yet")
-        else:
-            note = f"round-up {'proposed' if e['stage'] == 'proxy' else 'announced'}, no split date yet"
-        entries["watch"].append(f"{_head('WATCH', e)}\n{note}")
-        keys.add(k)
-    return [x for kind in entries.values() for x in kind], keys
+        if k not in sent:
+            watching.append(_watch_line(e))
+            keys.add(k)
+    return {"buy": buy_last + buy, "check": check_last + check_new + dropped, "watch": watching}, keys
+
+
+SECTIONS = (("buy", "BUY: rounds up per holder", "\n\n"),
+            ("check", "CHECK: read the filing before buying", "\n\n"),
+            ("watch", "WATCH: vote pending or no date yet", "\n"))
+
+
+def message(groups):
+    """The push body: BUY entries, then CHECK entries, then the WATCH list, each under a heading."""
+    return "\n\n".join(f"{head}\n{sep.join(groups[k])}" for k, head, sep in SECTIONS if groups.get(k))
 
 
 def load_sent(path):
@@ -126,24 +140,27 @@ def save_sent(path, sent):
     os.replace(tmp, path)
 
 
-def push_text(entries):
-    """One short line for a phone notification (mobile cuts around 200 characters): each entry's header."""
-    text = "RSA: " + "; ".join(e.split("\n", 1)[0] for e in entries)
+def push_text(groups):
+    """One short line (mobile cuts around 200 characters): each BUY/CHECK header, then the WATCH count."""
+    heads = [e.split("\n", 1)[0] for k in ("buy", "check") for e in groups.get(k, [])]
+    heads += [f"{len(groups['watch'])} to watch"] if groups.get("watch") else []
+    text = "RSA: " + "; ".join(heads)
     return text if len(text) <= 200 else text[:197] + "..."
 
 
-def title(entries):
-    """'RSA: 1 last day, 2 buy, 1 watch'."""
-    kinds = [e.split(" ", 1)[0].replace("LAST", "last day").lower() for e in entries]
-    return "RSA: " + ", ".join(f"{kinds.count(k)} {k}" for k in dict.fromkeys(kinds))
+def title(groups):
+    """'RSA: LAST DAY · 2 buy, 1 check, 5 watch'."""
+    last = any(e.startswith("LAST DAY") for k in ("buy", "check") for e in groups.get(k, []))
+    counts = ", ".join(f"{len(groups[k])} {k}" for k, _, _ in SECTIONS if groups.get(k))
+    return f"RSA: {'LAST DAY · ' if last else ''}{counts}"
 
 
-def ntfy(entries, topic=None, post=requests.post):
+def ntfy(groups, topic=None, post=requests.post):
     """Push through ntfy.sh when NTFY_TOPIC is set. -> True if sent."""
     topic = topic or os.environ.get("NTFY_TOPIC")
-    if not topic or not entries:
+    if not topic or not any(groups.values()):
         return False
-    r = post(NTFY.format(topic=topic), data="\n\n".join(entries).encode("utf-8"),
-             headers={"Title": title(entries), "Tags": "chart_with_upwards_trend"}, timeout=30)
+    r = post(NTFY.format(topic=topic), data=message(groups).encode("utf-8"),
+             headers={"Title": title(groups), "Tags": "chart_with_upwards_trend"}, timeout=30)
     r.raise_for_status()
     return True
