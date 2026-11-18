@@ -121,7 +121,7 @@ class Resp:
 def test_push_text_title_and_ntfy():
     assert push_text(GROUPS) == "RSA: LAST DAY: A · 1:5; B · 1:8; C · 1:2; 2 to watch"
     assert len(push_text({**EMPTY, "buy": ["X" * 300]})) == 200
-    assert title(GROUPS) == "RSA: LAST DAY · 2 buy, 1 check, 2 watch"
+    assert title(GROUPS) == "RSA: LAST DAY - 2 buy, 1 check, 2 watch"
     assert title({**EMPTY, "watch": ["• D"]}) == "RSA: 1 watch"
     calls = []
 
@@ -130,7 +130,7 @@ def test_push_text_title_and_ntfy():
         return Resp()
     assert ntfy(GROUPS, topic="t", post=post)
     assert calls[0][0] == "https://ntfy.sh/t" and calls[0][1]["data"] == message(GROUPS).encode()
-    assert calls[0][1]["headers"]["Title"] == "RSA: LAST DAY · 2 buy, 1 check, 2 watch"
+    assert calls[0][1]["headers"]["Title"] == "RSA: LAST DAY - 2 buy, 1 check, 2 watch"
     assert not ntfy(EMPTY, topic="t", post=post)
     assert not ntfy(GROUPS, topic="", post=post) and len(calls) == 1
     try:
@@ -138,6 +138,77 @@ def test_push_text_title_and_ntfy():
         raise AssertionError("an HTTP error must raise, so the alert isn't marked sent")
     except RuntimeError:
         pass
+
+
+def test_friends_copy_carries_the_footer(monkeypatch):
+    from eqr.rsa_alert import SHARE_FOOTER, share_topics
+    monkeypatch.setenv("NTFY_SHARE_TOPICS", " rsa-friends-a , ,rsa-friends-b")
+    assert share_topics() == ["rsa-friends-a", "rsa-friends-b"]
+    monkeypatch.delenv("NTFY_SHARE_TOPICS")
+    assert share_topics() == []
+    calls = []
+    ntfy(GROUPS, topic="rsa-friends-a", footer=SHARE_FOOTER,
+         post=lambda url, **kw: calls.append((url, kw)) or Resp())
+    assert calls[0][0] == "https://ntfy.sh/rsa-friends-a"
+    assert calls[0][1]["data"].decode().endswith("\n\nResearch only, not financial advice. Read the filing before "
+                                                 "buying: CHECK names are uncertain by design, and a split that pays "
+                                                 "cash instead costs about one share's price.")
+
+
+def test_fit_trims_watch_then_quotes():
+    from eqr.rsa_alert import fit
+    buy = ['B · 1:8\nBuy 1 share by Fri\n"' + "b" * 300 + '"']
+    check = ['C · 1:2\nWhy: x\n"' + "c" * 300 + '"']
+    watch = [f"• W{i} 1:5 · no split date yet" for i in range(40)]
+    groups = {"buy": buy, "check": check, "watch": watch}
+    assert fit(groups, limit=100_000) == message(groups)                  # fits: untouched
+    text = fit(groups, footer="F", limit=1200)
+    assert len(text.encode()) <= 1200 and text.endswith("\n\nF")
+    assert "more in the report" in text and '"bbb' in text and '"ccc' in text   # watch trimmed, quotes kept
+    text = fit(groups, limit=400)
+    assert len(text.encode()) <= 400 and '"ccc' not in text and "Why: x" in text   # CHECK quote dropped next
+
+
+def test_alert_routing_remembers_only_your_own_successful_push(tmp_path, monkeypatch, capsys):
+    import requests
+
+    import run_rsa
+    from types import SimpleNamespace
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(run_rsa, "sections", lambda events: ([], [], [], []))
+    monkeypatch.setattr(run_rsa, "alerts", lambda *a: (GROUPS, {"A:2026-11-09"}))
+    monkeypatch.setattr(run_rsa, "load_sent", lambda path: set())
+    monkeypatch.setenv("NTFY_TOPIC", "mine-secret")
+    monkeypatch.setenv("NTFY_SHARE_TOPICS", "friends-secret")
+    fail, pushed, saved = set(), [], []
+    monkeypatch.setattr(run_rsa, "save_sent", lambda path, s: saved.append(s))
+
+    def ntfy(groups, topic=None, footer=None):
+        t = topic or "mine-secret"
+        if t in fail:
+            raise requests.HTTPError(f"503 Server Error for url: https://ntfy.sh/{t}",
+                                     response=SimpleNamespace(status_code=503))
+        pushed.append((t, footer is not None))
+        return True
+    monkeypatch.setattr(run_rsa, "ntfy", ntfy)
+
+    def run(to, failing=()):
+        fail.clear(), fail.update(failing), pushed.clear(), saved.clear()
+        run_rsa.alert([], date(2026, 11, 5), to=to)
+        out = capsys.readouterr().out
+        assert "secret" not in out          # requests errors carry the URL, and the URL carries the topic
+        return list(pushed), list(saved), out
+
+    p, s, _ = run("all")
+    assert p == [("mine-secret", False), ("friends-secret", True)] and s == [{"A:2026-11-09"}]
+    p, s, out = run("all", failing={"friends-secret"})
+    assert p == [("mine-secret", False)] and s and "ntfy share push failed: HTTPError (HTTP 503)" in out
+    p, s, out = run("all", failing={"mine-secret"})
+    assert p == [("friends-secret", True)] and not s and "ntfy push failed: HTTPError (HTTP 503)" in out
+    p, s, _ = run("friends")
+    assert p == [("friends-secret", True)] and not s      # your own phone still gets these next run
+    p, s, _ = run("me")
+    assert p == [("mine-secret", False)] and s
 
 
 def test_save_sent_roundtrip(tmp_path):

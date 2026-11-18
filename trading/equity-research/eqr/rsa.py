@@ -9,6 +9,7 @@ from datetime import date, timedelta
 FTS = "https://efts.sec.gov/LATEST/search-index"
 ANNOUNCE_FORMS = "8-K,6-K"   # adding "/A" forms makes EDGAR return only amendments
 PROXY_FORMS = "PRE 14A,DEF 14A,PRE 14C,DEF 14C"
+MERGER_PROXY_FORMS = "PREM14A,DEFM14A"   # backfill only (SNTI's split terms); scanned broadly, SPAC deals flood WATCH
 ANNOUNCE_QUERIES = ('"reverse stock split" fractional', '"reverse split" fractional', '"share consolidation" fractional')
 PROXY_QUERIES = ('"reverse stock split" "rounded up"', '"reverse split" "rounded up"', '"reverse stock split" "round up"')
 CLUSTER_DAYS = 21      # announcement filings this close to the newest one describe the same split
@@ -245,6 +246,7 @@ def first_split_day(t, not_before=None, not_after=None):
 _UP = re.compile(r"round(?:ed|ing|s)?\s+up|(?:receive|issue|issued|hold|entitled to)\s+(?:\w+\s+){0,6}?"
                  r"(?:one|1|a|an)\s+(?:\(1\)\s+)?(?:full|whole|additional)\s+(?:[\w'-]+\s+){0,6}?share", re.I)
 _NOT = re.compile(r"\b(?:no|not|nor|without)\b", re.I)
+_CENT = re.compile(r"\s+to\s+the\s+(?:nearest|next)\s+(?:whole\s+)?cent", re.I)   # option exercise prices, not shares
 _CASH = re.compile(r"\bcash\s+(?:payment|payments|in lieu|equal|amount|value)|\bamount in cash|"
                    r"\b(?:receive|pay|paid)\s+(?:\w+\s+){0,4}?cash\b|"
                    r"\bredeemed (?:for|in) cash", re.I)   # VIXM: 'fractional shares will be redeemed for cash'
@@ -307,7 +309,8 @@ def classify_rounding(t):
     ratio sentence ('one share for every ten') isn't mistaken for a round-up."""
     up, cash, down, anti = [], [], [], []
     for w in _fraction_windows(t):
-        up += [(w, m.start()) for m in _UP.finditer(w) if not _NOT.search(w[max(0, m.start() - 15):m.start()])]
+        up += [(w, m.start()) for m in _UP.finditer(w) if not _NOT.search(w[max(0, m.start() - 15):m.start()])
+               and not _CENT.match(w, m.end())]
         cash += [(w, m.start()) for m in _CASH.finditer(w) if not _NOT.search(w[max(0, m.start() - 20):m.start()])
                  and not _BOILERPLATE.search(_same_sentence(w, m.start()))]
         down += [(w, m.start()) for m in _DOWN.finditer(w)]
@@ -422,7 +425,8 @@ def is_relevant(doc):
     reverse stock split will be disregarded')."""
     if doc.get("wire"):
         return True     # picked by a split headline; a headline or feed excerpt is too short to count mentions
-    if doc.get("financials") or (doc.get("file_type") or "").startswith(_AGREEMENT):
+    merger_proxy = "M14A" in (doc.get("form") or "")     # carries the target's financials; SNTI's split terms sat in one
+    if (doc.get("financials") and not merger_proxy) or (doc.get("file_type") or "").startswith(_AGREEMENT):
         return False
     n = doc.get("mentions", MIN_MENTIONS["proxy"])
     if is_notice(doc) and not doc.get("precedent"):

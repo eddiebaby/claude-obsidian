@@ -6,14 +6,16 @@ Usage: python run_rsa.py [--days 30] [--proxy-days 90] [--as-of YYYY-MM-DD] [--a
 Writes reports/rsa-YYYY-MM-DD.md and data/rsa/YYYY-MM-DD.csv."""
 import argparse
 import csv
+import os
 from datetime import date, timedelta
 from pathlib import Path
 
 import yfinance as yf
 
-from eqr.rsa import (ANNOUNCE_FORMS, ANNOUNCE_QUERIES, PROXY_FORMS, PROXY_QUERIES, fts_url, hit_meta, merge_events,
-                     named_ticker, parse_doc, round_up_clause)
-from eqr.rsa_alert import alerts, load_sent, message, ntfy, push_text, save_sent, session_day, title
+from eqr.rsa import (ANNOUNCE_FORMS, ANNOUNCE_QUERIES, MERGER_PROXY_FORMS, PROXY_FORMS, PROXY_QUERIES, fts_url,
+                     hit_meta, merge_events, named_ticker, parse_doc, round_up_clause)
+from eqr.rsa_alert import (SHARE_FOOTER, alerts, load_sent, message, ntfy, push_text, save_sent, session_day,
+                           share_topics, title)
 from eqr.wires import Names, wire_docs
 from run_filings import text_of
 from run_screen import client
@@ -27,7 +29,7 @@ CHECK = ("MIXED", "UNKNOWN", "UP_PARTICIPANT", "UP_EARLIER")
 LISTED = ("Nasdaq", "NYSE", "CBOE")     # SEC's exchange labels; OTC names are mostly not tradable on Robinhood
 WATCH_MAX = 15
 SPLIT_SEEN_DAYS = 10    # a price-history split this close before the filing is the split the filing describes
-BACKFILL_FORMS = ANNOUNCE_FORMS + "," + PROXY_FORMS
+BACKFILL_FORMS = ",".join((ANNOUNCE_FORMS, PROXY_FORMS, MERGER_PROXY_FORMS))
 BACKFILL_DAYS = 365     # boards often split under a proxy approved months earlier
 SENT = "data/rsa/alerts_sent.json"
 
@@ -207,23 +209,40 @@ def report(events, today):
     ]) + "\n"
 
 
-def alert(events, today, remember=True, everything=False):
+def push_error(e):
+    """'HTTPError (HTTP 503)'. Not str(e): requests puts the URL in its messages, and the URL holds the ntfy topic,
+    which would land in alert.log (anyone who knows a topic can post to it)."""
+    code = getattr(getattr(e, "response", None), "status_code", None)
+    return type(e).__name__ + (f" (HTTP {code})" if code else "")
+
+
+def alert(events, today, remember=True, everything=False, to="all"):
     """Prints 'ALERT ...' lines (a scheduled run greps for them), saves the push text to data/rsa/alert.txt, pushes
     via ntfy when configured, and remembers what was sent so each alert fires once. A failed push isn't remembered,
     so the next run retries it. remember=False (an --as-of run) leaves the sent-alerts file alone; everything=True
-    sends the whole current picture as if nothing had been sent, and also leaves the file alone."""
+    sends the whole current picture as if nothing had been sent, and also leaves the file alone.
+    to: 'me' (NTFY_TOPIC), 'friends' (NTFY_SHARE_TOPICS, with a research-only footer) or 'all'. A failed push to a
+    friends topic is reported but doesn't hold back your own alerts. A friends-only run remembers nothing, so your
+    own next run still alerts you."""
     sent = set() if everything else load_sent(SENT)
     groups, keys = alerts(*sections(events), events, sent, today)
     text = message(groups)
     Path("data/rsa").mkdir(parents=True, exist_ok=True)
     Path("data/rsa/alert.txt").write_text(text + ("\n" if text else ""), encoding="utf-8")
     pushed, failed = False, False
-    try:
-        pushed = ntfy(groups)
-    except Exception as e:  # the alert stays in the output and alert.txt, and is retried next run
-        print(f"ntfy push failed: {e}")
-        failed = True
-    if remember and not everything and not failed:
+    if to in ("me", "all") and os.environ.get("NTFY_TOPIC"):
+        try:
+            pushed = ntfy(groups)
+        except Exception as e:  # the alert stays in the output and alert.txt, and is retried next run
+            print(f"ntfy push failed: {push_error(e)}")
+            failed = True
+    for topic in share_topics() if to in ("friends", "all") else []:
+        try:
+            if ntfy(groups, topic=topic, footer=SHARE_FOOTER):
+                print("shared via ntfy")
+        except Exception as e:
+            print(f"ntfy share push failed: {push_error(e)}")
+    if remember and not everything and to in ("me", "all") and not failed:
         save_sent(SENT, sent | keys)
     if text:
         print(f"ALERT-TITLE {title(groups)}")
@@ -243,13 +262,15 @@ def main():
                     help="print new buys / last days / dropped buys once each; push via ntfy if NTFY_TOPIC is set")
     ap.add_argument("--alert-all", action="store_true",
                     help="push the whole current BUY / CHECK / WATCH picture, ignoring (and not updating) what was sent")
+    ap.add_argument("--to", choices=("me", "friends", "all"), default="all",
+                    help="who gets the push: NTFY_TOPIC, NTFY_SHARE_TOPICS, or both (default)")
     a = ap.parse_args()
     sec, today = client(), a.as_of or session_day()
     events = scan(sec, today, a.days, a.proxy_days)
     enrich(sec, events)
     md = report(events, today)
     if a.alert or a.alert_all:
-        alert(events, today, remember=a.as_of is None, everything=a.alert_all)
+        alert(events, today, remember=a.as_of is None, everything=a.alert_all, to=a.to)
     Path("reports").mkdir(exist_ok=True)
     Path(f"reports/rsa-{today}.md").write_text(md, encoding="utf-8")
     Path("data/rsa").mkdir(parents=True, exist_ok=True)

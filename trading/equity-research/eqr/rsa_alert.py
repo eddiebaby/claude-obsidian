@@ -149,18 +149,54 @@ def push_text(groups):
 
 
 def title(groups):
-    """'RSA: LAST DAY · 2 buy, 1 check, 5 watch'."""
+    """'RSA: LAST DAY - 2 buy, 1 check, 5 watch'. ASCII only: it travels as an HTTP header, and a '·' arrives on the
+    phone as '�'."""
     last = any(e.startswith("LAST DAY") for k in ("buy", "check") for e in groups.get(k, []))
     counts = ", ".join(f"{len(groups[k])} {k}" for k, _, _ in SECTIONS if groups.get(k))
-    return f"RSA: {'LAST DAY · ' if last else ''}{counts}"
+    return f"RSA: {'LAST DAY - ' if last else ''}{counts}"
 
 
-def ntfy(groups, topic=None, post=requests.post):
-    """Push through ntfy.sh when NTFY_TOPIC is set. -> True if sent."""
+SHARE_FOOTER = ("Research only, not financial advice. Read the filing before buying: CHECK names are uncertain by "
+                "design, and a split that pays cash instead costs about one share's price.")
+
+
+def share_topics():
+    """NTFY_SHARE_TOPICS: comma-separated topics friends subscribe to. Separate from NTFY_TOPIC because anyone who
+    knows an ntfy.sh topic name can post to it."""
+    return [t.strip() for t in os.environ.get("NTFY_SHARE_TOPICS", "").split(",") if t.strip()]
+
+
+NTFY_LIMIT = 4000     # bytes; ntfy.sh turns a longer message into an 'attachment.txt' file
+
+
+def _unquoted(entries):
+    return [e.rsplit("\n", 1)[0] if e.rsplit("\n", 1)[-1].startswith('"') else e for e in entries]
+
+
+def fit(groups, footer=None, limit=NTFY_LIMIT):
+    """message(groups) + footer within `limit` bytes. Trims the WATCH list first ('…and N more'), then the quoted
+    wording of CHECK entries, then of BUY entries."""
+    tail = f"\n\n{footer}" if footer else ""
+    size = lambda g: len((message(g) + tail).encode("utf-8"))
+    g = dict(groups)
+    watch = list(g.get("watch", []))
+    while size(g) > limit and watch:
+        watch.pop()
+        g["watch"] = watch + [f"• …and {len(groups['watch']) - len(watch)} more in the report"]
+    for k in ("check", "buy"):
+        if size(g) > limit:
+            g[k] = _unquoted(g.get(k, []))
+    text = message(g) + tail
+    return text if size(g) <= limit else text.encode("utf-8")[:limit - 3].decode("utf-8", "ignore") + "..."
+
+
+def ntfy(groups, topic=None, post=requests.post, footer=None):
+    """Push through ntfy.sh when NTFY_TOPIC is set (or to `topic`). -> True if sent."""
     topic = topic or os.environ.get("NTFY_TOPIC")
     if not topic or not any(groups.values()):
         return False
-    r = post(NTFY.format(topic=topic), data=message(groups).encode("utf-8"),
+    body = fit(groups, footer)
+    r = post(NTFY.format(topic=topic), data=body.encode("utf-8"),
              headers={"Title": title(groups), "Tags": "chart_with_upwards_trend"}, timeout=30)
     r.raise_for_status()
     return True

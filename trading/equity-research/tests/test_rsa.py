@@ -1,7 +1,30 @@
 from datetime import date
 
-from eqr.rsa import (classify_rounding, extract_ratio, first_split_day, hit_meta, merge_events, normalize,
-                     prev_trading_day, window_status, words_to_int)
+from eqr.rsa import (MERGER_PROXY_FORMS, PROXY_FORMS, classify_rounding, extract_ratio, first_split_day, hit_meta, is_proxy,
+                     is_relevant, merge_events, normalize, prev_trading_day, window_status, words_to_int)
+
+
+def test_merger_proxies_are_backfill_only_and_read_as_proxies():
+    # SNTI's 2026 split terms (round-up, 1:20-1:50) were only in its DEFM14A merger proxy
+    from run_rsa import BACKFILL_FORMS
+    merger = MERGER_PROXY_FORMS.split(",")
+    assert set(merger) <= set(BACKFILL_FORMS.split(",")) and not set(merger) & set(PROXY_FORMS.split(","))
+    assert all(is_proxy(f) for f in merger) and not any(f.endswith("/A") for f in BACKFILL_FORMS.split(","))
+    doc = {"form": "DEFM14A", "file_type": "DEFM14A", "financials": True, "mentions": 170, "precedent": True,
+           "excerpt": ""}
+    assert is_relevant(doc)                                         # a merger proxy carries the target's financials
+    assert not is_relevant({**doc, "form": "8-K", "file_type": "8-K"})
+
+
+def test_fractional_cents_rounded_up_is_not_a_share_round_up():
+    snti = n("Furthermore, the exercise price of any outstanding options would be proportionately increased, and any "
+             "fractional cents that may result therefrom shall be rounded up to the nearest whole cent. No fractional "
+             "shares of Common Stock shall be issued as a result of the Reverse Stock Split and, in lieu thereof, any "
+             "holder who would otherwise be entitled to a fractional share shall be entitled to receive the number of "
+             "shares rounded up to the next whole number automatically.")
+    cls, _, excerpt = classify_rounding(snti)
+    assert cls == "UP" and "next whole number" in excerpt and "cent" not in excerpt
+    assert classify_rounding(n("any fractional cents shall be rounded up to the nearest whole cent."))[0] == "UNKNOWN"
 
 
 def n(s):
