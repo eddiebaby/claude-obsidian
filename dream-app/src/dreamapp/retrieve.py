@@ -1,4 +1,5 @@
 import json
+import os
 import subprocess
 import sys
 
@@ -13,10 +14,14 @@ class RetrievalNotProvisioned(Exception):
 
 
 def _run_query(query: str, top: int) -> list:
+    # UTF-8 both ways: a Windows pipe defaults to cp1252, where the child crashes printing "→" and a
+    # cp1252 read of its UTF-8 kills the reader thread; either way the query's pages were lost.
     result = subprocess.run(
         [sys.executable, str(config.RETRIEVE_SCRIPT), query, "--top", str(top)],
         capture_output=True,
-        text=True,
+        encoding="utf-8",
+        errors="replace",
+        env={**os.environ, "PYTHONIOENCODING": "utf-8"},
         cwd=config.VAULT_ROOT,
     )
     if result.returncode == EXIT_NOT_PROVISIONED:
@@ -32,7 +37,7 @@ def _run_query(query: str, top: int) -> list:
         return []
     try:
         return json.loads(result.stdout).get("candidates", [])
-    except json.JSONDecodeError:
+    except (json.JSONDecodeError, TypeError):
         print(f"retrieve: could not parse stdout for query {query!r}", file=sys.stderr)
         return []
 

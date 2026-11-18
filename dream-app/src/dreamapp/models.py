@@ -16,13 +16,15 @@ class Symbol:
     kind: str
     salience: int
     query: str
+    motifs: list = field(default_factory=list)  # tags from wiki/dreams/motifs.md, the dreamer's vocabulary
 
     def to_dict(self) -> dict:
         return asdict(self)
 
     @classmethod
     def from_dict(cls, d: dict) -> "Symbol":
-        return cls(image=d["image"], kind=d["kind"], salience=d["salience"], query=d["query"])
+        return cls(image=d["image"], kind=d["kind"], salience=d["salience"], query=d["query"],
+                   motifs=list(d.get("motifs") or []))
 
 
 @dataclass
@@ -76,6 +78,7 @@ class Interpretation:
     compensation: str
     amplifications: list = field(default_factory=list)  # list[Amplification]
     counter_reading: str = ""
+    series_context: str = ""  # optional: empty when the series was not consulted
     objective_level: str = ""
     subjective_level: str = ""
     movement: str = ""
@@ -97,6 +100,7 @@ class Interpretation:
             compensation=str(d.get("compensation", "")),
             amplifications=[Amplification.from_dict(a) for a in d.get("amplifications", []) if isinstance(a, dict)],
             counter_reading=str(d.get("counter_reading", "")),
+            series_context=str(d.get("series_context", "")),
             objective_level=d.get("objective_level", ""),
             subjective_level=d.get("subjective_level", ""),
             movement=d.get("movement", ""),

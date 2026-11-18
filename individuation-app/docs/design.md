@@ -235,7 +235,7 @@ set), and the input to the compensation ledger (§3).
 
 Jung: "every interpretation is a hypothesis" — but "a relative degree of
 certainty is reached only in the interpretation of a series of dreams"
-(CW 8 ¶533, CW 16 ¶322). Single-dream analysis is the commodity; the series
+(CW 16 ¶322). Single-dream analysis is the commodity; the series
 is the product.
 
 ### Storage (v0: SQLite)
@@ -337,9 +337,26 @@ sufficient cover there.
    CW chunks as citations. Bake the two v0.2 rules into the synthesize
    prompt during the port, not after: no profile grounding, and emit the
    counter-reading when the compensation flatters the dreamer's self-story.
-5. Series features once ≥ ~10 dreams are on file — recurrence echo, motif
+5. 🟡 *(2026-11-05, v0: `dreamapp/series.py` over the vault's own dream notes,
+   not SQLite. The notes are the store the /dream skill already writes, and a
+   second store would drift from them. An image matches an earlier dream by
+   tag, by every word, or by motif phrase (motifs.md as the synonym map), and
+   extraction tags motifs from that vocabulary. Up to 12 earlier dreams go to
+   synthesis with their excerpt, the compensation given then and the verdict
+   (recurrence echo + the compensation ledger's input); the model writes Series
+   Context and says where this dream supports or corrects an earlier reading
+   (CW 16 ¶322). `dreamapp series IMAGE` is the motif-drift timeline.
+   Provenance filter on series and reviews. `scripts/bench_series.py`: 59% of
+   the earlier dreams past analyses named, vs 34% for the 12 most recent; an
+   upper bound until extraction's motif tagging is measured on an API run. The
+   review's counted half now carries the interpreter tripwire (words in half
+   the readings or waking actions, plus each reading's opening line); on the
+   2026 series it flags "work" in 14/25 July readings. Still open: symbol
+   canonicalization beyond plurals and motifs (dad/father), drift by dramatic
+   role, the ledger's "three weeks ago the hypothesis was X" revisit.)*
+   Series features once ≥ ~10 dreams are on file — recurrence echo, motif
    drift, compensation ledger. Single-dream interpretation is the commodity
-   (CW 8 ¶533); don't let Phase 1 wait for a perfect Phase 0.
+   (CW 16 ¶322); don't let Phase 1 wait for a perfect Phase 0.
 6. Only then: app shell (mobile/web), auth, billing.
 
 Corpus discipline: no ingestion beyond the planned targets (Dream Analysis

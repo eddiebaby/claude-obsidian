@@ -40,7 +40,39 @@ def _cw_block(c) -> str:
     return f'<cw header="{c.header}"{role}>\n{text}\n</cw>'
 
 
-def _build_user_message(dream_text: str, symbols: list, passages: list, capture=None, cw_passages=()) -> str:
+def _attr(s: str) -> str:
+    return str(s).replace('"', "'")
+
+
+def _series_block(series) -> str:
+    """The dreamer's earlier dreams sharing an image: what each said, the reading it got, and the verdict.
+
+    None means the series was not looked up (--no-series); an empty series means it was, and nothing matched.
+    """
+    if series is None:
+        return "<series>\n(not consulted)\n</series>\n\n"
+    if not series:
+        return "<series>\n(no earlier dream in the series shares these images)\n</series>\n\n"
+    shown = {}
+    for e in series:
+        for image in e.matched:
+            shown[image] = shown.get(image, 0) + 1
+    totals = {**{image: n for image, n in shown.items()}, **series.counts}  # an image left no room still counts
+    counts = [f"{image}: {total} earlier dream{'s' if total != 1 else ''}, {shown.get(image, 0)} shown"
+              for image, total in totals.items()]
+    priors = []
+    for e in sorted(series, key=lambda e: (e.date, e.name)):  # oldest first: the series as it unfolded
+        reading = e.compensation or "(no reading on file)"
+        response = e.response_note or "(none recorded)"
+        priors.append(f'<prior path="{_attr(e.path)}" date="{e.date.isoformat()}" images="{_attr(", ".join(e.matched))}" '
+                      f'verdict="{_attr(e.response or "unrated")}">\n'
+                      f"Dream: {e.excerpt}\nReading given then (compensation): {reading}\n"
+                      f"Dreamer's response: {response}\n</prior>")
+    return "<series>\n" + "\n".join(counts) + "\n" + "\n".join(priors) + "\n</series>\n\n"
+
+
+def _build_user_message(dream_text: str, symbols: list, passages: list, capture=None, cw_passages=(),
+                        series=None) -> str:
     symbols_json = json.dumps([s.to_dict() for s in symbols], ensure_ascii=False, indent=2)
     corpus_blocks = "\n".join(
         [_cw_block(c) for c in cw_passages]
@@ -50,7 +82,8 @@ def _build_user_message(dream_text: str, symbols: list, passages: list, capture=
         f"<dream>\n{dream_text}\n</dream>\n\n"
         + _capture_blocks(symbols, capture)
         + f"<symbols>\n{symbols_json}\n</symbols>\n\n"
-        f"<corpus>\n{corpus_blocks}\n</corpus>"
+        + _series_block(series)
+        + f"<corpus>\n{corpus_blocks}\n</corpus>"
     )
 
 
@@ -108,11 +141,12 @@ def _citation_key(s: str) -> str:
     return re.sub(r"\s+", " ", s).strip().casefold()
 
 
-def _filter_sources(cited: list, passages: list, cw_passages=()) -> list:
-    """Anti-confabulation: keep only citations of pages and CW chunks actually supplied, each in its
-    supplied form and once; report the rest."""
+def _filter_sources(cited: list, passages: list, cw_passages=(), series=()) -> list:
+    """Anti-confabulation: keep only citations of pages, CW chunks and earlier dreams actually supplied, each
+    in its supplied form and once; report the rest."""
     supplied = {}
-    for s in [p.page_path.replace("\\", "/") for p in passages] + [c.header for c in cw_passages]:
+    for s in ([p.page_path.replace("\\", "/") for p in passages] + [c.header for c in cw_passages]
+              + [e.path for e in series or ()]):
         supplied.setdefault(_citation_key(s), s)
     kept, dropped = [], []
     for s in cited:
@@ -148,7 +182,8 @@ def _expand(item: str) -> tuple:
 
 def unsupported_inline_citations(interpretation, cw_passages) -> list:
     """'CW 8 ¶999' in the prose whose paragraph the model was not shown. Advisory: never raises on odd fields."""
-    fields = [interpretation.dramatic_structure, interpretation.compensation, interpretation.counter_reading,
+    fields = [interpretation.dramatic_structure, interpretation.series_context, interpretation.compensation,
+              interpretation.counter_reading,
               interpretation.objective_level, interpretation.subjective_level, interpretation.movement,
               interpretation.question]
     for a in interpretation.amplifications:
@@ -168,9 +203,10 @@ def unsupported_inline_citations(interpretation, cw_passages) -> list:
 
 
 def synthesize_interpretation(dream_text: str, symbols: list, passages: list, capture=None,
-                              cw_passages=()) -> Interpretation:
+                              cw_passages=(), series=None) -> Interpretation:
     client = anthropic.Anthropic(api_key=config.get_api_key())
-    user_message = _build_user_message(dream_text, symbols, passages, capture=capture, cw_passages=cw_passages)
+    user_message = _build_user_message(dream_text, symbols, passages, capture=capture, cw_passages=cw_passages,
+                                       series=series)
 
     text = _call(client, user_message)
     try:
@@ -188,7 +224,7 @@ def synthesize_interpretation(dream_text: str, symbols: list, passages: list, ca
 
     interpretation = Interpretation.from_dict(data)
 
-    interpretation.sources = _filter_sources(interpretation.sources, passages, cw_passages)
+    interpretation.sources = _filter_sources(interpretation.sources, passages, cw_passages, series)
     try:
         unsupported = unsupported_inline_citations(interpretation, cw_passages)
     except Exception as e:  # advisory only: a paid answer is never lost to this check

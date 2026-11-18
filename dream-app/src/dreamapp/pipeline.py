@@ -1,36 +1,27 @@
 import datetime
-import re
 import sys
+from pathlib import Path
 
 from . import config
 from .capture import ask_associations, ask_capture, ask_response, confirm_symbols, with_associations
 from .cw import method_canon, with_method_canon
 from .cw import search as search_cw
 from .extract import extract_symbols
+from .notes import dream_section, frontmatter_date
 from .retrieve import retrieve_passages
+from .series import find_series
 from .synthesize import synthesize_interpretation
-from .writeback import check_writable, record_response, write_note
+from .writeback import _case_a_path, check_writable, record_response, write_note
 
 
 class InputError(Exception):
     pass
 
 
-def dream_section(text: str) -> str:
-    """The dream itself: a note's '## The Dream' section without template prompts, or plain text as given.
-
-    A note also holds frontmatter, the dreamer's answers and any earlier analysis; none of that may
-    reach symbol extraction, the whole-dream query, or the model as part of "the dream".
-    """
-    m = re.search(r"^## The Dream\s*\n(.*?)(?=^## |\Z)", text, re.S | re.M)
-    if not m:
-        return text
-    lines = [ln for ln in m.group(1).splitlines() if not ln.strip().startswith("> [")]
-    return "\n".join(lines).strip()
-
-
 def run(dream_text, source_path=None, dry=False, show_sources=False, force=False, title=None, date=None,
-        interactive=False, ask=input):
+        interactive=False, ask=input, series=True):
+    # A note's own date bounds its series: re-reading an old dream must not see the dreams that came after.
+    series_date = frontmatter_date(dream_text)
     # Only the dream itself is measured and sent: an analyzed note runs far past MAX_DREAM_CHARS.
     dream_text = dream_section(dream_text)
     if not dream_text:
@@ -50,7 +41,7 @@ def run(dream_text, source_path=None, dry=False, show_sources=False, force=False
     capture = ask_capture(ask) if interactive else None
 
     try:
-        symbols = extract_symbols(dream_text)
+        symbols = extract_symbols(dream_text, motifs=series)
         print(f"extract: {len(symbols)} symbols", file=sys.stderr)
 
         # Stage 1: the dreamer checks the model's image list. Stage 2: associations gate retrieval,
@@ -76,8 +67,19 @@ def run(dream_text, source_path=None, dry=False, show_sources=False, force=False
             for p in passages:
                 print(f"{p.score:.3f}  {p.page_path}  {p.snippet}")
 
+        # Stage 3, the personal parallel (design.md §3): earlier dreams sharing an image, beside the corpus.
+        found = None
+        if series:
+            # a re-analysed note is read as of its own date; --date dates a new one
+            note_date = series_date if _case_a_path(source_path) else None
+            cutoff = (note_date or (datetime.date.fromisoformat(date) if date else None)
+                      or series_date or datetime.date.today())
+            found = find_series(symbols, on_or_before=cutoff,
+                                exclude=Path(source_path).stem if source_path else None)
+            _disclose_series(found, show_sources)
+
         interpretation = synthesize_interpretation(dream_text, symbols, passages, capture=capture,
-                                                   cw_passages=cw_passages)
+                                                   cw_passages=cw_passages, series=found)
         print("synthesize: done", file=sys.stderr)
 
         path = write_note(dream_text, interpretation, symbols, source_path=source_path,
@@ -105,6 +107,20 @@ def run(dream_text, source_path=None, dry=False, show_sources=False, force=False
                   file=sys.stderr)
 
     return interpretation
+
+
+def _disclose_series(found, show_sources=False):
+    """Earlier dreams are the dreamer's private material too: say which ones go to the model."""
+    if not found:
+        print("series: no earlier dream shares these images", file=sys.stderr)
+        return
+    n = len(found)
+    print(f"series: excerpts, the readings given then and your responses from {n} earlier dream{'s' if n != 1 else ''} "
+          f"go to the model with this one ({', '.join(e.date.isoformat() for e in found)}); "
+          "--no-series leaves them and your motif vocabulary out", file=sys.stderr)
+    if show_sources:
+        for e in found:
+            print(f"series  {e.path}  [{', '.join(e.matched)}]")
 
 
 def _print_capture(capture):

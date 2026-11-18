@@ -192,7 +192,7 @@ def test_blockquoted_dreamer_text_is_not_a_placeholder():
 # --- log: answers survive failures; the note exists before the verdict ---
 
 def _stub_stages(monkeypatch, calls, synth=None):
-    monkeypatch.setattr(pipeline, "extract_symbols", lambda text: calls.append("extract") or [_sym()])
+    monkeypatch.setattr(pipeline, "extract_symbols", lambda text, **kw: calls.append("extract") or [_sym()])
     monkeypatch.setattr(pipeline, "retrieve_passages", lambda symbols: [])
     monkeypatch.setattr(pipeline, "search_cw", lambda queries: [])
     monkeypatch.setattr(pipeline, "synthesize_interpretation",
@@ -263,7 +263,7 @@ def test_log_prints_the_answers_when_a_later_stage_fails(monkeypatch, capsys):
 def test_a_note_is_read_for_its_dream_section_only(monkeypatch):
     seen = {}
     _stub_stages(monkeypatch, [])
-    monkeypatch.setattr(pipeline, "extract_symbols", lambda text: seen.setdefault("extract", text) and [_sym()])
+    monkeypatch.setattr(pipeline, "extract_symbols", lambda text, **kw: seen.setdefault("extract", text) and [_sym()])
     monkeypatch.setattr(pipeline, "search_cw", lambda queries: seen.setdefault("queries", queries) and [])
     monkeypatch.setattr(pipeline, "write_note", lambda *a, **k: None)
     with contextlib.redirect_stdout(io.StringIO()):
@@ -384,3 +384,43 @@ def test_an_image_with_no_ascii_name_never_writes_an_empty_symbol_tag(dreams):
     path = write_note("A snake.", _interp(), [Symbol("🐍", "ambiguous", 4, "snake"), _sym()], dry=False,
                       title="Snake", date="2026-11-03")
     assert frontmatter.loads(path.read_text(encoding="utf-8")).metadata["symbols"] == ["milk"]
+
+
+# --- a write that fails partway leaves the note as it was ---
+
+def _failing_replace(monkeypatch):
+    from dreamapp import writeback
+
+    def boom(src, dst):
+        raise OSError("disk full")
+    monkeypatch.setattr(writeback.os, "replace", boom)
+
+
+def test_a_failed_verdict_write_leaves_the_note_as_it_was(dreams, monkeypatch):
+    monkeypatch.setattr(shutil, "which", lambda name: None)
+    note = _note(dreams, TEMPLATE_NOTE)
+    before = note.read_text(encoding="utf-8")
+    _failing_replace(monkeypatch)
+    with pytest.raises(OSError):
+        record_response(note, "clicks", "yes")
+    assert note.read_text(encoding="utf-8") == before
+    assert list(dreams.glob(".*.tmp")) == []
+
+
+def test_a_failed_reanalysis_write_leaves_the_note_as_it_was(dreams, monkeypatch):
+    monkeypatch.setattr(shutil, "which", lambda name: None)
+    note = _note(dreams, TEMPLATE_NOTE)
+    before = note.read_text(encoding="utf-8")
+    _failing_replace(monkeypatch)
+    with pytest.raises(OSError):
+        write_note("Milk everywhere.", _interp(), [_sym()], source_path=str(note))
+    assert note.read_text(encoding="utf-8") == before
+    assert list(dreams.glob(".*.tmp")) == []
+
+
+def test_a_failed_new_note_write_leaves_nothing_behind(dreams, monkeypatch):
+    monkeypatch.setattr(shutil, "which", lambda name: None)
+    _failing_replace(monkeypatch)
+    with pytest.raises(OSError):
+        write_note("Milk everywhere.", _interp(), [_sym()], date="2026-11-02", title="Milk")
+    assert not (dreams / "2026-11-02-milk.md").exists() and list(dreams.glob(".*.tmp")) == []

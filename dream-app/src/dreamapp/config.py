@@ -40,6 +40,13 @@ MAX_CHARS_PER_CW_CHUNK = 6000
 METHOD_CANON = (("CW 8", 509), ("CW 8", 515), ("CW 8", 545), ("CW 8", 550), ("CW 16", 316), ("CW 16", 322))
 MAX_CHARS_PER_PAGE = 6000
 MAX_DREAM_CHARS = 8000
+# Series memory (series.py): earlier dreams sharing an image, sent with this one.
+MAX_SERIES_PER_IMAGE = 3
+# scripts/bench_series.py: with extraction's motifs, 8 found 47% of the earlier dreams the analyses named and
+# 12 found 59%; the 12 most recent dreams found 34%
+MAX_SERIES_DREAMS = 12
+MAX_CHARS_SERIES_EXCERPT = 500
+MAX_CHARS_SERIES_READING = 400  # the earlier compensation, and the dreamer's response to it
 
 
 def get_api_key() -> str:

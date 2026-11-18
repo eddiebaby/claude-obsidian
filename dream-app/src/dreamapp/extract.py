@@ -6,6 +6,7 @@ import anthropic
 
 from . import config
 from .models import Symbol, parse_model_json
+from .series import motif_vocabulary
 
 PROMPT_PATH = Path(__file__).parent / "prompts" / "extract.md"
 
@@ -19,8 +20,18 @@ def _is_retryable(e: Exception) -> bool:
     return status == 429 or (isinstance(status, int) and status >= 500)
 
 
-def _call(client, dream_text: str, extra_instruction: str = None) -> str:
+def _motif_instruction(vocabulary) -> str:
+    """The dreamer's motif vocabulary, so the series can find earlier dreams no image word reaches."""
+    lines = "\n".join(f"- {tag}: {covers}" for tag, covers in vocabulary)
+    return ('Add to each element "motifs": the tags from this controlled vocabulary the image belongs to, '
+            "spelled exactly as listed; [] when none fits. Tag what the image is, not what it might mean.\n"
+            + lines)
+
+
+def _call(client, dream_text: str, extra_instruction: str = None, vocabulary=()) -> str:
     system = PROMPT_PATH.read_text(encoding="utf-8")
+    if vocabulary:
+        system = system + "\n\n" + _motif_instruction(vocabulary)
     if extra_instruction:
         system = system + "\n\n" + extra_instruction
 
@@ -51,14 +62,20 @@ def _call(client, dream_text: str, extra_instruction: str = None) -> str:
     raise ExtractError(f"extract: model API call failed after retries: {last_err}")
 
 
-def extract_symbols(dream_text: str) -> list:
+def extract_symbols(dream_text: str, motifs: bool = True) -> list:
+    """motifs=False (--no-series) keeps the dreamer's motif vocabulary out of the call: it names real places."""
     client = anthropic.Anthropic(api_key=config.get_api_key())
-    text = _call(client, dream_text)
+    vocabulary = motif_vocabulary() if motifs else []
+    if vocabulary:
+        print(f"extract: your motif vocabulary ({len(vocabulary)} tags from wiki/dreams/motifs.md) goes with the "
+              "dream; --no-series leaves it out", file=sys.stderr)
+    tags = {tag for tag, _ in vocabulary}
+    text = _call(client, dream_text, vocabulary=vocabulary)
     try:
         data = parse_model_json(text)
     except ValueError:
         print("extract: JSON parse failed, reprompting once", file=sys.stderr)
-        text = _call(client, dream_text, "Return ONLY the JSON array, no prose.")
+        text = _call(client, dream_text, "Return ONLY the JSON array, no prose.", vocabulary=vocabulary)
         try:
             data = parse_model_json(text)
         except ValueError as e:
@@ -81,7 +98,9 @@ def extract_symbols(dream_text: str) -> list:
         if kind not in ("personal", "archetypal", "ambiguous"):
             kind = "ambiguous"
         query = str(item.get("query", image)).strip()
-        symbols.append(Symbol(image=image, kind=kind, salience=salience, query=query))
+        raw = item.get("motifs")
+        tags_found = list(dict.fromkeys(str(m) for m in raw if str(m) in tags)) if isinstance(raw, list) else []
+        symbols.append(Symbol(image=image, kind=kind, salience=salience, query=query, motifs=tags_found))
 
     symbols.sort(key=lambda s: s.salience, reverse=True)
     return symbols[: config.MAX_SYMBOLS]

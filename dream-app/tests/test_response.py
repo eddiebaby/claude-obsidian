@@ -93,7 +93,7 @@ def test_case_b_note_without_response_stays_analyzed_with_empty_section(tmp_path
 
 
 def test_interactive_run_shows_compensation_and_competing_reading_before_the_verdict(monkeypatch, tmp_path):
-    monkeypatch.setattr(pipeline, "extract_symbols", lambda text: [_sym()])
+    monkeypatch.setattr(pipeline, "extract_symbols", lambda text, **kw: [_sym()])
     monkeypatch.setattr(pipeline, "retrieve_passages", lambda symbols: [])
     monkeypatch.setattr(pipeline, "synthesize_interpretation", lambda *a, **kw: _interp())
     monkeypatch.setattr(pipeline, "write_note", lambda *a, **k: tmp_path / "n.md")

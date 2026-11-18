@@ -74,11 +74,17 @@ def main() -> int:
         p.add_argument("--force", action="store_true")
         p.add_argument("--title")
         p.add_argument("--date")
+        p.add_argument("--no-series", action="store_false", dest="series",
+                       help="don't send earlier dreams that share an image with this one, or the motif vocabulary")
 
     respond = sub.add_parser("respond", help="record your verdict on an analyzed note")
     respond.add_argument("note", help="path to the dream note")
     respond.add_argument("--verdict", required=True, help="clicks | partial | miss (or yes | partly | no)")
     respond.add_argument("--note", default="", dest="line", help="one line: what hit, or what's off")
+
+    series = sub.add_parser("series", help="every dream in the series holding an image, oldest first")
+    series.add_argument("image", help="an image, figure or motif word: 'silver chain', niky, water")
+    series.add_argument("--dreams-dir", help="defaults to the vault's wiki/dreams")
 
     review = sub.add_parser("review", help="counted half of a periodic dream review")
     which = review.add_mutually_exclusive_group(required=True)
@@ -98,6 +104,15 @@ def main() -> int:
         return _review(args)
     if args.command == "respond":
         return _respond(args)
+    if args.command == "series":
+        from . import config
+        from .series import render_timeline
+        dreams_dir = Path(args.dreams_dir) if args.dreams_dir else config.DREAMS_DIR
+        if not dreams_dir.is_dir():
+            print(f"error: no dreams folder at {dreams_dir}", file=sys.stderr)
+            return 2
+        print(render_timeline(args.image, dreams_dir=dreams_dir), end="")
+        return 0
 
     interactive = args.command == "log"
     try:
@@ -114,6 +129,7 @@ def main() -> int:
             title=args.title,
             date=args.date,
             interactive=interactive,
+            series=args.series,
         )
     except InputError as e:
         print(f"error: {e}", file=sys.stderr)

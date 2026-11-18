@@ -10,7 +10,7 @@ from dreamapp.review import compute, load_dreams, period_from_spec, previous, re
 
 def _write(d, day, slug, agency=None, figures=(), motifs=(), symbols=(), response="", action_done="",
            type_="dream", no_assoc=False, waking_action="Do one thing.", feeling="> [Pending]",
-           assoc="- **Niky** — home the day before."):
+           assoc="- **Niky** — home the day before.", compensation="", provenance=None):
     fm = [
         "---",
         f"name: {day}-{slug}",
@@ -24,12 +24,14 @@ def _write(d, day, slug, agency=None, figures=(), motifs=(), symbols=(), respons
         f"symbols: [{', '.join(symbols)}]",
         f"response: {response}",
         f"action_done: {action_done}",
+    ] + ([f"provenance: {provenance}"] if provenance else []) + [
         "---",
     ]
     flag = "> Analyzed without associations — lower confidence.\n" if no_assoc else ""
     assoc_section = f"## Waking Associations\n\n{assoc}\n\n" if assoc is not None else ""
     body = (f"\n# {day}\n\n## The Dream\n\nText.\n\n{assoc_section}## Feeling-Tone\n\n{feeling}\n\n---\n\n"
             f"## Jungian Analysis\n\n{flag}"
+            f"\n### Compensation / What the Unconscious Is Saying\n\n{compensation}\n"
             f"\n### Agency\n\n**{agency}**\n\n---\n\n## Waking Action\n\n{waking_action}\n\n---\n\n## Dreamer Response\n\n")
     (d / f"{day}-{slug}.md").write_text("\n".join(fm) + body, encoding="utf-8")
 
@@ -214,3 +216,79 @@ def test_cli_review_writes_json(tmp_path, monkeypatch, capsys):
     assert cli.main() == 0
     assert json.loads(out.read_text(encoding="utf-8"))["numbers"]["dreams"] == 1
     assert "## By the numbers" in capsys.readouterr().out
+
+
+# --- provenance (design.md §2 Stage 0): test and imagination entries never enter a count ---
+
+def test_test_and_imagination_entries_stay_out_of_every_count(tmp_path):
+    _write(tmp_path, "2026-10-01", "real", agency=3)
+    _write(tmp_path, "2026-10-02", "pipeline-test", agency=1, provenance="test")
+    _write(tmp_path, "2026-10-03", "imagined", agency=1, provenance="imagination")
+    _write(tmp_path, "2026-10-04", "imported", agency=5, provenance="imported")
+    n = compute(load_dreams(tmp_path), period_from_spec("month", "2026-10"))["numbers"]
+    assert (n["dreams"], n["agency_mean"], n["left_out"]) == (2, 4.0, 2)
+
+
+# --- the interpreter tripwire (design.md §2 Stage 4, the review's M23) ---
+
+def _readings(d, comps, actions=None):
+    for n, comp in enumerate(comps, 1):
+        _write(d, f"2026-10-0{n}", f"d{n}", agency=3, compensation=comp,
+               waking_action=(actions[n - 1] if actions else "Do one thing."))
+
+
+def test_the_tripwire_names_a_word_in_half_the_readings_or_more(tmp_path):
+    _readings(tmp_path, ["Against the money worry, the dream shows a gift. The conscious attitude is tight.",
+                         "The money question again: a cheaper rent. The attitude is tight.",
+                         "If money is the fear, the dream gives a field. Money, money.",
+                         "The dream is about a sister, and the attitude is tight."])
+    t = compute(load_dreams(tmp_path), period_from_spec("month", "2026-10"))["tripwire"]
+    assert {"word": "money", "count": 3} in t["compensation_words"]
+    assert {"word": "tight", "count": 3} in t["compensation_words"]
+    words = [w["word"] for w in t["compensation_words"]]
+    assert "attitude" not in words and "dream" not in words and "conscious" not in words  # method, not complaint
+    assert t["readings"] == 4
+
+
+def test_the_tripwire_waits_for_three_readings(tmp_path):
+    _readings(tmp_path, ["The money worry.", "The money worry again."])
+    assert compute(load_dreams(tmp_path), period_from_spec("month", "2026-10"))["tripwire"]["compensation_words"] == []
+
+
+def test_the_tripwire_reads_the_waking_actions_too(tmp_path):
+    _readings(tmp_path, ["A.", "B.", "C.", "D."],
+              actions=["Walk into one consulting client.", "Send the consulting pitch.", "Ask the father.",
+                       "Price the consulting offer."])
+    t = compute(load_dreams(tmp_path), period_from_spec("month", "2026-10"))["tripwire"]
+    assert {"word": "consulting", "count": 3} in t["action_words"]
+
+
+def test_the_tripwire_lays_out_each_readings_opening_line(tmp_path):
+    _readings(tmp_path, ["Against the money worry, the dream gives a gift outright. More here.", "Too thin to read.",
+                         "Two-sided. The father is both judge and witness here. Then more."])
+    leads = compute(load_dreams(tmp_path), period_from_spec("month", "2026-10"))["tripwire"]["leads"]
+    assert leads == [{"dream": "2026-10-01-d1", "lead": "Against the money worry, the dream gives a gift outright."},
+                     {"dream": "2026-10-02-d2", "lead": "Too thin to read."},
+                     {"dream": "2026-10-03-d3", "lead": "Two-sided. The father is both judge and witness here."}]
+
+
+def test_the_tripwire_renders_with_its_counts(tmp_path):
+    _readings(tmp_path, ["The money worry.", "Money again.", "Money, thrice.", "A sister."])
+    md = render_markdown(compute(load_dreams(tmp_path), period_from_spec("month", "2026-10")))
+    assert "## Interpreter tripwire" in md and "money (3/4)" in md and "[[2026-10-04-d4]]: A sister." in md
+
+
+def test_a_note_that_wont_parse_is_named_in_the_counted_half(tmp_path):
+    _write(tmp_path, "2026-10-01", "real", agency=3)
+    (tmp_path / "2026-10-02-broken.md").write_text("---\ntitle: [unclosed\n---\n\nText.\n", encoding="utf-8")
+    s = compute(load_dreams(tmp_path), period_from_spec("month", "2026-10"))
+    assert s["numbers"]["skipped"] == ["2026-10-02-broken"]
+    assert "2026-10-02-broken" in render_markdown(s)
+
+
+def test_the_tripwire_shows_words_as_written(tmp_path):
+    _readings(tmp_path, ["The money worry.", "Money again.", "Money, thrice.", "A sister."])
+    t = compute(load_dreams(tmp_path), period_from_spec("month", "2026-10"))["tripwire"]
+    assert t["compensation_words"] == [{"word": "money", "count": 3}]
+    md = render_markdown(compute(load_dreams(tmp_path), period_from_spec("month", "2026-10")))
+    assert "at least half" in md and "3 at minimum" in md

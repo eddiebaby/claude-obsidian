@@ -151,7 +151,7 @@ def test_case_a_fills_empty_capture_sections(tmp_path, monkeypatch):
 
 def test_interactive_run_asks_before_extract_and_before_retrieve(monkeypatch):
     calls = []
-    monkeypatch.setattr(pipeline, "extract_symbols", lambda text: calls.append("extract") or [_sym("milk", 5)])
+    monkeypatch.setattr(pipeline, "extract_symbols", lambda text, **kw: calls.append("extract") or [_sym("milk", 5)])
 
     def retrieve(symbols):
         calls.append(("retrieve", symbols[0].query))

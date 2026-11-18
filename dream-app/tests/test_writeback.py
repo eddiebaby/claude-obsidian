@@ -89,3 +89,54 @@ def test_case_a_aborts_without_force(tmp_path, monkeypatch):
 
     with pytest.raises(WritebackError):
         write_note("", _interp(), _symbols(), source_path=str(src), dry=True, force=False)
+
+
+def test_series_context_leads_the_analysis_and_an_earlier_dream_becomes_related():
+    i = _interp(sources=["wiki/dreams/2026-10-07-chain.md"])
+    i.series_context = "Third chain dream: broken 10-07, given away tonight."
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        write_note("A chain.", i, _symbols(), dry=True, title="Chain")
+    rendered = buf.getvalue()
+    analysis = rendered[rendered.index("## Jungian Analysis"):]
+    assert analysis.index("### Series Context") < analysis.index("### Dramatic Structure")
+    assert "Third chain dream: broken 10-07, given away tonight." in analysis
+    assert "[[2026-10-07-chain]]" in frontmatter.loads(rendered).metadata["related"]
+
+
+def test_no_series_context_means_no_empty_heading():
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        write_note("Milk.", _interp(), _symbols(), dry=True, title="Milk")
+    assert "### Series Context" not in buf.getvalue()
+
+
+def test_a_new_note_records_the_motifs_extraction_found():
+    symbols = [Symbol("flood", "archetypal", 5, "flood", ["water"]), Symbol("pill", "personal", 2, "drug",
+                                                                             ["substances", "water"])]
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        write_note("A flood.", _interp(), symbols, dry=True, title="Flood")
+    assert frontmatter.loads(buf.getvalue()).metadata["motifs"] == ["water", "substances"]
+
+
+def _case_a_render(tmp_path, monkeypatch, fm_extra=""):
+    monkeypatch.setattr(config, "DREAMS_DIR", tmp_path)
+    src = tmp_path / "dream_note.md"
+    text = (FIXTURES / "dream_note.md").read_text(encoding="utf-8")
+    src.write_text(text.replace("archetypes: [", fm_extra + "archetypes: [", 1), encoding="utf-8")
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        write_note("", _interp(), [Symbol("milk", "archetypal", 5, "milk", ["food", "water"])],
+                   source_path=str(src), dry=True, force=True)
+    return frontmatter.loads(buf.getvalue()).metadata
+
+
+def test_reanalysis_fills_motifs_on_a_note_that_has_none(tmp_path, monkeypatch):
+    assert _case_a_render(tmp_path, monkeypatch)["motifs"] == ["food", "water"]
+    assert _case_a_render(tmp_path, monkeypatch, "motifs: []\n")["motifs"] == ["food", "water"]
+
+
+def test_reanalysis_never_changes_motifs_already_chosen(tmp_path, monkeypatch):
+    # the dreamer's (or the /dream skill's) tagging outranks extraction's
+    assert _case_a_render(tmp_path, monkeypatch, "motifs: [house, family]\n")["motifs"] == ["house", "family"]

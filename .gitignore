@@ -57,6 +57,8 @@ WIKI*.md
 PROMPT.md
 Welcome.md
 *.tmp.*
+# dreamapp's atomic note writes: the temp sits beside the note, and a hard kill can leave one holding a whole dream
+.*.md.tmp
 Obsidian vault*
 Untitled.canvas
 Cosmic Brain*.gif

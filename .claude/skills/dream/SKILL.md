@@ -71,7 +71,7 @@ Design: `docs/superpowers/specs/2026-11-01-dream-periodic-reviews-design.md`. Wi
    - Month: M1–M23. Quarter: the month sections across the quarter, plus Q1–Q8. Year: all of that, plus Y1–Y9.
    - **Confidence line first.** If association debt is above half the dreams, say so above the verdict. Unrated hit rate means "the analysis is grading itself."
    - **Verdict** = one sentence, then one paragraph. It names what the period was *about*, not what happened in it.
-   - **Tripwire (M23).** Read the period's Compensation sections side by side. If they keep collapsing onto one waking complaint (money, claim, focus), say "the reading may be stuck" and name the complaint.
+   - **Tripwire (M23).** Start from the script's *Interpreter tripwire* section: the words in half or more of the period's readings and waking actions, and each reading's opening line in order. Then read the Compensation sections side by side. If they keep collapsing onto one waking complaint (money, claim, focus), say "the reading may be stuck" and name the complaint. A complaint that matches Scott's stated profile (income, study drift) is the specific failure to look for: the profile is the attitude a dream compensates, never the key to it. Below the half line the counts stay quiet, so a pattern in 3–4 of 20 is yours to catch.
    - **Predictions graded (M20).** Score each item on the previous review's watch list as hit / miss / not yet, with the dream that decides it.
    - Inside the dreams only. Waking life enters only as Scott wrote it into entries.
    - Cite threads and dreams by wikilink. Amplification claims follow the Phase 2 citation rules.

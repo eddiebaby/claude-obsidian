@@ -97,3 +97,21 @@ def test_max_unique_pages_cap(tmp_path, monkeypatch):
 
     assert len(passages) == 8  # 4 symbols x TOP_K_PER_SYMBOL (3) = 12, capped at 8
     assert passages[0].score == 34.0  # highest score kept first
+
+
+def test_the_retrieval_child_talks_utf8_whatever_the_console_codepage():
+    # On Windows a pipe defaults to cp1252: the child crashed printing "→" and the parent's
+    # reader thread died decoding UTF-8, so a query's pages were silently lost.
+    from dreamapp.retrieve import _run_query
+    with patch("dreamapp.retrieve.subprocess.run",
+               return_value=_FakeResult(0, stdout='{"candidates": []}')) as mock_run:
+        _run_query("father → chain", 3)
+    kw = mock_run.call_args.kwargs
+    assert kw["encoding"] == "utf-8" and kw["env"]["PYTHONIOENCODING"] == "utf-8"
+
+
+def test_an_undecodable_child_answer_is_a_failed_query_not_a_crash(capsys):
+    from dreamapp.retrieve import _run_query
+    with patch("dreamapp.retrieve.subprocess.run", return_value=_FakeResult(0, stdout=None)):
+        assert _run_query("father", 3) == []
+    assert "could not parse" in capsys.readouterr().err

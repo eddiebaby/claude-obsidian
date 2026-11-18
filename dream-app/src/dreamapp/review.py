@@ -6,12 +6,31 @@ the /dream skill's Phase 5, which reads this output.
 """
 import calendar
 import re
+import sys
 from collections import Counter
 from dataclasses import dataclass, field
 from datetime import date, timedelta
 from pathlib import Path
 
 import yaml
+
+from .notes import dream_section, section, word_pairs, words
+
+SERIES_PROVENANCES = ("dream", "fragment", "imported")  # test and imagination entries never enter a count
+TRIPWIRE_MIN_READINGS = 3
+# Method vocabulary and filler: in every reading by construction, so never the complaint a stuck reading repeats.
+TRIPWIRE_STOP = {
+    "dream", "dreamer", "conscious", "unconscious", "attitude", "compensation", "compensate",
+    "compensating", "compensatory", "ego", "image", "figure", "reading", "scene", "level", "objective",
+    "subjective", "psyche", "waking", "show", "material", "residue", "question", "part", "real", "against",
+    "here", "there", "what", "but", "not", "no", "one", "two", "three", "first", "he", "him", "she", "they",
+    "them", "we", "you", "scott", "without", "so", "than", "then", "just", "only", "more", "most", "much", "many",
+    "when", "where", "who", "which", "how", "can", "has", "have", "had", "does", "do", "did", "being", "been",
+    "out", "up", "down", "over", "again", "still", "also", "even", "way", "thing", "something", "nothing", "own",
+    "same", "while", "toward", "through", "both", "each", "every", "too", "very", "all", "else", "if", "because",
+    "about", "before", "after", "now", "will", "would", "isn", "doesn", "don", "line", "point", "side", "case",
+    "kind", "sense", "less", "make", "made", "get", "give", "take", "say", "said", "keep",
+}
 
 GENERIC_FIGURES = {"unknown-woman", "unknown-man", "old-man", "old-woman"}
 RESPONSES = ("clicks", "partial", "miss")
@@ -43,6 +62,11 @@ class Dream:
     has_assoc: bool = True
     waking_action: str = ""
     feeling: str = ""
+    provenance: str = "dream"
+    text: str = ""
+    compensation: str = ""
+    response_note: str = ""
+    path: Path = None
 
 
 @dataclass
@@ -113,34 +137,60 @@ def _as_list(v) -> list:
     return [str(x) for x in v] if isinstance(v, list) else []
 
 
-def load_dreams(dreams_dir) -> list:
-    dreams = []
+def _load_one(path: Path):
+    parts = path.read_text(encoding="utf-8").split("---", 2)
+    if len(parts) < 3:
+        return None
+    fm = yaml.safe_load(parts[1]) or {}
+    if not isinstance(fm, dict) or fm.get("type") != "dream":
+        return None
+    body = parts[2]
+    agency = fm.get("agency")
+    return Dream(
+        name=path.stem,
+        date=_as_date(fm.get("date")),
+        title=str(fm.get("title") or path.stem),
+        agency=float(agency) if isinstance(agency, (int, float)) and not isinstance(agency, bool) else None,
+        figures=_as_list(fm.get("figures")),
+        motifs=_as_list(fm.get("motifs")),
+        symbols=_as_list(fm.get("symbols")),
+        response=_as_state(fm.get("response")),
+        action_done=_as_state(fm.get("action_done")),
+        no_assoc=NO_ASSOC_FLAG in body,
+        has_assoc=_has_associations(body),
+        waking_action=_section(body, "Waking Action"),
+        feeling=_section(body, "Feeling-Tone"),
+        provenance=str(fm.get("provenance") or "dream").strip().lower(),
+        text=dream_section(body),
+        compensation=section(body, "Compensation", level=3),
+        response_note=section(body, "Dreamer Response"),
+        path=path,
+    )
+
+
+class Dreams(list):
+    """The dream notes, oldest first, plus the names of notes that wouldn't parse."""
+
+    def __init__(self, dreams=(), skipped=()):
+        super().__init__(dreams)
+        self.skipped = list(skipped)
+
+
+def load_dreams(dreams_dir) -> Dreams:
+    """Every dream note in the folder. A note that won't parse is reported and skipped: one bad file must
+    not take down a review or a run, and the review names it so a count can't be quietly short."""
+    dreams, skipped = [], []
     for path in sorted(Path(dreams_dir).glob("[0-9][0-9][0-9][0-9]-*.md")):
-        text = path.read_text(encoding="utf-8")
-        parts = text.split("---", 2)
-        if len(parts) < 3:
+        try:
+            d = _load_one(path)
+        except (yaml.YAMLError, ValueError, TypeError, UnicodeDecodeError) as e:
+            print(f"dreams: skipped {path.name}: {type(e).__name__}: {str(e).splitlines()[0] if str(e) else ''}",
+                  file=sys.stderr)
+            skipped.append(path.stem)
             continue
-        fm = yaml.safe_load(parts[1]) or {}
-        if fm.get("type") != "dream":
-            continue
-        body = parts[2]
-        agency = fm.get("agency")
-        dreams.append(Dream(
-            name=path.stem,
-            date=_as_date(fm.get("date")),
-            title=str(fm.get("title") or path.stem),
-            agency=float(agency) if isinstance(agency, (int, float)) and not isinstance(agency, bool) else None,
-            figures=_as_list(fm.get("figures")),
-            motifs=_as_list(fm.get("motifs")),
-            symbols=_as_list(fm.get("symbols")),
-            response=_as_state(fm.get("response")),
-            action_done=_as_state(fm.get("action_done")),
-            no_assoc=NO_ASSOC_FLAG in body,
-            has_assoc=_has_associations(body),
-            waking_action=_section(body, "Waking Action"),
-            feeling=_section(body, "Feeling-Tone"),
-        ))
-    return sorted(dreams, key=lambda d: (d.date, d.name))
+        if d is not None:
+            dreams.append(d)
+    return Dreams(sorted(dreams, key=lambda d: (d.date, d.name)), skipped)
 
 
 def _mean(values):
@@ -187,8 +237,51 @@ def _previous_watch(reviews_dir, prev):
     return {"path": str(path), "watch": m.group(1).strip() if m else ""}
 
 
+_TRIPWIRE_STOP_FORMS = {n for w in TRIPWIRE_STOP for n in words(w)}
+
+
+def _recurring(texts: list) -> list:
+    """Content words in at least half the texts, and in TRIPWIRE_MIN_READINGS at minimum, each text counted once.
+    Matched in normalised form ("monei"), shown as most often written ("money")."""
+    if len(texts) < TRIPWIRE_MIN_READINGS:
+        return []
+    counts, written = Counter(), {}
+    for t in texts:
+        pairs = [(w, n) for w, n in word_pairs(t) if len(n) > 2 and not n.isdigit() and n not in _TRIPWIRE_STOP_FORMS]
+        counts.update({n for _, n in pairs})
+        for w, n in pairs:
+            written.setdefault(n, Counter())[w] += 1
+    floor = max(TRIPWIRE_MIN_READINGS, -(-len(texts) // 2))
+    return [{"word": written[n].most_common(1)[0][0], "count": k}
+            for n, k in sorted(counts.items(), key=lambda x: (-x[1], x[0])) if k >= floor]
+
+
+def _lead(text: str) -> str:
+    """The reading's opening, run on past a sentence too short to judge ("Two-sided.")."""
+    sentences = re.split(r"(?<=[.!?])\s+", re.sub(r"\s+", " ", text).strip())
+    lead = sentences[0]
+    for s in sentences[1:]:
+        if len(lead) >= 40:
+            break
+        lead += " " + s
+    return lead if len(lead) <= 200 else lead[:200].rstrip() + "…"
+
+
+def _tripwire(inp) -> dict:
+    """The counted half of the review's M23: what keeps coming back across a period's readings and waking actions.
+    A complaint every reading lands on may be the interpreter's, not the dream's (design.md §2, Stage 4)."""
+    readings = [d for d in inp if d.compensation]
+    actions = [d.waking_action for d in inp if d.waking_action]
+    return {"readings": len(readings), "compensation_words": _recurring([d.compensation for d in readings]),
+            "actions": len(actions), "action_words": _recurring(actions),
+            "leads": [{"dream": d.name, "lead": _lead(d.compensation)} for d in readings]}
+
+
 def compute(dreams, period: Period, today: date = None, reviews_dir=None) -> dict:
     today = today or date.today()
+    skipped = list(getattr(dreams, "skipped", []))
+    left_out = sum(1 for d in _within(dreams, period) if d.provenance not in SERIES_PROVENANCES)
+    dreams = [d for d in dreams if d.provenance in SERIES_PROVENANCES]
     prev = previous(period)
     inp = _within(dreams, period)
     before = [d for d in dreams if d.date < period.start]
@@ -276,7 +369,10 @@ def compute(dreams, period: Period, today: date = None, reviews_dir=None) -> dic
         "association_debt": {"without_associations": sum(1 for d in inp if d.no_assoc or not d.has_assoc),
                              "dreams": len(inp)},
         "previous_review": _previous_watch(reviews_dir, prev),
+        "tripwire": _tripwire(inp),
     }
+    stats["numbers"]["left_out"] = left_out
+    stats["numbers"]["skipped"] = skipped
     return stats
 
 
@@ -292,7 +388,13 @@ def render_markdown(s: dict) -> str:
            f"- Dreams: **{n['dreams']}** over {n['days']} days, {n['cadence']}/night"
            f" ({n['series_dreams_to_date']} in the series to date)",
            f"- Agency mean: **{n['agency_mean']}** across {n['scored']} scored ({n['fragments']} unscored)"
-           f" · previous period ({s['previous_label']}): {prev_mean}", ""]
+           f" · previous period ({s['previous_label']}): {prev_mean}"]
+    if n.get("left_out"):
+        out.append(f"- Left out of every count: {n['left_out']} entr{'y' if n['left_out'] == 1 else 'ies'} whose "
+                   "provenance isn't dream, fragment or imported (test, imagination)")
+    if n.get("skipped"):
+        out.append(f"- Not counted, frontmatter won't parse: {', '.join(n['skipped'])}")
+    out.append("")
 
     out += ["## Agency across the period", "", "| Date | Dream | Agency | |", "|---|---|---|---|"]
     for r in s["agency_series"]:
@@ -365,6 +467,20 @@ def render_markdown(s: dict) -> str:
 
     d = s["association_debt"]
     out += ["## Association debt", "", f"- {d['without_associations']} of {d['dreams']} analyzed without associations", ""]
+
+    t = s["tripwire"]
+
+    def _listed(found, total):
+        return ", ".join(f"{w['word']} ({w['count']}/{total})" for w in found) or "none"
+    out += ["## Interpreter tripwire (counted half of M23)", "",
+            f"- Words in at least half of the {t['readings']} readings (Compensation), {TRIPWIRE_MIN_READINGS} at minimum: "
+            f"{_listed(t['compensation_words'], t['readings'])}",
+            f"- Words in at least half of the {t['actions']} waking actions, {TRIPWIRE_MIN_READINGS} at minimum: "
+            f"{_listed(t['action_words'], t['actions'])}",
+            "- A word most readings land on may be the interpreter's complaint, not the dream's.", "",
+            "Each reading's opening line, in order:", ""]
+    out += [f"- [[{x['dream']}]]: {x['lead']}" for x in t["leads"]] or ["- none"]
+    out.append("")
 
     pr = s["previous_review"]
     out += ["## Previous review's watch list", ""]

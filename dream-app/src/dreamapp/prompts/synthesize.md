@@ -5,14 +5,16 @@ Ground rules:
 2. Method order: dramatic structure first (exposition, development, culmination, lysis), then the compensatory function (what conscious attitude is this dream balancing or correcting), then amplification per symbol, personal associations BEFORE archetypal parallels, then the two levels (objective: figures as the real people/things; subjective: every figure as a part of the dreamer), then movement toward individuation.
 3. A QUESTION, NOT A VERDICT. The interpretation ends with the single question the dream is asking the dreamer to sit with. No predictions, no instructions, no diagnosis.
 4. Non-obvious or nothing. If a point is something a careful reader would get from rereading the dream, cut it.
-5. Cite: every claim that leans on the corpus names where it came from, as "CW 8 ¶560" in the text for a Collected Works passage (the paragraph numbers are the [N] markers in its text) and as "Dream Analysis p. 17" or "von Franz, Dreams p. 37" for a page-anchored passage (the [p. N] markers). List everything cited in "sources": a <cw> passage by its header exactly as given, a <page> by its path exactly as given. Prefer <cw> evidence over <page> notes. Quote at most one short line of Jung.
+5. Cite: every claim that leans on the corpus names where it came from, as "CW 8 ¶560" in the text for a Collected Works passage (the paragraph numbers are the [N] markers in its text) and as "Dream Analysis p. 17" or "von Franz, Dreams p. 37" for a page-anchored passage (the [p. N] markers). List everything cited in "sources": a <cw> passage by its header exactly as given, a <page> by its path exactly as given, an earlier dream by its <prior> path exactly as given. Prefer <cw> evidence over <page> notes. Quote at most one short line of Jung.
 6. THE DREAMER'S WORDS FIRST. <associations> holds what each image means to the dreamer. A symbol's "personal_reading" is built from its association. When it says "(no association given)", write "No association given." and do not invent a personal reading.
 7. COMPENSATE AGAINST, NOT FROM. <conscious_situation> is the attitude the dream compensates. Read the compensation against it; never use it as a key that decodes the dream, and do not land the dreamer back on the story they already tell about themselves. If it is "(not collected)" or "(not given)", say in "compensation" that the reading is provisional because the conscious situation is unknown. <affect> is the waking feeling; use it to weigh where the dream's charge sits.
 8. ALWAYS A COUNTER-READING. "counter_reading" is the strongest alternative to your compensation hypothesis, in 2–4 sentences. When the compensation lands the dreamer on the story they already tell about themselves (their goals, their stated weaknesses), the counter-reading must contradict it or read off that axis entirely. Say which of the two the dream's own details favor and why. The dreamer's verdict decides between them, not your confidence.
+9. READ IT IN THE SERIES. <series> holds the dreamer's earlier dreams that share this dream's images; each <prior> gives that dream's own words, the reading it got then, and the dreamer's verdict on that reading. "series_context", in 2–5 sentences, says which earlier dreams this one continues and what changed: the image's role, the dream-ego's stance, how it ends. Later dreams correct the readings of earlier ones (CW 16 ¶322, in the method canon when supplied): where this dream bears on an earlier reading, say whether it supports or corrects it. An earlier reading is a hypothesis, never evidence; one the dreamer marked "miss" is not repeated as if it held. A reading of this dream that goes against the series needs a stated reason. The series is the dreamer's own material: use it in "series_context" and the personal readings, never in "corpus_says" and never as what Jung says. If <series> says no earlier dream shares these images, say so in one sentence; if it says "(not consulted)", "series_context" is "".
 
 Return ONLY a JSON object:
 {
   "dramatic_structure": "...",
+  "series_context": "...",
   "compensation": "...",
   "amplifications": [
     {"symbol": "...", "corpus_says": "...", "personal_reading": "...", "archetypal_reading": "...", "thin_coverage": false}
@@ -22,7 +24,7 @@ Return ONLY a JSON object:
   "subjective_level": "...",
   "movement": "...",
   "question": "...",
-  "sources": ["CW 8 — On the Nature of Dreams — paras. 560-564", "wiki/concepts/Foo.md"]
+  "sources": ["CW 8 — On the Nature of Dreams — paras. 560-564", "wiki/concepts/Foo.md", "wiki/dreams/2026-10-07-example.md"]
 }
 
 No markdown fences, no prose outside the JSON.

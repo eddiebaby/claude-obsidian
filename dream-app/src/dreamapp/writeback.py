@@ -1,4 +1,5 @@
 import datetime
+import os
 import re
 import shutil
 import subprocess
@@ -46,6 +47,11 @@ def _symbol_tags(existing, symbols) -> list:
     return _dedupe_preserve([t for t in list(existing) + [_kebab(s.image) for s in symbols] if t])
 
 
+def _note_motifs(symbols) -> list:
+    """The motif tags extraction found, from the dreamer's controlled vocabulary (wiki/dreams/motifs.md)."""
+    return _dedupe_preserve([m for s in symbols for m in getattr(s, "motifs", [])])
+
+
 def _slug(title, dream_text) -> str:
     source = title if title else dream_text
     words = re.findall(r"[A-Za-z0-9']+", source.lower())
@@ -81,7 +87,10 @@ def _derive_archetypes(interpretation) -> list:
 
 
 def _render_analysis_section(interpretation) -> str:
-    lines = ["## Jungian Analysis", "", "### Dramatic Structure", interpretation.dramatic_structure, ""]
+    lines = ["## Jungian Analysis", ""]
+    if interpretation.series_context.strip():
+        lines += ["### Series Context", interpretation.series_context, ""]
+    lines += ["### Dramatic Structure", interpretation.dramatic_structure, ""]
     lines += ["### Symbols & Amplification", ""]
     for a in interpretation.amplifications:
         entry = f"**{a.symbol}** — {a.corpus_says} / {a.personal_reading} / {a.archetypal_reading}"
@@ -140,6 +149,17 @@ def _patch_or_append(fm_text: str, patches: dict) -> str:
     return out if not missing else out.rstrip("\n") + "\n" + missing
 
 
+def _atomic_write(path: Path, text: str):
+    """Write beside the note, then swap it in: a crash or a full disk mid-write never leaves half a note."""
+    tmp = path.with_name(f".{path.name}.tmp")
+    try:
+        tmp.write_text(text, encoding="utf-8")
+        os.replace(tmp, path)
+    except BaseException:
+        tmp.unlink(missing_ok=True)
+        raise
+
+
 def _lock_path(path: Path):
     """Vault-relative path for wiki-lock, or None for a file outside the vault."""
     try:
@@ -159,7 +179,7 @@ def record_response(path, verdict: str, note: str = "") -> Path:
         if not re.search(r"^type:\s*dream\s*$", fm_text, re.M):
             raise WritebackError(f"{path} is not a dream note (no 'type: dream')")
         new_fm = _patch_or_append(fm_text, _response_patches(verdict))
-        path.write_text("---\n" + new_fm + "---\n" + _with_response_note(body, note), encoding="utf-8")
+        _atomic_write(path, "---\n" + new_fm + "---\n" + _with_response_note(body, note))
     finally:
         if vault_rel:
             _release_lock(vault_rel)
@@ -228,14 +248,15 @@ def _render_new_note_body(dream_text, analysis, date_str, dayname, capture=None)
     return "\n".join(parts)
 
 
-def _render_frontmatter(name, title, date_str, symbols, archetypes, related, provenance=None) -> str:
+def _render_frontmatter(name, title, date_str, symbols, archetypes, related, provenance=None, motifs=()) -> str:
     lines = ["---", f"name: {name}", "type: dream", f'title: "{title}"',
               f"date: {date_str}", f"created: {date_str}", f"updated: {date_str}",
               "tags:", "  - dream", "status: analyzed", "mood:", "sleep:",
               "recurring: false", "lucid: false"]
     if provenance:
         lines.append(f"provenance: {provenance}")
-    lines += [f"archetypes: [{', '.join(archetypes)}]", f"symbols: [{', '.join(symbols)}]"]
+    lines += [f"motifs: [{', '.join(motifs)}]", f"archetypes: [{', '.join(archetypes)}]",
+              f"symbols: [{', '.join(symbols)}]"]
     lines.append("related:" if related else "related: []")
     for r in related:
         lines.append(f'  - "{r}"')
@@ -370,7 +391,8 @@ def _write_case_b(dream_text, interpretation, symbols, *, dry, title, date, capt
     display_title = title or " ".join(w.capitalize() for w in slug.split("-"))
     fm = _render_frontmatter(path.stem, f"{date_str} — {display_title}", date_str,
                               symbol_tags, archetypes, related,
-                              provenance=capture.provenance if capture else None)
+                              provenance=capture.provenance if capture else None,
+                              motifs=_note_motifs(symbols))
     analysis = _render_analysis_section(interpretation) + _render_response_section()
     note = fm + "\n" + _render_new_note_body(dream_text, analysis, date_str, d.strftime("%A"), capture)
 
@@ -382,7 +404,7 @@ def _write_case_b(dream_text, interpretation, symbols, *, dry, title, date, capt
     _acquire_lock(vault_rel)
     try:
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(note, encoding="utf-8")
+        _atomic_write(path, note)
     finally:
         _release_lock(vault_rel)
     return path
@@ -409,6 +431,9 @@ def _write_case_a(path: Path, interpretation, symbols, *, dry, force, capture=No
         "archetypes": f"archetypes: [{', '.join(archetypes)}]\n",
         "related": _render_related_block(related),
     }
+    if not existing.get("motifs") and _note_motifs(symbols):
+        # Fill an untagged note only: motifs already chosen are the dreamer's (or the /dream skill's).
+        patches["motifs"] = f"motifs: [{', '.join(_note_motifs(symbols))}]\n"
     if not existing.get("response"):
         # A recorded verdict stays recorded through a --force re-analysis.
         patches["status"] = "status: analyzed\n"
@@ -429,7 +454,7 @@ def _write_case_a(path: Path, interpretation, symbols, *, dry, force, capture=No
     vault_rel = str(path.relative_to(config.VAULT_ROOT)).replace("\\", "/")
     _acquire_lock(vault_rel)
     try:
-        path.write_text(note, encoding="utf-8")
+        _atomic_write(path, note)
     finally:
         _release_lock(vault_rel)
     return path

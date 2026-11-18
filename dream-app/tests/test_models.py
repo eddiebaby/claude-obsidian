@@ -41,3 +41,15 @@ def test_parse_model_json_prefixed_prose():
 
 def test_parse_model_json_array():
     assert parse_model_json('[{"a": 1}, {"b": 2}]') == [{"a": 1}, {"b": 2}]
+
+
+def test_series_context_is_read_and_optional():
+    d = {"dramatic_structure": "a", "compensation": "b", "amplifications": []}
+    assert Interpretation.from_dict(dict(d, series_context="Fourth water dream.")).series_context == "Fourth water dream."
+    assert Interpretation.from_dict(d).series_context == ""
+
+
+def test_a_symbol_without_motifs_reads_as_none():
+    s = Symbol.from_dict({"image": "milk", "kind": "archetypal", "salience": 5, "query": "milk"})
+    assert s.motifs == []
+    assert Symbol.from_dict(Symbol("flood", "archetypal", 5, "flood", ["water"]).to_dict()).motifs == ["water"]

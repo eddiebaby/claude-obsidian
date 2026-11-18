@@ -180,7 +180,7 @@ def test_run_supplies_the_method_canon_alongside_retrieved_passages(monkeypatch)
     seen = {}
     canon = [CWPassage(header="CW 16 — P — para. 316", volume="CW 16", text="[316] t", score=0.0,
                        para_start=316, para_end=316, role="method")]
-    monkeypatch.setattr(pipeline, "extract_symbols", lambda t: [_sym("bus")])
+    monkeypatch.setattr(pipeline, "extract_symbols", lambda t, **kw: [_sym("bus")])
     monkeypatch.setattr(pipeline, "retrieve_passages", lambda s: [])
     monkeypatch.setattr(pipeline, "search_cw", lambda queries: [])
     monkeypatch.setattr(pipeline, "method_canon", lambda: canon)
@@ -235,11 +235,11 @@ def test_seminar_citations_stay_out_of_related(tmp_path, monkeypatch):
 
 def test_run_searches_cw_with_association_queries_and_the_dream(monkeypatch):
     seen = {}
-    monkeypatch.setattr(pipeline, "extract_symbols", lambda t: [_sym("stepmom"), _sym("mall", salience=1)])
+    monkeypatch.setattr(pipeline, "extract_symbols", lambda t, **kw: [_sym("stepmom"), _sym("mall", salience=1)])
     monkeypatch.setattr(pipeline, "retrieve_passages", lambda s: [])
     monkeypatch.setattr(pipeline, "search_cw", lambda queries: seen.setdefault("queries", queries) and [])
 
-    def synth(text, symbols, passages, capture=None, cw_passages=()):
+    def synth(text, symbols, passages, capture=None, cw_passages=(), **kw):
         seen["cw"] = cw_passages
         return Interpretation(dramatic_structure="a", compensation="b",
                               amplifications=[Amplification("stepmom", "c", "p", "a", False)])
